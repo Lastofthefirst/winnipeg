@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@import './base.css';
+@import './typography.css' layer(components);
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 2.5rem;
+  --text-5xl--line-height: 3rem;
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 3.5rem;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 4.5rem;
+
+  --radius-4xl: 2.5rem;
+
+  --font-sans:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display:
+    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-display--font-variation-settings: 'wdth' 125;
+
+  --font-display-length: 2;
+
+  /* Bahá'í Community of Winnipeg — Gold palette */
+  --color-gold-50: #FAF6EF;
+  --color-gold-100: #F2EADB;
+  --color-gold-200: #E6D5B7;
+  --color-gold-300: #D9BF93;
+  --color-gold-400: #C6A26D;
+  --color-gold-500: #B08A50;
+  --color-gold-600: #947040;
+  --color-gold-700: #745834;
+  --color-gold-800: #5A442A;
+  --color-gold-900: #3E2F1E;
+
+  /* Bahá'í Community of Winnipeg — Teal palette */
+  --color-teal-50: #EFFAF6;
+  --color-teal-100: #D1F0E6;
+  --color-teal-200: #A3E0CC;
+  --color-teal-300: #6CC9AD;
+  --color-teal-400: #3AAF8E;
+  --color-teal-500: #268B6F;
+  --color-teal-600: #1B5E4B;
+  --color-teal-700: #164D3E;
+  --color-teal-800: #113B30;
+  --color-teal-900: #0C2922;
+
+  /* Warm neutrals */
+  --color-warm-white: #F8F7F4;
+  --color-warm-black: #262322;
+
+  /* Option D — "Lotus & Stone" — Deep burgundy + ivory serif palette */
+  --color-burgundy-50: #FDF5F6;
+  --color-burgundy-100: #F5E0E3;
+  --color-burgundy-200: #E8BFC5;
+  --color-burgundy-300: #D4919C;
+  --color-burgundy-400: #B8606E;
+  --color-burgundy-500: #9A3F50;
+  --color-burgundy-600: #7A2D3E;
+  --color-burgundy-700: #5E2030;
+  --color-burgundy-800: #451825;
+  --color-burgundy-900: #2E0F19;
+  --color-ivory: #FFFCF5;
+  --color-parchment: #F5EFE3;
+
+  /* Option E — "Northern Light" — Deep indigo + lavender + ice */
+  --color-indigo-50: #EEF0FF;
+  --color-indigo-100: #D9DDFF;
+  --color-indigo-200: #B3BAFF;
+  --color-indigo-300: #8B93FF;
+  --color-indigo-400: #6366F1;
+  --color-indigo-500: #4F46E5;
+  --color-indigo-600: #4338CA;
+  --color-indigo-700: #3730A3;
+  --color-indigo-800: #2E2980;
+  --color-indigo-900: #1E1B4B;
+  --color-ice: #F5F7FF;
+  --color-lavender: #E8E0F0;
+
+  /* Option F — "Heartland" — Terracotta + sage + warm beige */
+  --color-terra-50: #FEF6F2;
+  --color-terra-100: #FBE8DF;
+  --color-terra-200: #F5CCBB;
+  --color-terra-300: #EDAB92;
+  --color-terra-400: #E08B6B;
+  --color-terra-500: #C4704B;
+  --color-terra-600: #A45837;
+  --color-terra-700: #7F4329;
+  --color-terra-800: #5D311E;
+  --color-terra-900: #3B1F13;
+  --color-sage-50: #F4F7F2;
+  --color-sage-100: #E2EBD9;
+  --color-sage-200: #C8D9B8;
+  --color-sage-300: #A8C293;
+  --color-sage-400: #8AAF75;
+  --color-sage-500: #7C9070;
+  --color-sage-600: #5F7154;
+  --color-sage-700: #475540;
+  --color-sage-800: #303A2C;
+  --color-sage-900: #1B211A;
+  --color-sand: #FAF5EE;
+
+  /* Serif font stack for showcase options */
+  --font-serif:
+    Georgia, 'Times New Roman', 'Noto Serif', serif;
+}
