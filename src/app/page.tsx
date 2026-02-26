@@ -1,15 +1,23 @@
 import { type Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
-import { GridPattern } from '@/components/GridPattern'
 import { NewsFeed } from '@/components/NewsFeed'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
+
+import imageHero from '@/images/hero-prairie-sky.jpg'
+import imageDevotional from '@/images/devotional-gathering.jpg'
+import imageStudyCircle from '@/images/study-circle.jpg'
+import imageChildrens from '@/images/childrens-class.jpg'
+import imageForks from '@/images/forks-winnipeg.jpg'
+import imageCommunityGathering from '@/images/community-gathering.jpg'
+import imageBahaiCentre from '@/images/bahai-centre.jpg'
 
 function CommunityActivities() {
   const activities = [
@@ -18,18 +26,21 @@ function CommunityActivities() {
       description:
         'Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.',
       href: '/community-life',
+      image: imageDevotional,
     },
     {
       title: 'Study Circles',
       description:
         'Explore spiritual and social principles in small group settings, building capacity for service to society.',
       href: '/community-life',
+      image: imageStudyCircle,
     },
     {
       title: "Children's Classes",
       description:
         'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.',
       href: '/community-life',
+      image: imageChildrens,
     },
   ]
 
@@ -50,28 +61,116 @@ function CommunityActivities() {
         <FadeInStagger className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {activities.map((activity) => (
             <FadeIn key={activity.title} className="flex">
-              <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory p-8 transition hover:border-burgundy-400">
-                <div className="mb-4 h-px w-8 bg-gold-400" />
-                <h3>
-                  <Link href={activity.href}>
-                    <span className="absolute inset-0" />
-                    <span className="font-display text-xl font-normal text-burgundy-900">
-                      {activity.title}
-                    </span>
-                  </Link>
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-burgundy-700">
-                  {activity.description}
-                </p>
-                <p className="mt-6 text-xs uppercase tracking-[0.2em] text-gold-600">
-                  Discover &rarr;
-                </p>
+              <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+                <div className="relative h-52 overflow-hidden">
+                  <Image
+                    src={activity.image}
+                    alt=""
+                    className="h-full w-full object-cover sepia transition duration-700 group-hover:sepia-0"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-8">
+                  <div className="mb-4 h-px w-8 bg-gold-400" />
+                  <h3>
+                    <Link href={activity.href}>
+                      <span className="absolute inset-0" />
+                      <span className="font-display text-xl font-normal text-burgundy-900">
+                        {activity.title}
+                      </span>
+                    </Link>
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700">
+                    {activity.description}
+                  </p>
+                  <p className="mt-6 text-xs uppercase tracking-[0.2em] text-gold-600">
+                    Discover &rarr;
+                  </p>
+                </div>
               </article>
             </FadeIn>
           ))}
         </FadeInStagger>
       </Container>
     </>
+  )
+}
+
+function CommunitySnapshot() {
+  return (
+    <div className="mt-24 sm:mt-32 lg:mt-40">
+      <Container>
+        <FadeIn>
+          <div className="lg:flex lg:items-center lg:gap-x-16">
+            <div className="lg:w-1/2">
+              <div className="mb-4 h-px w-16 bg-burgundy-300" />
+              <p className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500">
+                Our community
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-normal text-burgundy-900 sm:text-4xl">
+                Where the rivers meet
+              </h2>
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
+                <p>
+                  Like the two rivers that converge at the Forks, our community
+                  draws together people from many backgrounds — united by a
+                  shared vision of building a more just and peaceful world.
+                </p>
+                <p>
+                  The Bahá&apos;í community in Winnipeg has been present for
+                  over a century, deeply engaged in the life of our
+                  neighbourhoods through devotional programs, study circles, and
+                  community celebrations.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/about"
+                  className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
+                >
+                  Learn our story <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            </div>
+            <div className="mt-12 lg:mt-0 lg:w-1/2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={imageForks}
+                      alt="The Forks, Winnipeg"
+                      className="aspect-4/3 w-full object-cover sepia"
+                    />
+                  </div>
+                  <div className="overflow-hidden">
+                    <Image
+                      src={imageBahaiCentre}
+                      alt="Bahá'í Centre"
+                      className="aspect-square w-full object-cover sepia"
+                    />
+                  </div>
+                </div>
+                <div className="pt-8 space-y-4">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={imageCommunityGathering}
+                      alt="Community gathering"
+                      className="aspect-square w-full object-cover sepia"
+                    />
+                  </div>
+                  <div className="overflow-hidden">
+                    <Image
+                      src={imageDevotional}
+                      alt="Devotional gathering"
+                      className="aspect-4/3 w-full object-cover sepia"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Container>
+    </div>
   )
 }
 
@@ -111,14 +210,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <RootLayout>
-      {/* Hero — Lotus & Stone style: centered, dark burgundy with grid texture */}
-      <div className="relative overflow-hidden bg-burgundy-900">
-        <div className="absolute inset-0 opacity-10">
-          <GridPattern
-            className="h-full w-full fill-burgundy-600 stroke-burgundy-700"
-            yOffset={-100}
-          />
-        </div>
+      {/* Hero — full-bleed image with burgundy overlay */}
+      <div className="relative isolate overflow-hidden">
+        <Image
+          src={imageHero}
+          alt=""
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          priority
+        />
+        <div className="absolute inset-0 -z-10 bg-burgundy-900/80" />
         <Container className="relative py-32 sm:py-40 lg:py-56">
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
@@ -142,7 +242,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/events"
-                  className="inline-flex border border-burgundy-400 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-300 transition hover:bg-burgundy-800"
+                  className="inline-flex border border-ivory/30 px-8 py-3 text-sm uppercase tracking-widest text-ivory/80 transition hover:bg-ivory/5"
                 >
                   Events
                 </Link>
@@ -154,6 +254,8 @@ export default function Home() {
       </div>
 
       <CommunityActivities />
+
+      <CommunitySnapshot />
 
       <EventsPreview />
 

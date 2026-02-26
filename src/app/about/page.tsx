@@ -1,12 +1,52 @@
 import { type Metadata } from 'next'
+import Image from 'next/image'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
+import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { RootLayout } from '@/components/RootLayout'
+
+import imageCommunityGathering from '@/images/community-gathering.jpg'
+import imageBahaiCentre from '@/images/bahai-centre.jpg'
+import imageWinter from '@/images/winter-prairie.jpg'
+import imageForks from '@/images/forks-winnipeg.jpg'
+import imageCommunityService from '@/images/community-service.jpg'
+
+function ImageStrip() {
+  return (
+    <Container className="mt-16">
+      <FadeIn>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="overflow-hidden">
+            <Image
+              src={imageCommunityGathering}
+              alt="Community gathering"
+              className="aspect-3/2 w-full object-cover sepia"
+            />
+          </div>
+          <div className="overflow-hidden">
+            <Image
+              src={imageBahaiCentre}
+              alt="Bahá'í Centre"
+              className="aspect-3/2 w-full object-cover sepia"
+            />
+          </div>
+          <div className="overflow-hidden">
+            <Image
+              src={imageCommunityService}
+              alt="Community service"
+              className="aspect-3/2 w-full object-cover sepia"
+            />
+          </div>
+        </div>
+      </FadeIn>
+    </Container>
+  )
+}
 
 function CorePrinciples() {
   return (
@@ -59,37 +99,60 @@ function CorePrinciples() {
 function LocalCommunity() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <SectionIntro
-        eyebrow="Our community"
-        title="The Bahá'ís of Winnipeg"
-      >
-        <p>
-          Like the two rivers that meet at the Forks, the Bahá&apos;í Community
-          of Winnipeg draws together people from many backgrounds, united by a
-          shared vision of building a more just and peaceful world.
-        </p>
-      </SectionIntro>
-      <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-burgundy-700">
-        <p>
-          The Bahá&apos;í community in Winnipeg has been present for over a
-          century, growing from a handful of early believers into a vibrant
-          community that reflects the city&apos;s rich multicultural heritage.
-          Today, members from dozens of cultural backgrounds come together in a
-          spirit of unity.
-        </p>
-        <p>
-          Our community centre on McMillan Avenue serves as a gathering place
-          for devotional programs, study circles, children&apos;s classes, and
-          community celebrations. We are deeply engaged in the life of our
-          neighbourhoods, working alongside others to foster community building
-          and social action.
-        </p>
-        <p>
-          Like the vast prairie sky that reminds us there is always room for
-          growth, we believe that every person has a contribution to make.
-          Whether you are exploring the Bahá&apos;í Faith for the first time or
-          looking for a welcoming community, we invite you to connect with us.
-        </p>
+      <div className="lg:flex lg:items-start lg:gap-x-16">
+        <div className="lg:w-1/2">
+          <SectionIntro
+            eyebrow="Our community"
+            title="The Bahá'ís of Winnipeg"
+            className="!px-0"
+          >
+            <p>
+              Like the two rivers that meet at the Forks, the Bahá&apos;í Community
+              of Winnipeg draws together people from many backgrounds, united by a
+              shared vision of building a more just and peaceful world.
+            </p>
+          </SectionIntro>
+          <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-burgundy-700">
+            <p>
+              The Bahá&apos;í community in Winnipeg has been present for over a
+              century, growing from a handful of early believers into a vibrant
+              community that reflects the city&apos;s rich multicultural heritage.
+              Today, members from dozens of cultural backgrounds come together in a
+              spirit of unity.
+            </p>
+            <p>
+              Our community centre on McMillan Avenue serves as a gathering place
+              for devotional programs, study circles, children&apos;s classes, and
+              community celebrations. We are deeply engaged in the life of our
+              neighbourhoods, working alongside others to foster community building
+              and social action.
+            </p>
+            <p>
+              Like the vast prairie sky that reminds us there is always room for
+              growth, we believe that every person has a contribution to make.
+              Whether you are exploring the Bahá&apos;í Faith for the first time or
+              looking for a welcoming community, we invite you to connect with us.
+            </p>
+          </div>
+        </div>
+        <FadeIn className="mt-12 lg:mt-0 lg:w-1/2">
+          <div className="space-y-4">
+            <div className="overflow-hidden">
+              <Image
+                src={imageForks}
+                alt="The Forks, Winnipeg"
+                className="aspect-4/3 w-full object-cover sepia"
+              />
+            </div>
+            <div className="overflow-hidden">
+              <Image
+                src={imageWinter}
+                alt="Winter on the prairies"
+                className="aspect-21/9 w-full object-cover sepia"
+              />
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </Container>
   )
@@ -128,6 +191,9 @@ export default function About() {
           </p>
         </div>
       </PageIntro>
+
+      <ImageStrip />
+
       <Container className="mt-16">
         <StatList>
           <StatListItem value="5M+" label="Bahá'ís worldwide" />

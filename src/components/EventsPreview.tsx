@@ -1,3 +1,4 @@
+import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -6,12 +7,17 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 
+import imageNawRuz from '@/images/naw-ruz-celebration.jpg'
+import imageRidvan from '@/images/ridvan-garden.jpg'
+import imageDevotionalCandles from '@/images/devotional-candles.jpg'
+
 export interface UpcomingEvent {
   date: string
   title: string
   location?: string
   time?: string
   description: string
+  image?: StaticImageData
 }
 
 // Upcoming events data — edit this array to add/remove events
@@ -23,6 +29,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     time: '6:00 PM',
     description:
       'Join us to celebrate the Bahá\'í New Year with prayers, music, and a shared meal. All are welcome.',
+    image: imageNawRuz,
   },
   {
     date: '2026-04-20',
@@ -31,6 +38,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     time: '7:00 PM',
     description:
       'Commemorate the most joyous Bahá\'í festival, marking the declaration of Bahá\'u\'lláh\'s mission.',
+    image: imageRidvan,
   },
   {
     date: '2026-03-07',
@@ -39,6 +47,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     time: '10:30 AM',
     description:
       'A quiet morning of prayers and readings from the sacred writings. Open to people of all backgrounds.',
+    image: imageDevotionalCandles,
   },
 ]
 
@@ -104,28 +113,39 @@ export function EventsPreview() {
           <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {upcoming.slice(0, 3).map((event) => (
               <FadeIn key={event.date + event.title} className="flex">
-                <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400 sm:p-8">
-                  <Border position="left" className="pl-4">
-                    <p className="text-sm font-semibold text-burgundy-900">
-                      {formatEventDate(event.date)}
-                    </p>
-                    {event.time && (
-                      <p className="mt-1 text-sm text-burgundy-600">
-                        {event.time}
+                <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+                  {event.image && (
+                    <div className="relative h-40 overflow-hidden">
+                      <Image
+                        src={event.image}
+                        alt=""
+                        className="h-full w-full object-cover sepia transition duration-700 group-hover:sepia-0"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <Border position="left" className="pl-4">
+                      <p className="text-sm font-semibold text-burgundy-900">
+                        {formatEventDate(event.date)}
+                      </p>
+                      {event.time && (
+                        <p className="mt-1 text-sm text-burgundy-600">
+                          {event.time}
+                        </p>
+                      )}
+                    </Border>
+                    <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
+                      {event.title}
+                    </h3>
+                    {event.location && (
+                      <p className="mt-2 text-sm text-burgundy-500">
+                        {event.location}
                       </p>
                     )}
-                  </Border>
-                  <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
-                    {event.title}
-                  </h3>
-                  {event.location && (
-                    <p className="mt-2 text-sm text-burgundy-500">
-                      {event.location}
+                    <p className="mt-4 text-base text-burgundy-700">
+                      {event.description}
                     </p>
-                  )}
-                  <p className="mt-4 text-base text-burgundy-700">
-                    {event.description}
-                  </p>
+                  </div>
                 </article>
               </FadeIn>
             ))}
