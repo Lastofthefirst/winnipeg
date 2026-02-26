@@ -24,11 +24,11 @@ function TextInput({
         id={id}
         {...props}
         placeholder=" "
-        className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+        className="peer block w-full border border-burgundy-200 bg-transparent px-6 pt-12 pb-4 text-base/6 text-burgundy-900 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-burgundy-900 focus:ring-burgundy-900/5 focus:outline-hidden"
       />
       <label
         htmlFor={id}
-        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-neutral-950 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-neutral-950"
+        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left text-base/6 text-burgundy-500 transition-all duration-200 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75 peer-not-placeholder-shown:font-semibold peer-not-placeholder-shown:text-burgundy-900 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:font-semibold peer-focus:text-burgundy-900"
       >
         {label}
       </label>
@@ -51,7 +51,7 @@ function SelectInput({
       <select
         id={id}
         {...props}
-        className="peer block w-full appearance-none border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+        className="peer block w-full appearance-none border border-burgundy-200 bg-transparent px-6 pt-12 pb-4 text-base/6 text-burgundy-900 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-burgundy-900 focus:ring-burgundy-900/5 focus:outline-hidden"
         defaultValue=""
       >
         <option value="" disabled>
@@ -65,7 +65,7 @@ function SelectInput({
       </select>
       <label
         htmlFor={id}
-        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left scale-75 -translate-y-4 text-base/6 font-semibold text-neutral-950"
+        className="pointer-events-none absolute top-1/2 left-6 -mt-3 origin-left scale-75 -translate-y-4 text-base/6 font-semibold text-burgundy-900"
       >
         {label}
       </label>
@@ -77,10 +77,10 @@ function ContactForm() {
   return (
     <FadeIn className="lg:order-last">
       <form>
-        <h2 className="font-display text-base font-semibold text-neutral-950">
+        <h2 className="font-display text-base font-semibold text-burgundy-900">
           Get in touch
         </h2>
-        <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
+        <div className="isolate mt-6 -space-y-px rounded-2xl bg-ivory/50">
           <TextInput label="Name" name="name" autoComplete="name" />
           <TextInput
             label="Email"
@@ -114,10 +114,10 @@ function ContactForm() {
 function ContactDetails() {
   return (
     <FadeIn>
-      <h2 className="font-display text-base font-semibold text-neutral-950">
+      <h2 className="font-display text-base font-semibold text-burgundy-900">
         Bahá&apos;í Centre
       </h2>
-      <p className="mt-6 text-base text-neutral-600">
+      <p className="mt-6 text-base text-burgundy-700">
         We warmly welcome visitors and those interested in learning more about
         the Bahá&apos;í Faith. Feel free to reach out or stop by.
       </p>
@@ -125,7 +125,7 @@ function ContactDetails() {
       <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
 
       <Border className="mt-16 pt-16">
-        <h2 className="font-display text-base font-semibold text-neutral-950">
+        <h2 className="font-display text-base font-semibold text-burgundy-900">
           Email us
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
@@ -134,11 +134,11 @@ function ContactDetails() {
             ['Information', 'info@winnipegbahais.org'],
           ].map(([label, email]) => (
             <div key={email}>
-              <dt className="font-semibold text-neutral-950">{label}</dt>
+              <dt className="font-semibold text-burgundy-900">{label}</dt>
               <dd>
                 <Link
                   href={`mailto:${email}`}
-                  className="text-neutral-600 hover:text-neutral-950"
+                  className="text-burgundy-600 hover:text-burgundy-900"
                 >
                   {email}
                 </Link>
@@ -149,7 +149,7 @@ function ContactDetails() {
       </Border>
 
       <Border className="mt-16 pt-16">
-        <h2 className="font-display text-base font-semibold text-neutral-950">
+        <h2 className="font-display text-base font-semibold text-burgundy-900">
           Follow us
         </h2>
         <SocialMedia className="mt-6" />

@@ -10,7 +10,7 @@ import { RootLayout } from '@/components/RootLayout'
 
 function CorePrinciples() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Core principles"
         title="The oneness of humanity is the central teaching of the Bahá'í Faith."
@@ -69,7 +69,7 @@ function LocalCommunity() {
           shared vision of building a more just and peaceful world.
         </p>
       </SectionIntro>
-      <div className="mt-10 max-w-2xl space-y-6 text-base text-neutral-600">
+      <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           The Bahá&apos;í community in Winnipeg has been present for over a
           century, growing from a handful of early believers into a vibrant

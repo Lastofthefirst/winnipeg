@@ -30,14 +30,12 @@
   --radius-4xl: 2.5rem;
 
   --font-sans:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    Georgia, 'Times New Roman', 'Noto Serif', serif;
 
   --font-display:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    Georgia, 'Times New Roman', 'Noto Serif', serif;
 
-  --font-display--font-variation-settings: 'wdth' 125;
+  --font-display--font-variation-settings: initial;
 
   --font-display-length: 2;
 

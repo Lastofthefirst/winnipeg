@@ -32,11 +32,11 @@ function getUpcomingEvents(events: UpcomingEvent[]) {
 function FallbackMessage() {
   return (
     <FadeIn>
-      <div className="rounded-3xl bg-neutral-50 p-8 text-center sm:p-12">
-        <p className="font-display text-2xl font-semibold text-neutral-950">
+      <div className="border border-burgundy-200 bg-ivory p-8 text-center sm:p-12">
+        <p className="font-display text-2xl font-normal text-burgundy-900">
           No upcoming events at this time
         </p>
-        <p className="mt-4 text-base text-neutral-600">
+        <p className="mt-4 text-base text-burgundy-600">
           We regularly host devotional gatherings, study circles, and
           community celebrations. Get in touch to learn about our next
           gathering.
@@ -79,12 +79,12 @@ export default function Events() {
                     <Border className="pt-16">
                       <div className="relative lg:-mx-4 lg:flex lg:justify-end">
                         <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
-                          <h2 className="font-display text-2xl font-semibold text-neutral-950">
+                          <h2 className="font-display text-2xl font-normal text-burgundy-900">
                             {event.title}
                           </h2>
                           <dl className="lg:absolute lg:top-0 lg:left-0 lg:w-1/3 lg:px-4">
                             <dt className="sr-only">Date</dt>
-                            <dd className="absolute top-0 left-0 text-sm text-neutral-950 lg:static">
+                            <dd className="absolute top-0 left-0 text-sm text-burgundy-900 lg:static">
                               <time dateTime={event.date}>
                                 {formatEventDate(event.date)}
                               </time>
@@ -92,7 +92,7 @@ export default function Events() {
                             {event.time && (
                               <>
                                 <dt className="sr-only">Time</dt>
-                                <dd className="mt-1 text-sm text-neutral-600">
+                                <dd className="mt-1 text-sm text-burgundy-600">
                                   {event.time}
                                 </dd>
                               </>
@@ -100,13 +100,13 @@ export default function Events() {
                             {event.location && (
                               <>
                                 <dt className="sr-only">Location</dt>
-                                <dd className="mt-1 text-sm text-neutral-600">
+                                <dd className="mt-1 text-sm text-burgundy-600">
                                   {event.location}
                                 </dd>
                               </>
                             )}
                           </dl>
-                          <p className="mt-6 max-w-2xl text-base text-neutral-600">
+                          <p className="mt-6 max-w-2xl text-base leading-relaxed text-burgundy-700">
                             {event.description}
                           </p>
                         </div>

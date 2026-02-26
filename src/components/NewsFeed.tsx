@@ -56,12 +56,12 @@ function formatDate(dateString: string) {
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse rounded-3xl bg-neutral-100 p-6 sm:p-8">
-      <div className="h-4 w-24 rounded bg-neutral-200" />
-      <div className="mt-6 h-6 w-full rounded bg-neutral-200" />
-      <div className="mt-2 h-6 w-3/4 rounded bg-neutral-200" />
-      <div className="mt-4 h-4 w-full rounded bg-neutral-200" />
-      <div className="mt-2 h-4 w-2/3 rounded bg-neutral-200" />
+    <div className="animate-pulse border border-burgundy-200 bg-ivory p-6 sm:p-8">
+      <div className="h-4 w-24 bg-burgundy-100" />
+      <div className="mt-6 h-6 w-full bg-burgundy-100" />
+      <div className="mt-2 h-6 w-3/4 bg-burgundy-100" />
+      <div className="mt-4 h-4 w-full bg-burgundy-100" />
+      <div className="mt-2 h-4 w-2/3 bg-burgundy-100" />
     </div>
   )
 }
@@ -104,14 +104,14 @@ export function NewsFeed({ limit = 6 }: { limit?: number }) {
 
   if (error || articles.length === 0) {
     return (
-      <div className="rounded-3xl bg-neutral-50 p-8 text-center sm:p-12">
-        <p className="text-base text-neutral-600">
+      <div className="border border-burgundy-200 bg-ivory p-8 text-center sm:p-12">
+        <p className="text-base text-burgundy-700">
           Visit{' '}
           <a
             href="https://news.bahai.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-neutral-950 underline transition hover:text-neutral-700"
+            className="font-semibold text-burgundy-900 underline transition hover:text-burgundy-600"
           >
             news.bahai.org
           </a>{' '}
@@ -125,23 +125,23 @@ export function NewsFeed({ limit = 6 }: { limit?: number }) {
     <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       {articles.map((article) => (
         <FadeIn key={article.link} className="flex">
-          <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-            <p className="flex gap-x-2 text-sm text-neutral-950">
+          <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400 sm:p-8">
+            <p className="flex gap-x-2 text-sm text-burgundy-900">
               <time dateTime={article.pubDate} className="font-semibold">
                 {formatDate(article.pubDate)}
               </time>
             </p>
-            <h3 className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+            <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
               <a
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="absolute inset-0 rounded-3xl" />
+                <span className="absolute inset-0" />
                 {article.title}
               </a>
             </h3>
-            <p className="mt-4 text-base text-neutral-600 line-clamp-3">
+            <p className="mt-4 text-base text-burgundy-700 line-clamp-3">
               {article.description}
             </p>
           </article>

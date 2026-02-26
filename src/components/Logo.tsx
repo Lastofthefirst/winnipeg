@@ -11,12 +11,12 @@ export function Logomark({
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
       <rect
-        rx="4"
+        rx="2"
         width="32"
         height="32"
         className={clsx(
           'transition-all duration-300',
-          invert ? 'fill-white' : 'fill-neutral-950',
+          invert ? 'fill-ivory' : 'fill-burgundy-900',
           filled ? 'opacity-10' : 'opacity-0 group-hover/logo:opacity-10',
         )}
       />
@@ -26,9 +26,9 @@ export function Logomark({
         textAnchor="middle"
         className={clsx(
           'text-[20px] font-bold',
-          invert ? 'fill-white' : 'fill-neutral-950',
+          invert ? 'fill-ivory' : 'fill-burgundy-900',
         )}
-        style={{ fontFamily: 'Mona Sans, sans-serif', fontVariationSettings: "'wdth' 125" }}
+        style={{ fontFamily: 'Georgia, "Noto Serif", serif' }}
       >
         B
       </text>
@@ -63,10 +63,10 @@ export function Logo({
         x="40"
         y="23"
         className={clsx(
-          'text-[18px] font-semibold',
-          invert ? 'fill-white' : 'fill-neutral-950',
+          'text-[18px]',
+          invert ? 'fill-ivory' : 'fill-burgundy-900',
         )}
-        style={{ fontFamily: 'Mona Sans, sans-serif', fontVariationSettings: "'wdth' 125" }}
+        style={{ fontFamily: 'Georgia, "Noto Serif", serif' }}
       >
         Bahá&apos;í Winnipeg
       </text>

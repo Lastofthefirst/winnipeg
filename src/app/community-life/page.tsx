@@ -41,10 +41,10 @@ function Section({
         <div className="mt-12 lg:mt-0 lg:w-148 lg:flex-none lg:group-even/section:order-first">
           <FadeIn>
             <div
-              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
+              className="font-display text-base font-semibold before:text-burgundy-200 before:content-['/_'] after:text-burgundy-900 after:content-[counter(section,decimal-leading-zero)]"
               aria-hidden="true"
             />
-            <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-normal tracking-tight text-burgundy-900 sm:text-4xl">
               {title}
             </h2>
             <div className="mt-6">{children}</div>
@@ -58,7 +58,7 @@ function Section({
 function DevotionalGatherings() {
   return (
     <Section title="Devotional Gatherings" image={{ src: imageDevotional }}>
-      <div className="space-y-6 text-base text-neutral-600">
+      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Devotional gatherings bring people together to pray and reflect on
           the sacred writings of the world&apos;s religions. These intimate
@@ -73,7 +73,7 @@ function DevotionalGatherings() {
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="mt-12 font-display text-base font-semibold text-burgundy-900">
         What to expect
       </h3>
       <TagList className="mt-4">
@@ -89,7 +89,7 @@ function DevotionalGatherings() {
 function StudyCircles() {
   return (
     <Section title="Study Circles" image={{ src: imageStudyCircle, shape: 1 }}>
-      <div className="space-y-6 text-base text-neutral-600">
+      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Study circles are small groups of people who come together to deepen
           their understanding of spiritual and social principles. Using the
@@ -122,7 +122,7 @@ function ChildrensClasses() {
       title="Children's Classes"
       image={{ src: imageChildrens, shape: 2 }}
     >
-      <div className="space-y-6 text-base text-neutral-600">
+      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Bahá&apos;í children&apos;s classes nurture the spiritual development
           of young hearts through stories, songs, prayers, art, and cooperative
@@ -136,7 +136,7 @@ function ChildrensClasses() {
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="mt-12 font-display text-base font-semibold text-burgundy-900">
         Program highlights
       </h3>
       <TagList className="mt-4">
@@ -156,7 +156,7 @@ function JuniorYouth() {
       title="Junior Youth Spiritual Empowerment"
       image={{ src: imageJuniorYouth }}
     >
-      <div className="space-y-6 text-base text-neutral-600">
+      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           The junior youth spiritual empowerment program helps young people
           between 12 and 15 develop the intellectual and spiritual capacities
@@ -180,7 +180,7 @@ function CommunityService() {
       title="Community Service"
       image={{ src: imageCommunityService, shape: 1 }}
     >
-      <div className="space-y-6 text-base text-neutral-600">
+      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Service to others is a core element of Bahá&apos;í community life.
           From neighbourhood beautification projects to outreach programs,
@@ -202,9 +202,9 @@ function CommunityService() {
 function Values() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden bg-linear-to-b from-parchment">
         <GridPattern
-          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
+          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-burgundy-50 stroke-burgundy-200/30"
           yOffset={-270}
         />
       </div>

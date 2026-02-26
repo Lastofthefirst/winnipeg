@@ -34,7 +34,7 @@ export function StylizedImage({
     <div
       className={clsx(
         className,
-        'relative flex aspect-719/680 w-full grayscale',
+        'relative flex aspect-719/680 w-full sepia',
       )}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
@@ -43,7 +43,7 @@ export function StylizedImage({
             <foreignObject width={width} height={height}>
               <Image
                 alt=""
-                className="w-full bg-neutral-100 object-cover"
+                className="w-full bg-burgundy-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
                 {...props}
               />
@@ -52,7 +52,7 @@ export function StylizedImage({
           <use
             href={`#${id}-shape`}
             strokeWidth="2"
-            className="stroke-neutral-950/10"
+            className="stroke-burgundy-300/30"
           />
         </g>
         <defs>

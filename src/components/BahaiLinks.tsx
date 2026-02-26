@@ -44,7 +44,7 @@ function ExternalLinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export function BahaiLinks() {
   return (
     <FadeInStagger>
-      <ul role="list" className="text-base text-neutral-600">
+      <ul role="list" className="text-base text-burgundy-700">
         {officialLinks.map((link) => (
           <li key={link.href} className="group mt-10 first:mt-0">
             <FadeIn>
@@ -56,12 +56,12 @@ export function BahaiLinks() {
                   className="flex items-start justify-between gap-4"
                 >
                   <div>
-                    <strong className="font-semibold text-neutral-950 transition group-hover:text-neutral-700">
+                    <strong className="font-semibold text-burgundy-900 transition group-hover:text-burgundy-600">
                       {link.title}
                     </strong>
                     <p className="mt-1">{link.description}</p>
                   </div>
-                  <ExternalLinkIcon className="mt-1 h-5 w-5 flex-none text-neutral-400 transition group-hover:text-neutral-600" />
+                  <ExternalLinkIcon className="mt-1 h-5 w-5 flex-none text-burgundy-300 transition group-hover:text-burgundy-500" />
                 </a>
               </Border>
             </FadeIn>

@@ -63,11 +63,11 @@ function FallbackCTA() {
   return (
     <Container className="mt-16">
       <FadeIn>
-        <div className="rounded-3xl bg-neutral-50 p-8 text-center sm:p-12">
-          <p className="font-display text-2xl font-semibold text-neutral-950">
+        <div className="border border-burgundy-200 bg-ivory p-8 text-center sm:p-12">
+          <p className="font-display text-2xl font-normal text-burgundy-900">
             Stay connected
           </p>
-          <p className="mt-4 text-base text-neutral-600">
+          <p className="mt-4 text-base text-burgundy-600">
             We regularly host devotional gatherings, study circles, and
             community celebrations. Get in touch to learn about our next
             gathering.
@@ -104,26 +104,26 @@ export function EventsPreview() {
           <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {upcoming.slice(0, 3).map((event) => (
               <FadeIn key={event.date + event.title} className="flex">
-                <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
+                <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400 sm:p-8">
                   <Border position="left" className="pl-4">
-                    <p className="text-sm font-semibold text-neutral-950">
+                    <p className="text-sm font-semibold text-burgundy-900">
                       {formatEventDate(event.date)}
                     </p>
                     {event.time && (
-                      <p className="mt-1 text-sm text-neutral-600">
+                      <p className="mt-1 text-sm text-burgundy-600">
                         {event.time}
                       </p>
                     )}
                   </Border>
-                  <h3 className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                  <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
                     {event.title}
                   </h3>
                   {event.location && (
-                    <p className="mt-2 text-sm text-neutral-500">
+                    <p className="mt-2 text-sm text-burgundy-500">
                       {event.location}
                     </p>
                   )}
-                  <p className="mt-4 text-base text-neutral-600">
+                  <p className="mt-4 text-base text-burgundy-700">
                     {event.description}
                   </p>
                 </article>

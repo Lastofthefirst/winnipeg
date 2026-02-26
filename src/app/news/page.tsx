@@ -29,7 +29,7 @@ export default function News() {
             href="https://news.bahai.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold text-neutral-950 transition hover:text-neutral-700"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
           >
             Visit news.bahai.org for more stories{' '}
             <span aria-hidden="true">&rarr;</span>
