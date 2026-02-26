@@ -6,12 +6,12 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
+import { GridPattern } from '@/components/GridPattern'
 import { NewsFeed } from '@/components/NewsFeed'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
 
-import imageHero from '@/images/hero-prairie-sky.jpg'
 import imageDevotional from '@/images/devotional-gathering.jpg'
 import imageStudyCircle from '@/images/study-circle.jpg'
 import imageChildrens from '@/images/childrens-class.jpg'
@@ -210,15 +210,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <RootLayout>
-      {/* Hero — full-bleed image with burgundy overlay */}
-      <div className="relative isolate overflow-hidden">
-        <Image
-          src={imageHero}
-          alt=""
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-          priority
-        />
-        <div className="absolute inset-0 -z-10 bg-burgundy-900/80" />
+      {/* Hero — Lotus & Stone style: centered, dark burgundy with grid texture */}
+      <div className="relative overflow-hidden bg-burgundy-900">
+        <div className="absolute inset-0 opacity-10">
+          <GridPattern
+            className="h-full w-full fill-burgundy-600 stroke-burgundy-700"
+            yOffset={-100}
+          />
+        </div>
         <Container className="relative py-32 sm:py-40 lg:py-56">
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
@@ -242,7 +241,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/events"
-                  className="inline-flex border border-ivory/30 px-8 py-3 text-sm uppercase tracking-widest text-ivory/80 transition hover:bg-ivory/5"
+                  className="inline-flex border border-burgundy-400 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-300 transition hover:bg-burgundy-800"
                 >
                   Events
                 </Link>
