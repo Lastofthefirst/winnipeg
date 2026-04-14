@@ -19,13 +19,7 @@ export function ContactSection() {
               </Button>
             </div>
             <div className="mt-10 border-t border-burgundy-700 pt-10">
-              <h3 className="font-display text-base font-semibold text-ivory">
-                Bahá&apos;í Centre
-              </h3>
-              <Offices
-                invert
-                className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-              />
+              <Offices invert />
             </div>
           </div>
         </div>

@@ -1,12 +1,11 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
+import { StyledImage } from '@/components/StyleSwitcher'
 import Link from 'next/link'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
-import { GridPattern } from '@/components/GridPattern'
 import { NewsFeed } from '@/components/NewsFeed'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
@@ -27,6 +26,7 @@ function CommunityActivities() {
         'Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.',
       href: '/community-life',
       image: imageDevotional,
+      styleName: 'devotional-gathering',
     },
     {
       title: 'Study Circles',
@@ -34,6 +34,7 @@ function CommunityActivities() {
         'Explore spiritual and social principles in small group settings, building capacity for service to society.',
       href: '/community-life',
       image: imageStudyCircle,
+      styleName: 'study-circle',
     },
     {
       title: "Children's Classes",
@@ -41,6 +42,7 @@ function CommunityActivities() {
         'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.',
       href: '/community-life',
       image: imageChildrens,
+      styleName: 'childrens-class',
     },
   ]
 
@@ -63,10 +65,11 @@ function CommunityActivities() {
             <FadeIn key={activity.title} className="flex">
               <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
                 <div className="relative h-52 overflow-hidden">
-                  <Image
+                  <StyledImage
                     src={activity.image}
+                    styleName={activity.styleName}
                     alt=""
-                    className="h-full w-full object-cover sepia transition duration-700 group-hover:sepia-0"
+                    className="h-full w-full object-cover transition duration-700"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-8">
@@ -135,33 +138,37 @@ function CommunitySnapshot() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="overflow-hidden">
-                    <Image
+                    <StyledImage
                       src={imageForks}
+                      styleName="forks-winnipeg"
                       alt="The Forks, Winnipeg"
-                      className="aspect-4/3 w-full object-cover sepia"
+                      className="aspect-4/3 w-full object-cover"
                     />
                   </div>
                   <div className="overflow-hidden">
-                    <Image
+                    <StyledImage
                       src={imageBahaiCentre}
+                      styleName="bahai-centre"
                       alt="Bahá'í Centre"
-                      className="aspect-square w-full object-cover sepia"
+                      className="aspect-square w-full object-cover"
                     />
                   </div>
                 </div>
                 <div className="pt-8 space-y-4">
                   <div className="overflow-hidden">
-                    <Image
+                    <StyledImage
                       src={imageCommunityGathering}
+                      styleName="community-gathering"
                       alt="Community gathering"
-                      className="aspect-square w-full object-cover sepia"
+                      className="aspect-square w-full object-cover"
                     />
                   </div>
                   <div className="overflow-hidden">
-                    <Image
+                    <StyledImage
                       src={imageDevotional}
+                      styleName="devotional-gathering"
                       alt="Devotional gathering"
-                      className="aspect-4/3 w-full object-cover sepia"
+                      className="aspect-4/3 w-full object-cover"
                     />
                   </div>
                 </div>
@@ -210,47 +217,39 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <RootLayout>
-      {/* Hero — Lotus & Stone style: centered, dark burgundy with grid texture */}
-      <div className="relative overflow-hidden bg-burgundy-900">
-        <div className="absolute inset-0 opacity-10">
-          <GridPattern
-            className="h-full w-full fill-burgundy-600 stroke-burgundy-700"
-            yOffset={-100}
-          />
-        </div>
-        <Container className="relative py-32 sm:py-40 lg:py-56">
-          <FadeIn>
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto mb-8 h-px w-24 bg-gold-400" />
-              <p className="font-display text-sm uppercase tracking-[0.3em] text-gold-400">
-                Bahá&apos;í Community of Winnipeg
-              </p>
-              <h1 className="mt-8 font-display text-4xl font-normal leading-tight tracking-tight text-ivory sm:text-6xl lg:text-7xl">
-                Where rivers converge, hearts unite
-              </h1>
-              <p className="mt-8 font-display text-xl italic text-burgundy-200 sm:text-2xl">
-                A welcoming community devoted to the oneness of humanity,
-                gathering on Treaty 1 territory in the heart of the prairies.
-              </p>
-              <div className="mt-12 flex justify-center gap-6">
-                <Link
-                  href="/community-life"
-                  className="inline-flex border border-gold-400 px-8 py-3 text-sm uppercase tracking-widest text-gold-400 transition hover:bg-gold-400/10"
-                >
-                  Enter
-                </Link>
-                <Link
-                  href="/events"
-                  className="inline-flex border border-burgundy-400 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-300 transition hover:bg-burgundy-800"
-                >
-                  Events
-                </Link>
-              </div>
-              <div className="mx-auto mt-12 h-px w-24 bg-gold-400" />
+      {/* Hero — light parchment background with burgundy text */}
+      <Container className="relative py-32 sm:py-40 lg:py-56">
+        <FadeIn>
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto mb-8 h-px w-24 bg-gold-500" />
+            <p className="font-display text-sm uppercase tracking-[0.3em] text-gold-600">
+              Bahá&apos;í Community of Winnipeg
+            </p>
+            <h1 className="mt-8 font-display text-4xl font-normal leading-tight tracking-tight text-burgundy-900 sm:text-6xl lg:text-7xl">
+              Where rivers converge, hearts unite
+            </h1>
+            <p className="mt-8 font-display text-xl italic text-burgundy-600 sm:text-2xl">
+              A welcoming community devoted to the oneness of humanity,
+              gathering on Treaty 1 territory in the heart of the prairies.
+            </p>
+            <div className="mt-12 flex justify-center gap-6">
+              <Link
+                href="/community-life"
+                className="inline-flex border border-burgundy-900 bg-burgundy-900 px-8 py-3 text-sm uppercase tracking-widest text-ivory transition hover:bg-burgundy-800"
+              >
+                Enter
+              </Link>
+              <Link
+                href="/events"
+                className="inline-flex border border-burgundy-300 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-700 transition hover:bg-burgundy-50"
+              >
+                Events
+              </Link>
             </div>
-          </FadeIn>
-        </Container>
-      </div>
+            <div className="mx-auto mt-12 h-px w-24 bg-gold-500" />
+          </div>
+        </FadeIn>
+      </Container>
 
       <CommunityActivities />
 

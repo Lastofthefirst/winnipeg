@@ -115,14 +115,14 @@ function ContactDetails() {
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-burgundy-900">
-        Bahá&apos;í Centre
+        Visit Us
       </h2>
       <p className="mt-6 text-base text-burgundy-700">
         We warmly welcome visitors and those interested in learning more about
         the Bahá&apos;í Faith. Feel free to reach out or stop by.
       </p>
 
-      <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
+      <Offices className="mt-10" />
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-burgundy-900">

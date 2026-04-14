@@ -56,7 +56,7 @@ export function SocialMedia({
               invert ? 'hover:text-burgundy-200' : 'hover:text-burgundy-600',
             )}
           >
-            <socialMediaProfile.icon className="h-6 w-6 fill-current" />
+            <socialMediaProfile.icon className="h-7 w-7 fill-current" />
           </Link>
         </li>
       ))}

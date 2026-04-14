@@ -92,7 +92,7 @@ function Header({
             aria-controls={panelId}
             className={clsx(
               'group -m-2.5 rounded-full p-2.5 transition',
-              invert ? 'hover:bg-white/10' : 'hover:bg-burgundy-900/10',
+              invert ? 'hover:bg-parchment/10' : 'hover:bg-burgundy-900/10',
             )}
             aria-label="Toggle navigation"
           >
@@ -100,7 +100,7 @@ function Header({
               className={clsx(
                 'h-6 w-6',
                 invert
-                  ? 'fill-white group-hover:fill-burgundy-200'
+                  ? 'fill-parchment group-hover:fill-burgundy-200'
                   : 'fill-burgundy-900 group-hover:fill-burgundy-700',
               )}
             />
@@ -113,7 +113,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-parchment">
+    <div className="even:mt-px sm:bg-burgundy-900">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -131,17 +131,17 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-parchment px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-burgundy-200 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-burgundy-900 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-burgundy-800 sm:even:pl-16"
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-burgundy-50 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen bg-burgundy-800 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
     </Link>
   )
 }
 
 function Navigation() {
   return (
-    <nav className="mt-px font-display text-5xl font-normal tracking-tight text-burgundy-900">
+    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-parchment">
       <NavigationRow>
         <NavigationItem href="/">Home</NavigationItem>
         <NavigationItem href="/about">About</NavigationItem>
@@ -198,7 +198,6 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           inert={expanded ? true : undefined}
         >
           <Header
-            invert
             panelId={panelId}
             icon={MenuIcon}
             toggleRef={openRef}
@@ -221,9 +220,10 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           aria-hidden={expanded ? undefined : 'true'}
           inert={expanded ? undefined : true}
         >
-          <motion.div layout className="bg-burgundy-200">
-            <div ref={navRef} className="bg-parchment pt-14 pb-16">
+          <motion.div layout className="bg-burgundy-800">
+            <div ref={navRef} className="bg-burgundy-900 pt-14 pb-16">
               <Header
+                invert
                 panelId={panelId}
                 icon={XIcon}
                 toggleRef={closeRef}
@@ -238,22 +238,14 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
               />
             </div>
             <Navigation />
-            <div className="relative bg-parchment before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-burgundy-200">
+            <div className="relative bg-burgundy-900 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-burgundy-800">
               <Container>
-                <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
-                  <div>
-                    <h2 className="font-display text-base font-semibold text-burgundy-900">
-                      Bahá&apos;í Centre
-                    </h2>
-                    <Offices
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                    />
-                  </div>
-                  <div className="sm:border-l sm:border-burgundy-200 sm:pl-16">
-                    <h2 className="font-display text-base font-semibold text-burgundy-900">
-                      Follow us
-                    </h2>
-                    <SocialMedia className="mt-6" />
+                <div className="flex flex-col items-center py-12 text-center sm:py-16">
+                  <Offices invert className="text-center" />
+                  <div className="mt-8 flex items-center gap-4">
+                    <span className="h-px w-12 bg-burgundy-700" />
+                    <SocialMedia invert />
+                    <span className="h-px w-12 bg-burgundy-700" />
                   </div>
                 </div>
               </Container>
@@ -265,14 +257,14 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-burgundy-900 pt-14"
+        className="relative flex flex-auto overflow-hidden bg-parchment pt-14"
       >
         <motion.div
           layout
-          className="relative isolate flex w-full flex-col pt-9 bg-parchment"
+          className="relative isolate flex w-full flex-col pt-9"
         >
           <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-burgundy-50 stroke-burgundy-200/30"
+            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-burgundy-50 stroke-burgundy-900/5"
             yOffset={-96}
             interactive
           />
