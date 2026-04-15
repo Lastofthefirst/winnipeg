@@ -1,7 +1,8 @@
-import Image, { type ImageProps } from 'next/image'
+import { type ImageProps } from 'next/image'
 import clsx from 'clsx'
 
 import { Border } from '@/components/Border'
+import { OptimizedImage } from '@/components/OptimizedImage'
 
 type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 
@@ -27,11 +28,11 @@ function BlockquoteWithImage({
         {typeof children === 'string' ? <p>{children}</p> : children}
       </blockquote>
       <div className="col-start-1 row-start-2 overflow-hidden bg-burgundy-100 sm:col-span-5 sm:row-span-full">
-        <Image
+        <OptimizedImage
           alt=""
           {...image}
           sizes="(min-width: 1024px) 17.625rem, (min-width: 768px) 16rem, (min-width: 640px) 40vw, 3rem"
-          className="h-12 w-12 object-cover sepia sm:aspect-7/9 sm:h-auto sm:w-full"
+          className="h-12 w-12 object-cover sm:aspect-7/9 sm:h-auto sm:w-full"
         />
       </div>
       <figcaption className="text-sm text-burgundy-900 sm:col-span-7 sm:row-start-3 sm:text-base">
@@ -56,7 +57,7 @@ function BlockquoteWithoutImage({
   return (
     <Border position="left" className={clsx('pl-8', className)}>
       <figure className="text-sm">
-        <blockquote className="text-burgundy-700 *:relative *:first:before:absolute *:first:before:right-full *:first:before:content-['\u201C'] *:last:after:content-['\u201D']">
+        <blockquote className="text-burgundy-700 [&>*]:relative [&>*:first-child]:before:absolute [&>*:first-child]:before:right-full [&>*:first-child]:before:content-['\201C'] [&>*:last-child]:after:content-['\201D']">
           {typeof children === 'string' ? <p>{children}</p> : children}
         </blockquote>
         <figcaption className="mt-6 font-semibold text-burgundy-900">

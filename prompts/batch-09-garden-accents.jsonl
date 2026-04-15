@@ -1,0 +1,17 @@
+{"_vars": {"style": "painted with soft watercolor ink wash brushstrokes, on completely flat solid cream background color #F5EFE3, no background texture no gradient pure flat single color background, soft organic painted edges fading naturally into flat background, botanical illustration feeling, no people, no text, no logos", "neg": "textured background, gradient background, patterned background, noisy background, paper texture, watercolor paper, canvas texture, text, words, signature, watermark, frame, border, harsh edges, photorealistic, 3d render, people, faces"}, "_batch": "garden-accents"}
+{"prompt": "delicate monarch butterfly in flight, orange and black wings, single butterfly floating gracefully, {{style}}", "negative": "{{neg}}", "width": 512, "height": 512, "save": "garden-accents/butterfly-01"}
+{"prompt": "painted lady butterfly with soft pink and orange wings, gentle flutter pose, {{style}}", "negative": "{{neg}}", "width": 512, "height": 512, "save": "garden-accents/butterfly-02"}
+{"prompt": "blue morpho butterfly with iridescent blue wings, elegant flying pose, {{style}}", "negative": "{{neg}}", "width": 512, "height": 512, "save": "garden-accents/butterfly-03"}
+{"prompt": "small cluster of prairie grass blades swaying gently, wild ornamental grass tuft, {{style}}", "negative": "{{neg}}", "width": 512, "height": 640, "save": "garden-accents/grass-01"}
+{"prompt": "tall prairie grass with seed heads waving in breeze, natural meadow grass clump, {{style}}", "negative": "{{neg}}", "width": 512, "height": 768, "save": "garden-accents/grass-02"}
+{"prompt": "soft feathery ornamental grass plume, graceful flowing grass, {{style}}", "negative": "{{neg}}", "width": 512, "height": 640, "save": "garden-accents/grass-03"}
+{"prompt": "honeybee in flight with soft fuzzy body, wings blurred with motion, {{style}}", "negative": "{{neg}}", "width": 400, "height": 400, "save": "garden-accents/bee-01"}
+{"prompt": "bumblebee hovering gently, round fuzzy yellow and black bee, {{style}}", "negative": "{{neg}}", "width": 400, "height": 400, "save": "garden-accents/bee-02"}
+{"prompt": "small garden stepping stones cluster, smooth river rocks in group, {{style}}", "negative": "{{neg}}", "width": 640, "height": 400, "save": "garden-accents/stones-01"}
+{"prompt": "stack of smooth river stones balanced naturally, zen garden pebbles, {{style}}", "negative": "{{neg}}", "width": 512, "height": 640, "save": "garden-accents/stones-02"}
+{"prompt": "scattered rose petals falling gently, soft pink and cream petals drifting, {{style}}", "negative": "{{neg}}", "width": 640, "height": 512, "save": "garden-accents/petals-01"}
+{"prompt": "delicate flower petals floating in air, mixed pink white and coral petals, {{style}}", "negative": "{{neg}}", "width": 640, "height": 512, "save": "garden-accents/petals-02"}
+{"prompt": "dragonfly with iridescent wings, hovering gracefully, garden pond dragonfly, {{style}}", "negative": "{{neg}}", "width": 512, "height": 512, "save": "garden-accents/dragonfly-01"}
+{"prompt": "small songbird perched on thin branch, chickadee or finch, gentle garden bird, {{style}}", "negative": "{{neg}}", "width": 512, "height": 512, "save": "garden-accents/bird-01"}
+{"prompt": "ladybug on leaf edge, small red beetle with black spots, {{style}}", "negative": "{{neg}}", "width": 400, "height": 400, "save": "garden-accents/ladybug-01"}
+{"prompt": "garden fern frond unfurling, delicate green fiddlehead fern, {{style}}", "negative": "{{neg}}", "width": 512, "height": 640, "save": "garden-accents/fern-01"}

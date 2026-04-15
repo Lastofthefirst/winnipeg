@@ -1,0 +1,409 @@
+{"_vars": {"bg": "on a completely flat, solid, uniform warm cream background (hex #F5F1E8), the background must be perfectly smooth with zero texture or gradient, only the subject has texture and detail, edges of subject fade softly into the flat background", "style": "the subject is painterly with visible brushstrokes and artistic texture, but rests on an absolutely flat matte solid color background, elegant sophisticated lighting on subject only", "neg": "textured background, paper texture, canvas texture, gradient background, noisy background, patterned background, any background detail, frames, borders, text, watermarks"}, "_batch": "bg-art-full"}
+{"prompt": "A flowing silk ribbon in deep burgundy (#722F37) curving gracefully from the right side of the frame, with luxurious folds and soft shadows, {{bg}}. {{style}}", "negative": "{{neg}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-right-01"}
+{"prompt": "Elegant burgundy silk ribbon flowing in from upper right corner, dramatic sweeping curves with golden thread accents catching light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-right-02"}
+{"prompt": "Rich burgundy ribbon with subtle gold edges, entering from right side and curling toward center, painterly dimensional quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-right-03"}
+{"prompt": "Deep wine-colored silk ribbon sweeping from bottom right corner upward, soft luxurious folds with warm highlights, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-right-04"}
+{"prompt": "Burgundy ribbon flowing from left side of frame, graceful S-curve with dimensional shadows, elegant and minimal, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-left-01"}
+{"prompt": "Silk ribbon in muted burgundy entering from upper left, sweeping diagonally with soft painterly texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-left-02"}
+{"prompt": "Deep red ribbon curving from lower left corner, luxurious fabric folds catching diffused light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-left-03"}
+{"prompt": "Centered composition of burgundy ribbon forming elegant loops, symmetrical and balanced, soft shadows beneath, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-burg-center-01"}
+{"prompt": "Single burgundy ribbon floating in center of frame, gentle wave form, painterly texture with soft highlights, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ribbon-burg-center-02"}
+{"prompt": "Vertical burgundy ribbon descending from top of frame, elegant draping with soft folds, portrait composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/ribbon-burg-vert-01"}
+{"prompt": "Tall flowing burgundy silk ribbon, vertical orientation with graceful curves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/ribbon-burg-vert-02"}
+{"prompt": "Antique gold silk ribbon flowing from right side, warm metallic sheen with soft folds, luxurious quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-gold-right-01"}
+{"prompt": "Golden ribbon with subtle shimmer entering from upper right, elegant curves catching warm light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-gold-right-02"}
+{"prompt": "Muted gold ribbon sweeping from lower right, soft satin texture with gentle shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-gold-right-03"}
+{"prompt": "Antique gold ribbon flowing from left side of frame, warm tones with painterly brushwork, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-gold-left-01"}
+{"prompt": "Golden silk ribbon in center frame, forming graceful figure-eight, balanced composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ribbon-gold-center-01"}
+{"prompt": "Vertical gold ribbon descending elegantly, portrait orientation with soft dimensional quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/ribbon-gold-vert-01"}
+{"prompt": "Two intertwining ribbons, burgundy and gold, flowing together from right side, romantic and elegant, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-dual-right-01"}
+{"prompt": "Burgundy and gold ribbons dancing together, entering from upper right corner, harmonious interplay, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-dual-right-02"}
+{"prompt": "Intertwined ribbons in deep red and antique gold, sweeping from left side, unity symbolism, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-dual-left-01"}
+{"prompt": "Dual ribbons in burgundy and gold meeting in center of frame, symbolic of confluence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-dual-center-01"}
+{"prompt": "Vertical composition of intertwined burgundy and gold ribbons, elegant spiral, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/ribbon-dual-vert-01"}
+{"prompt": "Dusty rose silk ribbon flowing from right, soft pink with subtle warmth, delicate and feminine, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-rose-right-01"}
+{"prompt": "Pale blush ribbon with soft folds, entering from upper right, gentle and romantic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-rose-right-02"}
+{"prompt": "Dusty rose ribbon flowing from left side, muted pink tones with painterly texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-rose-left-01"}
+{"prompt": "Soft pink ribbon centered in frame, gentle curves with delicate shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ribbon-rose-center-01"}
+{"prompt": "Cream and ivory silk ribbon, subtle off-white tones, flowing from right with soft shadows defining form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-cream-right-01"}
+{"prompt": "Ivory ribbon with pearl-like sheen, gentle curves from left side, elegant minimal, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-cream-left-01"}
+{"prompt": "Dusty blue silk ribbon (#7BA3B5) flowing from right side, cool elegant tones with soft folds, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-blue-right-01"}
+{"prompt": "Muted teal ribbon sweeping from upper right, sophisticated cool tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-blue-right-02"}
+{"prompt": "Dusty blue ribbon entering from left, soft steel-blue with gentle highlights, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ribbon-blue-left-01"}
+{"prompt": "Cool blue ribbon centered, calming presence with soft dimensional quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ribbon-blue-center-01"}
+{"prompt": "Abstract river current in dusty blue (#7BA3B5), flowing from right side representing water meeting, fluid organic shapes, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-right-01"}
+{"prompt": "Flowing water forms in soft teal, sweeping from upper right like a river bend, painterly fluid texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-right-02"}
+{"prompt": "River current shapes in muted blue-grey, entering from right with subtle transparency, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-right-03"}
+{"prompt": "Abstract water flow in dusty blue from lower right, gentle curves suggesting prairie rivers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-right-04"}
+{"prompt": "Flowing water shapes in soft blue entering from left side, peaceful river imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-left-01"}
+{"prompt": "River current in muted teal from upper left, sweeping diagonal flow, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-blue-left-02"}
+{"prompt": "Two rivers meeting in center of frame, dusty blue currents converging, confluence symbolism, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-confluence-center-01"}
+{"prompt": "Abstract confluence of two water streams, blue and silver-grey meeting in middle, The Forks inspiration, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-confluence-center-02"}
+{"prompt": "Rivers converging from opposite corners, dusty blue watercolor style, unity through flow, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-confluence-center-03"}
+{"prompt": "Vertical river flow, water descending from top of frame, portrait orientation, peaceful, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/river-blue-vert-01"}
+{"prompt": "Two rivers in burgundy and blue meeting, warm and cool tones converging harmoniously, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-dual-center-01"}
+{"prompt": "Abstract water in burgundy tones from right, warm river interpretation, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-burg-right-01"}
+{"prompt": "Silver and grey water currents flowing from right, subtle metallic quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/river-silver-right-01"}
+{"prompt": "Prairie grass silhouettes in golden tan, sweeping from right side, wind-blown delicate forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-right-01"}
+{"prompt": "Wild prairie grasses in warm amber, entering from upper right corner, Manitoba landscape feel, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-right-02"}
+{"prompt": "Tall prairie grass painted in earth tones, sweeping from right with gentle movement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-right-03"}
+{"prompt": "Delicate grass seed heads in warm tan, drifting from lower right, wispy and light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-right-04"}
+{"prompt": "Prairie grass silhouettes from left side, golden tones bending in implied breeze, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-left-01"}
+{"prompt": "Wild grasses in amber and tan entering from upper left, peaceful prairie imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-left-02"}
+{"prompt": "Prairie grasses meeting in center from both sides, symmetrical natural composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-gold-center-01"}
+{"prompt": "Tall vertical prairie grass, portrait orientation, reaching upward with graceful curves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/prairie-gold-vert-01"}
+{"prompt": "Vertical composition of wild grasses and seed heads, warm earth tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/prairie-gold-vert-02"}
+{"prompt": "Prairie grass in sage green tones, sweeping from right, fresh spring feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-sage-right-01"}
+{"prompt": "Green prairie grasses from left side, soft sage and olive tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-sage-left-01"}
+{"prompt": "Mixed green and gold prairie grasses, natural color variation, from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/prairie-mixed-right-01"}
+{"prompt": "Wheat stalks with curved grain heads in warm amber, elegant from right side, agricultural beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-right-01"}
+{"prompt": "Golden wheat painted with artistic brushstrokes, sweeping from upper right, harvest imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-right-02"}
+{"prompt": "Wheat stalks bending gracefully from right, rich gold tones with soft shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-right-03"}
+{"prompt": "Elegant wheat from left side of frame, warm amber with delicate grain details, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-left-01"}
+{"prompt": "Wheat stalks from lower left, arching gracefully upward, painterly texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-left-02"}
+{"prompt": "Centered wheat composition, stalks framing empty center space, symmetrical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wheat-amber-center-01"}
+{"prompt": "Vertical wheat stalks reaching upward, portrait orientation, golden and elegant, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/wheat-amber-vert-01"}
+{"prompt": "Tall wheat in vertical composition, soft focus artistic quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/wheat-amber-vert-02"}
+{"prompt": "Lotus petals in soft blush pink, floating from right side, serene and spiritual, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-right-01"}
+{"prompt": "Delicate pink lotus petals drifting from upper right, watercolor softness, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-right-02"}
+{"prompt": "Scattered lotus petals in cream and pink, gentle arrangement from right, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-right-03"}
+{"prompt": "Lotus petals in soft pink floating from left side, peaceful meditation imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-left-01"}
+{"prompt": "Pink and cream petals drifting from upper left corner, gentle movement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-left-02"}
+{"prompt": "Single lotus bloom in center, pink petals unfurling, contemplative square format, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/lotus-pink-center-01"}
+{"prompt": "Lotus flower centered with petals opening, gradient from burgundy center to pink edges, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/lotus-pink-center-02"}
+{"prompt": "Multiple lotus blooms in gentle arrangement, centered composition, spiritual calm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-pink-center-03"}
+{"prompt": "Vertical lotus with stem, portrait orientation, elegant Asian painting influence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/lotus-pink-vert-01"}
+{"prompt": "Lotus petals in burgundy and deep red, richer tones from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-burg-right-01"}
+{"prompt": "Deep burgundy lotus bloom, dramatic from right with painterly shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-burg-right-02"}
+{"prompt": "Burgundy lotus petals from left side, rich warm tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-burg-left-01"}
+{"prompt": "Centered burgundy lotus, deep red petals with golden center, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/lotus-burg-center-01"}
+{"prompt": "White lotus with cream petals, pure and serene from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lotus-white-right-01"}
+{"prompt": "Ivory lotus bloom centered, subtle shadows defining pure white petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/lotus-white-center-01"}
+{"prompt": "Rose petals scattered from right side, burgundy and dusty pink, romantic falling motion, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-right-01"}
+{"prompt": "Falling rose petals in deep red, drifting from upper right, painterly soft edges, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-right-02"}
+{"prompt": "Scattered petals in pink and cream from right, gentle descent, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-right-03"}
+{"prompt": "Rose petals falling from left side, burgundy tones with soft shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-left-01"}
+{"prompt": "Pink petals drifting from upper left, romantic and delicate, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-left-02"}
+{"prompt": "Petals scattered across center of frame, various pink and red tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-rose-center-01"}
+{"prompt": "Vertical cascade of rose petals, portrait orientation, falling gently, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/petals-rose-vert-01"}
+{"prompt": "Cherry blossom petals in pale pink, delicate from right side, spring feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-cherry-right-01"}
+{"prompt": "Soft pink cherry blossoms floating from left, Japanese aesthetic influence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/petals-cherry-left-01"}
+{"prompt": "Cherry blossoms scattered in center, pale pink with subtle warmth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/petals-cherry-center-01"}
+{"prompt": "Persian calligraphic flourishes in burgundy ink from right side, elegant swirling forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-right-01"}
+{"prompt": "Decorative arabesque swirls in deep red, entering from upper right, manuscript inspiration, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-right-02"}
+{"prompt": "Calligraphic curves in burgundy, sweeping from lower right corner, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-right-03"}
+{"prompt": "Elegant ink flourishes in burgundy from right, varying line weights, artistic brushwork, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-right-04"}
+{"prompt": "Persian flourishes in burgundy from left side, decorative elegant curves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-left-01"}
+{"prompt": "Arabesque patterns in deep red entering from upper left, sophisticated, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-left-02"}
+{"prompt": "Centered calligraphic flourish in burgundy, symmetrical decorative element, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-burg-center-01"}
+{"prompt": "Ornate flourish centered in square frame, burgundy ink with fine details, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/flourish-burg-center-02"}
+{"prompt": "Vertical calligraphic design in burgundy, portrait orientation, elegant ascending form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/flourish-burg-vert-01"}
+{"prompt": "Antique gold calligraphic flourishes from right side, warm metallic ink quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-right-01"}
+{"prompt": "Golden arabesque swirls entering from upper right, illuminated manuscript style, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-right-02"}
+{"prompt": "Decorative gold flourishes from lower right, warm elegant curves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-right-03"}
+{"prompt": "Gold calligraphic elements from left side, antique warmth with artistic brush texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-left-01"}
+{"prompt": "Golden arabesques entering from upper left corner, sophisticated and warm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-left-02"}
+{"prompt": "Centered gold flourish, symmetrical ornate design, warm metallic tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/flourish-gold-center-01"}
+{"prompt": "Elaborate gold flourish in center, decorative frame-like quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-gold-center-02"}
+{"prompt": "Vertical gold calligraphic design, portrait format, ascending elegant forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/flourish-gold-vert-01"}
+{"prompt": "Intertwined burgundy and gold flourishes, dual-tone arabesque from right, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-dual-right-01"}
+{"prompt": "Burgundy and gold calligraphic elements dancing together from left, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/flourish-dual-left-01"}
+{"prompt": "Centered dual-tone flourish, burgundy and gold intertwined harmoniously, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/flourish-dual-center-01"}
+{"prompt": "Delicate arabesque pattern in soft burgundy, intricate interlocking curves from right, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/arabesque-burg-right-01"}
+{"prompt": "Islamic geometric arabesque in burgundy, sophisticated pattern from upper right, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/arabesque-burg-right-02"}
+{"prompt": "Arabesque in burgundy from left side, delicate interweaving forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/arabesque-burg-left-01"}
+{"prompt": "Centered arabesque medallion in burgundy, symmetrical geometric beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/arabesque-burg-center-01"}
+{"prompt": "Gold arabesque pattern from right, warm intricate Islamic-inspired design, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/arabesque-gold-right-01"}
+{"prompt": "Golden arabesque from left side, geometric elegance with warm tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/arabesque-gold-left-01"}
+{"prompt": "Centered gold arabesque, medallion-like symmetry, sophisticated pattern, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/arabesque-gold-center-01"}
+{"prompt": "Soft rays of golden light emanating from upper right corner, divine illumination feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-right-01"}
+{"prompt": "Warm light beams streaming from right side, soft ethereal glow, spiritual atmosphere, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-right-02"}
+{"prompt": "Golden light rays from lower right corner, diagonal ascending beams, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-right-03"}
+{"prompt": "Subtle light rays in warm gold from upper right, gentle radiance, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-right-04"}
+{"prompt": "Light beams streaming from left side, golden warmth with soft gradients, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-left-01"}
+{"prompt": "Divine light from upper left corner, warm rays descending diagonally, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-left-02"}
+{"prompt": "Soft golden light from lower left, upward reaching beams, hopeful feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-left-03"}
+{"prompt": "Central burst of golden light, radiant beams emanating outward symmetrically, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-gold-center-01"}
+{"prompt": "Soft central glow with gentle light rays, warm gold tones, meditative, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/light-gold-center-02"}
+{"prompt": "Vertical light beams descending from above, portrait orientation, blessing imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/light-gold-vert-01"}
+{"prompt": "Light streaming down from top, vertical golden rays, spiritual descent, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/light-gold-vert-02"}
+{"prompt": "Soft white light rays from right, pure and ethereal, subtle gradients, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-white-right-01"}
+{"prompt": "Pure white light beams from upper right, heavenly quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-white-right-02"}
+{"prompt": "White light from left side, soft diffused rays, peaceful illumination, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/light-white-left-01"}
+{"prompt": "Centered white light glow, subtle radiance emanating outward, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/light-white-center-01"}
+{"prompt": "Nine-pointed star rays in soft gold, subtle geometric light emanating from center, Bahai symbolism, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/star-gold-center-01"}
+{"prompt": "Subtle nine-pointed star light pattern, warm gold tones, sacred geometry, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/star-gold-center-02"}
+{"prompt": "Nine-pointed star rays from upper right corner, partial geometric light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/star-gold-right-01"}
+{"prompt": "Star rays in burgundy, subtle geometric pattern from center, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/star-burg-center-01"}
+{"prompt": "Ethereal feathers in cream and pale gold, floating from right side, dreamy and light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-right-01"}
+{"prompt": "Delicate ivory feathers drifting from upper right, soft and weightless, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-right-02"}
+{"prompt": "Soft cream feathers floating from lower right corner, gentle descent, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-right-03"}
+{"prompt": "Pale feathers in cream tones from left side, ethereal and peaceful, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-left-01"}
+{"prompt": "Ivory feathers drifting from upper left, delicate barbs catching light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-left-02"}
+{"prompt": "Centered feather composition in cream, soft arrangement with gentle shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-cream-center-01"}
+{"prompt": "Single elegant cream feather centered, detailed barbs with soft focus, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/feather-cream-center-02"}
+{"prompt": "Vertical feather descent in cream tones, portrait orientation, graceful falling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/feather-cream-vert-01"}
+{"prompt": "Feathers in dusty rose and burgundy, floating from right side, warm romantic tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-rose-right-01"}
+{"prompt": "Muted burgundy feathers drifting from upper right, soft and elegant, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-rose-right-02"}
+{"prompt": "Pink and burgundy feathers from left side, gentle floating motion, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-rose-left-01"}
+{"prompt": "Centered arrangement of dusty rose feathers, soft feminine composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/feather-rose-center-01"}
+{"prompt": "Gold-tipped feathers with warm amber tones, floating from right, luxurious, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-gold-right-01"}
+{"prompt": "Golden feathers from left side, warm metallic highlights on delicate forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-gold-left-01"}
+{"prompt": "Centered gold feathers, elegant arrangement with warm tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/feather-gold-center-01"}
+{"prompt": "Dusty blue feathers floating from right side, cool elegant tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-blue-right-01"}
+{"prompt": "Blue-grey feathers from left, sophisticated cool palette, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/feather-blue-left-01"}
+{"prompt": "Wispy clouds in soft grey and cream, drifting from right side, atmospheric and light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-right-01"}
+{"prompt": "Ethereal cloud wisps in warm grey from upper right, morning mist quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-right-02"}
+{"prompt": "Soft clouds from lower right corner, gentle grey tones with painterly edges, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-right-03"}
+{"prompt": "Cloud wisps from left side, soft grey and cream, prairie sky feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-left-01"}
+{"prompt": "Ethereal clouds from upper left, misty and atmospheric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-left-02"}
+{"prompt": "Centered cloud formation, soft grey wisps with gentle presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-grey-center-01"}
+{"prompt": "Vertical cloud wisps, portrait orientation, ascending ethereal forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/cloud-grey-vert-01"}
+{"prompt": "Warm-tinted clouds in cream and gold, from right side, sunset atmosphere, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-warm-right-01"}
+{"prompt": "Golden-hour clouds from left, warm atmospheric quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cloud-warm-left-01"}
+{"prompt": "Abstract geometric circles in soft burgundy, overlapping from right side, unity symbolism, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-burg-right-01"}
+{"prompt": "Interlocking circles in burgundy tones, entering from upper right, connection imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-burg-right-02"}
+{"prompt": "Burgundy circles with subtle transparency from left side, modern geometric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-burg-left-01"}
+{"prompt": "Centered overlapping circles in burgundy, unity and interconnection, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/circles-burg-center-01"}
+{"prompt": "Concentric circles in burgundy, centered meditation-like pattern, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/circles-burg-center-02"}
+{"prompt": "Gold geometric circles from right, warm overlapping forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-gold-right-01"}
+{"prompt": "Interlocking gold circles from left, sophisticated geometric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-gold-left-01"}
+{"prompt": "Centered gold circles, overlapping unity pattern, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/circles-gold-center-01"}
+{"prompt": "Dusty blue circles from right, cool geometric forms with transparency, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-blue-right-01"}
+{"prompt": "Blue geometric circles from left, modern and calm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-blue-left-01"}
+{"prompt": "Dual-tone circles in burgundy and gold, interweaving from right, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-dual-right-01"}
+{"prompt": "Burgundy and blue circles meeting in center, complementary unity, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/circles-complement-center-01"}
+{"prompt": "Watercolor wash in dusty blue and burgundy, organic abstract shapes from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-right-01"}
+{"prompt": "Abstract watercolor in blue and red tones, bleeding colors from upper right, artistic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-right-02"}
+{"prompt": "Soft watercolor blend of burgundy and blue from lower right, painterly atmospheric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-right-03"}
+{"prompt": "Watercolor wash in complementary tones from left side, organic flowing forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-left-01"}
+{"prompt": "Blue and burgundy watercolor from upper left, soft color interaction, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-left-02"}
+{"prompt": "Centered watercolor blend of dusty blue and soft burgundy, harmonious meeting, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-dual-center-01"}
+{"prompt": "Vertical watercolor wash in blue and burgundy, portrait orientation, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/watercolor-dual-vert-01"}
+{"prompt": "Soft burgundy watercolor wash from right, organic abstract form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-burg-right-01"}
+{"prompt": "Burgundy watercolor cloud from upper right, soft bleeding edges, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-burg-right-02"}
+{"prompt": "Warm burgundy watercolor from left side, painterly and soft, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-burg-left-01"}
+{"prompt": "Centered burgundy watercolor wash, soft organic shape, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/watercolor-burg-center-01"}
+{"prompt": "Dusty blue watercolor wash from right, cool atmospheric abstract, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-blue-right-01"}
+{"prompt": "Soft blue watercolor from upper right, oceanic feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-blue-right-02"}
+{"prompt": "Blue watercolor wash from left side, calming abstract form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-blue-left-01"}
+{"prompt": "Centered blue watercolor, soft organic cloud shape, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/watercolor-blue-center-01"}
+{"prompt": "Gold and amber watercolor wash from right, warm sunset tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-gold-right-01"}
+{"prompt": "Warm gold watercolor from left, honey and amber tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-gold-left-01"}
+{"prompt": "Centered gold watercolor wash, warm glowing quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/watercolor-gold-center-01"}
+{"prompt": "Grey and cream watercolor wash from right, subtle neutral tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-grey-right-01"}
+{"prompt": "Soft grey watercolor from left, muted atmospheric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/watercolor-grey-left-01"}
+{"prompt": "Botanical wildflowers painted in muted earth tones, delicate stems from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-right-01"}
+{"prompt": "Prairie wildflowers in soft colors, entering from upper right, naturalist style, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-right-02"}
+{"prompt": "Delicate wildflower stems from lower right corner, botanical illustration quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-right-03"}
+{"prompt": "Wildflowers and grasses from left side, Manitoba prairie inspiration, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-left-01"}
+{"prompt": "Prairie flowers from upper left, soft watercolor botanical style, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-left-02"}
+{"prompt": "Centered wildflower arrangement, balanced botanical composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-wild-center-01"}
+{"prompt": "Vertical wildflower stems, portrait orientation, reaching upward, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/botanical-wild-vert-01"}
+{"prompt": "Tall wildflowers in vertical composition, botanical elegance, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/botanical-wild-vert-02"}
+{"prompt": "Elegant branch with leaves in sage green, graceful curve from right side, Japanese influence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-right-01"}
+{"prompt": "Leafy branch in soft green from upper right, delicate ink wash style, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-right-02"}
+{"prompt": "Branch with leaves from lower right, warm tan and green tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-right-03"}
+{"prompt": "Graceful branch from left side, sage and olive tones, Asian painting aesthetic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-left-01"}
+{"prompt": "Leafy branch from upper left corner, soft botanical illustration, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-left-02"}
+{"prompt": "Centered branch arrangement, balanced natural composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-branch-center-01"}
+{"prompt": "Vertical branch with leaves, portrait orientation, elegant upward growth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/botanical-branch-vert-01"}
+{"prompt": "Autumn leaves in warm amber and burgundy, scattered from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-autumn-right-01"}
+{"prompt": "Fall foliage in gold and red tones from left, seasonal warmth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/botanical-autumn-left-01"}
+{"prompt": "Centered autumn leaf arrangement, warm seasonal colors, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/botanical-autumn-center-01"}
+{"prompt": "Soft draped fabric in cream silk, luxurious folds from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-right-01"}
+{"prompt": "Ivory silk fabric draped from upper right corner, elegant shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-right-02"}
+{"prompt": "Cream fabric folds from lower right, soft luxurious quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-right-03"}
+{"prompt": "Draped cream fabric from left side, dimensional painterly texture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-left-01"}
+{"prompt": "Silk fabric in ivory from upper left, cascading elegantly, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-left-02"}
+{"prompt": "Centered cream fabric arrangement, soft symmetrical draping, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-cream-center-01"}
+{"prompt": "Vertical cream fabric, portrait orientation, elegant descent, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/fabric-cream-vert-01"}
+{"prompt": "Gold silk fabric with soft sheen, draped from right side, warm luxurious, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-gold-right-01"}
+{"prompt": "Antique gold fabric from left, rich warm folds with highlights, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-gold-left-01"}
+{"prompt": "Centered gold fabric draping, luxurious balanced composition, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-gold-center-01"}
+{"prompt": "Burgundy velvet fabric, rich texture from right side, dramatic depth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-burg-right-01"}
+{"prompt": "Deep burgundy fabric draped from left, luxurious and warm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fabric-burg-left-01"}
+{"prompt": "Centered burgundy fabric, elegant rich draping, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/fabric-burg-center-01"}
+{"prompt": "Abstract flowing organic shape in burgundy, sculptural form from right, modern artistic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-burg-right-01"}
+{"prompt": "Organic burgundy form entering from upper right, contemporary artistic quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-burg-right-02"}
+{"prompt": "Abstract burgundy shape from left side, flowing organic sculpture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-burg-left-01"}
+{"prompt": "Centered abstract burgundy form, balanced modern organic shape, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/abstract-burg-center-01"}
+{"prompt": "Abstract gold organic form from right, sculptural with warm tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-gold-right-01"}
+{"prompt": "Flowing gold abstract shape from left, modern artistic quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-gold-left-01"}
+{"prompt": "Centered gold abstract form, contemporary sculptural presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/abstract-gold-center-01"}
+{"prompt": "Dusty blue abstract organic form from right, cool modern sculptural, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-blue-right-01"}
+{"prompt": "Blue abstract shape from left side, flowing contemporary form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-blue-left-01"}
+{"prompt": "Centered blue abstract organic, calm modern presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/abstract-blue-center-01"}
+{"prompt": "Complementary abstract forms in burgundy and blue, meeting from opposite sides, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-dual-center-01"}
+{"prompt": "Burgundy and gold abstract shapes interacting in center, harmony of forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/abstract-dual-center-02"}
+{"prompt": "Ink brush stroke in burgundy, bold single stroke from right side, expressive, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-burg-right-01"}
+{"prompt": "Dynamic burgundy ink stroke from upper right, calligraphic energy, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-burg-right-02"}
+{"prompt": "Bold ink stroke in burgundy from left, expressive single gesture, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-burg-left-01"}
+{"prompt": "Centered burgundy ink brush mark, bold and simple, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ink-burg-center-01"}
+{"prompt": "Gold ink brush stroke from right, warm metallic ink quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-gold-right-01"}
+{"prompt": "Expressive gold ink mark from left side, bold and warm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-gold-left-01"}
+{"prompt": "Black ink brush stroke from right, classic bold expression, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-black-right-01"}
+{"prompt": "Sumi-e style ink from left, zen simplicity, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ink-black-left-01"}
+{"prompt": "Delicate seed pods and dried flowers in muted tones, from right side, autumn still life, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/seedpod-right-01"}
+{"prompt": "Dried botanical elements from left, subtle earth tones, naturalist quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/seedpod-left-01"}
+{"prompt": "Centered dried flower arrangement, muted elegant botanical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/seedpod-center-01"}
+{"prompt": "Vertical dried flowers and pods, portrait orientation, elegant decay, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/seedpod-vert-01"}
+{"prompt": "Soft mist or fog rolling from right side, subtle grey atmospheric, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mist-grey-right-01"}
+{"prompt": "Ethereal mist from left, prairie morning atmosphere, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mist-grey-left-01"}
+{"prompt": "Centered mist formation, soft atmospheric presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mist-grey-center-01"}
+{"prompt": "Warm golden mist from right, sunrise atmosphere, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mist-gold-right-01"}
+{"prompt": "Morning mist in warm tones from left, peaceful atmosphere, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mist-gold-left-01"}
+{"prompt": "Smoke wisps in soft grey, curling from right side, ethereal and light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/smoke-grey-right-01"}
+{"prompt": "Delicate smoke tendrils from left, mystical atmospheric quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/smoke-grey-left-01"}
+{"prompt": "Centered smoke wisps, vertical rising forms, contemplative, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/smoke-grey-center-01"}
+{"prompt": "Vertical smoke rising, portrait orientation, incense-like quality, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/smoke-grey-vert-01"}
+{"prompt": "Waves in dusty blue, stylized ocean forms from right side, peaceful flow, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wave-blue-right-01"}
+{"prompt": "Gentle wave forms in soft blue from left, calming water imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wave-blue-left-01"}
+{"prompt": "Centered wave pattern in blue, balanced rhythmic forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wave-blue-center-01"}
+{"prompt": "Japanese-style wave in blue, Hokusai influence from right, artistic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wave-japanese-right-01"}
+{"prompt": "Stylized wave from left, ukiyo-e inspired, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wave-japanese-left-01"}
+{"prompt": "Spiral forms in burgundy, elegant curving shapes from right, meditative, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/spiral-burg-right-01"}
+{"prompt": "Burgundy spiral from left side, organic unfurling form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/spiral-burg-left-01"}
+{"prompt": "Centered spiral in burgundy, sacred geometry feeling, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/spiral-burg-center-01"}
+{"prompt": "Gold spiral form from right, warm elegant curve, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/spiral-gold-right-01"}
+{"prompt": "Centered gold spiral, fibonacci-like natural beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/spiral-gold-center-01"}
+{"prompt": "Delicate butterfly wings in soft colors, floating from right side, transformation symbol, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/butterfly-soft-right-01"}
+{"prompt": "Ethereal butterfly in muted tones from left, graceful lightness, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/butterfly-soft-left-01"}
+{"prompt": "Centered butterfly, soft colors with elegant wing detail, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/butterfly-soft-center-01"}
+{"prompt": "Butterfly in burgundy tones from right, warm elegant transformation, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/butterfly-burg-right-01"}
+{"prompt": "Burgundy butterfly from left side, rich warm wings, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/butterfly-burg-left-01"}
+{"prompt": "Bird silhouette in flight, soft grey from right side, freedom imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/bird-grey-right-01"}
+{"prompt": "Flying bird from left, gentle grey tones, soaring grace, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/bird-grey-left-01"}
+{"prompt": "Centered bird in flight, peaceful ascending form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/bird-grey-center-01"}
+{"prompt": "Multiple birds in flight from right, flock ascending, unity in movement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/birds-flock-right-01"}
+{"prompt": "Flock of birds from left side, coordinated flight, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/birds-flock-left-01"}
+{"prompt": "Birds ascending from center, upward movement, hope imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/birds-flock-vert-01"}
+{"prompt": "Dove silhouette in soft grey, peaceful from right, symbol of peace, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dove-grey-right-01"}
+{"prompt": "White dove from left side, peaceful gentle presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dove-white-left-01"}
+{"prompt": "Centered dove, soft colors, peace and harmony symbol, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/dove-white-center-01"}
+{"prompt": "Crescent moon in soft gold from upper right corner, celestial presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/moon-gold-right-01"}
+{"prompt": "Golden crescent from upper left, warm celestial glow, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/moon-gold-left-01"}
+{"prompt": "Centered full moon in soft gold, gentle luminous presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/moon-gold-center-01"}
+{"prompt": "Silver moon crescent from right, cool celestial light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/moon-silver-right-01"}
+{"prompt": "Soft silver moon from left corner, subtle night imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/moon-silver-left-01"}
+{"prompt": "Sun rays in gold radiating from corner, upper right, warm dawn light, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/sun-gold-right-01"}
+{"prompt": "Golden sun rays from upper left corner, morning illumination, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/sun-gold-left-01"}
+{"prompt": "Centered sun with gentle rays, warm golden presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/sun-gold-center-01"}
+{"prompt": "Mountain silhouette in soft grey from bottom right, landscape element, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mountain-grey-right-01"}
+{"prompt": "Distant mountains from bottom left, muted grey tones, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mountain-grey-left-01"}
+{"prompt": "Centered mountain range silhouette, peaceful distant landscape, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/mountain-grey-center-01"}
+{"prompt": "Tree silhouette in soft grey, single elegant form from right side, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tree-grey-right-01"}
+{"prompt": "Graceful tree from left side, delicate branches reaching, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tree-grey-left-01"}
+{"prompt": "Centered tree silhouette, balanced natural form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/tree-grey-center-01"}
+{"prompt": "Vertical tree trunk and branches, portrait orientation, reaching upward, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/tree-grey-vert-01"}
+{"prompt": "Olive branch in soft green from right, peace symbol with delicate leaves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/olive-green-right-01"}
+{"prompt": "Olive branch from left side, traditional peace imagery, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/olive-green-left-01"}
+{"prompt": "Centered olive branches, peaceful balanced arrangement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/olive-green-center-01"}
+{"prompt": "Laurel wreath partial from right, classical honor symbol, soft green, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/laurel-right-01"}
+{"prompt": "Laurel from left side, elegant classical reference, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/laurel-left-01"}
+{"prompt": "Centered laurel wreath, complete circular honor symbol, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/laurel-center-01"}
+{"prompt": "Vine tendrils in soft green, climbing from right side, organic growth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/vine-green-right-01"}
+{"prompt": "Climbing vine from left, delicate curling tendrils, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/vine-green-left-01"}
+{"prompt": "Vines meeting in center, intertwining growth, unity through nature, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/vine-green-center-01"}
+{"prompt": "Vertical vine climbing upward, portrait orientation, reaching growth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/vine-green-vert-01"}
+{"prompt": "Rose in soft pink from right side, single elegant bloom, romantic, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-pink-right-01"}
+{"prompt": "Pink rose from left, delicate petals with soft shadows, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-pink-left-01"}
+{"prompt": "Centered pink rose, classic beauty with soft focus, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/rose-pink-center-01"}
+{"prompt": "Burgundy rose from right, rich deep red petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-burg-right-01"}
+{"prompt": "Deep red rose from left side, romantic and warm, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-burg-left-01"}
+{"prompt": "Centered burgundy rose, elegant rich bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/rose-burg-center-01"}
+{"prompt": "White rose from right, pure and serene single bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-white-right-01"}
+{"prompt": "Ivory rose from left side, soft peaceful beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/rose-white-left-01"}
+{"prompt": "Centered white rose, pure elegant simplicity, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/rose-white-center-01"}
+{"prompt": "Peony in soft pink, lush full bloom from right side, luxurious floral, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/peony-pink-right-01"}
+{"prompt": "Pink peony from left, abundant layered petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/peony-pink-left-01"}
+{"prompt": "Centered peony bloom, full lush flower in soft pink, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/peony-pink-center-01"}
+{"prompt": "Burgundy peony from right, rich deep colored bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/peony-burg-right-01"}
+{"prompt": "White peony from left side, pure abundant bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/peony-white-left-01"}
+{"prompt": "Iris flower in soft purple and gold from right, elegant vertical bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/iris-purple-right-01"}
+{"prompt": "Iris from left side, delicate purple petals with yellow accents, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/iris-purple-left-01"}
+{"prompt": "Centered iris bloom, elegant vertical flower form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/iris-purple-center-01"}
+{"prompt": "Vertical iris, portrait orientation, tall elegant bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/iris-purple-vert-01"}
+{"prompt": "Calla lily in cream from right side, elegant sculptural bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/calla-cream-right-01"}
+{"prompt": "Cream calla lily from left, graceful curved form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/calla-cream-left-01"}
+{"prompt": "Centered calla lily, elegant minimalist bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/calla-cream-center-01"}
+{"prompt": "Vertical calla lily, portrait orientation, elongated grace, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/calla-cream-vert-01"}
+{"prompt": "Burgundy calla lily from right, rich deep sculptural bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/calla-burg-right-01"}
+{"prompt": "Orchid in soft pink and white from right side, exotic delicate bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/orchid-pink-right-01"}
+{"prompt": "Pink orchid from left, elegant exotic flower, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/orchid-pink-left-01"}
+{"prompt": "Centered orchid bloom, sophisticated exotic beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/orchid-pink-center-01"}
+{"prompt": "White orchid from right side, pure elegant exotic bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/orchid-white-right-01"}
+{"prompt": "Magnolia bloom in soft cream from right, large elegant flower, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/magnolia-cream-right-01"}
+{"prompt": "Cream magnolia from left side, soft luxurious petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/magnolia-cream-left-01"}
+{"prompt": "Centered magnolia, large soft elegant bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/magnolia-cream-center-01"}
+{"prompt": "Pink magnolia from right, soft warm petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/magnolia-pink-right-01"}
+{"prompt": "Tulip in soft pink from right side, classic spring bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tulip-pink-right-01"}
+{"prompt": "Pink tulip from left, elegant cup-shaped bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tulip-pink-left-01"}
+{"prompt": "Centered pink tulip, simple spring beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/tulip-pink-center-01"}
+{"prompt": "Burgundy tulip from right, rich deep colored bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tulip-burg-right-01"}
+{"prompt": "White tulip from left side, pure elegant spring flower, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tulip-white-left-01"}
+{"prompt": "Yellow tulip from right, warm cheerful bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/tulip-yellow-right-01"}
+{"prompt": "Vertical tulip stem, portrait orientation, elegant upward form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/tulip-pink-vert-01"}
+{"prompt": "Sunflower in warm gold from right side, cheerful radiant bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/sunflower-right-01"}
+{"prompt": "Golden sunflower from left, bright warm presence, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/sunflower-left-01"}
+{"prompt": "Centered sunflower, radiant golden bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/sunflower-center-01"}
+{"prompt": "Dandelion seed head in soft grey, delicate from right side, wishes and dreams, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dandelion-right-01"}
+{"prompt": "Dandelion puff from left, ethereal seed dispersal, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dandelion-left-01"}
+{"prompt": "Centered dandelion seed head, delicate sphere of wishes, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/dandelion-center-01"}
+{"prompt": "Dandelion seeds floating from right, dispersing gently, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dandelion-seeds-right-01"}
+{"prompt": "Seeds floating from left, dandelion wishes drifting, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dandelion-seeds-left-01"}
+{"prompt": "Lavender sprigs from right side, soft purple calming herbs, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lavender-right-01"}
+{"prompt": "Lavender stems from left, peaceful purple botanical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lavender-left-01"}
+{"prompt": "Centered lavender arrangement, calming herbal beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lavender-center-01"}
+{"prompt": "Vertical lavender stems, portrait orientation, elegant upward growth, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/lavender-vert-01"}
+{"prompt": "Fern fronds in soft green from right side, delicate botanical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fern-right-01"}
+{"prompt": "Green fern from left, unfurling fronds, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fern-left-01"}
+{"prompt": "Centered fern arrangement, balanced botanical green, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/fern-center-01"}
+{"prompt": "Vertical fern frond, portrait orientation, elegant natural form, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/fern-vert-01"}
+{"prompt": "Eucalyptus branches in soft sage green from right, modern botanical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/eucalyptus-right-01"}
+{"prompt": "Eucalyptus from left side, round soft leaves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/eucalyptus-left-01"}
+{"prompt": "Centered eucalyptus arrangement, modern elegant botanical, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/eucalyptus-center-01"}
+{"prompt": "Vertical eucalyptus branch, portrait orientation, cascading leaves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/eucalyptus-vert-01"}
+{"prompt": "Ginkgo leaves in soft gold from right side, fan-shaped autumn elegance, {{bg}}. {{style}}", "negative": "{{neg}}", "width": 1536, "height": 1024, "save": "bg-art-full/ginkgo-gold-right-01"}
+{"prompt": "Golden ginkgo from left, ancient tree leaves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ginkgo-gold-left-01"}
+{"prompt": "Centered ginkgo leaves, balanced golden arrangement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ginkgo-gold-center-01"}
+{"prompt": "Maple leaves in burgundy and gold from right, autumn richness, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/maple-autumn-right-01"}
+{"prompt": "Autumn maple from left side, warm falling leaves, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/maple-autumn-left-01"}
+{"prompt": "Centered maple leaf arrangement, autumn colors, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/maple-autumn-center-01"}
+{"prompt": "Bamboo stalks in soft green from right, zen simplicity, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/bamboo-right-01"}
+{"prompt": "Bamboo from left side, peaceful vertical forms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/bamboo-left-01"}
+{"prompt": "Vertical bamboo, portrait orientation, tall serene stalks, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/bamboo-vert-01"}
+{"prompt": "Cherry blossom branch from right, soft pink spring blooms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cherry-branch-right-01"}
+{"prompt": "Cherry blossoms from left side, delicate pink flowers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cherry-branch-left-01"}
+{"prompt": "Centered cherry blossom branch, spring beauty, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/cherry-branch-center-01"}
+{"prompt": "Vertical cherry blossoms, portrait orientation, cascading blooms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/cherry-branch-vert-01"}
+{"prompt": "Wisteria cascading from top right, purple flowing clusters, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wisteria-right-01"}
+{"prompt": "Purple wisteria from upper left, elegant draping flowers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/wisteria-left-01"}
+{"prompt": "Vertical wisteria cascade, portrait orientation, flowing purple, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1536, "save": "bg-art-full/wisteria-vert-01"}
+{"prompt": "Hydrangea bloom in soft blue from right, lush round flower, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/hydrangea-blue-right-01"}
+{"prompt": "Blue hydrangea from left side, abundant petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/hydrangea-blue-left-01"}
+{"prompt": "Centered hydrangea, soft blue round bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/hydrangea-blue-center-01"}
+{"prompt": "Pink hydrangea from right, soft romantic bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/hydrangea-pink-right-01"}
+{"prompt": "Lily of the valley from right side, delicate white bells, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lilyvalley-right-01"}
+{"prompt": "Lily of the valley from left, sweet spring flowers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/lilyvalley-left-01"}
+{"prompt": "Centered lily of the valley, delicate white arrangement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/lilyvalley-center-01"}
+{"prompt": "Poppy flowers in soft red from right, delicate papery petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/poppy-red-right-01"}
+{"prompt": "Red poppies from left side, remembrance flowers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/poppy-red-left-01"}
+{"prompt": "Centered poppies, soft red delicate blooms, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/poppy-red-center-01"}
+{"prompt": "Orange poppy from right, warm cheerful bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/poppy-orange-right-01"}
+{"prompt": "Carnation in soft pink from right side, ruffled petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/carnation-pink-right-01"}
+{"prompt": "Pink carnation from left, delicate frilled bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/carnation-pink-left-01"}
+{"prompt": "Burgundy carnation from right, rich deep ruffled flower, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/carnation-burg-right-01"}
+{"prompt": "White carnation centered, pure frilled elegance, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/carnation-white-center-01"}
+{"prompt": "Dahlia in burgundy from right side, geometric petal arrangement, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dahlia-burg-right-01"}
+{"prompt": "Burgundy dahlia from left, intricate layered petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dahlia-burg-left-01"}
+{"prompt": "Centered burgundy dahlia, stunning geometric bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/dahlia-burg-center-01"}
+{"prompt": "Pink dahlia from right, soft geometric petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dahlia-pink-right-01"}
+{"prompt": "White dahlia from left side, pure intricate bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/dahlia-white-left-01"}
+{"prompt": "Ranunculus in soft peach from right, layered rose-like bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ranunculus-peach-right-01"}
+{"prompt": "Peach ranunculus from left, delicate layered petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ranunculus-peach-left-01"}
+{"prompt": "Centered ranunculus, soft peach elegant bloom, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/ranunculus-peach-center-01"}
+{"prompt": "Pink ranunculus from right side, romantic layers, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/ranunculus-pink-right-01"}
+{"prompt": "Anemone flower in burgundy and white from right, striking contrast, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/anemone-burg-right-01"}
+{"prompt": "Burgundy anemone from left, dark center light petals, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1536, "height": 1024, "save": "bg-art-full/anemone-burg-left-01"}
+{"prompt": "Centered anemone, striking burgundy and white, {{bg}}. {{style}}", "negative": "{{^}}", "width": 1024, "height": 1024, "save": "bg-art-full/anemone-burg-center-01"}
