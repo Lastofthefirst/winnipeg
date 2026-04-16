@@ -1,7 +1,7 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 
 import { Border } from '@/components/Border'
+import { OptimizedImage } from '@/components/OptimizedImage'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { GridPattern } from '@/components/GridPattern'
@@ -44,7 +44,7 @@ function OptionA() {
       </div>
 
       <div className="relative isolate overflow-hidden">
-        <Image src={imageHero} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" priority />
+        <OptimizedImage src={imageHero} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" priority />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-warm-black/70 via-warm-black/50 to-warm-black/80" />
         <Container className="relative py-32 sm:py-40 lg:py-56">
           <FadeIn>
@@ -74,7 +74,7 @@ function OptionA() {
               <FadeIn key={item.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-warm-black/5">
                   <div className="relative h-48 overflow-hidden">
-                    <Image src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <OptimizedImage src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-warm-black/20 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
@@ -133,7 +133,7 @@ function OptionB() {
             </FadeIn>
             <FadeIn className="mt-16 lg:mt-0 lg:w-1/2">
               <div className="relative overflow-hidden rounded-3xl">
-                <Image src={imageForks} alt="" className="aspect-4/3 w-full object-cover" />
+                <OptimizedImage src={imageForks} alt="" className="aspect-4/3 w-full object-cover" />
                 <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-neutral-950/10" />
               </div>
             </FadeIn>
@@ -152,7 +152,7 @@ function OptionB() {
               <FadeIn key={item.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-neutral-950/5 transition hover:ring-teal-600/20">
                   <div className="relative mb-6 h-40 overflow-hidden rounded-2xl">
-                    <Image src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <OptimizedImage src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   </div>
                   <Border position="left" className="pl-6">
                     <h3 className="font-display text-lg font-semibold text-neutral-950">{item.title}</h3>
@@ -196,7 +196,7 @@ function OptionC() {
 
       <div className="relative bg-warm-white">
         <div className="relative h-[28rem] overflow-hidden sm:h-[36rem] lg:h-[44rem]">
-          <Image src={imageCommunityGathering} alt="" className="h-full w-full object-cover" />
+          <OptimizedImage src={imageCommunityGathering} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-warm-black/60 via-warm-black/30 to-transparent" />
         </div>
         <Container className="relative">
@@ -231,7 +231,7 @@ function OptionC() {
               <FadeIn key={item.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-950/5 transition hover:shadow-md">
                   <div className="relative h-48 overflow-hidden">
-                    <Image src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <OptimizedImage src={item.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className={`mb-3 h-1 w-10 rounded-full ${i % 2 === 0 ? 'bg-gold-400' : 'bg-teal-500'}`} />
@@ -353,10 +353,10 @@ function OptionD() {
               <FadeIn key={item.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
                   <div className="relative h-52 overflow-hidden">
-                    <Image
+                    <OptimizedImage
                       src={item.image}
                       alt=""
-                      className="h-full w-full object-cover sepia transition duration-700 group-hover:sepia-0"
+                      className="h-full w-full object-cover transition duration-700"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-8">
@@ -460,7 +460,7 @@ function OptionE() {
         </Container>
         {/* Hero image strip */}
         <div className="relative h-64 overflow-hidden sm:h-80">
-          <Image src={imageWinter} alt="" className="h-full w-full object-cover opacity-60" />
+          <OptimizedImage src={imageWinter} alt="" className="h-full w-full object-cover opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-b from-indigo-900 via-transparent to-ice" />
         </div>
       </div>
@@ -479,7 +479,7 @@ function OptionE() {
               <FadeIn key={item.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden rounded-3xl border border-indigo-100 bg-white/60 p-8 backdrop-blur transition hover:border-indigo-300 hover:bg-white/80">
                   <div className="relative mb-6 h-40 overflow-hidden rounded-2xl">
-                    <Image
+                    <OptimizedImage
                       src={item.image}
                       alt=""
                       className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
@@ -583,7 +583,7 @@ function OptionF() {
             <FadeIn className="mt-12 lg:mt-0 lg:w-1/2">
               <div className="relative">
                 <div className="overflow-hidden rounded-[2rem]">
-                  <Image src={imageCommunityGathering} alt="" className="aspect-4/3 w-full object-cover" />
+                  <OptimizedImage src={imageCommunityGathering} alt="" className="aspect-4/3 w-full object-cover" />
                 </div>
                 {/* Decorative floating badge */}
                 <div className="absolute -bottom-4 -left-4 rounded-2xl bg-white p-4 shadow-lg ring-1 ring-neutral-950/5 sm:-bottom-6 sm:-left-6 sm:p-6">
@@ -624,7 +624,7 @@ function OptionF() {
                 <FadeIn key={item.title} className="flex">
                   <article className={`group relative flex w-full flex-col overflow-hidden rounded-[1.5rem] ${accents.bg} p-6 ring-1 ${accents.ring} transition hover:shadow-md`}>
                     <div className="relative mb-6 h-44 overflow-hidden rounded-[1rem]">
-                      <Image
+                      <OptimizedImage
                         src={item.image}
                         alt=""
                         className="h-full w-full object-cover saturate-[0.85] transition duration-500 group-hover:saturate-100 group-hover:scale-105"

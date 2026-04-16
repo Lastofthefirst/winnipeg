@@ -1,6 +1,10 @@
+'use client'
+
 import { useId } from 'react'
-import Image, { type ImageProps } from 'next/image'
+import { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+
+import { StyledImage } from '@/components/StyleSwitcher'
 
 const shapes = [
   {
@@ -25,8 +29,9 @@ type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 export function StylizedImage({
   shape = 0,
   className,
+  styleName,
   ...props
-}: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
+}: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2; styleName?: string }) {
   let id = useId()
   let { width, height, path } = shapes[shape]
 
@@ -34,15 +39,16 @@ export function StylizedImage({
     <div
       className={clsx(
         className,
-        'relative flex aspect-719/680 w-full sepia',
+        'relative flex aspect-719/680 w-full',
       )}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
         <g clipPath={`url(#${id}-clip)`} className="group">
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
             <foreignObject width={width} height={height}>
-              <Image
+              <StyledImage
                 alt=""
+                styleName={styleName ?? ''}
                 className="w-full bg-burgundy-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
                 {...props}

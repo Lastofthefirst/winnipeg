@@ -1,4 +1,5 @@
-import Image, { type StaticImageData } from 'next/image'
+import { type StaticImageData } from 'next/image'
+import { StyledImage } from '@/components/StyleSwitcher'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -18,6 +19,7 @@ export interface UpcomingEvent {
   time?: string
   description: string
   image?: StaticImageData
+  styleName?: string
 }
 
 // Upcoming events data — edit this array to add/remove events
@@ -30,6 +32,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     description:
       'Join us to celebrate the Bahá\'í New Year with prayers, music, and a shared meal. All are welcome.',
     image: imageNawRuz,
+    styleName: 'naw-ruz-celebration',
   },
   {
     date: '2026-04-20',
@@ -39,6 +42,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     description:
       'Commemorate the most joyous Bahá\'í festival, marking the declaration of Bahá\'u\'lláh\'s mission.',
     image: imageRidvan,
+    styleName: 'ridvan-garden',
   },
   {
     date: '2026-03-07',
@@ -48,6 +52,7 @@ export const upcomingEvents: UpcomingEvent[] = [
     description:
       'A quiet morning of prayers and readings from the sacred writings. Open to people of all backgrounds.',
     image: imageDevotionalCandles,
+    styleName: 'devotional-candles',
   },
 ]
 
@@ -116,10 +121,11 @@ export function EventsPreview() {
                 <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
                   {event.image && (
                     <div className="relative h-40 overflow-hidden">
-                      <Image
+                      <StyledImage
                         src={event.image}
+                        styleName={event.styleName ?? ''}
                         alt=""
-                        className="h-full w-full object-cover sepia transition duration-700 group-hover:sepia-0"
+                        className="h-full w-full object-cover transition duration-700"
                       />
                     </div>
                   )}

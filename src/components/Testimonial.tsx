@@ -1,7 +1,8 @@
-import Image, { type ImageProps } from 'next/image'
+import { type ImageProps } from 'next/image'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
+import { OptimizedImage } from '@/components/OptimizedImage'
 import { FadeIn } from '@/components/FadeIn'
 import { GridPattern } from '@/components/GridPattern'
 
@@ -34,7 +35,7 @@ export function Testimonial({
               </p>
             </blockquote>
             <figcaption className="mt-10">
-              <Image src={client.logo} alt={client.name} unoptimized />
+              <OptimizedImage src={client.logo} alt={client.name} />
             </figcaption>
           </figure>
         </FadeIn>

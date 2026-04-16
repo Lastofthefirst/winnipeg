@@ -1,0 +1,215 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e6]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]:
+          - img [ref=e9]:
+            - generic [ref=e11]: B
+          - generic [ref=e12]: Bahá'í Winnipeg
+      - generic [ref=e13]:
+        - link "Contact us" [ref=e14] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e15]: Contact us
+        - button "Toggle navigation" [ref=e16]:
+          - img [ref=e17]
+    - generic [ref=e20]:
+      - generic [ref=e24]:
+        - link [ref=e25] [cursor=pointer]:
+          - /url: /
+          - img [ref=e26]:
+            - img [ref=e27]:
+              - generic [ref=e29]: B
+            - generic [ref=e30]: Bahá'í Winnipeg
+        - generic [ref=e31]:
+          - link [ref=e32] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e33]: Contact us
+          - button [ref=e34]:
+            - img [ref=e35]
+      - navigation [ref=e38]:
+        - generic [ref=e42]:
+          - link [ref=e43] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link [ref=e45] [cursor=pointer]:
+            - /url: /about
+            - text: About
+        - generic [ref=e50]:
+          - link [ref=e51] [cursor=pointer]:
+            - /url: /community-life
+            - text: Community Life
+          - link [ref=e53] [cursor=pointer]:
+            - /url: /learn-more
+            - text: Learn More
+        - generic [ref=e58]:
+          - link [ref=e59] [cursor=pointer]:
+            - /url: /events
+            - text: Events
+          - link [ref=e61] [cursor=pointer]:
+            - /url: /news
+            - text: News
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - strong [ref=e68]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e69]: 521 McMillan Ave Winnipeg, MB R3L 0N4
+          - paragraph [ref=e70]: (204) 452-0139 LSA@winnipegbahais.org
+        - list [ref=e73]:
+          - listitem [ref=e74]:
+            - link [ref=e75] [cursor=pointer]:
+              - /url: https://www.facebook.com/WinnipegBahais
+              - img [ref=e76]
+          - listitem [ref=e78]:
+            - link [ref=e79] [cursor=pointer]:
+              - /url: https://www.instagram.com/winnipegbahais
+              - img [ref=e80]
+  - generic [ref=e84]:
+    - img [ref=e85]:
+      - img [ref=e87]
+    - main [ref=e94]:
+      - generic [ref=e97]:
+        - heading "About - The Bahá'í Faith" [level=1] [ref=e98]:
+          - generic [ref=e99]: About
+          - generic [ref=e100]: "-"
+          - generic [ref=e101]: The Bahá'í Faith
+        - generic [ref=e102]:
+          - paragraph [ref=e103]: The Bahá'í Faith is a world religion whose purpose is to unite all peoples in one universal cause and one common faith.
+          - generic [ref=e104]:
+            - paragraph [ref=e105]: Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, embracing people from more than 2,100 ethnic, racial, and tribal backgrounds. At the heart of the Faith is the conviction that humanity is one single race, and that the day has come for humanity's unification into one global society.
+            - paragraph [ref=e106]: Bahá'ís are engaged in a global endeavour to build vibrant communities that reflect the principles of justice, unity, and service. Through grassroots activities such as devotional gatherings, study circles, and programs for children and youth, Bahá'ís and their friends work together to translate spiritual principles into social action.
+      - generic [ref=e110]:
+        - img "Golden wheat stalks" [ref=e112]
+        - img "Prairie crocus flowers" [ref=e114]
+        - img "Prairie wildflowers" [ref=e116]
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - term [ref=e122]: Bahá'ís worldwide
+          - definition [ref=e123]: 5M+
+        - generic [ref=e124]:
+          - term [ref=e125]: Localities globally
+          - definition [ref=e126]: 100,000+
+        - generic [ref=e127]:
+          - term [ref=e128]: Years in Winnipeg
+          - definition [ref=e129]: 100+
+      - generic [ref=e130]:
+        - generic [ref=e133]:
+          - heading "Core principles - The oneness of humanity is the central teaching of the Bahá'í Faith." [level=2] [ref=e134]:
+            - generic [ref=e135]: Core principles
+            - generic [ref=e136]: "-"
+            - generic [ref=e137]: The oneness of humanity is the central teaching of the Bahá'í Faith.
+          - paragraph [ref=e139]: Bahá'ís believe that humanity is one family, that women and men are equal, and that the diversity of the human race is a source of strength.
+        - list [ref=e143]:
+          - listitem [ref=e144]:
+            - generic [ref=e146]:
+              - strong [ref=e147]: Unity of humanity.
+              - text: The principle that all people belong to one human family—bound together regardless of race, nation, or creed—is the cornerstone of the Bahá'í Faith.
+          - listitem [ref=e148]:
+            - generic [ref=e150]:
+              - strong [ref=e151]: Equality of women and men.
+              - text: "Humanity is like a bird: one wing is women, the other men. Only when both wings are equally strong can the bird fly."
+          - listitem [ref=e152]:
+            - generic [ref=e154]:
+              - strong [ref=e155]: Elimination of prejudice.
+              - text: Of all forms of prejudice, the most destructive is racial prejudice. Bahá'ís strive actively to build bonds across every line of division.
+          - listitem [ref=e156]:
+            - generic [ref=e158]:
+              - strong [ref=e159]: Harmony of science and religion.
+              - text: Religion without science is superstition; science without religion is materialism. Both are needed for human progress.
+          - listitem [ref=e160]:
+            - generic [ref=e162]:
+              - strong [ref=e163]: Independent investigation of truth.
+              - text: Each person has the right and responsibility to search for truth independently, unfettered by superstition or tradition.
+          - listitem [ref=e164]:
+            - generic [ref=e166]:
+              - strong [ref=e167]: Universal education.
+              - text: Every child deserves access to education. Knowledge is a treasure and the means of progress for every community.
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e174]:
+            - heading "Our community - The Bahá'ís of Winnipeg" [level=2] [ref=e175]:
+              - generic [ref=e176]: Our community
+              - generic [ref=e177]: "-"
+              - generic [ref=e178]: The Bahá'ís of Winnipeg
+            - paragraph [ref=e180]: Like the two rivers that meet at the Forks, the Bahá'í Community of Winnipeg draws together people from many backgrounds, united by a shared vision of building a more just and peaceful world.
+          - generic [ref=e181]:
+            - paragraph [ref=e182]: The Bahá'í community in Winnipeg has been present for over a century, growing from a handful of early believers into a vibrant community that reflects the city's rich multicultural heritage. Today, members from dozens of cultural backgrounds come together in a spirit of unity.
+            - paragraph [ref=e183]: Our community centre on McMillan Avenue serves as a gathering place for devotional programs, study circles, children's classes, and community celebrations. We are deeply engaged in the life of our neighbourhoods, working alongside others to foster community building and social action.
+            - paragraph [ref=e184]: Like the vast prairie sky that reminds us there is always room for growth, we believe that every person has a contribution to make. Whether you are exploring the Bahá'í Faith for the first time or looking for a welcoming community, we invite you to connect with us.
+        - generic [ref=e186]:
+          - img "Tall prairie grass" [ref=e187]
+          - img "Big prairie sky" [ref=e188]
+      - generic [ref=e193]:
+        - heading "Connect with the Bahá'í Community" [level=2] [ref=e195]
+        - link "Get in Touch" [ref=e197] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e198]: Get in Touch
+        - generic [ref=e200]:
+          - strong [ref=e201]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e202]:
+            - text: 521 McMillan Ave
+            - text: Winnipeg, MB R3L 0N4
+          - paragraph [ref=e203]:
+            - text: (204) 452-0139
+            - text: LSA@winnipegbahais.org
+    - contentinfo [ref=e204]:
+      - generic [ref=e206]:
+        - navigation [ref=e208]:
+          - list [ref=e209]:
+            - listitem [ref=e210]:
+              - generic [ref=e211]: Explore
+              - list [ref=e212]:
+                - listitem [ref=e213]:
+                  - link "About" [ref=e214] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e215]:
+                  - link "Community Life" [ref=e216] [cursor=pointer]:
+                    - /url: /community-life
+                - listitem [ref=e217]:
+                  - link "Learn More" [ref=e218] [cursor=pointer]:
+                    - /url: /learn-more
+                - listitem [ref=e219]:
+                  - link "Events" [ref=e220] [cursor=pointer]:
+                    - /url: /events
+                - listitem [ref=e221]:
+                  - link "News" [ref=e222] [cursor=pointer]:
+                    - /url: /news
+                - listitem [ref=e223]:
+                  - link "Contact" [ref=e224] [cursor=pointer]:
+                    - /url: /contact
+            - listitem [ref=e225]:
+              - generic [ref=e226]: Official Resources
+              - list [ref=e227]:
+                - listitem [ref=e228]:
+                  - link "Bahai.org" [ref=e229] [cursor=pointer]:
+                    - /url: https://www.bahai.org
+                - listitem [ref=e230]:
+                  - link "Bahá'í World News" [ref=e231] [cursor=pointer]:
+                    - /url: https://news.bahai.org
+                - listitem [ref=e232]:
+                  - link "Bahá'ís of Canada" [ref=e233] [cursor=pointer]:
+                    - /url: https://www.bahai.ca
+                - listitem [ref=e234]:
+                  - link "Bahá'í Reference Library" [ref=e235] [cursor=pointer]:
+                    - /url: https://www.bahai.org/library/
+            - listitem [ref=e236]:
+              - generic [ref=e237]: Connect
+              - list [ref=e238]:
+                - listitem [ref=e239]:
+                  - link "Facebook" [ref=e240] [cursor=pointer]:
+                    - /url: https://www.facebook.com/WinnipegBahais
+                - listitem [ref=e241]:
+                  - link "Instagram" [ref=e242] [cursor=pointer]:
+                    - /url: https://www.instagram.com/winnipegbahais
+        - generic [ref=e243]:
+          - link "Home" [ref=e244] [cursor=pointer]:
+            - /url: /
+            - img [ref=e245]:
+              - img [ref=e246]:
+                - generic [ref=e248]: B
+              - generic [ref=e249]: Bahá'í Winnipeg
+          - paragraph [ref=e250]: © Bahá'í Community of Winnipeg 2026
+  - button "Original Photos" [ref=e252]:
+    - img [ref=e253]
+    - text: Original Photos
+  - button "Open Next.js Dev Tools" [ref=e261] [cursor=pointer]:
+    - img [ref=e262]

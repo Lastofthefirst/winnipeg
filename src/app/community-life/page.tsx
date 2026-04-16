@@ -5,59 +5,80 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
-import { GridPattern } from '@/components/GridPattern'
+import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
-import { StylizedImage } from '@/components/StylizedImage'
 import { TagList, TagListItem } from '@/components/TagList'
-import imageDevotional from '@/images/devotional-gathering.jpg'
-import imageStudyCircle from '@/images/study-circle.jpg'
-import imageChildrens from '@/images/childrens-class.jpg'
-import imageJuniorYouth from '@/images/junior-youth.jpg'
-import imageCommunityService from '@/images/community-service.jpg'
 import { RootLayout } from '@/components/RootLayout'
+
+// Garden theme image component
+function GardenImage({
+  src,
+  alt,
+  className = '',
+}: {
+  src: string
+  alt: string
+  className?: string
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      <OptimizedImage
+        src={src}
+        alt={alt}
+        width={640}
+        height={640}
+        className="w-full object-contain"
+      />
+    </div>
+  )
+}
 
 function Section({
   title,
-  image,
+  imageSrc,
+  imageAlt,
   children,
 }: {
   title: string
-  image: React.ComponentPropsWithoutRef<typeof StylizedImage>
+  imageSrc: string
+  imageAlt: string
   children: React.ReactNode
 }) {
   return (
-    <Container className="group/section [counter-increment:section]">
-      <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
-        <div className="flex justify-center">
-          <FadeIn className="w-135 flex-none lg:w-180">
-            <StylizedImage
-              {...image}
-              sizes="(min-width: 1024px) 41rem, 31rem"
-              className="justify-center lg:justify-end lg:group-even/section:justify-start"
-            />
-          </FadeIn>
+    <div className="group/section relative [counter-increment:section]">
+      <Container>
+        <div className="relative lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
+          <div className="flex justify-center">
+            <FadeIn className="w-[20rem] flex-none lg:w-[28rem]">
+              <GardenImage src={imageSrc} alt={imageAlt} />
+            </FadeIn>
+          </div>
+          <div className="relative mt-12 lg:mt-0 lg:w-148 lg:flex-none lg:group-even/section:order-first">
+            <FadeIn>
+              <div
+                className="font-display text-base font-semibold before:text-burgundy-200 before:content-['/_'] after:text-burgundy-900 after:content-[counter(section,decimal-leading-zero)]"
+                aria-hidden="true"
+              />
+              <h2 className="mt-2 font-display text-3xl font-normal tracking-tight text-burgundy-900 sm:text-4xl">
+                {title}
+              </h2>
+              <div className="mt-6">{children}</div>
+            </FadeIn>
+          </div>
         </div>
-        <div className="mt-12 lg:mt-0 lg:w-148 lg:flex-none lg:group-even/section:order-first">
-          <FadeIn>
-            <div
-              className="font-display text-base font-semibold before:text-burgundy-200 before:content-['/_'] after:text-burgundy-900 after:content-[counter(section,decimal-leading-zero)]"
-              aria-hidden="true"
-            />
-            <h2 className="mt-2 font-display text-3xl font-normal tracking-tight text-burgundy-900 sm:text-4xl">
-              {title}
-            </h2>
-            <div className="mt-6">{children}</div>
-          </FadeIn>
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }
 
 function DevotionalGatherings() {
   return (
-    <Section title="Devotional Gatherings" image={{ src: imageDevotional }}>
+    <Section
+      title="Devotional Gatherings"
+      imageSrc="/flowers-clean/flower-patch-10.png"
+      imageAlt="Prairie wildflower garden"
+    >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Devotional gatherings bring people together to pray and reflect on
@@ -88,7 +109,11 @@ function DevotionalGatherings() {
 
 function StudyCircles() {
   return (
-    <Section title="Study Circles" image={{ src: imageStudyCircle, shape: 1 }}>
+    <Section
+      title="Study Circles"
+      imageSrc="/flowers-clean/flower-patch-11.png"
+      imageAlt="Prairie wildflower garden"
+    >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
           Study circles are small groups of people who come together to deepen
@@ -105,7 +130,7 @@ function StudyCircles() {
       </div>
 
       <Blockquote
-        author={{ name: 'Bahá\'u\'lláh', role: 'Founder of the Bahá\'í Faith' }}
+        author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
         className="mt-12"
       >
         Regard man as a mine rich in gems of inestimable value. Education can,
@@ -120,7 +145,8 @@ function ChildrensClasses() {
   return (
     <Section
       title="Children's Classes"
-      image={{ src: imageChildrens, shape: 2 }}
+      imageSrc="/flowers-clean/flower-patch-03.png"
+      imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
@@ -154,7 +180,8 @@ function JuniorYouth() {
   return (
     <Section
       title="Junior Youth Spiritual Empowerment"
-      image={{ src: imageJuniorYouth }}
+      imageSrc="/flowers-clean/flower-patch-29.png"
+      imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
@@ -178,7 +205,8 @@ function CommunityService() {
   return (
     <Section
       title="Community Service"
-      image={{ src: imageCommunityService, shape: 1 }}
+      imageSrc="/flowers-clean/flower-patch-05.png"
+      imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
@@ -202,23 +230,28 @@ function CommunityService() {
 function Values() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden bg-linear-to-b from-parchment">
-        <GridPattern
-          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-burgundy-50 stroke-burgundy-200/30"
-          yOffset={-270}
-        />
+      <div className="relative">
+        {/* Accent image - top right on mobile, right side on desktop */}
+        <div className="pointer-events-none absolute right-4 top-0 sm:right-8 lg:-right-4 lg:top-8">
+          <OptimizedImage
+            src="/garden-accents/butterfly-01.png"
+            alt=""
+            width={180}
+            height={180}
+            className="w-[100px] object-contain lg:w-[180px]"
+          />
+        </div>
+        <SectionIntro
+          eyebrow="Principles in action"
+          title="Building a better world, one neighbourhood at a time"
+        >
+          <p>
+            Every activity of the Bahá&apos;í community is motivated by the
+            desire to translate spiritual principles into practical action for the
+            betterment of society.
+          </p>
+        </SectionIntro>
       </div>
-
-      <SectionIntro
-        eyebrow="Principles in action"
-        title="Building a better world, one neighbourhood at a time"
-      >
-        <p>
-          Every activity of the Bahá&apos;í community is motivated by the
-          desire to translate spiritual principles into practical action for the
-          betterment of society.
-        </p>
-      </SectionIntro>
 
       <Container className="mt-24">
         <GridList>
@@ -256,13 +289,16 @@ function Values() {
 export const metadata: Metadata = {
   title: 'Community Life',
   description:
-    'Explore the activities of the Bahá\'í Community of Winnipeg — devotional gatherings, study circles, children\'s classes, and more.',
+    "Explore the activities of the Bahá'í Community of Winnipeg — devotional gatherings, study circles, children's classes, and more.",
 }
 
 export default function CommunityLife() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Community life" title="Growing together in spirit and service">
+      <PageIntro
+        eyebrow="Community life"
+        title="Growing together in spirit and service"
+      >
         <p>
           The Bahá&apos;í community in Winnipeg offers a range of activities
           that bring people together for prayer, study, and service to the

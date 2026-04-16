@@ -1,5 +1,4 @@
 import { type Metadata } from 'next'
-import { StyledImage } from '@/components/StyleSwitcher'
 import Link from 'next/link'
 
 import { ContactSection } from '@/components/ContactSection'
@@ -7,16 +6,10 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
 import { NewsFeed } from '@/components/NewsFeed'
+import { OptimizedImage } from '@/components/OptimizedImage'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
-
-import imageDevotional from '@/images/devotional-gathering.jpg'
-import imageStudyCircle from '@/images/study-circle.jpg'
-import imageChildrens from '@/images/childrens-class.jpg'
-import imageForks from '@/images/forks-winnipeg.jpg'
-import imageCommunityGathering from '@/images/community-gathering.jpg'
-import imageBahaiCentre from '@/images/bahai-centre.jpg'
 
 function CommunityActivities() {
   const activities = [
@@ -25,24 +18,21 @@ function CommunityActivities() {
       description:
         'Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.',
       href: '/community-life',
-      image: imageDevotional,
-      styleName: 'devotional-gathering',
+      image: '/flowers-clean/flower-patch-10.png',
     },
     {
       title: 'Study Circles',
       description:
         'Explore spiritual and social principles in small group settings, building capacity for service to society.',
       href: '/community-life',
-      image: imageStudyCircle,
-      styleName: 'study-circle',
+      image: '/flowers-clean/flower-patch-11.png',
     },
     {
       title: "Children's Classes",
       description:
         'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.',
       href: '/community-life',
-      image: imageChildrens,
-      styleName: 'childrens-class',
+      image: '/flowers-clean/flower-patch-03.png',
     },
   ]
 
@@ -64,12 +54,13 @@ function CommunityActivities() {
           {activities.map((activity) => (
             <FadeIn key={activity.title} className="flex">
               <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                <div className="relative h-52 overflow-hidden">
-                  <StyledImage
+                <div className="relative flex h-52 items-center justify-center overflow-hidden p-4">
+                  <OptimizedImage
                     src={activity.image}
-                    styleName={activity.styleName}
                     alt=""
-                    className="h-full w-full object-cover transition duration-700"
+                    width={400}
+                    height={400}
+                    className="h-full w-auto object-contain transition duration-700"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-8">
@@ -137,40 +128,36 @@ function CommunitySnapshot() {
             <div className="mt-12 lg:mt-0 lg:w-1/2">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="overflow-hidden">
-                    <StyledImage
-                      src={imageForks}
-                      styleName="forks-winnipeg"
-                      alt="The Forks, Winnipeg"
-                      className="aspect-4/3 w-full object-cover"
-                    />
-                  </div>
-                  <div className="overflow-hidden">
-                    <StyledImage
-                      src={imageBahaiCentre}
-                      styleName="bahai-centre"
-                      alt="Bahá'í Centre"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </div>
+                  <OptimizedImage
+                    src="/prairie-theme/wheat-01.png"
+                    alt="Golden wheat"
+                    width={768}
+                    height={768}
+                    className="w-full object-contain"
+                  />
+                  <OptimizedImage
+                    src="/prairie-theme/crocus-01.png"
+                    alt="Prairie crocus"
+                    width={768}
+                    height={768}
+                    className="w-full object-contain"
+                  />
                 </div>
                 <div className="pt-8 space-y-4">
-                  <div className="overflow-hidden">
-                    <StyledImage
-                      src={imageCommunityGathering}
-                      styleName="community-gathering"
-                      alt="Community gathering"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </div>
-                  <div className="overflow-hidden">
-                    <StyledImage
-                      src={imageDevotional}
-                      styleName="devotional-gathering"
-                      alt="Devotional gathering"
-                      className="aspect-4/3 w-full object-cover"
-                    />
-                  </div>
+                  <OptimizedImage
+                    src="/prairie-theme/prairie-grass-01.png"
+                    alt="Prairie grass"
+                    width={640}
+                    height={896}
+                    className="w-full object-contain"
+                  />
+                  <OptimizedImage
+                    src="/prairie-theme/meadowlark-01.png"
+                    alt="Meadowlark"
+                    width={512}
+                    height={640}
+                    className="w-full object-contain"
+                  />
                 </div>
               </div>
             </div>

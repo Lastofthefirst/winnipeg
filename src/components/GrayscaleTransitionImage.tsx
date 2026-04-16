@@ -1,21 +1,27 @@
 'use client'
 
 import { useRef } from 'react'
-import Image, { type ImageProps } from 'next/image'
+import { type StaticImageData } from 'next/image'
 import {
   motion,
   useMotionTemplate,
   useScroll,
   useTransform,
 } from 'framer-motion'
+import { OptimizedImage } from '@/components/OptimizedImage'
 
-const MotionImage = motion(Image)
+const MotionOptimizedImage = motion(OptimizedImage)
+
+type ImageSrc = string | StaticImageData | { default: StaticImageData }
 
 export function GrayscaleTransitionImage(
-  props: Pick<
-    ImageProps,
-    'src' | 'quality' | 'className' | 'sizes' | 'priority'
-  > & { alt?: string },
+  props: {
+    src: ImageSrc
+    className?: string
+    sizes?: string
+    priority?: boolean
+    alt?: string
+  },
 ) {
   let ref = useRef<React.ElementRef<'div'>>(null)
   let { scrollYProgress } = useScroll({
@@ -27,12 +33,12 @@ export function GrayscaleTransitionImage(
 
   return (
     <div ref={ref} className="group relative">
-      <MotionImage alt="" style={{ filter } as any} {...props} />
+      <MotionOptimizedImage alt="" style={{ filter } as any} {...props} />
       <div
         className="pointer-events-none absolute top-0 left-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
         aria-hidden="true"
       >
-        <Image alt="" {...props} />
+        <OptimizedImage alt="" {...props} />
       </div>
     </div>
   )

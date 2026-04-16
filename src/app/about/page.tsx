@@ -1,45 +1,45 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
+import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { RootLayout } from '@/components/RootLayout'
-
-import imageCommunityGathering from '@/images/community-gathering.jpg'
-import imageBahaiCentre from '@/images/bahai-centre.jpg'
-import imageWinter from '@/images/winter-prairie.jpg'
-import imageForks from '@/images/forks-winnipeg.jpg'
-import imageCommunityService from '@/images/community-service.jpg'
 
 function ImageStrip() {
   return (
     <Container className="mt-16">
       <FadeIn>
         <div className="grid grid-cols-3 gap-4">
-          <div className="overflow-hidden">
-            <Image
-              src={imageCommunityGathering}
-              alt="Community gathering"
-              className="aspect-3/2 w-full object-cover sepia"
+          <div>
+            <OptimizedImage
+              src="/prairie-theme/wheat-01.png"
+              alt="Golden wheat stalks"
+              width={768}
+              height={768}
+              className="w-full object-contain"
             />
           </div>
-          <div className="overflow-hidden">
-            <Image
-              src={imageBahaiCentre}
-              alt="Bahá'í Centre"
-              className="aspect-3/2 w-full object-cover sepia"
+          <div>
+            <OptimizedImage
+              src="/prairie-theme/crocus-01.png"
+              alt="Prairie crocus flowers"
+              width={768}
+              height={768}
+              className="w-full object-contain"
             />
           </div>
-          <div className="overflow-hidden">
-            <Image
-              src={imageCommunityService}
-              alt="Community service"
-              className="aspect-3/2 w-full object-cover sepia"
+          <div>
+            <OptimizedImage
+              src="/prairie-theme/prairie-flowers-01.png"
+              alt="Prairie wildflowers"
+              width={768}
+              height={768}
+              className="w-full object-contain"
             />
           </div>
         </div>
@@ -50,7 +50,17 @@ function ImageStrip() {
 
 function CorePrinciples() {
   return (
-    <div className="mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="relative mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+      {/* Cloud accent - top right area */}
+      <div className="pointer-events-none absolute right-4 top-8 sm:right-8 lg:right-16 lg:top-12">
+        <OptimizedImage
+          src="/burgundy-clouds/cloud-01.png"
+          alt=""
+          width={400}
+          height={400}
+          className="w-[150px] object-contain sm:w-[200px] lg:w-[280px]"
+        />
+      </div>
       <SectionIntro
         eyebrow="Core principles"
         title="The oneness of humanity is the central teaching of the Bahá'í Faith."
@@ -137,20 +147,20 @@ function LocalCommunity() {
         </div>
         <FadeIn className="mt-12 lg:mt-0 lg:w-1/2">
           <div className="space-y-4">
-            <div className="overflow-hidden">
-              <Image
-                src={imageForks}
-                alt="The Forks, Winnipeg"
-                className="aspect-4/3 w-full object-cover sepia"
-              />
-            </div>
-            <div className="overflow-hidden">
-              <Image
-                src={imageWinter}
-                alt="Winter on the prairies"
-                className="aspect-21/9 w-full object-cover sepia"
-              />
-            </div>
+            <OptimizedImage
+              src="/prairie-theme/prairie-grass-01.png"
+              alt="Tall prairie grass"
+              width={640}
+              height={896}
+              className="w-full object-contain"
+            />
+            <OptimizedImage
+              src="/prairie-theme/big-sky-01.png"
+              alt="Big prairie sky"
+              width={1024}
+              height={640}
+              className="w-full object-contain"
+            />
           </div>
         </FadeIn>
       </div>
