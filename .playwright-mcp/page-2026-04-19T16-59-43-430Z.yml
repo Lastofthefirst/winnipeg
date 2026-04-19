@@ -1,0 +1,249 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e6]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]:
+          - img [ref=e9]:
+            - generic [ref=e11]: B
+          - generic [ref=e12]: Bahá'í Winnipeg
+      - generic [ref=e13]:
+        - link "Contact us" [ref=e14] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e15]: Contact us
+        - button "Toggle navigation" [ref=e16]:
+          - img [ref=e17]
+    - generic [ref=e20]:
+      - generic [ref=e24]:
+        - link [ref=e25] [cursor=pointer]:
+          - /url: /
+          - img [ref=e26]:
+            - img [ref=e27]:
+              - generic [ref=e29]: B
+            - generic [ref=e30]: Bahá'í Winnipeg
+        - generic [ref=e31]:
+          - link [ref=e32] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e33]: Contact us
+          - button [ref=e34]:
+            - img [ref=e35]
+      - navigation [ref=e38]:
+        - generic [ref=e42]:
+          - link [ref=e43] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link [ref=e45] [cursor=pointer]:
+            - /url: /about
+            - text: About
+        - generic [ref=e50]:
+          - link [ref=e51] [cursor=pointer]:
+            - /url: /community-life
+            - text: Community Life
+          - link [ref=e53] [cursor=pointer]:
+            - /url: /learn-more
+            - text: Learn More
+        - generic [ref=e58]:
+          - link [ref=e59] [cursor=pointer]:
+            - /url: /events
+            - text: Events
+          - link [ref=e61] [cursor=pointer]:
+            - /url: /news
+            - text: News
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - strong [ref=e68]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e69]: 521 McMillan Ave Winnipeg, MB R3L 0N4
+          - paragraph [ref=e70]: (204) 452-0139 LSA@winnipegbahais.org
+        - list [ref=e73]:
+          - listitem [ref=e74]:
+            - link [ref=e75] [cursor=pointer]:
+              - /url: https://www.facebook.com/WinnipegBahais
+              - img [ref=e76]
+          - listitem [ref=e78]:
+            - link [ref=e79] [cursor=pointer]:
+              - /url: https://www.instagram.com/winnipegbahais
+              - img [ref=e80]
+  - generic [ref=e84]:
+    - img [ref=e85]:
+      - img [ref=e87]
+    - main [ref=e94]:
+      - generic [ref=e97]:
+        - heading "Learn more - Exploring the Bahá'í Faith" [level=1] [ref=e98]:
+          - generic [ref=e99]: Learn more
+          - generic [ref=e100]: "-"
+          - generic [ref=e101]: Exploring the Bahá'í Faith
+        - generic [ref=e102]:
+          - paragraph [ref=e103]: The Bahá'í Faith addresses both the spiritual life of the individual and the structures of human society — offering a coherent vision of justice, unity, and the oneness of humankind.
+          - paragraph [ref=e105]: Founded in the nineteenth century, the Faith has spread to virtually every country and territory on Earth. Its central conviction is that humanity is one family, that all the world's great religions come from the same divine source, and that the long-promised age of peace is now within humanity's reach.
+      - generic [ref=e107]:
+        - generic [ref=e110]:
+          - heading "Central figures - The founders and exemplar of the Bahá'í Faith" [level=2] [ref=e111]:
+            - generic [ref=e112]: Central figures
+            - generic [ref=e113]: "-"
+            - generic [ref=e114]: The founders and exemplar of the Bahá'í Faith
+          - paragraph [ref=e116]: The Bahá'í Faith centres on the lives and writings of three figures — the Báb, Bahá'u'lláh, and 'Abdu'l-Bahá — whose vision of humanity's oneness continues to inspire millions around the world.
+        - list [ref=e119]:
+          - listitem [ref=e120]:
+            - generic [ref=e122]:
+              - strong [ref=e123]: Bahá'u'lláh (1817–1892).
+              - text: The Founder of the Bahá'í Faith and its central figure. Born in Tehran, Bahá'u'lláh endured forty years of exile and imprisonment for proclaiming His message that humanity is one family and that the long-awaited moment for its unification has arrived. His writings encompass over 100 volumes and form the sacred scripture of the Faith.
+          - listitem [ref=e124]:
+            - generic [ref=e126]:
+              - strong [ref=e127]: The Báb (1819–1850).
+              - text: The Herald of the Bahá'í Faith. In 1844, the Báb declared His mission and called humanity to spiritual renewal, announcing the imminent appearance of the Promised One foretold in the sacred traditions of all religions. He was executed in 1850 in Tabriz, Persia, at the age of thirty.
+          - listitem [ref=e128]:
+            - generic [ref=e130]:
+              - strong [ref=e131]: "'Abdu'l-Bahá (1844–1921)."
+              - text: "The son of Bahá'u'lláh and the Centre of His Covenant — appointed by Bahá'u'lláh as the sole authoritative interpreter of His teachings. 'Abdu'l-Bahá is regarded as the perfect exemplar of Bahá'í life: one in whom all the spiritual and humanitarian virtues of the Faith found complete expression."
+      - generic [ref=e132]:
+        - generic [ref=e136]:
+          - heading "Core teachings - The oneness of God, religion, and humanity" [level=2] [ref=e137]:
+            - generic [ref=e138]: Core teachings
+            - generic [ref=e139]: "-"
+            - generic [ref=e140]: The oneness of God, religion, and humanity
+          - paragraph [ref=e142]: At the heart of the Bahá'í Faith are teachings about the oneness of God and religion, the oneness of humanity and freedom from prejudice, and the harmony of science and religion. These are not abstract ideals — they are principles for the ordering of human life and the building of civilisation.
+        - list [ref=e146]:
+          - listitem [ref=e147]:
+            - generic [ref=e149]:
+              - strong [ref=e150]: Oneness of God.
+              - text: There is only one God — unknowable in essence, yet made known to humanity through a succession of divine Messengers. All the great religions of the world flow from this one source.
+          - listitem [ref=e151]:
+            - generic [ref=e153]:
+              - strong [ref=e154]: Progressive revelation.
+              - text: Religious truth is revealed progressively. The Manifestations of God — Abraham, Moses, Buddha, Christ, Muhammad, Bahá'u'lláh — each brought teachings suited to the needs and capacity of the age in which they appeared.
+          - listitem [ref=e155]:
+            - generic [ref=e157]:
+              - strong [ref=e158]: Oneness of humanity.
+              - text: “The earth is but one country, and mankind its citizens.” The diversity of the human race is not a source of division but a cause of love and harmony. All prejudice — of race, class, nationality, or religion — must be overcome.
+          - listitem [ref=e159]:
+            - generic [ref=e161]:
+              - strong [ref=e162]: Inherent nobility.
+              - text: Every human being is a mine rich in gems of inestimable value. The purpose of education, spiritual and material alike, is to reveal these inner capacities in service to one another and to civilisation.
+          - listitem [ref=e163]:
+            - generic [ref=e165]:
+              - strong [ref=e166]: Harmony of science and religion.
+              - text: Science and religion are two complementary systems of knowledge. Religion without science leads to superstition; science without religion leads to materialism. Both are essential to human progress.
+          - listitem [ref=e167]:
+            - generic [ref=e169]:
+              - strong [ref=e170]: Justice.
+              - text: Justice is the best-beloved of all things in the sight of God and the centrality of justice to all human endeavours is a cornerstone of Bahá'í social teaching. A just society upholds the rights and dignity of every person.
+      - figure "Bahá'u'lláh" [ref=e176]:
+        - generic [ref=e177]: “
+        - blockquote [ref=e178]:
+          - paragraph [ref=e179]: The earth is but one country, and mankind its citizens.
+        - generic [ref=e181]: Bahá'u'lláh
+      - generic [ref=e183]:
+        - generic [ref=e186]:
+          - heading "Official resources - Explore further" [level=2] [ref=e187]:
+            - generic [ref=e188]: Official resources
+            - generic [ref=e189]: "-"
+            - generic [ref=e190]: Explore further
+          - paragraph [ref=e192]: These official Bahá'í websites offer a wealth of information, sacred texts, news stories, and resources for deeper study.
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - link "Bahai.org The official international website of the Bahá'í Faith." [ref=e199] [cursor=pointer]:
+              - /url: https://www.bahai.org
+              - generic [ref=e200]:
+                - strong [ref=e201]: Bahai.org
+                - paragraph [ref=e202]: The official international website of the Bahá'í Faith.
+              - img [ref=e203]
+          - listitem [ref=e205]:
+            - link "Bahá'í World News Service News stories from the global Bahá'í community." [ref=e208] [cursor=pointer]:
+              - /url: https://news.bahai.org
+              - generic [ref=e209]:
+                - strong [ref=e210]: Bahá'í World News Service
+                - paragraph [ref=e211]: News stories from the global Bahá'í community.
+              - img [ref=e212]
+          - listitem [ref=e214]:
+            - link "Bahá'ís of Canada The official website of the Bahá'í Community of Canada." [ref=e217] [cursor=pointer]:
+              - /url: https://www.bahai.ca
+              - generic [ref=e218]:
+                - strong [ref=e219]: Bahá'ís of Canada
+                - paragraph [ref=e220]: The official website of the Bahá'í Community of Canada.
+              - img [ref=e221]
+          - listitem [ref=e223]:
+            - link "Bahá'í Reference Library Authoritative texts of the Bahá'í Faith." [ref=e226] [cursor=pointer]:
+              - /url: https://www.bahai.org/library/
+              - generic [ref=e227]:
+                - strong [ref=e228]: Bahá'í Reference Library
+                - paragraph [ref=e229]: Authoritative texts of the Bahá'í Faith.
+              - img [ref=e230]
+          - listitem [ref=e232]:
+            - link "Bahá'í Blog Stories, reflections, and perspectives from Bahá'ís around the world." [ref=e235] [cursor=pointer]:
+              - /url: https://www.bahaiblog.net
+              - generic [ref=e236]:
+                - strong [ref=e237]: Bahá'í Blog
+                - paragraph [ref=e238]: Stories, reflections, and perspectives from Bahá'ís around the world.
+              - img [ref=e239]
+      - generic [ref=e244]:
+        - heading "Connect with the Bahá'í Community" [level=2] [ref=e246]
+        - link "Get in Touch" [ref=e248] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e249]: Get in Touch
+        - generic [ref=e251]:
+          - strong [ref=e252]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e253]:
+            - text: 521 McMillan Ave
+            - text: Winnipeg, MB R3L 0N4
+          - paragraph [ref=e254]:
+            - text: (204) 452-0139
+            - text: LSA@winnipegbahais.org
+    - contentinfo [ref=e255]:
+      - generic [ref=e257]:
+        - navigation [ref=e259]:
+          - list [ref=e260]:
+            - listitem [ref=e261]:
+              - generic [ref=e262]: Explore
+              - list [ref=e263]:
+                - listitem [ref=e264]:
+                  - link "About" [ref=e265] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e266]:
+                  - link "Community Life" [ref=e267] [cursor=pointer]:
+                    - /url: /community-life
+                - listitem [ref=e268]:
+                  - link "Learn More" [ref=e269] [cursor=pointer]:
+                    - /url: /learn-more
+                - listitem [ref=e270]:
+                  - link "Events" [ref=e271] [cursor=pointer]:
+                    - /url: /events
+                - listitem [ref=e272]:
+                  - link "News" [ref=e273] [cursor=pointer]:
+                    - /url: /news
+                - listitem [ref=e274]:
+                  - link "Contact" [ref=e275] [cursor=pointer]:
+                    - /url: /contact
+            - listitem [ref=e276]:
+              - generic [ref=e277]: Official Resources
+              - list [ref=e278]:
+                - listitem [ref=e279]:
+                  - link "Bahai.org" [ref=e280] [cursor=pointer]:
+                    - /url: https://www.bahai.org
+                - listitem [ref=e281]:
+                  - link "Bahá'í World News" [ref=e282] [cursor=pointer]:
+                    - /url: https://news.bahai.org
+                - listitem [ref=e283]:
+                  - link "Bahá'ís of Canada" [ref=e284] [cursor=pointer]:
+                    - /url: https://www.bahai.ca
+                - listitem [ref=e285]:
+                  - link "Bahá'í Reference Library" [ref=e286] [cursor=pointer]:
+                    - /url: https://www.bahai.org/library/
+            - listitem [ref=e287]:
+              - generic [ref=e288]: Connect
+              - list [ref=e289]:
+                - listitem [ref=e290]:
+                  - link "Facebook" [ref=e291] [cursor=pointer]:
+                    - /url: https://www.facebook.com/WinnipegBahais
+                - listitem [ref=e292]:
+                  - link "Instagram" [ref=e293] [cursor=pointer]:
+                    - /url: https://www.instagram.com/winnipegbahais
+        - generic [ref=e294]:
+          - link "Home" [ref=e295] [cursor=pointer]:
+            - /url: /
+            - img [ref=e296]:
+              - img [ref=e297]:
+                - generic [ref=e299]: B
+              - generic [ref=e300]: Bahá'í Winnipeg
+          - paragraph [ref=e301]: © Bahá'í Community of Winnipeg 2026
+  - button "Open Next.js Dev Tools" [ref=e307] [cursor=pointer]:
+    - img [ref=e308]
