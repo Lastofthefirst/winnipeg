@@ -178,7 +178,7 @@ function RootLayoutInner({
   children,
   locale,
   nav,
-  footer: _footer,
+  footer,
 }: {
   children: React.ReactNode
   locale: Locale
@@ -305,7 +305,7 @@ function RootLayoutInner({
 
           <main className="w-full flex-auto">{children}</main>
 
-          <Footer />
+          <Footer locale={locale} nav={nav} footer={footer} />
         </motion.div>
       </motion.div>
     </MotionConfig>
