@@ -77,7 +77,7 @@ function CommunityActivities() {
                     {activity.description}
                   </p>
                   <p className="mt-6 text-xs uppercase tracking-[0.2em] text-gold-600">
-                    Discover &rarr;
+                    Learn more &rarr;
                   </p>
                 </div>
               </article>
@@ -126,40 +126,13 @@ function CommunitySnapshot() {
               </div>
             </div>
             <div className="mt-12 lg:mt-0 lg:w-1/2">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <OptimizedImage
-                    src="/prairie-theme/wheat-01.png"
-                    alt="Golden wheat"
-                    width={768}
-                    height={768}
-                    className="w-full object-contain"
-                  />
-                  <OptimizedImage
-                    src="/prairie-theme/crocus-01.png"
-                    alt="Prairie crocus"
-                    width={768}
-                    height={768}
-                    className="w-full object-contain"
-                  />
-                </div>
-                <div className="pt-8 space-y-4">
-                  <OptimizedImage
-                    src="/prairie-theme/prairie-grass-01.png"
-                    alt="Prairie grass"
-                    width={640}
-                    height={896}
-                    className="w-full object-contain"
-                  />
-                  <OptimizedImage
-                    src="/prairie-theme/meadowlark-01.png"
-                    alt="Meadowlark"
-                    width={512}
-                    height={640}
-                    className="w-full object-contain"
-                  />
-                </div>
-              </div>
+              <OptimizedImage
+                src="/community/garden-bouquet-01.png"
+                alt="Prairie wildflower bouquet"
+                width={768}
+                height={1024}
+                className="w-full object-contain"
+              />
             </div>
           </div>
         </FadeIn>
@@ -206,13 +179,16 @@ export default function Home() {
     <RootLayout>
       {/* Hero — light parchment background with burgundy text */}
       <Container className="relative py-32 sm:py-40 lg:py-56">
-        <div className="pointer-events-none absolute inset-x-0 -bottom-8 lg:-bottom-32 -z-10 flex justify-center">
+        <div
+          className="pointer-events-none absolute inset-x-0 -bottom-8 lg:-bottom-32 -z-10 flex justify-center"
+          style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))' }}
+        >
           <OptimizedImage
             src="/river-confluence/confluence-01.png"
             alt=""
             width={1536}
             height={640}
-            className="w-full object-contain object-top opacity-60"
+            className="w-full object-contain object-top"
           />
         </div>
         <FadeIn>

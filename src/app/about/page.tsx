@@ -35,11 +35,11 @@ function ImageStrip() {
           </div>
           <div>
             <OptimizedImage
-              src="/prairie-theme/prairie-flowers-01.png"
-              alt="Prairie wildflowers"
+              src="/prairie-theme/stones-01.png"
+              alt="Stacked river stones"
               width={768}
               height={768}
-              className="w-full object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -51,27 +51,34 @@ function ImageStrip() {
 function CorePrinciples() {
   return (
     <div className="relative mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
-      {/* Cloud accent - top right area */}
-      <div className="pointer-events-none absolute right-4 top-8 sm:right-8 lg:right-16 lg:top-12">
-        <OptimizedImage
-          src="/burgundy-clouds/cloud-01.png"
-          alt=""
-          width={400}
-          height={400}
-          className="w-[150px] object-contain sm:w-[200px] lg:w-[280px]"
-        />
-      </div>
-      <SectionIntro
-        eyebrow="Core principles"
-        title="The oneness of humanity — the pivot round which all else revolves."
-        invert
-      >
-        <p>
-          Bahá&apos;ís believe that humanity is one family. All else flows
-          from this conviction: the equality of women and men, the elimination
-          of prejudice, the harmony of science and religion.
-        </p>
-      </SectionIntro>
+      <Container className="relative">
+        <div className="pointer-events-none absolute right-0 top-0 z-0">
+          <OptimizedImage
+            src="/quote/sun-principles-01.png"
+            alt=""
+            width={400}
+            height={400}
+            className="w-[150px] object-contain sm:w-[200px] lg:w-[280px]"
+          />
+        </div>
+        <FadeIn className="relative z-10 max-w-2xl">
+          <h2>
+            <span className="mb-6 block font-display text-sm font-semibold uppercase tracking-[0.25em] text-gold-400">
+              Core principles
+            </span>
+            <span className="block font-display tracking-tight text-balance text-4xl font-normal sm:text-5xl text-ivory">
+              The oneness of humanity — the pivot round which all else revolves.
+            </span>
+          </h2>
+          <div className="mt-6 text-xl text-burgundy-200">
+            <p>
+              Bahá&apos;ís believe that humanity is one family. All else flows
+              from this conviction: the equality of women and men, the elimination
+              of prejudice, the harmony of science and religion.
+            </p>
+          </div>
+        </FadeIn>
+      </Container>
       <Container className="mt-16">
         <GridList>
           <GridListItem title="Unity of humanity" invert>
@@ -146,22 +153,13 @@ function LocalCommunity() {
           </div>
         </div>
         <FadeIn className="mt-12 lg:mt-0 lg:w-1/2">
-          <div className="space-y-4">
-            <OptimizedImage
-              src="/prairie-theme/prairie-grass-01.png"
-              alt="Tall prairie grass"
-              width={640}
-              height={896}
-              className="w-full object-contain"
-            />
-            <OptimizedImage
-              src="/prairie-theme/big-sky-01.png"
-              alt="Big prairie sky"
-              width={1024}
-              height={640}
-              className="w-full object-contain"
-            />
-          </div>
+          <OptimizedImage
+            src="/prairie-theme/prairie-grass-01.png"
+            alt="Tall prairie grass"
+            width={640}
+            height={896}
+            className="w-full object-contain"
+          />
         </FadeIn>
       </div>
     </Container>

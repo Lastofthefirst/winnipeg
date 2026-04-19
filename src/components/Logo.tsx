@@ -25,12 +25,12 @@ export function Logomark({
         y="22"
         textAnchor="middle"
         className={clsx(
-          'text-[20px] font-bold',
+          'text-[23px] font-bold',
           invert ? 'fill-ivory' : 'fill-burgundy-900',
         )}
         style={{ fontFamily: 'Georgia, "Noto Serif", serif' }}
       >
-        B
+        W
       </text>
     </svg>
   )

@@ -52,7 +52,7 @@ function Section({
       <Container>
         <div className="relative lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
           <div className="flex justify-center">
-            <FadeIn className="w-[20rem] flex-none lg:w-[28rem]">
+            <FadeIn className="w-[24rem] flex-none lg:w-[34rem]">
               <GardenImage src={imageSrc} alt={imageAlt} />
             </FadeIn>
           </div>

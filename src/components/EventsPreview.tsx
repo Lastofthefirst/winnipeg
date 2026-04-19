@@ -9,7 +9,6 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 
 import imageNawRuz from '@/images/naw-ruz-celebration.jpg'
-import imageRidvan from '@/images/ridvan-garden.jpg'
 import imageDevotionalCandles from '@/images/devotional-candles.jpg'
 
 export interface UpcomingEvent {
@@ -22,7 +21,6 @@ export interface UpcomingEvent {
   styleName?: string
 }
 
-// Upcoming events data — edit this array to add/remove events
 export const upcomingEvents: UpcomingEvent[] = [
   {
     date: '2026-03-20',
@@ -33,16 +31,6 @@ export const upcomingEvents: UpcomingEvent[] = [
       'Join us to celebrate the Bahá\'í New Year with prayers, music, and a shared meal. All are welcome.',
     image: imageNawRuz,
     styleName: 'naw-ruz-celebration',
-  },
-  {
-    date: '2026-04-20',
-    title: 'Festival of Ridván',
-    location: 'Bahá\'í Centre, 521 McMillan Ave',
-    time: '7:00 PM',
-    description:
-      'Commemorate the most joyous Bahá\'í festival, marking the declaration of Bahá\'u\'lláh\'s mission.',
-    image: imageRidvan,
-    styleName: 'ridvan-garden',
   },
   {
     date: '2026-03-07',
@@ -56,7 +44,31 @@ export const upcomingEvents: UpcomingEvent[] = [
   },
 ]
 
-function formatEventDate(dateString: string) {
+function parseEventCutoff(event: UpcomingEvent): Date {
+  const base = new Date(`${event.date}T00:00:00`)
+  if (event.time) {
+    const m = event.time.match(/(\d+):(\d+)\s*(AM|PM)/i)
+    if (m) {
+      let h = parseInt(m[1])
+      const min = parseInt(m[2])
+      const meridiem = m[3].toUpperCase()
+      if (meridiem === 'PM' && h !== 12) h += 12
+      if (meridiem === 'AM' && h === 12) h = 0
+      base.setHours(h, min, 0, 0)
+    }
+  }
+  base.setDate(base.getDate() + 2)
+  return base
+}
+
+export function getUpcomingEvents(events: UpcomingEvent[]) {
+  const now = new Date()
+  return events
+    .filter((e) => parseEventCutoff(e) > now)
+    .sort((a, b) => a.date.localeCompare(b.date))
+}
+
+export function formatEventDate(dateString: string) {
   return new Date(`${dateString}T00:00:00`).toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
@@ -65,29 +77,40 @@ function formatEventDate(dateString: string) {
   })
 }
 
-function getUpcomingEvents(events: UpcomingEvent[]) {
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  return events
-    .filter((e) => new Date(`${e.date}T00:00:00`) >= today)
-    .sort((a, b) => a.date.localeCompare(b.date))
-}
-
-function FallbackCTA() {
+function AlwaysGathering() {
   return (
     <Container className="mt-16">
       <FadeIn>
-        <div className="border border-burgundy-200 bg-ivory p-8 text-center sm:p-12">
-          <p className="font-display text-2xl font-normal text-burgundy-900">
-            Stay connected
-          </p>
-          <p className="mt-4 text-base text-burgundy-600">
-            We regularly host devotional gatherings, study circles, and
-            community celebrations. Get in touch to learn about our next
-            gathering.
-          </p>
-          <div className="mt-6">
-            <Button href="/contact">Get in Touch</Button>
+        <div className="relative border border-burgundy-200 bg-ivory px-8 py-14 sm:px-14 sm:py-16">
+          <span className="absolute left-4 top-4 h-4 w-4 border-l border-t border-gold-400" />
+          <span className="absolute right-4 top-4 h-4 w-4 border-r border-t border-gold-400" />
+          <span className="absolute bottom-4 left-4 h-4 w-4 border-b border-l border-gold-400" />
+          <span className="absolute bottom-4 right-4 h-4 w-4 border-b border-r border-gold-400" />
+
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-gold-600">
+              Walk with us
+            </p>
+            <h3 className="mt-5 font-display text-3xl font-normal leading-snug text-burgundy-900 sm:text-4xl">
+              A path of service, open to all
+            </h3>
+            <div className="mx-auto mt-6 h-px w-12 bg-gold-400" />
+            <p className="mt-6 text-base leading-relaxed text-burgundy-600">
+              Do you hope to walk alongside young people as they discover their
+              power to serve, to contribute to the moral and spiritual education
+              of children, to explore the ideas that can transform both the
+              individual and society, or to draw closer to God through collective
+              worship? Come join a path of service being walked by growing
+              numbers from all backgrounds.
+            </p>
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
+              >
+                Reach out <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
           </div>
         </div>
       </FadeIn>
@@ -112,7 +135,7 @@ export function EventsPreview() {
       </SectionIntro>
 
       {upcoming.length === 0 ? (
-        <FallbackCTA />
+        <AlwaysGathering />
       ) : (
         <Container className="mt-16">
           <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
