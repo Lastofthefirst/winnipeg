@@ -120,9 +120,6 @@ export default async function HomePage({ params }: { params: any }) {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700">
                     {activity.description}
                   </p>
-                  <p className="mt-6 text-xs uppercase tracking-[0.2em] text-gold-600">
-                    Learn more &rarr;
-                  </p>
                 </div>
               </article>
             </FadeIn>
