@@ -1,6 +1,5 @@
 import { type Metadata } from 'next'
 
-import { StyleProvider } from '@/components/StyleSwitcher'
 import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-full bg-burgundy-900 text-base antialiased">
       <body className="flex min-h-full flex-col">
-        <StyleProvider>{children}</StyleProvider>
+        {children}
       </body>
     </html>
   )
