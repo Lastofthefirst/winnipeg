@@ -3,46 +3,12 @@
 import { useEffect, useState } from 'react'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 
-const RSS_URL = 'https://news.bahai.org/rss.xml'
-const PROXY_URL = 'https://api.allorigins.win/get?url='
-
 interface NewsItem {
   title: string
   description: string
   link: string
   pubDate: string
   image: string
-}
-
-function parseRSS(xmlString: string): NewsItem[] {
-  const parser = new DOMParser()
-  const xml = parser.parseFromString(xmlString, 'application/xml')
-
-  const parseError = xml.querySelector('parsererror')
-  if (parseError) return []
-
-  const items = xml.querySelectorAll('item')
-  return Array.from(items).map((item) => {
-    const title =
-      item.querySelector('title')?.textContent?.replace(/<!\[CDATA\[|\]\]>/g, '').trim() ||
-      'No Title'
-    const description =
-      item.querySelector('description')?.textContent?.replace(/<!\[CDATA\[|\]\]>/g, '').trim() ||
-      ''
-    const link = item.querySelector('link')?.textContent || '#'
-    const pubDate = item.querySelector('pubDate')?.textContent || ''
-
-    let image = ''
-    const mediaContent = item.getElementsByTagNameNS(
-      'http://search.yahoo.com/mrss/',
-      'content',
-    )[0]
-    const enclosure = item.querySelector('enclosure')
-    if (mediaContent) image = mediaContent.getAttribute('url') || ''
-    else if (enclosure) image = enclosure.getAttribute('url') || ''
-
-    return { title, description, link, pubDate, image }
-  })
 }
 
 function formatDate(dateString: string) {
@@ -74,13 +40,9 @@ export function NewsFeed({ limit = 6 }: { limit?: number }) {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await fetch(
-          `${PROXY_URL}${encodeURIComponent(RSS_URL)}`,
-        )
+        const response = await fetch('/news.json')
         if (!response.ok) throw new Error('Network error')
-
-        const data = await response.json()
-        const items = parseRSS(data.contents)
+        const items: NewsItem[] = await response.json()
         setArticles(items.slice(0, limit))
       } catch {
         setError(true)
