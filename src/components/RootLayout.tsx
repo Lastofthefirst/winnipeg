@@ -17,9 +17,20 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
+import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import type { Locale } from '@/i18n/types'
+import type { Dictionary } from '@/i18n/types'
+
+const EN_NAV_FALLBACK: Dictionary['nav'] = {
+  home: 'Home', about: 'About', communityLife: 'Community Life',
+  learnMore: 'Learn More', events: 'Events', news: 'News', contact: 'Contact',
+}
+const EN_FOOTER_FALLBACK: Dictionary['footer'] = {
+  explore: 'Explore', officialResources: 'Official Resources', connect: 'Connect',
+}
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -50,6 +61,8 @@ function Header({
   onToggle,
   toggleRef,
   invert = false,
+  locale,
+  contactLabel,
 }: {
   panelId: string
   icon: React.ComponentType<{ className?: string }>
@@ -57,6 +70,8 @@ function Header({
   onToggle: () => void
   toggleRef: React.RefObject<HTMLButtonElement | null>
   invert?: boolean
+  locale: Locale
+  contactLabel: string
 }) {
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
@@ -64,7 +79,7 @@ function Header({
     <Container>
       <div className="flex items-center justify-between">
         <Link
-          href="/"
+          href={`/${locale}`}
           aria-label="Home"
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
@@ -81,8 +96,9 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
-            Contact us
+          <LocaleSwitcher locale={locale} />
+          <Button href={`/${locale}/contact`} invert={invert}>
+            {contactLabel}
           </Button>
           <button
             ref={toggleRef}
@@ -139,26 +155,36 @@ function NavigationItem({
   )
 }
 
-function Navigation() {
+function Navigation({ locale, nav }: { locale: Locale; nav: Dictionary['nav'] }) {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-parchment">
       <NavigationRow>
-        <NavigationItem href="/">Home</NavigationItem>
-        <NavigationItem href="/about">About</NavigationItem>
+        <NavigationItem href={`/${locale}`}>{nav.home}</NavigationItem>
+        <NavigationItem href={`/${locale}/about`}>{nav.about}</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/community-life">Community Life</NavigationItem>
-        <NavigationItem href="/learn-more">Learn More</NavigationItem>
+        <NavigationItem href={`/${locale}/community-life`}>{nav.communityLife}</NavigationItem>
+        <NavigationItem href={`/${locale}/learn-more`}>{nav.learnMore}</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/events">Events</NavigationItem>
-        <NavigationItem href="/news">News</NavigationItem>
+        <NavigationItem href={`/${locale}/events`}>{nav.events}</NavigationItem>
+        <NavigationItem href={`/${locale}/news`}>{nav.news}</NavigationItem>
       </NavigationRow>
     </nav>
   )
 }
 
-function RootLayoutInner({ children }: { children: React.ReactNode }) {
+function RootLayoutInner({
+  children,
+  locale,
+  nav,
+  footer: _footer,
+}: {
+  children: React.ReactNode
+  locale: Locale
+  nav: Dictionary['nav']
+  footer?: Dictionary['footer']
+}) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let [isTransitioning, setIsTransitioning] = useState(false)
@@ -166,6 +192,10 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
   let closeRef = useRef<React.ElementRef<'button'>>(null)
   let navRef = useRef<React.ElementRef<'div'>>(null)
   let shouldReduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    document.documentElement.lang = locale
+  }, [locale])
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -202,6 +232,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             icon={MenuIcon}
             toggleRef={openRef}
             expanded={expanded}
+            locale={locale}
+            contactLabel={nav.contact}
             onToggle={() => {
               setIsTransitioning(true)
               setExpanded((expanded) => !expanded)
@@ -228,6 +260,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 icon={XIcon}
                 toggleRef={closeRef}
                 expanded={expanded}
+                locale={locale}
+                contactLabel={nav.contact}
                 onToggle={() => {
                   setIsTransitioning(true)
                   setExpanded((expanded) => !expanded)
@@ -237,7 +271,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 }}
               />
             </div>
-            <Navigation />
+            <Navigation locale={locale} nav={nav} />
             <div className="relative bg-burgundy-900 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-burgundy-800">
               <Container>
                 <div className="flex flex-col items-center py-12 text-center sm:py-16">
@@ -278,13 +312,25 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function RootLayout({ children }: { children: React.ReactNode }) {
+export function RootLayout({
+  children,
+  locale = 'en',
+  nav = EN_NAV_FALLBACK,
+  footer = EN_FOOTER_FALLBACK,
+}: {
+  children: React.ReactNode
+  locale?: Locale
+  nav?: Dictionary['nav']
+  footer?: Dictionary['footer']
+}) {
   let pathname = usePathname()
   let [logoHovered, setLogoHovered] = useState(false)
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
+      <RootLayoutInner key={pathname} locale={locale} nav={nav} footer={footer}>
+        {children}
+      </RootLayoutInner>
     </RootLayoutContext.Provider>
   )
 }
