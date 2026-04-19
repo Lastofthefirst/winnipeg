@@ -120,14 +120,15 @@ function LocalCommunity() {
       <div className="lg:flex lg:items-start lg:gap-x-16">
         <div className="lg:w-1/2">
           <SectionIntro
-            eyebrow="Our community"
+            eyebrow="In Winnipeg"
             title="The Bahá'ís of Winnipeg"
             className="!px-0"
           >
             <p>
-              Like the two rivers that meet at the Forks, the Bahá&apos;í Community
-              of Winnipeg draws together people from many backgrounds, united by a
-              shared vision of building a more just and peaceful world.
+              The two rivers converge at the Forks into a single united
+              current — the vision of Bahá&apos;u&apos;lláh draws together
+              people from every background into one community, working toward
+              a more just and peaceful world.
             </p>
           </SectionIntro>
           <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-burgundy-700">
@@ -139,16 +140,16 @@ function LocalCommunity() {
               spirit of unity and shared purpose.
             </p>
             <p>
-              Our community is deeply engaged in the life of our neighbourhoods —
-              through devotional meetings, study circles, children&apos;s classes,
-              and programs for junior youth. We work alongside our neighbours,
-              friends, and all those who share the desire to cultivate hope and
-              foster purposeful effort in the world.
+              Bahá&apos;ís and their friends are deeply engaged in the life of
+              Winnipeg&apos;s neighbourhoods — through devotional meetings, study
+              circles, children&apos;s classes, and programs for junior youth.
+              Working alongside neighbours and all those who share the desire to
+              cultivate hope and foster purposeful effort in the world.
             </p>
             <p>
-              Every person has a contribution to make. Whether you are exploring
-              the Bahá&apos;í Faith for the first time or simply looking to
-              participate in something meaningful, we invite you to join us.
+              Every person has a contribution to make. Whether exploring the
+              Bahá&apos;í Faith for the first time or simply looking to
+              participate in something meaningful, there is a place here.
             </p>
           </div>
         </div>

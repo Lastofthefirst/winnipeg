@@ -43,10 +43,10 @@ function CommunityActivities() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          The Bahá&apos;í community in Winnipeg offers a range of activities
-          that bring people together for prayer, study, and service. Like the
-          rivers that meet at the Forks, our community draws together people
-          from many backgrounds, united by a shared vision.
+          The Bahá&apos;í community in Winnipeg is engaged in a range of
+          activities that bring people together for prayer, study, and service.
+          Like the rivers that meet at the Forks, Bahá&apos;ís and their
+          friends draw together from many backgrounds, united by a shared vision.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -98,16 +98,17 @@ function CommunitySnapshot() {
             <div className="lg:w-1/2">
               <div className="mb-4 h-px w-16 bg-burgundy-300" />
               <p className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500">
-                Our community
+                In Winnipeg
               </p>
               <h2 className="mt-4 font-display text-3xl font-normal text-burgundy-900 sm:text-4xl">
                 Where the rivers meet
               </h2>
               <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
                 <p>
-                  Like the two rivers that converge at the Forks, our community
-                  draws together people from many backgrounds — united by a
-                  shared vision of building a more just and peaceful world.
+                  The two rivers converge at the Forks into a single united
+                  current — the vision of Bahá&apos;u&apos;lláh draws together
+                  people from every background into one community, working
+                  toward a more just and peaceful world.
                 </p>
                 <p>
                   The Bahá&apos;í community in Winnipeg has been present for

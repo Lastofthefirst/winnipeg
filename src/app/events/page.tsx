@@ -19,7 +19,7 @@ function AlwaysGatheringFull() {
       <div className="relative border-t border-burgundy-200 pt-16">
         <div className="max-w-2xl">
           <p className="font-display text-xs uppercase tracking-[0.3em] text-gold-600">
-            Walk with us
+            A path of service
           </p>
           <h2 className="mt-5 font-display text-3xl font-normal leading-snug text-burgundy-900 sm:text-4xl">
             A path of service, open to all
@@ -60,8 +60,9 @@ export default function Events() {
     <RootLayout>
       <PageIntro eyebrow="Events" title="Upcoming gatherings">
         <p>
-          Join us for devotional gatherings, holy day celebrations, study
-          circles, and community events. Everyone is warmly welcome.
+          Devotional gatherings, holy day celebrations, study circles, and
+          community events — Bahá&apos;ís and their friends, everyone is
+          warmly welcome.
         </p>
       </PageIntro>
 

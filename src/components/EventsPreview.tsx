@@ -89,7 +89,7 @@ function AlwaysGathering() {
 
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.3em] text-gold-600">
-              Walk with us
+              A path of service
             </p>
             <h3 className="mt-5 font-display text-3xl font-normal leading-snug text-burgundy-900 sm:text-4xl">
               A path of service, open to all
@@ -129,7 +129,7 @@ export function EventsPreview() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Our community comes together regularly for prayer, study, celebration,
+          Bahá&apos;ís and their friends gather for prayer, study, celebration,
           and service. Everyone is welcome.
         </p>
       </SectionIntro>

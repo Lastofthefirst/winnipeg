@@ -118,15 +118,15 @@ function ContactDetails() {
         Visit Us
       </h2>
       <p className="mt-6 text-base text-burgundy-700">
-        We warmly welcome visitors and those interested in learning more about
-        the Bahá&apos;í Faith. Feel free to reach out or stop by.
+        Visitors and those curious about the Bahá&apos;í Faith are warmly
+        welcomed. Feel free to reach out or stop by.
       </p>
 
       <Offices className="mt-10" />
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-burgundy-900">
-          Email us
+          Email
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
@@ -150,7 +150,7 @@ function ContactDetails() {
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-burgundy-900">
-          Follow us
+          Follow
         </h2>
         <SocialMedia className="mt-6" />
       </Border>
@@ -167,8 +167,8 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Contact us" title="Connect with us">
-        <p>We&apos;d love to hear from you.</p>
+      <PageIntro eyebrow="Contact" title="Get in touch">
+        <p>Every question and every conversation is welcome.</p>
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
