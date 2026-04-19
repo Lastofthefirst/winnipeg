@@ -10,6 +10,7 @@ import { OptimizedImage } from '@/components/OptimizedImage'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
+import en from '@/i18n/dictionaries/en'
 
 function CommunityActivities() {
   const activities = [
@@ -228,7 +229,7 @@ export default function Home() {
 
       <CommunitySnapshot />
 
-      <EventsPreview />
+      <EventsPreview strings={en.eventsPreview} />
 
       <Quote
         className="mt-24 sm:mt-32 lg:mt-40"

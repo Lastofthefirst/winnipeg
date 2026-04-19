@@ -1,5 +1,6 @@
-import { type StaticImageData } from 'next/image'
-import { StyledImage } from '@/components/StyleSwitcher'
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -7,42 +8,16 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
-
-import imageNawRuz from '@/images/naw-ruz-celebration.jpg'
-import imageDevotionalCandles from '@/images/devotional-candles.jpg'
+import type { Locale, Dictionary } from '@/i18n/types'
 
 export interface UpcomingEvent {
+  id?: string
   date: string
   title: string
   location?: string
   time?: string
   description: string
-  image?: StaticImageData
-  styleName?: string
 }
-
-export const upcomingEvents: UpcomingEvent[] = [
-  {
-    date: '2026-03-20',
-    title: 'Naw-Rúz Celebration',
-    location: 'Bahá\'í Centre, 521 McMillan Ave',
-    time: '6:00 PM',
-    description:
-      'Join us to celebrate the Bahá\'í New Year with prayers, music, and a shared meal. All are welcome.',
-    image: imageNawRuz,
-    styleName: 'naw-ruz-celebration',
-  },
-  {
-    date: '2026-03-07',
-    title: 'Devotional Gathering',
-    location: 'Bahá\'í Centre, 521 McMillan Ave',
-    time: '10:30 AM',
-    description:
-      'A quiet morning of prayers and readings from the sacred writings. Open to people of all backgrounds.',
-    image: imageDevotionalCandles,
-    styleName: 'devotional-candles',
-  },
-]
 
 function parseEventCutoff(event: UpcomingEvent): Date {
   const base = new Date(`${event.date}T00:00:00`)
@@ -68,16 +43,20 @@ export function getUpcomingEvents(events: UpcomingEvent[]) {
     .sort((a, b) => a.date.localeCompare(b.date))
 }
 
-export function formatEventDate(dateString: string) {
-  return new Date(`${dateString}T00:00:00`).toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+export function formatEventDate(dateString: string, locale: Locale = 'en') {
+  const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-US'
+  return new Date(`${dateString}T00:00:00`).toLocaleDateString(dateLocale, {
+    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
   })
 }
 
-function AlwaysGathering() {
+function AlwaysGathering({
+  strings,
+  locale,
+}: {
+  strings: Dictionary['eventsPreview']['invitation']
+  locale: Locale
+}) {
   return (
     <Container className="mt-16">
       <FadeIn>
@@ -89,26 +68,21 @@ function AlwaysGathering() {
 
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.3em] text-gold-600">
-              A path of service
+              {strings.eyebrow}
             </p>
             <h3 className="mt-5 font-display text-3xl font-normal leading-snug text-burgundy-900 sm:text-4xl">
-              A path of service, open to all
+              {strings.heading}
             </h3>
             <div className="mx-auto mt-6 h-px w-12 bg-gold-400" />
             <p className="mt-6 text-base leading-relaxed text-burgundy-600">
-              Do you hope to walk alongside young people as they discover their
-              power to serve, to contribute to the moral and spiritual education
-              of children, to explore the ideas that can transform both the
-              individual and society, or to draw closer to God through collective
-              worship? Come join a path of service being walked by growing
-              numbers from all backgrounds.
+              {strings.body}
             </p>
             <div className="mt-10">
               <Link
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
               >
-                Reach out <span aria-hidden="true">&rarr;</span>
+                {strings.link} <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -118,44 +92,73 @@ function AlwaysGathering() {
   )
 }
 
-export function EventsPreview() {
-  const upcoming = getUpcomingEvents(upcomingEvents)
+function SkeletonCard() {
+  return (
+    <div className="animate-pulse border border-burgundy-200 bg-ivory">
+      <div className="flex flex-col p-6 sm:p-8">
+        <div className="h-3 w-32 bg-burgundy-100" />
+        <div className="mt-6 h-6 w-full bg-burgundy-100" />
+        <div className="mt-2 h-4 w-2/3 bg-burgundy-100" />
+        <div className="mt-4 h-4 w-full bg-burgundy-100" />
+        <div className="mt-2 h-4 w-3/4 bg-burgundy-100" />
+      </div>
+    </div>
+  )
+}
+
+export function EventsPreview({
+  locale = 'en',
+  strings,
+}: {
+  locale?: Locale
+  strings: Dictionary['eventsPreview']
+}) {
+  const [upcoming, setUpcoming] = useState<UpcomingEvent[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('https://winnipeg-bahais.dust.ridvan.org/api/content/events?sort=date:asc&limit=20')
+      .then((r) => r.json())
+      .then((json) => {
+        const raw: UpcomingEvent[] = Array.isArray(json) ? json : (json.data ?? [])
+        setUpcoming(getUpcomingEvents(raw))
+      })
+      .catch(() => setUpcoming([]))
+      .finally(() => setLoading(false))
+  }, [])
 
   return (
     <>
       <SectionIntro
-        eyebrow="Events"
-        title="Upcoming gatherings"
+        eyebrow={strings.eyebrow}
+        title={strings.heading}
         className="mt-24 sm:mt-32 lg:mt-40"
       >
-        <p>
-          Bahá&apos;ís and their friends gather for prayer, study, celebration,
-          and service. Everyone is welcome.
-        </p>
+        <p>{strings.intro}</p>
       </SectionIntro>
 
-      {upcoming.length === 0 ? (
-        <AlwaysGathering />
+      {loading ? (
+        <Container className="mt-16">
+          <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <FadeIn key={i}>
+                <SkeletonCard />
+              </FadeIn>
+            ))}
+          </FadeInStagger>
+        </Container>
+      ) : upcoming.length === 0 ? (
+        <AlwaysGathering strings={strings.invitation} locale={locale} />
       ) : (
         <Container className="mt-16">
           <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {upcoming.slice(0, 3).map((event) => (
-              <FadeIn key={event.date + event.title} className="flex">
+              <FadeIn key={event.id ?? event.date + event.title} className="flex">
                 <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                  {event.image && (
-                    <div className="relative h-40 overflow-hidden">
-                      <StyledImage
-                        src={event.image}
-                        styleName={event.styleName ?? ''}
-                        alt=""
-                        className="h-full w-full object-cover transition duration-700"
-                      />
-                    </div>
-                  )}
                   <div className="flex flex-1 flex-col p-6 sm:p-8">
                     <Border position="left" className="pl-4">
                       <p className="text-sm font-semibold text-burgundy-900">
-                        {formatEventDate(event.date)}
+                        {formatEventDate(event.date, locale)}
                       </p>
                       {event.time && (
                         <p className="mt-1 text-sm text-burgundy-600">
@@ -181,7 +184,7 @@ export function EventsPreview() {
           </FadeInStagger>
           {upcoming.length > 3 && (
             <FadeIn className="mt-10 flex justify-center">
-              <Button href="/events">See all events</Button>
+              <Button href={`/${locale}/events`}>{strings.seeAllEvents}</Button>
             </FadeIn>
           )}
         </Container>
