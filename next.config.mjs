@@ -1,13 +1,7 @@
-import nextMDX from '@next/mdx'
-import { recmaImportImages } from 'recma-import-images'
-import remarkGfm from 'remark-gfm'
-import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   images: {
     loader: 'custom',
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -25,23 +19,4 @@ const nextConfig = {
   },
 }
 
-const withMDX = nextMDX({
-  extension: /\.mdx$/,
-  options: {
-    recmaPlugins: [recmaImportImages],
-    rehypePlugins: [
-      rehypeUnwrapImages,
-      [
-        remarkRehypeWrap,
-        {
-          node: { type: 'mdxJsxFlowElement', name: 'Typography' },
-          start: ':root > :not(mdxJsxFlowElement)',
-          end: ':root > mdxJsxFlowElement',
-        },
-      ],
-    ],
-    remarkPlugins: [remarkGfm],
-  },
-})
-
-export default withMDX(nextConfig)
+export default nextConfig
