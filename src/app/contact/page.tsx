@@ -115,11 +115,11 @@ function ContactDetails() {
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-burgundy-900">
-        Visit Us
+        Visiting
       </h2>
       <p className="mt-6 text-base text-burgundy-700">
         Visitors and those curious about the Bahá&apos;í Faith are warmly
-        welcomed. Feel free to reach out or stop by.
+        welcomed. Feel free to reach out or pop by.
       </p>
 
       <Offices className="mt-10" />
@@ -159,9 +159,9 @@ function ContactDetails() {
 }
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact',
   description:
-    'Get in touch with the Bahá\'í Community of Winnipeg. We\'d love to hear from you.',
+    'Get in touch with the Bahá\'í Community of Winnipeg.',
 }
 
 export default function Contact() {

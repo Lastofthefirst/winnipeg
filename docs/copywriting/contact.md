@@ -42,11 +42,11 @@ title: "Contact — Copywriting"
 
 ---
 
-## Visit
+## Visiting
 
-**Heading:** Visit Us
+**Heading:** Visiting
 
-**Body:** Visitors and those curious about the Bahá'í Faith are warmly welcomed. Feel free to reach out or stop by.
+**Body:** Visitors and those curious about the Bahá'í Faith are warmly welcomed. Feel free to reach out or pop by.
 
 **Address:**
 Bahá'í Centre of Winnipeg

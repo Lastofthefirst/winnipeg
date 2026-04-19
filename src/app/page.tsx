@@ -210,13 +210,13 @@ export default function Home() {
                 href="/community-life"
                 className="inline-flex border border-burgundy-900 bg-burgundy-900 px-8 py-3 text-sm uppercase tracking-widest text-ivory transition hover:bg-burgundy-800"
               >
-                Enter
+                Activities
               </Link>
               <Link
-                href="/events"
+                href="/contact"
                 className="inline-flex border border-burgundy-300 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-700 transition hover:bg-burgundy-50"
               >
-                Events
+                Contact
               </Link>
             </div>
             <div className="mx-auto mt-12 h-px w-24 bg-gold-500" />
