@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e6]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]:
+          - generic [ref=e10]: B
+      - generic [ref=e11]:
+        - link "Contact us" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e13]: Contact us
+        - button "Toggle navigation" [ref=e14]:
+          - img [ref=e15]
+    - generic [ref=e18]:
+      - generic [ref=e22]:
+        - link [ref=e23] [cursor=pointer]:
+          - /url: /
+          - img [ref=e24]:
+            - generic [ref=e26]: B
+        - generic [ref=e27]:
+          - link [ref=e28] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e29]: Contact us
+          - button [ref=e30]:
+            - img [ref=e31]
+      - navigation [ref=e34]:
+        - generic [ref=e38]:
+          - link [ref=e39] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link [ref=e41] [cursor=pointer]:
+            - /url: /about
+            - text: About
+        - generic [ref=e46]:
+          - link [ref=e47] [cursor=pointer]:
+            - /url: /community-life
+            - text: Community Life
+          - link [ref=e49] [cursor=pointer]:
+            - /url: /learn-more
+            - text: Learn More
+        - generic [ref=e54]:
+          - link [ref=e55] [cursor=pointer]:
+            - /url: /events
+            - text: Events
+          - link [ref=e57] [cursor=pointer]:
+            - /url: /news
+            - text: News
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - strong [ref=e64]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e65]: 521 McMillan Ave Winnipeg, MB R3L 0N4
+          - paragraph [ref=e66]: (204) 452-0139 LSA@winnipegbahais.org
+        - list [ref=e69]:
+          - listitem [ref=e70]:
+            - link [ref=e71] [cursor=pointer]:
+              - /url: https://www.facebook.com/WinnipegBahais
+              - img [ref=e72]
+          - listitem [ref=e74]:
+            - link [ref=e75] [cursor=pointer]:
+              - /url: https://www.instagram.com/winnipegbahais
+              - img [ref=e76]
+  - generic [ref=e80]:
+    - img [ref=e81]:
+      - img [ref=e83]
+    - main [ref=e90]:
+      - generic [ref=e94]:
+        - paragraph [ref=e96]: Bahá'í Community of Winnipeg
+        - heading "Where rivers converge, hearts unite" [level=1] [ref=e97]
+        - paragraph [ref=e98]: A welcoming community devoted to the oneness of humanity, gathering on Treaty 1 territory in the heart of the prairies.
+        - generic [ref=e99]:
+          - link "Enter" [ref=e100] [cursor=pointer]:
+            - /url: /community-life
+          - link "Events" [ref=e101] [cursor=pointer]:
+            - /url: /events
+      - generic [ref=e105]:
+        - heading "Pathways of service" [level=2] [ref=e106]:
+          - generic [ref=e107]: Pathways of service
+        - paragraph [ref=e109]: The Bahá'í community in Winnipeg offers a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, our community draws together people from many backgrounds, united by a shared vision.
+      - generic [ref=e112]:
+        - article [ref=e114]:
+          - generic [ref=e116]:
+            - heading "Devotional Gatherings" [level=3] [ref=e118]:
+              - link "Devotional Gatherings" [ref=e119] [cursor=pointer]:
+                - /url: /community-life
+                - text: Devotional Gatherings
+            - paragraph [ref=e121]: Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.
+            - paragraph [ref=e122]: Discover →
+        - article [ref=e124]:
+          - generic [ref=e126]:
+            - heading "Study Circles" [level=3] [ref=e128]:
+              - link "Study Circles" [ref=e129] [cursor=pointer]:
+                - /url: /community-life
+                - text: Study Circles
+            - paragraph [ref=e131]: Explore spiritual and social principles in small group settings, building capacity for service to society.
+            - paragraph [ref=e132]: Discover →
+        - article [ref=e134]:
+          - generic [ref=e136]:
+            - heading "Children's Classes" [level=3] [ref=e138]:
+              - link "Children's Classes" [ref=e139] [cursor=pointer]:
+                - /url: /community-life
+                - text: Children's Classes
+            - paragraph [ref=e141]: Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.
+            - paragraph [ref=e142]: Discover →
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - paragraph [ref=e150]: Our community
+          - heading "Where the rivers meet" [level=2] [ref=e151]
+          - generic [ref=e152]:
+            - paragraph [ref=e153]: Like the two rivers that converge at the Forks, our community draws together people from many backgrounds — united by a shared vision of building a more just and peaceful world.
+            - paragraph [ref=e154]: The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.
+          - link "Learn our story" [ref=e156] [cursor=pointer]:
+            - /url: /about
+            - text: Learn our story →
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - img "Golden wheat" [ref=e160]
+            - img "Prairie crocus" [ref=e161]
+          - generic [ref=e162]:
+            - img "Prairie grass" [ref=e163]
+            - img "Meadowlark" [ref=e164]
+      - generic [ref=e167]:
+        - heading "Events - Upcoming gatherings" [level=2] [ref=e168]:
+          - generic [ref=e169]: Events
+          - generic [ref=e170]: "-"
+          - generic [ref=e171]: Upcoming gatherings
+        - paragraph [ref=e173]: Our community comes together regularly for prayer, study, celebration, and service. Everyone is welcome.
+      - article [ref=e178]:
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - paragraph [ref=e182]: Monday, April 20, 2026
+            - paragraph [ref=e183]: 7:00 PM
+          - heading "Festival of Ridván" [level=3] [ref=e184]
+          - paragraph [ref=e185]: Bahá'í Centre, 521 McMillan Ave
+          - paragraph [ref=e186]: Commemorate the most joyous Bahá'í festival, marking the declaration of Bahá'u'lláh's mission.
+      - figure "Bahá'u'lláh" [ref=e191]:
+        - generic [ref=e192]: “
+        - blockquote [ref=e193]:
+          - paragraph [ref=e194]: So powerful is the light of unity that it can illuminate the whole earth.
+        - generic [ref=e196]: Bahá'u'lláh
+      - generic [ref=e199]:
+        - heading "News - From the Bahá'í World" [level=2] [ref=e200]:
+          - generic [ref=e201]: News
+          - generic [ref=e202]: "-"
+          - generic [ref=e203]: From the Bahá'í World
+        - paragraph [ref=e205]: Stories from the global Bahá'í community, sourced from the Bahá'í World News Service.
+      - link "See all news" [ref=e228] [cursor=pointer]:
+        - /url: /news
+        - text: See all news →
+      - generic [ref=e233]:
+        - heading "Connect with the Bahá'í Community" [level=2] [ref=e235]
+        - link "Get in Touch" [ref=e237] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e238]: Get in Touch
+        - generic [ref=e240]:
+          - strong [ref=e241]: Bahá'í Centre of Winnipeg
+          - paragraph [ref=e242]:
+            - text: 521 McMillan Ave
+            - text: Winnipeg, MB R3L 0N4
+          - paragraph [ref=e243]:
+            - text: (204) 452-0139
+            - text: LSA@winnipegbahais.org
+    - contentinfo [ref=e244]:
+      - generic [ref=e246]:
+        - navigation [ref=e248]:
+          - list [ref=e249]:
+            - listitem [ref=e250]:
+              - generic [ref=e251]: Explore
+              - list [ref=e252]:
+                - listitem [ref=e253]:
+                  - link "About" [ref=e254] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e255]:
+                  - link "Community Life" [ref=e256] [cursor=pointer]:
+                    - /url: /community-life
+                - listitem [ref=e257]:
+                  - link "Learn More" [ref=e258] [cursor=pointer]:
+                    - /url: /learn-more
+                - listitem [ref=e259]:
+                  - link "Events" [ref=e260] [cursor=pointer]:
+                    - /url: /events
+                - listitem [ref=e261]:
+                  - link "News" [ref=e262] [cursor=pointer]:
+                    - /url: /news
+                - listitem [ref=e263]:
+                  - link "Contact" [ref=e264] [cursor=pointer]:
+                    - /url: /contact
+            - listitem [ref=e265]:
+              - generic [ref=e266]: Official Resources
+              - list [ref=e267]:
+                - listitem [ref=e268]:
+                  - link "Bahai.org" [ref=e269] [cursor=pointer]:
+                    - /url: https://www.bahai.org
+                - listitem [ref=e270]:
+                  - link "Bahá'í World News" [ref=e271] [cursor=pointer]:
+                    - /url: https://news.bahai.org
+                - listitem [ref=e272]:
+                  - link "Bahá'ís of Canada" [ref=e273] [cursor=pointer]:
+                    - /url: https://www.bahai.ca
+                - listitem [ref=e274]:
+                  - link "Bahá'í Reference Library" [ref=e275] [cursor=pointer]:
+                    - /url: https://www.bahai.org/library/
+            - listitem [ref=e276]:
+              - generic [ref=e277]: Connect
+              - list [ref=e278]:
+                - listitem [ref=e279]:
+                  - link "Facebook" [ref=e280] [cursor=pointer]:
+                    - /url: https://www.facebook.com/WinnipegBahais
+                - listitem [ref=e281]:
+                  - link "Instagram" [ref=e282] [cursor=pointer]:
+                    - /url: https://www.instagram.com/winnipegbahais
+        - generic [ref=e283]:
+          - link "Home" [ref=e284] [cursor=pointer]:
+            - /url: /
+            - img [ref=e285]:
+              - img [ref=e286]:
+                - generic [ref=e288]: B
+              - generic [ref=e289]: Bahá'í Winnipeg
+          - paragraph [ref=e290]: © Bahá'í Community of Winnipeg 2026
+  - button "Original Photos" [ref=e292]:
+    - img [ref=e293]
+    - text: Original Photos

@@ -18,21 +18,21 @@ function CommunityActivities() {
       description:
         'Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.',
       href: '/community-life',
-      image: '/flowers-clean/flower-patch-10.png',
+      image: '/activity-cards/devotional-gatherings-01.png',
     },
     {
       title: 'Study Circles',
       description:
         'Explore spiritual and social principles in small group settings, building capacity for service to society.',
       href: '/community-life',
-      image: '/flowers-clean/flower-patch-11.png',
+      image: '/activity-cards/study-circles-01.png',
     },
     {
       title: "Children's Classes",
       description:
         'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.',
       href: '/community-life',
-      image: '/flowers-clean/flower-patch-03.png',
+      image: '/activity-cards/childrens-classes-01.png',
     },
   ]
 
@@ -54,12 +54,12 @@ function CommunityActivities() {
           {activities.map((activity) => (
             <FadeIn key={activity.title} className="flex">
               <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                <div className="relative flex h-52 items-center justify-center overflow-hidden p-4">
+                <div className="relative flex h-72 items-center justify-center overflow-hidden">
                   <OptimizedImage
                     src={activity.image}
                     alt=""
-                    width={400}
-                    height={400}
+                    width={600}
+                    height={600}
                     className="h-full w-auto object-contain transition duration-700"
                   />
                 </div>
@@ -206,6 +206,15 @@ export default function Home() {
     <RootLayout>
       {/* Hero — light parchment background with burgundy text */}
       <Container className="relative py-32 sm:py-40 lg:py-56">
+        <div className="pointer-events-none absolute inset-x-0 -bottom-8 lg:-bottom-32 -z-10 flex justify-center">
+          <OptimizedImage
+            src="/river-confluence/confluence-01.png"
+            alt=""
+            width={1536}
+            height={640}
+            className="w-full object-contain object-top opacity-60"
+          />
+        </div>
         <FadeIn>
           <div className="mx-auto max-w-3xl text-center">
             <div className="mx-auto mb-8 h-px w-24 bg-gold-500" />
