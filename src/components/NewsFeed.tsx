@@ -87,7 +87,18 @@ export function NewsFeed({ limit = 6 }: { limit?: number }) {
     <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       {articles.map((article) => (
         <FadeIn key={article.link} className="flex">
-          <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400 sm:p-8">
+          <article className="relative flex w-full flex-col border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+            {article.image && (
+              <div className="h-48 w-full overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={article.image}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            )}
+            <div className="flex flex-1 flex-col p-6 sm:p-8">
             <p className="flex gap-x-2 text-sm text-burgundy-900">
               <time dateTime={article.pubDate} className="font-semibold">
                 {formatDate(article.pubDate)}
@@ -106,6 +117,7 @@ export function NewsFeed({ limit = 6 }: { limit?: number }) {
             <p className="mt-4 text-base text-burgundy-700 line-clamp-3">
               {article.description}
             </p>
+            </div>
           </article>
         </FadeIn>
       ))}
