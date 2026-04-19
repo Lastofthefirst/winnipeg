@@ -5,18 +5,18 @@ title: "Contact — Copywriting"
 # Contact
 
 **URL:** `/contact`
-**Page title:** Contact Us
-**Meta description:** Get in touch with the Bahá'í Community of Winnipeg. We'd love to hear from you.
+**Page title:** Contact
+**Meta description:** Get in touch with the Bahá'í Community of Winnipeg.
 
 ---
 
 ## Page intro
 
-**Eyebrow:** Contact us
+**Eyebrow:** Contact
 
-**Heading:** Connect with us
+**Heading:** Get in touch
 
-**Intro:** We'd love to hear from you.
+**Intro:** Every question and every conversation is welcome.
 
 ---
 
@@ -42,11 +42,11 @@ title: "Contact — Copywriting"
 
 ---
 
-## Visit us
+## Visit
 
 **Heading:** Visit Us
 
-**Body:** We warmly welcome visitors and those interested in learning more about the Bahá'í Faith. Feel free to reach out or stop by.
+**Body:** Visitors and those curious about the Bahá'í Faith are warmly welcomed. Feel free to reach out or stop by.
 
 **Address:**
 Bahá'í Centre of Winnipeg
@@ -57,17 +57,17 @@ LSA@winnipegbahais.org
 
 ---
 
-## Email us
+## Email
 
-**Heading:** Email us
+**Heading:** Email
 
 - **General Inquiries:** LSA@winnipegbahais.org
 - **Information:** info@winnipegbahais.org
 
 ---
 
-## Follow us
+## Follow
 
-**Heading:** Follow us
+**Heading:** Follow
 
 *(Social media links rendered from the SocialMedia component.)*

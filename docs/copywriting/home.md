@@ -23,11 +23,11 @@ title: "Home — Copywriting"
 
 ## Pathways of service
 
-The Bahá'í community in Winnipeg offers a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, our community draws together people from many backgrounds, united by a shared vision.
+The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.
 
 ### Devotional Gatherings
 
-Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.
+Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.
 
 ### Study Circles
 
@@ -39,9 +39,13 @@ Nurture the spiritual development of young hearts through stories, songs, art, a
 
 ---
 
-## Our community — Where the rivers meet
+## In Winnipeg — Where the rivers meet
 
-Like the two rivers that converge at the Forks, our community draws together people from many backgrounds — united by a shared vision of building a more just and peaceful world.
+**Eyebrow:** In Winnipeg
+
+**Heading:** Where the rivers meet
+
+The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.
 
 The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.
 
@@ -51,9 +55,19 @@ The Bahá'í community in Winnipeg has been present for over a century, deeply e
 
 ## Events — Upcoming gatherings
 
-Our community comes together regularly for prayer, study, celebration, and service. Everyone is welcome.
+Bahá'ís and their friends gather for prayer, study, celebration, and service. Everyone is welcome.
 
 *(Event cards pull dynamically from the upcoming events list — see Events page for current copy.)*
+
+### Fallback (shown when no events are listed)
+
+**Eyebrow:** A path of service
+
+**Heading:** A path of service, open to all
+
+Do you hope to walk alongside young people as they discover their power to serve, to contribute to the moral and spiritual education of children, to explore the ideas that can transform both the individual and society, or to draw closer to God through collective worship? Come join a path of service being walked by growing numbers from all backgrounds.
+
+**Link:** Reach out →
 
 ---
 

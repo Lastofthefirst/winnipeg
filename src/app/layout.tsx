@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-full bg-burgundy-900 text-base antialiased">
+      <head>
+        <script defer data-domain="winnipeg.pages.dev" src="https://stats.ridvan.org/js/script.js" />
+      </head>
       <body className="flex min-h-full flex-col">
         {children}
       </body>

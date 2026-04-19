@@ -16,11 +16,9 @@ title: "About — Copywriting"
 
 **Heading:** The Bahá'í Faith
 
-**Intro:** The Bahá'í Faith is a world religion whose purpose is to unite all peoples in one universal cause and one common faith.
+**Intro:** The fundamental purpose animating the Bahá'í Faith is to safeguard the interests and promote the unity of the human race.
 
-Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, embracing people from more than 2,100 ethnic, racial, and tribal backgrounds. At the heart of the Faith is the conviction that humanity is one single race, and that the day has come for humanity's unification into one global society.
-
-Bahá'ís are engaged in a global endeavour to build vibrant communities that reflect the principles of justice, unity, and service. Through grassroots activities such as devotional gatherings, study circles, and programs for children and youth, Bahá'ís and their friends work together to translate spiritual principles into social action.
+The Bahá'í Faith addresses both the spiritual life of the individual and the structures of human society — a twofold endeavour to transform character and to build institutions worthy of an ever-advancing civilisation.
 
 ---
 
@@ -36,13 +34,13 @@ Bahá'ís are engaged in a global endeavour to build vibrant communities that re
 
 **Eyebrow:** Core principles
 
-**Heading:** The oneness of humanity is the central teaching of the Bahá'í Faith.
+**Heading:** The oneness of humanity — the pivot round which all else revolves.
 
-**Intro:** Bahá'ís believe that humanity is one family, that women and men are equal, and that the diversity of the human race is a source of strength.
+**Intro:** Bahá'ís believe that humanity is one family, that women and men are equal, and that the diversity of the human race is a source of strength, not division.
 
 ### Unity of humanity
 
-The principle that all people belong to one human family—bound together regardless of race, nation, or creed—is the cornerstone of the Bahá'í Faith.
+The principle that all people belong to one human family — bound together regardless of race, nation, or creed — is the cornerstone of the Bahá'í Faith.
 
 ### Equality of women and men
 
@@ -62,23 +60,23 @@ Each person has the right and responsibility to search for truth independently, 
 
 ### Universal education
 
-Every child deserves access to education. Knowledge is a treasure and the means of progress for every community.
+Regard every human being as a mine rich in gems of inestimable value. Education can alone cause it to reveal its treasures.
 
 ---
 
-## Our community — The Bahá'ís of Winnipeg
+## In Winnipeg — The Bahá'ís of Winnipeg
 
-**Eyebrow:** Our community
+**Eyebrow:** In Winnipeg
 
 **Heading:** The Bahá'ís of Winnipeg
 
-**Intro:** Like the two rivers that meet at the Forks, the Bahá'í Community of Winnipeg draws together people from many backgrounds, united by a shared vision of building a more just and peaceful world.
+**Intro:** The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.
 
-The Bahá'í community in Winnipeg has been present for over a century, growing from a handful of early believers into a vibrant community that reflects the city's rich multicultural heritage. Today, members from dozens of cultural backgrounds come together in a spirit of unity.
+The Bahá'í community in Winnipeg has been present for over a century, growing from a handful of early believers into a vibrant community that reflects the city's rich multicultural heritage. Members from dozens of cultural backgrounds come together in a spirit of unity and shared purpose.
 
-Our community centre on McMillan Avenue serves as a gathering place for devotional programs, study circles, children's classes, and community celebrations. We are deeply engaged in the life of our neighbourhoods, working alongside others to foster community building and social action.
+Bahá'ís and their friends are deeply engaged in the life of Winnipeg's neighbourhoods — through devotional meetings, study circles, children's classes, and programs for junior youth. Working alongside neighbours and all those who share the desire to cultivate hope and foster purposeful effort in the world.
 
-Like the vast prairie sky that reminds us there is always room for growth, we believe that every person has a contribution to make. Whether you are exploring the Bahá'í Faith for the first time or looking for a welcoming community, we invite you to connect with us.
+Every person has a contribution to make. Whether exploring the Bahá'í Faith for the first time or simply looking to participate in something meaningful, there is a place here.
 
 ---
 
