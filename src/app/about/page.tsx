@@ -63,42 +63,43 @@ function CorePrinciples() {
       </div>
       <SectionIntro
         eyebrow="Core principles"
-        title="The oneness of humanity is the central teaching of the Bahá'í Faith."
+        title="The oneness of humanity — the pivot round which all else revolves."
         invert
       >
         <p>
-          Bahá&apos;ís believe that humanity is one family, that women and men
-          are equal, and that the diversity of the human race is a source of
-          strength.
+          Bahá&apos;ís believe that humanity is one family. All else flows
+          from this conviction: the equality of women and men, the elimination
+          of prejudice, the harmony of science and religion.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
           <GridListItem title="Unity of humanity" invert>
-            The principle that all people belong to one human family—bound
-            together regardless of race, nation, or creed—is the cornerstone of
-            the Bahá&apos;í Faith.
+            All people belong to one human family. This is not merely an ideal
+            but the foundation upon which a just and peaceful civilisation can
+            be built.
           </GridListItem>
           <GridListItem title="Equality of women and men" invert>
-            Humanity is like a bird: one wing is women, the other men. Only when
-            both wings are equally strong can the bird fly.
+            Humanity is like a bird: one wing is women, the other men. Only
+            when both wings are equally strong can the bird fly.
           </GridListItem>
           <GridListItem title="Elimination of prejudice" invert>
-            Of all forms of prejudice, the most destructive is racial prejudice.
+            Of all forms of prejudice, racial prejudice is the most destructive.
             Bahá&apos;ís strive actively to build bonds across every line of
             division.
           </GridListItem>
           <GridListItem title="Harmony of science and religion" invert>
-            Religion without science is superstition; science without religion is
-            materialism. Both are needed for human progress.
+            Religion without science is superstition; science without religion
+            is materialism. Both are needed for the progress of civilisation.
           </GridListItem>
           <GridListItem title="Independent investigation of truth" invert>
             Each person has the right and responsibility to search for truth
-            independently, unfettered by superstition or tradition.
+            independently — unfettered by tradition, superstition, or the
+            imitation of others.
           </GridListItem>
           <GridListItem title="Universal education" invert>
-            Every child deserves access to education. Knowledge is a treasure
-            and the means of progress for every community.
+            Regard every human being as a mine rich in gems. Education alone
+            can reveal its treasures and enable all of humanity to benefit.
           </GridListItem>
         </GridList>
       </Container>
@@ -127,21 +128,20 @@ function LocalCommunity() {
               The Bahá&apos;í community in Winnipeg has been present for over a
               century, growing from a handful of early believers into a vibrant
               community that reflects the city&apos;s rich multicultural heritage.
-              Today, members from dozens of cultural backgrounds come together in a
-              spirit of unity.
+              Members from dozens of cultural backgrounds come together in a
+              spirit of unity and shared purpose.
             </p>
             <p>
-              Our community centre on McMillan Avenue serves as a gathering place
-              for devotional programs, study circles, children&apos;s classes, and
-              community celebrations. We are deeply engaged in the life of our
-              neighbourhoods, working alongside others to foster community building
-              and social action.
+              Our community is deeply engaged in the life of our neighbourhoods —
+              through devotional meetings, study circles, children&apos;s classes,
+              and programs for junior youth. We work alongside our neighbours,
+              friends, and all those who share the desire to cultivate hope and
+              foster purposeful effort in the world.
             </p>
             <p>
-              Like the vast prairie sky that reminds us there is always room for
-              growth, we believe that every person has a contribution to make.
-              Whether you are exploring the Bahá&apos;í Faith for the first time or
-              looking for a welcoming community, we invite you to connect with us.
+              Every person has a contribution to make. Whether you are exploring
+              the Bahá&apos;í Faith for the first time or simply looking to
+              participate in something meaningful, we invite you to join us.
             </p>
           </div>
         </div>
@@ -179,8 +179,9 @@ export default function About() {
     <RootLayout>
       <PageIntro eyebrow="About" title="The Bahá'í Faith">
         <p>
-          The Bahá&apos;í Faith is a world religion whose purpose is to unite
-          all peoples in one universal cause and one common faith.
+          The fundamental purpose animating the Bahá&apos;í Faith is to
+          safeguard the interests and promote the unity of the human race, and
+          to foster the spirit of love and fellowship amongst all people.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
@@ -188,16 +189,17 @@ export default function About() {
             Bahá&apos;í Faith has spread to virtually every country and
             territory on Earth, embracing people from more than 2,100 ethnic,
             racial, and tribal backgrounds. At the heart of the Faith is the
-            conviction that humanity is one single race, and that the day has
-            come for humanity&apos;s unification into one global society.
+            conviction that humanity is one family, and that the day has come
+            for humanity&apos;s unification into one global society.
           </p>
           <p>
-            Bahá&apos;ís are engaged in a global endeavour to build vibrant
-            communities that reflect the principles of justice, unity, and
-            service. Through grassroots activities such as devotional
-            gatherings, study circles, and programs for children and youth,
-            Bahá&apos;ís and their friends work together to translate spiritual
-            principles into social action.
+            Bahá&apos;ís are engaged in a twofold endeavour: attending to the
+            inner life of the individual and contributing to the transformation
+            of society. These are not separate aims. Through devotional
+            meetings, study circles, and programs for children and youth,
+            Bahá&apos;ís and their friends work to build communities that
+            reflect the principles of justice, unity, and the oneness of
+            humankind.
           </p>
         </div>
       </PageIntro>

@@ -14,9 +14,9 @@ import { RootLayout } from '@/components/RootLayout'
 function CommunityActivities() {
   const activities = [
     {
-      title: 'Devotional Gatherings',
+      title: 'Devotional Meetings',
       description:
-        'Come together for prayer and reflection in a welcoming, intimate setting open to people of all backgrounds.',
+        'Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.',
       href: '/community-life',
       image: '/activity-cards/devotional-gatherings-01.png',
     },
@@ -24,14 +24,14 @@ function CommunityActivities() {
       title: 'Study Circles',
       description:
         'Explore spiritual and social principles in small group settings, building capacity for service to society.',
-      href: '/community-life',
+      href: '/community-life#study-circles',
       image: '/activity-cards/study-circles-01.png',
     },
     {
       title: "Children's Classes",
       description:
         'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.',
-      href: '/community-life',
+      href: '/community-life#childrens-classes',
       image: '/activity-cards/childrens-classes-01.png',
     },
   ]

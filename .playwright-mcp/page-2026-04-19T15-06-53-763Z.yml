@@ -1,0 +1,193 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link [ref=e6] [cursor=pointer]:
+        - /url: /en//
+        - img [ref=e7]
+      - navigation [ref=e11]:
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - link "Instituto Ruhí" [ref=e16] [cursor=pointer]:
+              - /url: /en/
+              - img "Instituto Ruhí" [ref=e17]
+            - generic [ref=e18]:
+              - button "Conceptual Framework" [ref=e20] [cursor=pointer]:
+                - text: Conceptual Framework
+                - img [ref=e21]
+              - button "Programs and Materials" [ref=e24] [cursor=pointer]:
+                - text: Programs and Materials
+                - img [ref=e25]
+              - button "Reference Material" [ref=e28] [cursor=pointer]:
+                - text: Reference Material
+                - img [ref=e29]
+          - button "Open user menu" [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]: Open user menu
+    - main [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - link "To study courses in your language (New)" [ref=e38] [cursor=pointer]:
+            - /url: /en/materials-in-your-language
+            - paragraph [ref=e39]:
+              - emphasis [ref=e40]: To study
+              - text: courses in your language
+            - text: (New)
+          - link "To learn about our main sequence of courses" [ref=e41] [cursor=pointer]:
+            - /url: /en/walking-a-path-of-service
+            - paragraph [ref=e42]:
+              - emphasis [ref=e43]: To learn
+              - text: about our main sequence of courses
+          - link "To catch a glimpse of the junior youth materials in action" [ref=e44] [cursor=pointer]:
+            - /url: https://www.devlp.org/en/action/making-choices
+            - paragraph [ref=e45]:
+              - emphasis [ref=e46]: To catch
+              - text: a glimpse of the junior youth materials in action
+            - img [ref=e47]
+          - link "To read comments from participants in the junior youth program" [ref=e49] [cursor=pointer]:
+            - /url: /en/junior-youth
+            - paragraph [ref=e50]:
+              - emphasis [ref=e51]: To read
+              - text: comments from participants in the junior youth program
+          - link "To listen to songs for use in educational programs for children" [ref=e52] [cursor=pointer]:
+            - /url: /en/songs-for-childrens-classes
+            - paragraph [ref=e53]:
+              - emphasis [ref=e54]: To listen
+              - text: to songs for use in educational programs for children
+          - link "To download coloring sheets for use in children’s classes" [ref=e55] [cursor=pointer]:
+            - /url: /en/coloring-sheets
+            - paragraph [ref=e56]:
+              - emphasis [ref=e57]: To download
+              - text: coloring sheets for use in children’s classes
+        - generic [ref=e59]:
+          - paragraph [ref=e60]:
+            - text: Bahá’ís everywhere are engaged in a global process of learning that is helping to build their capacity to apply the teachings of
+            - link "Bahá’u’lláh" [ref=e61] [cursor=pointer]:
+              - /url: https://www.bahai.org/bahaullah/%20
+            - text: to the transformation of society. As a contribution to this learning process, the Ruhi Institute carries out action and research in the field, in order to develop programs and materials that enhance the capacity of individuals and communities to serve humanity. Enhancing such capacity in the individual can be likened to walking a path of service, as described in the extract below from a message from the Universal House of Justice, the international governing body of the
+            - link "Bahá’í Faith" [ref=e62] [cursor=pointer]:
+              - /url: https://www.bahai.org/
+            - text: .
+          - paragraph [ref=e63]:
+            - text: At this site we are providing some information about our programs, along with the historical circumstances and pedagogy underlying their development. For those who, concerned for humanity’s future, desire the betterment of the world, we are making available here
+            - link "our first eight courses" [ref=e64] [cursor=pointer]:
+              - /url: /en/materials-in-your-language
+            - text: and those that branch off from them. All are invited to study them and discuss their content with a few friends.
+          - paragraph [ref=e66]:
+            - text: The Ruhi Institute
+            - text: 24 March 2026
+      - generic [ref=e69]:
+        - generic [ref=e71]:
+          - paragraph [ref=e72]: The Ruhi Institute’s main sequence of courses is organized so as to set the individual . . .
+          - paragraph [ref=e73]: “. . . on a path being defined by the accumulating experience of the community in its endeavor to open before humanity the vision of Bahá’u’lláh’s World Order.”
+        - paragraph [ref=e83]: “The very notion of a path is, itself, indicative of the nature and purpose of the courses, for a path invites participation, it beckons to new horizons, it demands effort and movement, it accommodates different paces and strides, it is structured and defined.”
+        - paragraph [ref=e89]: “A path can be experienced and known, not only by one or two but by scores upon scores; it belongs to the community.”
+        - paragraph [ref=e95]: “To walk a path is a concept equally expressive. It requires of the individual volition and choice; it calls for a set of skills and abilities but also elicits certain qualities and attitudes; it necessitates a logical progression but admits, when needed, related lines of exploration; it may seem easy at the outset but becomes more challenging further along.”
+        - paragraph [ref=e100]:
+          - text: “And crucially, one walks the path
+          - text: in the company of others.”
+  - contentinfo [ref=e107]:
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - link "Instituto Ruhí" [ref=e110] [cursor=pointer]:
+          - /url: /en/
+          - img [ref=e111]
+          - img "Instituto Ruhí" [ref=e115]
+        - list [ref=e116]:
+          - listitem [ref=e117]:
+            - link "English" [ref=e118] [cursor=pointer]:
+              - /url: /en/index
+          - listitem [ref=e119]:
+            - link "Español" [ref=e120] [cursor=pointer]:
+              - /url: /es/index
+          - listitem [ref=e121]:
+            - link "العربية" [ref=e122] [cursor=pointer]:
+              - /url: /ar/index
+          - listitem [ref=e123]:
+            - link "বাংলা" [ref=e124] [cursor=pointer]:
+              - /url: /bn/index
+          - listitem [ref=e125]:
+            - link "中文" [ref=e126] [cursor=pointer]:
+              - /url: /zh/index
+          - listitem [ref=e127]:
+            - link "Français" [ref=e128] [cursor=pointer]:
+              - /url: /fr/index
+          - listitem [ref=e129]:
+            - link "Deutsch" [ref=e130] [cursor=pointer]:
+              - /url: /de/index
+          - listitem [ref=e131]:
+            - link "हिन्दी" [ref=e132] [cursor=pointer]:
+              - /url: /hi/index
+          - listitem [ref=e133]:
+            - link "Italiano" [ref=e134] [cursor=pointer]:
+              - /url: /it/index
+          - listitem [ref=e135]:
+            - link "日本語" [ref=e136] [cursor=pointer]:
+              - /url: /ja/index
+          - listitem [ref=e137]:
+            - link "Kiswahili" [ref=e138] [cursor=pointer]:
+              - /url: /sw/index
+          - listitem [ref=e139]:
+            - link "فارسی" [ref=e140] [cursor=pointer]:
+              - /url: /fa/index
+          - listitem [ref=e141]:
+            - link "Português" [ref=e142] [cursor=pointer]:
+              - /url: /pt/index
+          - listitem [ref=e143]:
+            - link "Русский" [ref=e144] [cursor=pointer]:
+              - /url: /ru/index
+          - listitem [ref=e145]:
+            - link "Türkçe" [ref=e146] [cursor=pointer]:
+              - /url: /tr/index
+      - list [ref=e148]:
+        - listitem [ref=e149]:
+          - heading "Home" [level=6] [ref=e150]:
+            - link "Home" [ref=e151] [cursor=pointer]:
+              - /url: /en/
+      - list [ref=e153]:
+        - listitem [ref=e154]:
+          - heading "Conceptual Framework" [level=6] [ref=e155]
+          - list [ref=e156]:
+            - listitem [ref=e157]:
+              - link "Statement of purpose and methods" [ref=e158] [cursor=pointer]:
+                - /url: /en/statement-of-purpose-and-methods/
+            - listitem [ref=e159]:
+              - link "Curriculum development" [ref=e160] [cursor=pointer]:
+                - /url: /en/curriculum-development/
+            - listitem [ref=e161]:
+              - link "Walking a path of service" [ref=e162] [cursor=pointer]:
+                - /url: /en/walking-a-path-of-service/
+        - listitem [ref=e163]:
+          - heading "Programs and Materials" [level=6] [ref=e164]
+          - list [ref=e165]:
+            - listitem [ref=e166]:
+              - link "Spiritual education for all ages" [ref=e167] [cursor=pointer]:
+                - /url: /en/spiritual-education-for-all-ages/
+            - listitem [ref=e168]:
+              - link "Materials in your language" [ref=e169] [cursor=pointer]:
+                - /url: /en/materials-in-your-language/
+      - list [ref=e171]:
+        - listitem [ref=e172]:
+          - heading "Reference Material" [level=6] [ref=e173]
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - link "History booklets" [ref=e176] [cursor=pointer]:
+                - /url: /en/history-booklets/
+            - listitem [ref=e177]:
+              - link "Useful links" [ref=e178] [cursor=pointer]:
+                - /url: /en/useful-links/
+            - listitem [ref=e179]:
+              - generic [ref=e180]: Teachers Corner
+            - listitem [ref=e181]:
+              - link "Overview" [ref=e182] [cursor=pointer]:
+                - /url: /en/teachers-corner/
+            - listitem [ref=e183]:
+              - link "Songs" [ref=e184] [cursor=pointer]:
+                - /url: /en/songs-for-childrens-classes/
+            - listitem [ref=e185]:
+              - link "Coloring sheets" [ref=e186] [cursor=pointer]:
+                - /url: /en/coloring-sheets/
+            - listitem [ref=e187]:
+              - link "Art sheets" [ref=e188] [cursor=pointer]:
+                - /url: /en/art-sheets/
+    - paragraph [ref=e189]:
+      - generic [ref=e190]: Copyright © 2008–2026
+      - text: The Ruhi Foundation. All rights reserved.

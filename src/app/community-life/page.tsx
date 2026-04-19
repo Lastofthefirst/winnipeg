@@ -35,18 +35,20 @@ function GardenImage({
 }
 
 function Section({
+  id,
   title,
   imageSrc,
   imageAlt,
   children,
 }: {
+  id?: string
   title: string
   imageSrc: string
   imageAlt: string
   children: React.ReactNode
 }) {
   return (
-    <div className="group/section relative [counter-increment:section]">
+    <div id={id} className="group/section relative [counter-increment:section]">
       <Container>
         <div className="relative lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
           <div className="flex justify-center">
@@ -75,22 +77,23 @@ function Section({
 function DevotionalGatherings() {
   return (
     <Section
-      title="Devotional Gatherings"
+      title="Devotional Meetings"
       imageSrc="/flowers-clean/flower-patch-10.png"
       imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
-          Devotional gatherings bring people together to pray and reflect on
-          the sacred writings of the world&apos;s religions. These intimate
-          settings provide a space for quiet contemplation and uplifting
-          conversation.
+          Devotional meetings bring people together in collective worship —
+          reading and reflecting on sacred writings, offering prayers, and
+          cultivating the spiritual sensibilities that sustain a life of
+          service. They are held in homes, community spaces, and wherever
+          people choose to gather.
         </p>
         <p>
-          Open to people of all backgrounds and beliefs, our devotional
-          gatherings are held regularly in homes and at the Bahá&apos;í Centre.
-          Whether you wish to share a prayer, listen in stillness, or simply
-          experience the warmth of community, you are welcome.
+          These gatherings are open to everyone, regardless of background or
+          belief. There is no requirement to speak or perform — you may come
+          simply to listen, to reflect, or to add your voice to those of
+          others.
         </p>
       </div>
 
@@ -98,10 +101,10 @@ function DevotionalGatherings() {
         What to expect
       </h3>
       <TagList className="mt-4">
-        <TagListItem>Prayers and readings</TagListItem>
-        <TagListItem>Music and devotions</TagListItem>
+        <TagListItem>Prayers and sacred readings</TagListItem>
+        <TagListItem>Music and devotional songs</TagListItem>
         <TagListItem>Quiet reflection</TagListItem>
-        <TagListItem>All faiths welcome</TagListItem>
+        <TagListItem>Open to all faiths</TagListItem>
       </TagList>
     </Section>
   )
@@ -110,22 +113,25 @@ function DevotionalGatherings() {
 function StudyCircles() {
   return (
     <Section
+      id="study-circles"
       title="Study Circles"
       imageSrc="/flowers-clean/flower-patch-11.png"
       imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
-          Study circles are small groups of people who come together to deepen
-          their understanding of spiritual and social principles. Using the
-          Ruhi Institute curriculum, participants explore themes like prayer,
-          the life of the spirit, and service to others.
+          A study circle is a small group of people who come together with a
+          tutor to work through the Ruhi Institute&apos;s main sequence of
+          courses. The atmosphere is one of joy, calm, and meditative serenity
+          — a space to read, to reflect, to discuss, and to build the
+          understanding that sustains meaningful service.
         </p>
         <p>
-          These intimate study groups foster meaningful conversation and help
-          participants develop the capacity to contribute to the betterment of
-          their communities. No prior knowledge of the Bahá&apos;í Faith is
-          required.
+          The courses explore themes such as the life of the spirit, service to
+          others, and the forces shaping individuals and communities. They are
+          designed to enhance the capacity of youth and adults alike to
+          contribute to the well-being of their communities. Friends and
+          neighbours from every background are welcome to join.
         </p>
       </div>
 
@@ -144,21 +150,24 @@ function StudyCircles() {
 function ChildrensClasses() {
   return (
     <Section
+      id="childrens-classes"
       title="Children's Classes"
       imageSrc="/flowers-clean/flower-patch-03.png"
       imageAlt="Prairie wildflower garden"
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
-          Bahá&apos;í children&apos;s classes nurture the spiritual development
-          of young hearts through stories, songs, prayers, art, and cooperative
-          games. Children learn about virtues like truthfulness, kindness, and
-          justice in a joyful, creative environment.
+          Children&apos;s classes focus on the development of spiritual
+          qualities — the beliefs, habits, and patterns of conduct that
+          make for a worthy and meaningful life. Through stories, songs,
+          prayers, art, and cooperative games, children are helped to
+          discover and strengthen virtues such as honesty, kindness,
+          generosity, and a love of learning.
         </p>
         <p>
-          Classes are open to all children in the neighbourhood. The program
-          helps children develop a strong moral foundation while building
-          friendships across diverse backgrounds.
+          Classes are open to all children in the neighbourhood between
+          the ages of 5 and 11. The program is carried out by trained
+          teachers who are themselves walking a path of service.
         </p>
       </div>
 
@@ -166,11 +175,12 @@ function ChildrensClasses() {
         Program highlights
       </h3>
       <TagList className="mt-4">
-        <TagListItem>Virtues-based lessons</TagListItem>
-        <TagListItem>Songs and prayers</TagListItem>
-        <TagListItem>Creative arts</TagListItem>
+        <TagListItem>Stories</TagListItem>
+        <TagListItem>Songs</TagListItem>
+        <TagListItem>Prayers</TagListItem>
+        <TagListItem>Art</TagListItem>
         <TagListItem>Cooperative games</TagListItem>
-        <TagListItem>Service projects</TagListItem>
+        <TagListItem>Ages 5 to 11</TagListItem>
       </TagList>
     </Section>
   )
@@ -185,100 +195,125 @@ function JuniorYouth() {
     >
       <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
         <p>
-          The junior youth spiritual empowerment program helps young people
-          between 12 and 15 develop the intellectual and spiritual capacities
-          they need to navigate a critical stage of their lives and contribute
-          meaningfully to society.
+          The years between 12 and 15 are a crucial period of development —
+          a time when young people are forming their identity and deciding what
+          kind of person they want to be. The junior youth spiritual
+          empowerment program accompanies them through this stage, helping
+          them direct their energies and talents toward the advancement of
+          their communities.
         </p>
         <p>
-          Through study, artistic expression, and service projects, junior
-          youth explore themes of identity, social responsibility, and the
-          power of language. The program harnesses their natural idealism and
-          desire to improve the world.
+          Small groups of junior youth meet regularly with an older youth
+          animator to work through texts that develop their powers of
+          expression, their moral reasoning, and their capacity for service.
+          The program is open to all young people in the neighbourhood,
+          regardless of background.
         </p>
       </div>
     </Section>
   )
 }
 
-function CommunityService() {
+function ServiceAsUndercurrent() {
   return (
-    <Section
-      title="Community Service"
-      imageSrc="/flowers-clean/flower-patch-05.png"
-      imageAlt="Prairie wildflower garden"
-    >
-      <div className="space-y-6 text-base leading-relaxed text-burgundy-700">
-        <p>
-          Service to others is a core element of Bahá&apos;í community life.
-          From neighbourhood beautification projects to outreach programs,
-          Bahá&apos;ís and their friends work together to address the needs of
-          the wider community.
-        </p>
-        <p>
-          In Winnipeg, our community participates in interfaith dialogue,
-          social gatherings that foster understanding, and collaborative
-          initiatives with neighbourhood groups. Just as the prairies sustain
-          life through cooperation and resilience, we believe that communities
-          grow stronger when people serve one another.
-        </p>
-      </div>
-    </Section>
+    <div className="relative mt-24 sm:mt-32 lg:mt-40">
+      <Container>
+        <div className="lg:flex lg:items-center lg:gap-x-16 xl:gap-x-20">
+          <div className="flex justify-center lg:flex-none">
+            <FadeIn className="w-[20rem] lg:w-[28rem]">
+              <GardenImage src="/stones/stone-path-01.png" alt="A winding stone path through a garden" />
+            </FadeIn>
+          </div>
+          <FadeIn className="mt-12 lg:mt-0 lg:flex-1">
+            <div className="mb-4 h-px w-12 bg-gold-400" />
+            <p className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500">
+              The animating spirit
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-normal tracking-tight text-burgundy-900 sm:text-4xl">
+              Service
+            </h2>
+            <div className="mt-6 space-y-6 text-base leading-relaxed text-burgundy-700">
+              <p>
+                Bahá&apos;ís understand service as an expression of love for
+                humanity and as the means by which spiritual qualities are
+                developed. Such qualities are not acquired through focusing on
+                the self — they grow in the act of giving. Devotion sustains
+                this impulse; service gives it form. Together, they give rise to
+                a pattern of community life infused with the spirit of worship.
+              </p>
+              <p>
+                This understanding harmonizes being and doing, and individual
+                and collective transformation. To serve one&apos;s community
+                is to participate in the building of a better world — and in so
+                doing so, to transform one&apos;s own character.
+              </p>
+
+            </div>
+          </FadeIn>
+        </div>
+      </Container>
+    </div>
   )
 }
 
 function Values() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="relative">
-        {/* Accent image - top right on mobile, right side on desktop */}
-        <div className="pointer-events-none absolute right-4 top-0 sm:right-8 lg:-right-4 lg:top-8">
+      <Container className="relative">
+        {/* Accent image - positioned relative to container right edge */}
+        <div className="pointer-events-none absolute -z-10 right-4 -top-8 sm:right-8 sm:-top-12 lg:right-0 lg:-top-[193px]">
           <OptimizedImage
             src="/garden-accents/butterfly-01.png"
             alt=""
-            width={180}
-            height={180}
-            className="w-[100px] object-contain lg:w-[180px]"
+            width={540}
+            height={540}
+            className="w-[150px] object-contain lg:w-[450px]"
           />
         </div>
         <SectionIntro
           eyebrow="Principles in action"
-          title="Building a better world, one neighbourhood at a time"
+          title="Two dimensions of one unfolding process"
         >
           <p>
-            Every activity of the Bahá&apos;í community is motivated by the
-            desire to translate spiritual principles into practical action for the
-            betterment of society.
+            The Bahá&apos;í community is engaged in a twofold endeavour:
+            attending to the inner life of the individual and contributing to
+            the transformation of society. These are not separate aims — they
+            are inseparable.
           </p>
         </SectionIntro>
-      </div>
+      </Container>
 
       <Container className="mt-24">
         <GridList>
-          <GridListItem title="Unity in diversity">
-            Winnipeg&apos;s multicultural mosaic is a source of strength.
-            Bahá&apos;í community life celebrates the richness that diversity
-            brings.
+          <GridListItem title="Oneness of humanity">
+            The principle that all people belong to one human family is the
+            pivot round which the teachings of the Bahá&apos;í Faith revolve —
+            not merely an ideal, but the foundation of all community action.
+          </GridListItem>
+          <GridListItem title="Individual and collective transformation">
+            Spiritual qualities are not acquired through focusing on the self;
+            they develop in service to others. Personal and communal growth are
+            inseparable and mutually reinforcing.
+          </GridListItem>
+          <GridListItem title="Devotion and service in concert">
+            Worship awakens spiritual susceptibilities; service gives them
+            expression. Together, they give rise to a pattern of community life
+            infused with the spirit of devotion.
+          </GridListItem>
+          <GridListItem title="Learning through action">
+            Community building is approached as a process of learning — not
+            theoretical study alone, but reflection on lived experience,
+            adjusting course, and growing through the work itself.
           </GridListItem>
           <GridListItem title="Universal participation">
-            Everyone has a role to play. Our activities are open to all, and
-            every voice is valued in the conversation about community building.
+            Every person has a contribution to make. Our activities are open to
+            all, and every voice is valued in the conversation about building a
+            better world.
           </GridListItem>
-          <GridListItem title="Spiritual foundations">
-            Prayer, reflection, and study of the sacred writings provide the
-            spiritual nourishment that sustains all our efforts.
-          </GridListItem>
-          <GridListItem title="Learning in action">
-            We approach community building as a learning process, constantly
-            reflecting on experience and adjusting our efforts.
-          </GridListItem>
-          <GridListItem title="Service to society">
-            True happiness comes from service to others. Our community is
-            committed to contributing to the well-being of Winnipeg.
-          </GridListItem>
-          <GridListItem title="Resilience">
-            Like the prairie spirit that endures through the long winters, our
-            community draws strength from patience, perseverance, and hope.
+          <GridListItem title="Material and spiritual civilization">
+            The Bahá&apos;í community rejects any false separation between
+            inner life and practical action. Building a just world is itself a
+            spiritual undertaking.
           </GridListItem>
         </GridList>
       </Container>
@@ -289,7 +324,7 @@ function Values() {
 export const metadata: Metadata = {
   title: 'Community Life',
   description:
-    "Explore the activities of the Bahá'í Community of Winnipeg — devotional gatherings, study circles, children's classes, and more.",
+    "Explore the activities of the Bahá'í Community of Winnipeg — devotional meetings, study circles, children's classes, junior youth groups, and more.",
 }
 
 export default function CommunityLife() {
@@ -311,8 +346,9 @@ export default function CommunityLife() {
         <StudyCircles />
         <ChildrensClasses />
         <JuniorYouth />
-        <CommunityService />
       </div>
+
+      <ServiceAsUndercurrent />
 
       <Values />
 

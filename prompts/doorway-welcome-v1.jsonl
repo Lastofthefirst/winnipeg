@@ -1,0 +1,6 @@
+{"_vars": {"door": "doorway-cropped.png", "style": "watercolor over pencil sketch, Persian blue ink outlines, loose painterly style, warm and welcoming", "base": "Keep the open wooden door, steps, and potted flower exactly as in image 1."}, "_batch": "doorway-welcome"}
+{"prompt": "{{base}} An elderly South Asian woman stands on the top step in the doorway, smiling warmly with one arm extended in a welcoming gesture, wearing a simple salwar kameez, {{style}}", "image": "{{door}}", "denoise": 0.65}
+{"prompt": "{{base}} A young Black man stands at the doorway on the steps, smiling broadly with arm raised in welcome, casual clothing, {{style}}", "image": "{{door}}", "denoise": 0.65}
+{"prompt": "{{base}} A middle-aged Indigenous woman stands in the open doorway on the top step, hand extended warmly outward in welcome, long dark hair, {{style}}", "image": "{{door}}", "denoise": 0.65}
+{"prompt": "{{base}} A teenage Filipino boy leans out of the doorway from the top step, waving and smiling in a cheerful welcoming gesture, {{style}}", "image": "{{door}}", "denoise": 0.65}
+{"prompt": "{{base}} An older white man with grey hair stands at the doorway on the steps, arms open wide in a warm welcoming gesture, {{style}}", "image": "{{door}}", "denoise": 0.65}
