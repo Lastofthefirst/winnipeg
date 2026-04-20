@@ -147,7 +147,7 @@ export default async function HomePage({ params }: { params: any }) {
           {activities.map((activity) => (
             <FadeIn key={activity.title} className="flex">
               <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                <div className="relative flex h-72 items-center justify-center overflow-hidden">
+                <div className="relative flex h-56 items-center justify-center overflow-hidden">
                   <OptimizedImage
                     src={activity.image}
                     alt=""
