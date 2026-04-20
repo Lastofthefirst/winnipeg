@@ -1,16 +1,13 @@
 import { ImageResponse } from 'next/og'
-import fs from 'fs'
-import path from 'path'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 export const dynamic = 'force-static'
 export const size = { width: 512, height: 512 }
 export const contentType = 'image/png'
 
 export default function Icon() {
-  const buf = fs.readFileSync(
-    path.join(process.cwd(), 'public/river-confluence/confluence-01.png'),
-  )
-  const src = `data:image/png;base64,${buf.toString('base64')}`
+  const font = readFileSync(join(process.cwd(), 'src/fonts/NotoSerifDisplay-Black.ttf'))
 
   return new ImageResponse(
     (
@@ -18,33 +15,47 @@ export default function Icon() {
         style={{
           width: 512,
           height: 512,
+          background: '#F5EFE3',
           display: 'flex',
-          background: '#7A2D3E',
-          padding: 18,
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0 32px',
         }}
       >
-        <div
+        {/* Top gold rule */}
+        <div style={{ width: 96, height: 2, background: '#B8973B', marginBottom: 24, display: 'flex' }} />
+
+        {/* The W */}
+        <span
           style={{
-            flex: 1,
-            background: '#F5EFE3',
+            fontFamily: 'NotoSerifDisplay',
+            fontSize: 340,
+            fontWeight: 900,
+            color: '#2E0F19',
+            lineHeight: 0.85,
+            letterSpacing: '-0.02em',
             display: 'flex',
-            overflow: 'hidden',
-            position: 'relative',
           }}
         >
-          {/* River bleeding off bottom edge */}
-          <img
-            src={src}
-            style={{
-              position: 'absolute',
-              width: 560,
-              bottom: -55,
-              left: -15,
-            }}
-          />
-        </div>
+          W
+        </span>
+
+        {/* Bottom gold rule */}
+        <div style={{ width: 96, height: 2, background: '#B8973B', marginTop: 24, display: 'flex' }} />
       </div>
     ),
-    { width: 512, height: 512 },
+    {
+      width: 512,
+      height: 512,
+      fonts: [
+        {
+          name: 'NotoSerifDisplay',
+          data: font,
+          weight: 900,
+          style: 'normal',
+        },
+      ],
+    },
   )
 }
