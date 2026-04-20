@@ -135,13 +135,14 @@ export default async function HomePage({ params }: { params: any }) {
       {/* Activities */}
       <SectionIntro title={t.home.activities.heading} className="mt-24 sm:mt-32 lg:mt-40">
         <p>{t.home.activities.intro}</p>
+        <Blockquote
+          author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
+          className="mt-10"
+        >
+          Let your vision be world-embracing, rather than confined to your own self.
+        </Blockquote>
       </SectionIntro>
       <Container className="mt-16">
-        <FadeIn className="mb-16">
-          <Blockquote author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}>
-            Let your vision be world-embracing, rather than confined to your own self.
-          </Blockquote>
-        </FadeIn>
         <FadeInStagger className="grid grid-cols-1 gap-10 sm:grid-cols-2">
           {activities.map((activity) => (
             <FadeIn key={activity.title} className="flex">
