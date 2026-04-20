@@ -96,7 +96,7 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <LocaleSwitcher locale={locale} />
+          <LocaleSwitcher locale={locale} invert={invert} />
           <Button href={`/${locale}/contact`} invert={invert}>
             {contactLabel}
           </Button>
@@ -328,7 +328,7 @@ export function RootLayout({
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname} locale={locale} nav={nav} footer={footer}>
+      <RootLayoutInner key={`${locale}-${pathname}`} locale={locale} nav={nav} footer={footer}>
         {children}
       </RootLayoutInner>
     </RootLayoutContext.Provider>
