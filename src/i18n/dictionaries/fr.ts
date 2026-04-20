@@ -28,12 +28,13 @@ const fr: Dictionary = {
       ctaContact: 'Contact',
     },
     activities: {
-      heading: 'Des voies de service',
+      heading: 'Marcher sur un chemin de service',
       intro: "La communauté bahá'íe de Winnipeg est engagée dans diverses activités qui rassemblent des personnes pour la prière, l'étude et le service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se retrouvent depuis toutes origines, unis par une vision commune.",
       items: [
+        { title: "Classes d'enfants", description: "Nourrir le développement spirituel des jeunes cœurs par des histoires, des chants, de l'art et une éducation fondée sur les vertus." },
+        { title: "Jeunes d'aujourd'hui", description: "Accompagner les jeunes de 12 à 15 ans dans le développement de leurs capacités d'expression, de leur raisonnement moral et de leur aptitude au service communautaire." },
         { title: 'Réunions dévotionnelles', description: "Se rassembler pour le culte collectif — prières, lectures sacrées et réflexion tranquille — dans un cadre accueillant ouvert à tous." },
         { title: "Cercles d'étude", description: "Explorer les principes spirituels et sociaux en petits groupes, en développant une capacité de service à la société." },
-        { title: "Classes d'enfants", description: "Nourrir le développement spirituel des jeunes cœurs par des histoires, des chants, de l'art et une éducation fondée sur les vertus." },
       ],
     },
     community: {

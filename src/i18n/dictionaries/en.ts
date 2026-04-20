@@ -28,12 +28,13 @@ const en: Dictionary = {
       ctaContact: 'Contact',
     },
     activities: {
-      heading: 'Pathways of service',
+      heading: 'Walking a path of service',
       intro: "The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.",
       items: [
+        { title: "Children's Classes", description: 'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.' },
+        { title: 'Junior Youth', description: 'Accompany young people ages 12–15 as they develop their powers of expression, moral reasoning, and capacity for service to their communities.' },
         { title: 'Devotional Meetings', description: 'Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.' },
         { title: 'Study Circles', description: 'Explore spiritual and social principles in small group settings, building capacity for service to society.' },
-        { title: "Children's Classes", description: 'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.' },
       ],
     },
     community: {
@@ -43,7 +44,7 @@ const en: Dictionary = {
         "The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.",
         "The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.",
       ],
-      link: 'Learn our story',
+      link: 'Learn more',
     },
     news: {
       eyebrow: 'News',

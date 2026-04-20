@@ -6,6 +6,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
 import { NewsFeed } from '@/components/NewsFeed'
 import { OptimizedImage } from '@/components/OptimizedImage'
+import { Blockquote } from '@/components/Blockquote'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -34,9 +35,10 @@ export default async function HomePage({ params }: { params: any }) {
   const t = await getDictionary(locale)
 
   const activities = [
-    { ...t.home.activities.items[0], href: `/${locale}/community-life`, image: '/activity-cards/devotional-gatherings-01.png' },
-    { ...t.home.activities.items[1], href: `/${locale}/community-life#study-circles`, image: '/activity-cards/study-circles-01.png' },
-    { ...t.home.activities.items[2], href: `/${locale}/community-life#childrens-classes`, image: '/activity-cards/childrens-classes-01.png' },
+    { ...t.home.activities.items[0], href: `/${locale}/community-life#childrens-classes`, image: '/activity-cards/childrens-classes-01.png' },
+    { ...t.home.activities.items[1], href: `/${locale}/community-life#junior-youth`, image: '/activity-cards/junior-youth-01.png' },
+    { ...t.home.activities.items[2], href: `/${locale}/community-life`, image: '/activity-cards/devotional-gatherings-01.png' },
+    { ...t.home.activities.items[3], href: `/${locale}/community-life#study-circles`, image: '/activity-cards/study-circles-01.png' },
   ]
 
   return (
@@ -89,44 +91,6 @@ export default async function HomePage({ params }: { params: any }) {
         </FadeIn>
       </Container>
 
-      {/* Activities */}
-      <SectionIntro title={t.home.activities.heading} className="mt-24 sm:mt-32 lg:mt-40">
-        <p>{t.home.activities.intro}</p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {activities.map((activity) => (
-            <FadeIn key={activity.title} className="flex">
-              <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                <div className="relative flex h-72 items-center justify-center overflow-hidden">
-                  <OptimizedImage
-                    src={activity.image}
-                    alt=""
-                    width={600}
-                    height={600}
-                    className="h-full w-auto object-contain transition duration-700"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-8">
-                  <div className="mb-4 h-px w-8 bg-gold-400" />
-                  <h3>
-                    <Link href={activity.href}>
-                      <span className="absolute inset-0" />
-                      <span className="font-display text-xl font-normal text-burgundy-900">
-                        {activity.title}
-                      </span>
-                    </Link>
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700">
-                    {activity.description}
-                  </p>
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-        </FadeInStagger>
-      </Container>
-
       {/* Community Snapshot */}
       <div className="mt-24 sm:mt-32 lg:mt-40">
         <Container>
@@ -167,6 +131,52 @@ export default async function HomePage({ params }: { params: any }) {
           </FadeIn>
         </Container>
       </div>
+
+      {/* Activities */}
+      <SectionIntro title={t.home.activities.heading} className="mt-24 sm:mt-32 lg:mt-40">
+        <p>{t.home.activities.intro}</p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <FadeInStagger className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          {activities.map((activity) => (
+            <FadeIn key={activity.title} className="flex">
+              <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+                <div className="relative flex h-72 items-center justify-center overflow-hidden">
+                  <OptimizedImage
+                    src={activity.image}
+                    alt=""
+                    width={600}
+                    height={600}
+                    className="h-full w-auto object-contain transition duration-700"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-8">
+                  <div className="mb-4 h-px w-8 bg-gold-400" />
+                  <h3>
+                    <Link href={activity.href}>
+                      <span className="absolute inset-0" />
+                      <span className="font-display text-xl font-normal text-burgundy-900">
+                        {activity.title}
+                      </span>
+                    </Link>
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700">
+                    {activity.description}
+                  </p>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
+      </Container>
+
+      <Container className="mt-16">
+        <FadeIn>
+          <Blockquote author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}>
+            Let your vision be world-embracing, rather than confined to your own self.
+          </Blockquote>
+        </FadeIn>
+      </Container>
 
       <EventsPreview locale={locale} strings={t.eventsPreview} />
 
