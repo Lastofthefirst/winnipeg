@@ -6,7 +6,7 @@ title: "Community Life — Copywriting"
 
 **URL:** `/community-life`
 **Page title:** Community Life
-**Meta description:** Explore the activities of the Bahá'í Community of Winnipeg — devotional gatherings, study circles, children's classes, and more.
+**Meta description:** Explore the activities of the Bahá'í Community of Winnipeg — devotional meetings, study circles, children's classes, junior youth groups, and more.
 
 ---
 
@@ -16,25 +16,25 @@ title: "Community Life — Copywriting"
 
 **Heading:** Growing together in spirit and service
 
-**Intro:** The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service to the wider community. All are welcome.
+**Intro:** The Bahá'í community in Winnipeg offers a range of activities that bring people together for prayer, study, and service to the wider community. All are welcome.
 
 ---
 
-## 01 — Devotional Gatherings
+## 01 — Devotional Meetings
 
-Devotional gatherings bring people together to pray and reflect on the sacred writings of the world's religions. These intimate settings provide a space for quiet contemplation and uplifting conversation.
+Devotional meetings bring people together in collective worship — reading and reflecting on sacred writings, offering prayers, and cultivating the spiritual sensibilities that sustain a life of service. They are held in homes, community spaces, and wherever people choose to gather.
 
-Open to people of all backgrounds and beliefs, devotional gatherings are held in homes and at the Bahá'í Centre. Whether you wish to share a prayer, listen in stillness, or simply experience the warmth of community, you are welcome.
+These gatherings are open to everyone, regardless of background or belief. There is no requirement to speak or perform — you may come simply to listen, to reflect, or to add your voice to those of others.
 
-**What to expect:** Prayers and readings · Music and devotions · Quiet reflection · All faiths welcome
+**What to expect:** Prayers and sacred readings · Music and devotional songs · Quiet reflection · Open to all faiths
 
 ---
 
 ## 02 — Study Circles
 
-Study circles are small groups of people who come together to deepen their understanding of spiritual and social principles. Using the Ruhi Institute curriculum, participants explore themes like prayer, the life of the spirit, and service to others.
+A study circle is a small group of people who come together with a tutor to work through the Ruhi Institute's main sequence of courses. The atmosphere is one of joy, calm, and meditative serenity — a space to read, to reflect, to discuss, and to build the understanding that sustains meaningful service.
 
-These intimate study groups foster meaningful conversation and help participants develop the capacity to contribute to the betterment of their communities. No prior knowledge of the Bahá'í Faith is required.
+The courses explore themes such as the life of the spirit, service to others, and the forces shaping individuals and communities. They are designed to enhance the capacity of youth and adults alike to contribute to the well-being of their communities. Friends and neighbours from every background are welcome to join.
 
 > Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.
 
@@ -44,9 +44,9 @@ These intimate study groups foster meaningful conversation and help participants
 
 ## 03 — Children's Classes
 
-Bahá'í children's classes nurture the spiritual development of young hearts through stories, songs, prayers, art, and cooperative games. Children learn about virtues like truthfulness, kindness, and justice in a joyful, creative environment.
+Children's classes focus on the development of spiritual qualities — the beliefs, habits, and patterns of conduct that make for a worthy and meaningful life. Through stories, songs, prayers, art, and cooperative games, children are helped to discover and strengthen virtues such as honesty, kindness, generosity, and a love of learning.
 
-Classes are open to all children in the neighbourhood. The program helps children develop a strong moral foundation while building friendships across diverse backgrounds.
+Classes are open to all children in the neighbourhood between the ages of 5 and 11. The program is carried out by trained teachers who are themselves walking a path of service.
 
 **Program highlights:** Stories · Songs · Prayers · Art · Cooperative games · Ages 5 to 11
 
@@ -54,9 +54,9 @@ Classes are open to all children in the neighbourhood. The program helps childre
 
 ## 04 — Junior Youth Spiritual Empowerment
 
-The junior youth spiritual empowerment program helps young people between 12 and 15 develop the intellectual and spiritual capacities they need to navigate a critical stage of their lives and contribute meaningfully to society.
+The years between 12 and 15 are a crucial period of development — a time when young people are forming their identity and deciding what kind of person they want to be. The junior youth spiritual empowerment program accompanies them through this stage, helping them direct their energies and talents toward the advancement of their communities.
 
-Through study, artistic expression, and service projects, junior youth explore themes of identity, social responsibility, and the power of language. The program harnesses their natural idealism and desire to improve the world.
+Small groups of junior youth meet regularly with an older youth animator to work through texts that develop their powers of expression, their moral reasoning, and their capacity for service. The program is open to all young people in the neighbourhood, regardless of background.
 
 ---
 
@@ -68,7 +68,7 @@ Through study, artistic expression, and service projects, junior youth explore t
 
 Bahá'ís understand service as an expression of love for humanity and as the means by which spiritual qualities are developed. Such qualities are not acquired through focusing on the self — they grow in the act of giving. Devotion sustains this impulse; service gives it form. Together, they give rise to a pattern of community life infused with the spirit of worship.
 
-This understanding harmonizes being and doing, and individual and collective transformation. To serve one's community is to participate in the building of a better world — and in doing so, to transform one's own character.
+This understanding harmonizes being and doing, and individual and collective transformation. To serve one's community is to participate in the building of a better world — and in so doing, to transform one's own character.
 
 ---
 
@@ -78,31 +78,31 @@ This understanding harmonizes being and doing, and individual and collective tra
 
 **Heading:** Two dimensions of one unfolding process
 
-**Intro:** Every activity is motivated by the desire to translate spiritual principles into practical action for the betterment of society.
+**Intro:** The Bahá'í community is engaged in a twofold endeavour: attending to the inner life of the individual and contributing to the transformation of society. These are not separate aims — they are inseparable.
 
-### Unity in diversity
+### Oneness of humanity
 
-Winnipeg's multicultural mosaic is a source of strength. Community life celebrates the richness that diversity brings.
+The principle that all people belong to one human family is the pivot round which the teachings of the Bahá'í Faith revolve — not merely an ideal, but the foundation of all community action.
+
+### Individual and collective transformation
+
+Spiritual qualities are not acquired through focusing on the self; they develop in service to others. Personal and communal growth are inseparable and mutually reinforcing.
+
+### Devotion and service in concert
+
+Worship awakens spiritual susceptibilities; service gives them expression. Together, they give rise to a pattern of community life infused with the spirit of devotion.
+
+### Learning through action
+
+Community building is approached as a process of learning — not theoretical study alone, but reflection on lived experience, adjusting course, and growing through the work itself.
 
 ### Universal participation
 
-Every person has a contribution to make. Activities are open to all, and every voice is valued in the conversation about community building.
+Every person has a contribution to make. Our activities are open to all, and every voice is valued in the conversation about building a better world.
 
-### Spiritual foundations
+### Material and spiritual civilization
 
-Prayer, reflection, and study of the sacred writings provide the spiritual nourishment that sustains all efforts.
-
-### Learning in action
-
-Community building is approached as a learning process, constantly reflecting on experience and adjusting accordingly.
-
-### Service to society
-
-True happiness comes from service to others. Contributing to the well-being of Winnipeg is a central commitment.
-
-### Resilience
-
-Like the prairie spirit that endures through the long winters, strength is drawn from patience, perseverance, and hope.
+The Bahá'í community rejects any false separation between inner life and practical action. Building a just world is itself a spiritual undertaking.
 
 ---
 

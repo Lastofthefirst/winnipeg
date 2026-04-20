@@ -54,7 +54,9 @@ Do you hope to walk alongside young people as they discover their power to serve
 
 ## Evergreen note (shown below listed events)
 
-Beyond these listed events, the community meets continuously for devotion, study, and service. Get in touch to learn what is happening near you.
+**Eyebrow:** Always gathering
+
+Beyond these listed events, our community meets continuously for devotion, study, and service. Get in touch to learn what is happening near you.
 
 ---
 

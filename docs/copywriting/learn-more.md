@@ -16,7 +16,9 @@ title: "Learn More — Copywriting"
 
 **Heading:** Exploring the Bahá'í Faith
 
-**Intro:** The Bahá'í Faith offers a compelling vision of a peaceful, unified world. Explore the central figures, core teachings, and resources that illuminate this vision.
+**Intro:** The Bahá'í Faith addresses both the spiritual life of the individual and the structures of human society — offering a coherent vision of justice, unity, and the oneness of humankind.
+
+Founded in the nineteenth century, the Faith has spread to virtually every country and territory on Earth. Its central conviction is that humanity is one family, that all the world's great religions come from the same divine source, and that the long-promised age of peace is now within humanity's reach.
 
 ---
 
@@ -26,19 +28,19 @@ title: "Learn More — Copywriting"
 
 **Heading:** The founders and exemplar of the Bahá'í Faith
 
-**Intro:** The Bahá'í Faith centres on the lives and teachings of three figures whose vision of humanity's oneness continues to inspire millions around the world.
+**Intro:** The Bahá'í Faith centres on the lives and writings of three figures — the Báb, Bahá'u'lláh, and 'Abdu'l-Bahá — whose vision of humanity's oneness continues to inspire millions around the world.
 
 ### Bahá'u'lláh (1817–1892)
 
-The Founder of the Bahá'í Faith. Born in Tehran, Persia, Bahá'u'lláh endured forty years of exile and imprisonment for proclaiming His message that humanity is one family and that the time has come for its unification. His writings encompass over 100 volumes.
+The Founder of the Bahá'í Faith and its central figure. Born in Tehran, Bahá'u'lláh endured forty years of exile and imprisonment for proclaiming His message that humanity is one family and that the long-awaited moment for its unification has arrived. His writings encompass over 100 volumes and form the sacred scripture of the Faith.
 
 ### The Báb (1819–1850)
 
-The Herald and Forerunner of the Bahá'í Faith. The Báb declared His mission in 1844, calling for spiritual and social reform and announcing the imminent appearance of a greater Messenger of God. He was executed in 1850 for His teachings.
+The Herald of the Bahá'í Faith. In 1844, the Báb declared His mission and called humanity to spiritual renewal, announcing the imminent appearance of the Promised One foretold in the sacred traditions of all religions. He was executed in 1850 in Tabriz, Persia, at the age of thirty.
 
 ### 'Abdu'l-Bahá (1844–1921)
 
-The son of Bahá'u'lláh and the perfect exemplar of His teachings. 'Abdu'l-Bahá dedicated His life to promoting unity, peace, and service to others. His journeys to Europe and North America in 1911–1913 brought the Faith to wide public attention.
+The son of Bahá'u'lláh and the Centre of His Covenant — appointed by Bahá'u'lláh as the sole authoritative interpreter of His teachings. 'Abdu'l-Bahá is regarded as the perfect exemplar of Bahá'í life: one in whom all the spiritual and humanitarian virtues of the Faith found complete expression.
 
 ---
 
@@ -46,33 +48,33 @@ The son of Bahá'u'lláh and the perfect exemplar of His teachings. 'Abdu'l-Bah�
 
 **Eyebrow:** Core teachings
 
-**Heading:** Principles for a united world
+**Heading:** The oneness of God, religion, and humanity
 
-**Intro:** The teachings of the Bahá'í Faith address both the spiritual life of the individual and the structures of society.
+**Intro:** At the heart of the Bahá'í Faith are teachings about the oneness of God and religion, the oneness of humanity and freedom from prejudice, and the harmony of science and religion. These are not abstract ideals — they are principles for the ordering of human life and the building of civilisation.
 
 ### Oneness of God
 
-There is only one God, and all the great religions of the world represent successive chapters in one unfolding story of divine guidance for humanity.
+There is only one God — unknowable in essence, yet made known to humanity through a succession of divine Messengers. All the great religions of the world flow from this one source.
 
-### Oneness of religion
+### Progressive revelation
 
-The world's religions come from the same divine source and are successive stages in the spiritual evolution of human civilization.
+Religious truth is revealed progressively. The Manifestations of God — Abraham, Moses, Buddha, Christ, Muhammad, Bahá'u'lláh — each brought teachings suited to the needs and capacity of the age in which they appeared.
 
 ### Oneness of humanity
 
-The earth is one country and mankind its citizens. The diversity of the human race should be a cause of love and harmony.
+"The earth is but one country, and mankind its citizens." The diversity of the human race is not a source of division but a cause of love and harmony. All prejudice — of race, class, nationality, or religion — must be overcome.
 
-### Universal peace
+### Inherent nobility
 
-World peace is not only possible but inevitable. It is the next stage in the evolution of humanity.
+Every human being is a mine rich in gems of inestimable value. The purpose of education, spiritual and material alike, is to reveal these inner capacities in service to one another and to civilisation.
 
-### Justice and equity
+### Harmony of science and religion
 
-Justice is the best beloved of all things in the sight of God. A just society ensures the rights and dignity of every individual.
+Science and religion are two complementary systems of knowledge. Religion without science leads to superstition; science without religion leads to materialism. Both are essential to human progress.
 
-### Service to humanity
+### Justice
 
-Work performed in the spirit of service is elevated to the rank of worship. Serving others is the highest expression of a spiritual life.
+Justice is the best-beloved of all things in the sight of God and the centrality of justice to all human endeavours is a cornerstone of Bahá'í social teaching. A just society upholds the rights and dignity of every person.
 
 ---
 

@@ -17,7 +17,7 @@ title: "Home — Copywriting"
 
 **Subheading:** A welcoming community devoted to the oneness of humanity, gathering on Treaty 1 territory in the heart of the prairies.
 
-**Buttons:** Enter · Events
+**Buttons:** Activities · Contact
 
 ---
 
@@ -25,7 +25,7 @@ title: "Home — Copywriting"
 
 The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.
 
-### Devotional Gatherings
+### Devotional Meetings
 
 Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.
 
@@ -54,6 +54,10 @@ The Bahá'í community in Winnipeg has been present for over a century, deeply e
 ---
 
 ## Events — Upcoming gatherings
+
+**Eyebrow:** Events
+
+**Heading:** Upcoming gatherings
 
 Bahá'ís and their friends gather for prayer, study, celebration, and service. Everyone is welcome.
 

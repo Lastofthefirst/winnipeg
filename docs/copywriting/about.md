@@ -16,9 +16,11 @@ title: "About — Copywriting"
 
 **Heading:** The Bahá'í Faith
 
-**Intro:** The fundamental purpose animating the Bahá'í Faith is to safeguard the interests and promote the unity of the human race.
+**Intro:** The fundamental purpose animating the Bahá'í Faith is to safeguard the interests and promote the unity of the human race, and to foster the spirit of love and fellowship amongst all people.
 
-The Bahá'í Faith addresses both the spiritual life of the individual and the structures of human society — a twofold endeavour to transform character and to build institutions worthy of an ever-advancing civilisation.
+Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, embracing people from more than 2,100 ethnic, racial, and tribal backgrounds. At the heart of the Faith is the conviction that humanity is one family, and that the day has come for humanity's unification into one global society.
+
+Bahá'ís are engaged in a twofold endeavour: attending to the inner life of the individual and contributing to the transformation of society. These are not separate aims. Through devotional meetings, study circles, and programs for children and youth, Bahá'ís and their friends work to build communities that reflect the principles of justice, unity, and the oneness of humankind.
 
 ---
 
@@ -36,11 +38,11 @@ The Bahá'í Faith addresses both the spiritual life of the individual and the s
 
 **Heading:** The oneness of humanity — the pivot round which all else revolves.
 
-**Intro:** Bahá'ís believe that humanity is one family, that women and men are equal, and that the diversity of the human race is a source of strength, not division.
+**Intro:** Bahá'ís believe that humanity is one family. All else flows from this conviction: the equality of women and men, the elimination of prejudice, the harmony of science and religion.
 
 ### Unity of humanity
 
-The principle that all people belong to one human family — bound together regardless of race, nation, or creed — is the cornerstone of the Bahá'í Faith.
+All people belong to one human family. This is not merely an ideal but the foundation upon which a just and peaceful civilisation can be built.
 
 ### Equality of women and men
 
@@ -48,19 +50,19 @@ Humanity is like a bird: one wing is women, the other men. Only when both wings 
 
 ### Elimination of prejudice
 
-Of all forms of prejudice, the most destructive is racial prejudice. Bahá'ís strive actively to build bonds across every line of division.
+Of all forms of prejudice, racial prejudice is the most destructive. Bahá'ís strive actively to build bonds across every line of division.
 
 ### Harmony of science and religion
 
-Religion without science is superstition; science without religion is materialism. Both are needed for human progress.
+Religion without science is superstition; science without religion is materialism. Both are needed for the progress of civilisation.
 
 ### Independent investigation of truth
 
-Each person has the right and responsibility to search for truth independently, unfettered by superstition or tradition.
+Each person has the right and responsibility to search for truth independently — unfettered by tradition, superstition, or the imitation of others.
 
 ### Universal education
 
-Regard every human being as a mine rich in gems of inestimable value. Education can alone cause it to reveal its treasures.
+Regard every human being as a mine rich in gems. Education alone can reveal its treasures and enable all of humanity to benefit.
 
 ---
 
