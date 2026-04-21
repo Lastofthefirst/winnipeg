@@ -146,14 +146,16 @@ export function EventsPreview({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>{strings.intro}</p>
-        <div className="mt-8">
-          <Link
-            href={`/${locale}/events`}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
-          >
-            {strings.seeAllEvents} <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
+        {!loading && upcoming.length > 0 && (
+          <div className="mt-8">
+            <Link
+              href={`/${locale}/events`}
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
+            >
+              {strings.seeAllEvents} <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        )}
       </SectionIntro>
 
       {loading ? (
