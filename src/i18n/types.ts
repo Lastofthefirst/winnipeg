@@ -14,7 +14,7 @@ export interface Dictionary {
   home: {
     hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
     activities: {
-      heading: string; intro: string
+      heading: string; intro: string; link: string
       items: { title: string; description: string }[]
     }
     community: { eyebrow: string; heading: string; body: string[]; link: string }

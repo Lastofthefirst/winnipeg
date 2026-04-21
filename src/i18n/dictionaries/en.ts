@@ -30,6 +30,7 @@ const en: Dictionary = {
     activities: {
       heading: 'Walking a path of service',
       intro: "The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.",
+      link: 'Learn more',
       items: [
         { title: "Children's Classes", description: 'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.' },
         { title: 'Junior Youth', description: 'Accompany young people ages 12–15 as they develop their powers of expression, moral reasoning, and capacity for service to their communities.' },

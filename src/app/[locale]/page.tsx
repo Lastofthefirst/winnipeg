@@ -141,6 +141,14 @@ export default async function HomePage({ params }: { params: any }) {
         >
           Let your vision be world-embracing, rather than confined to your own self.
         </Blockquote>
+        <div className="mt-8">
+          <Link
+            href={`/${locale}/community-life`}
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900 transition hover:text-burgundy-600"
+          >
+            {t.home.activities.link} <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
       </SectionIntro>
       <Container className="mt-16">
         <FadeInStagger className="grid grid-cols-1 gap-10 sm:grid-cols-2">
