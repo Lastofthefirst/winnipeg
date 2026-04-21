@@ -6,7 +6,8 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
-import { formatEventDate } from '@/components/EventsPreview'
+import { formatEventDate, localizeEvent } from '@/components/EventsPreview'
+import type { UpcomingEvent } from '@/components/EventsPreview'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
 
@@ -77,14 +78,7 @@ function Invitation({ eyebrow, heading, body, link, locale }: InvitationProps) {
 // Page
 // ---------------------------------------------------------------------------
 
-const events: Array<{
-  id?: string
-  date: string
-  title: string
-  location?: string
-  time?: string
-  description: string
-}> = []
+const events: UpcomingEvent[] = []
 
 export default async function EventsPage({ params }: { params: any }) {
   const { locale } = (await params) as { locale: Locale }
@@ -109,48 +103,51 @@ export default async function EventsPage({ params }: { params: any }) {
           <>
             <FadeInStagger>
               <div className="space-y-16">
-                {events.map((event) => (
-                  <FadeIn key={event.id ?? event.date + event.title}>
-                    <article>
-                      <Border className="pt-16">
-                        <div className="relative lg:-mx-4 lg:flex lg:justify-end">
-                          <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
-                            <h2 className="font-display text-2xl font-normal text-burgundy-900">
-                              {event.title}
-                            </h2>
-                            <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
-                              <dt className="sr-only">Date</dt>
-                              <dd className="absolute left-0 top-0 text-sm text-burgundy-900 lg:static">
-                                <time dateTime={event.date}>
-                                  {formatEventDate(event.date, locale)}
-                                </time>
-                              </dd>
-                              {event.time && (
-                                <>
-                                  <dt className="sr-only">Time</dt>
-                                  <dd className="mt-1 text-sm text-burgundy-600">
-                                    {event.time}
-                                  </dd>
-                                </>
-                              )}
-                              {event.location && (
-                                <>
-                                  <dt className="sr-only">Location</dt>
-                                  <dd className="mt-1 text-sm text-burgundy-600">
-                                    {event.location}
-                                  </dd>
-                                </>
-                              )}
-                            </dl>
-                            <p className="mt-6 max-w-2xl text-base leading-relaxed text-burgundy-700">
-                              {event.description}
-                            </p>
+                {events.map((event) => {
+                  const { title, description, location } = localizeEvent(event, locale)
+                  return (
+                    <FadeIn key={event.id ?? event.date + event.title_en}>
+                      <article>
+                        <Border className="pt-16">
+                          <div className="relative lg:-mx-4 lg:flex lg:justify-end">
+                            <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
+                              <h2 className="font-display text-2xl font-normal text-burgundy-900">
+                                {title}
+                              </h2>
+                              <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
+                                <dt className="sr-only">Date</dt>
+                                <dd className="absolute left-0 top-0 text-sm text-burgundy-900 lg:static">
+                                  <time dateTime={event.date}>
+                                    {formatEventDate(event.date, locale)}
+                                  </time>
+                                </dd>
+                                {event.time && (
+                                  <>
+                                    <dt className="sr-only">Time</dt>
+                                    <dd className="mt-1 text-sm text-burgundy-600">
+                                      {event.time}
+                                    </dd>
+                                  </>
+                                )}
+                                {location && (
+                                  <>
+                                    <dt className="sr-only">Location</dt>
+                                    <dd className="mt-1 text-sm text-burgundy-600">
+                                      {location}
+                                    </dd>
+                                  </>
+                                )}
+                              </dl>
+                              <p className="mt-6 max-w-2xl text-base leading-relaxed text-burgundy-700">
+                                {description}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </Border>
-                    </article>
-                  </FadeIn>
-                ))}
+                        </Border>
+                      </article>
+                    </FadeIn>
+                  )
+                })}
               </div>
             </FadeInStagger>
 

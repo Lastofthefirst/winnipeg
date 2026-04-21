@@ -13,10 +13,21 @@ import type { Locale, Dictionary } from '@/i18n/types'
 export interface UpcomingEvent {
   id?: string
   date: string
-  title: string
-  location?: string
   time?: string
-  description: string
+  title_en: string
+  title_fr?: string
+  location_en?: string
+  location_fr?: string
+  description_en: string
+  description_fr?: string
+}
+
+export function localizeEvent(event: UpcomingEvent, locale: Locale) {
+  return {
+    title: (locale === 'fr' ? event.title_fr : undefined) ?? event.title_en,
+    description: (locale === 'fr' ? event.description_fr : undefined) ?? event.description_en,
+    location: (locale === 'fr' ? event.location_fr : undefined) ?? event.location_en,
+  }
 }
 
 function parseEventCutoff(event: UpcomingEvent): Date {
@@ -152,35 +163,38 @@ export function EventsPreview({
       ) : (
         <Container className="mt-16">
           <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {upcoming.slice(0, 3).map((event) => (
-              <FadeIn key={event.id ?? event.date + event.title} className="flex">
-                <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <Border position="left" className="pl-4">
-                      <p className="text-sm font-semibold text-burgundy-900">
-                        {formatEventDate(event.date, locale)}
-                      </p>
-                      {event.time && (
-                        <p className="mt-1 text-sm text-burgundy-600">
-                          {event.time}
+            {upcoming.slice(0, 3).map((event) => {
+              const { title, description, location } = localizeEvent(event, locale)
+              return (
+                <FadeIn key={event.id ?? event.date + event.title_en} className="flex">
+                  <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
+                      <Border position="left" className="pl-4">
+                        <p className="text-sm font-semibold text-burgundy-900">
+                          {formatEventDate(event.date, locale)}
+                        </p>
+                        {event.time && (
+                          <p className="mt-1 text-sm text-burgundy-600">
+                            {event.time}
+                          </p>
+                        )}
+                      </Border>
+                      <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
+                        {title}
+                      </h3>
+                      {location && (
+                        <p className="mt-2 text-sm text-burgundy-500">
+                          {location}
                         </p>
                       )}
-                    </Border>
-                    <h3 className="mt-6 font-display text-2xl font-normal text-burgundy-900">
-                      {event.title}
-                    </h3>
-                    {event.location && (
-                      <p className="mt-2 text-sm text-burgundy-500">
-                        {event.location}
+                      <p className="mt-4 text-base text-burgundy-700">
+                        {description}
                       </p>
-                    )}
-                    <p className="mt-4 text-base text-burgundy-700">
-                      {event.description}
-                    </p>
-                  </div>
-                </article>
-              </FadeIn>
-            ))}
+                    </div>
+                  </article>
+                </FadeIn>
+              )
+            })}
           </FadeInStagger>
           {upcoming.length > 3 && (
             <FadeIn className="mt-10 flex justify-center">
