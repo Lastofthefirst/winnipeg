@@ -8,6 +8,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { Blockquote } from '@/components/Blockquote'
 import { AdminShell, SectionCard } from '@/admin/shell'
 import { EditableText, EditableImage } from '@/admin/editable'
+import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { fetchFile, commitFiles, isGithubConfigured, type GitHubFile } from '@/admin/github'
 
 // Import as build-time defaults
@@ -285,6 +286,7 @@ function EventsSection({
   onChange,
   onAdd,
   onRemove,
+  locale,
 }: {
   events: Array<{ id: string; title: string; date: string; time: string; location: string }>
   editing: string | null
@@ -292,6 +294,7 @@ function EventsSection({
   onChange: (field: string, value: string) => void
   onAdd: () => void
   onRemove: (id: string) => void
+  locale: 'en' | 'fr'
 }) {
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -299,11 +302,9 @@ function EventsSection({
         <div key={event.id} className="group relative">
           <article className="flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
             <div className="flex flex-1 flex-col p-6 sm:p-8">
-              <div className="relative pl-4 before:absolute before:top-0 before:left-0 before:h-6 before:w-px before:bg-burgundy-900 after:absolute after:top-8 after:left-0 after:h-px after:w-[2px] after:bg-burgundy-200">
-                <EditableText field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="text-sm font-semibold text-burgundy-900" />
-                {event.time && (
-                  <EditableText field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-1 text-sm text-burgundy-600" />
-                )}
+              <div className="space-y-2">
+                <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} className="text-sm font-semibold text-burgundy-900" />
+                <TimePicker field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} />
               </div>
               <EditableText field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
               {event.location && (
@@ -411,9 +412,11 @@ export default function AdminPage() {
   }
 
   function handleAddEvent() {
+    const nextWeek = new Date()
+    nextWeek.setDate(nextWeek.getDate() + 7)
     setContent((prev) => ({
       ...prev,
-      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: 'June 14, 2026', time: '2:00 PM', location: 'Community Home' }],
+      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
     }))
     setDirty(true)
     setPushStatus('idle')
@@ -553,6 +556,7 @@ export default function AdminPage() {
           onChange={handleFieldChange}
           onAdd={handleAddEvent}
           onRemove={handleRemoveEvent}
+          locale={locale}
         />
       </SectionCard>
     </AdminShell>
