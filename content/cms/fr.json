@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "eyebrow": "Communauté bahá'íe de Winnipeg",
+    "heading": "Là où les rivières se rejoignent, les cœurs s'unissent",
+    "subheading": "Une communauté accueillante dédiée à l'unité de l'humanité, réunie sur le Territoire du Traité no 1 au cœur des Prairies.",
+    "ctaActivities": "Activités",
+    "ctaContact": "Contact",
+    "background": "/river-confluence/confluence-01.png"
+  },
+  "community": {
+    "eyebrow": "À Winnipeg",
+    "heading": "Là où les rivières se rencontrent",
+    "body": [
+      "Les deux rivières convergent aux Forks en un courant uni — la vision de Bahá'u'lláh rassemble des personnes de toutes origines en une seule communauté, œuvrant vers un monde plus juste et plus pacifique.",
+      "La communauté bahá'íe de Winnipeg est présente depuis plus d'un siècle, profondément engagée dans la vie de nos quartiers par des programmes dévotionnels, des cercles d'étude et des célébrations communautaires."
+    ],
+    "link": "En savoir plus",
+    "image": "/community/garden-bouquet-01.png"
+  },
+  "activities": {
+    "intro": "La communauté bahá'íe de Winnipeg est engagée dans diverses activités qui rassemblent des personnes pour la prière, l'étude et le service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se retrouvent depuis toutes origines, unis par une vision commune.",
+    "items": [
+      {
+        "title": "Classes d'enfants",
+        "description": "Nourrir le développement spirituel des jeunes cœurs par des histoires, des chants, de l'art et une éducation fondée sur les vertus.",
+        "image": "/activity-cards/childrens-classes-01.png"
+      },
+      {
+        "title": "Jeunes d'aujourd'hui",
+        "description": "Accompagner les jeunes de 12 à 15 ans dans le développement de leurs capacités d'expression, de leur raisonnement moral et de leur aptitude au service communautaire.",
+        "image": "/activity-cards/junior-youth-01.png"
+      },
+      {
+        "title": "Réunions dévotionnelles",
+        "description": "Se rassembler pour le culte collectif — prières, lectures sacrées et réflexion tranquille — dans un cadre accueillant ouvert à tous.",
+        "image": "/activity-cards/devotional-gatherings-01.png"
+      },
+      {
+        "title": "Cercles d'étude",
+        "description": "Explorer les principes spirituels et sociaux en petits groupes, en développant une capacité de service à la société.",
+        "image": "/activity-cards/study-circles-01.png"
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "1",
+      "title": "Réunion dévotionnelle",
+      "date": "14 juin 2026",
+      "time": "14h00",
+      "location": "Maison communautaire"
+    },
+    {
+      "id": "2",
+      "title": "Classe pour enfants",
+      "date": "15 juin 2026",
+      "time": "16h00",
+      "location": "En ligne"
+    },
+    {
+      "id": "3",
+      "title": "Cercle d'étude",
+      "date": "21 juin 2026",
+      "time": "18h30",
+      "location": "Maison communautaire"
+    }
+  ]
+}

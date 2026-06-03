@@ -8,6 +8,7 @@ export interface AdminSection {
   page: string        // e.g. "Homepage", "Events Page" — for labeling only
   fields: string[]    // dot-separated field paths that are editable
   imageFields?: string[]  // dot-separated paths to editable images
+  isList?: true  // marks this as a list-based section (events, news, etc.)
 }
 
 export const adminSections: AdminSection[] = [
@@ -50,5 +51,3 @@ export const adminSections: AdminSection[] = [
     isList: true as const,  // marks this as a list-based section (events, news, etc.)
   },
 ]
-
-export type { AdminSection }

@@ -1,7 +1,6 @@
 'use client'
 
 import { type ReactNode } from 'react'
-import { Container } from '@/components/Container'
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -21,14 +20,43 @@ function CheckIcon() {
   )
 }
 
+function ExternalLinkIcon() {
+  return (
+    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+      <path d="M15 3h6v6M15 3l7 7M21 3l-9 9" />
+    </svg>
+  )
+}
+
+function SpinnerIcon() {
+  return (
+    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </svg>
+  )
+}
+
+function AlertIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v4M12 16h.01" />
+    </svg>
+  )
+}
+
 // ─── Shell ───────────────────────────────────────────────────────────────────
 
 interface AdminShellProps {
-  children: ReactNode
+  children?: ReactNode
   locale: 'en' | 'fr'
   onLocaleChange: (locale: 'en' | 'fr') => void
   dirty: boolean
   onPush: () => void
+  pushing: boolean
+  pushStatus: 'idle' | 'success' | 'error'
+  pushMessage: string
   sectionLabels?: string[]
 }
 
@@ -38,6 +66,9 @@ export function AdminShell({
   onLocaleChange,
   dirty,
   onPush,
+  pushing,
+  pushStatus,
+  pushMessage,
   sectionLabels,
 }: AdminShellProps) {
   return (
@@ -46,7 +77,6 @@ export function AdminShell({
       <header className="sticky top-0 z-50 border-b border-burgundy-100 bg-ivory">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <div className="flex items-center gap-4">
-            {/* Gold divider */}
             <div className="h-6 w-px bg-gold-500" />
             <div>
               <h1 className="font-display text-sm font-normal text-burgundy-900">
@@ -56,48 +86,34 @@ export function AdminShell({
                 Site Editor
               </p>
             </div>
-            <span className="ml-2 rounded-full border border-gold-300 bg-gold-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-gold-700">
-              Local Trial
-            </span>
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Language toggle */}
-            <div className="flex rounded-lg border border-burgundy-200 bg-white p-0.5">
-              <button
-                onClick={() => onLocaleChange('en')}
-                className={`rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition ${
-                  locale === 'en'
-                    ? 'bg-burgundy-900 text-ivory'
-                    : 'text-burgundy-600 hover:text-burgundy-900'
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => onLocaleChange('fr')}
-                className={`rounded-md px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition ${
-                  locale === 'fr'
-                    ? 'bg-burgundy-900 text-ivory'
-                    : 'text-burgundy-600 hover:text-burgundy-900'
-                }`}
-              >
-                Français
-              </button>
-            </div>
+            {/* Analytics link */}
+            <a
+              href="https://analytics.winnipegbahais.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-medium text-burgundy-500 transition hover:text-burgundy-900"
+            >
+              <ExternalLinkIcon />
+              Analytics
+            </a>
 
-            {/* Push changes */}
+            {/* Push to Live */}
             <button
-              disabled={!dirty}
+              disabled={!dirty || pushing}
               onClick={onPush}
               className={`flex items-center gap-2 rounded-lg px-4 py-1.5 text-sm font-medium transition ${
-                dirty
+                dirty && !pushing
                   ? 'bg-burgundy-900 text-white hover:bg-burgundy-800'
-                  : 'bg-stone-100 text-stone-400 cursor-not-allowed'
+                  : pushing
+                    ? 'bg-burgundy-900/80 text-white cursor-wait'
+                    : 'bg-stone-100 text-stone-400 cursor-not-allowed'
               }`}
             >
-              {dirty ? <ArrowRightIcon /> : <CheckIcon />}
-              {dirty ? 'Push Changes' : 'All Saved'}
+              {pushing ? <SpinnerIcon /> : dirty ? <ArrowRightIcon /> : <CheckIcon />}
+              {pushing ? 'Publishing…' : dirty ? 'Push to Live' : 'All Saved'}
             </button>
           </div>
         </div>
@@ -110,11 +126,22 @@ export function AdminShell({
             Edit {locale === 'en' ? 'English' : 'French'} Content
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-stone-500">
-            Click any highlighted text to edit in place. Changes are staged locally — click <strong className="text-stone-700">Push Changes</strong> when ready to publish.
-            Use the toggle above to switch between languages.
+            Click any highlighted text to edit. When ready, click <strong className="text-stone-700">Push to Live</strong> to publish your changes.
           </p>
 
-          {/* Table of contents — shown when more than 4 sections */}
+          {/* Status message */}
+          {pushStatus !== 'idle' && (
+            <div className={`mt-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm ${
+              pushStatus === 'success'
+                ? 'bg-emerald-50 text-emerald-800'
+                : 'bg-red-50 text-red-800'
+            }`}>
+              {pushStatus === 'success' ? <CheckIcon /> : <AlertIcon />}
+              {pushMessage}
+            </div>
+          )}
+
+          {/* Table of contents */}
           {sectionLabels && sectionLabels.length > 4 && (
             <nav className="mt-4 flex flex-wrap gap-2">
               {sectionLabels.map((label, i) => (
@@ -140,19 +167,21 @@ export function AdminShell({
           <div className="flex items-center justify-between rounded-2xl border border-stone-200 bg-white px-6 py-5 shadow-sm">
             <div>
               <p className="text-sm font-medium text-burgundy-900">Ready to publish?</p>
-              <p className="text-xs text-stone-500">This will commit changes and trigger a site rebuild.</p>
+              <p className="text-xs text-stone-500">Your changes will go live on the website within a minute.</p>
             </div>
             <button
-              disabled={!dirty}
+              disabled={!dirty || pushing}
               onClick={onPush}
               className={`flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition ${
-                dirty
+                dirty && !pushing
                   ? 'bg-burgundy-900 text-white hover:bg-burgundy-800'
-                  : 'bg-stone-100 text-stone-400 cursor-not-allowed'
+                  : pushing
+                    ? 'bg-burgundy-900/80 text-white cursor-wait'
+                    : 'bg-stone-100 text-stone-400 cursor-not-allowed'
               }`}
             >
-              <ArrowRightIcon />
-              Push Changes
+              {pushing ? <SpinnerIcon /> : <ArrowRightIcon />}
+              {pushing ? 'Publishing…' : 'Push to Live'}
             </button>
           </div>
         </div>
@@ -168,23 +197,49 @@ interface SectionCardProps {
   label: string
   page?: string
   children: ReactNode
+  bgColor?: string
+  locale?: 'en' | 'fr'
+  onLocaleChange?: (l: 'en' | 'fr') => void
 }
 
-export function SectionCard({ id, label, page, children, bgColor = 'bg-ivory' }: SectionCardProps & { bgColor?: string }) {
+export function SectionCard({ id, label, page, children, bgColor = 'bg-ivory', locale, onLocaleChange }: SectionCardProps) {
   return (
     <div id={id} className={`rounded-2xl border border-stone-200 shadow-sm overflow-hidden ${bgColor}`}>
-      {/* Section header */}
-      <div className="flex items-center gap-3 border-b border-stone-100 px-6 py-4">
-        <h3 className="text-sm font-semibold text-burgundy-900">{label}</h3>
-        {page && (
-          <>
-            <span className="text-stone-300">/</span>
-            <span className="text-xs text-stone-500">{page}</span>
-          </>
+      <div className="flex items-center justify-between border-b border-stone-100 px-6 py-4">
+        <div className="flex items-center gap-3">
+          <h3 className="text-sm font-semibold text-burgundy-900">{label}</h3>
+          {page && (
+            <>
+              <span className="text-stone-300">/</span>
+              <span className="text-xs text-stone-500">{page}</span>
+            </>
+          )}
+        </div>
+        {locale && onLocaleChange && (
+          <div className="flex rounded-md border border-burgundy-200 bg-white/80 p-0.5">
+            <button
+              onClick={() => onLocaleChange('en')}
+              className={`rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider transition ${
+                locale === 'en'
+                  ? 'bg-burgundy-900 text-ivory'
+                  : 'text-burgundy-500 hover:text-burgundy-900'
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => onLocaleChange('fr')}
+              className={`rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider transition ${
+                locale === 'fr'
+                  ? 'bg-burgundy-900 text-ivory'
+                  : 'text-burgundy-500 hover:text-burgundy-900'
+              }`}
+            >
+              FR
+            </button>
+          </div>
         )}
       </div>
-
-      {/* Section content — the actual component */}
       <div className="px-6 py-6">
         {children}
       </div>

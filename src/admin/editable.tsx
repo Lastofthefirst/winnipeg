@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useRef, useCallback, type ReactNode, type ComponentType } from 'react'
+import { useState, useRef, useCallback, useEffect, type ReactNode, type ComponentType } from 'react'
 
 // ─── Editable text ───────────────────────────────────────────────────────────
 
 /**
- * Wraps any text node with edit-in-place behaviour.
- * Hover shows subtle highlight; click replaces with input/textarea.
+ * Wraps any text node with edit-in-place behaviour using an overlay input.
+ * Click focuses an absolutely-positioned input that sits on top of the text.
+ * No layout shift — original element stays in the DOM.
  * Blur or Enter exits edit mode and stages the change.
  */
 interface EditableTextProps {
@@ -15,9 +16,8 @@ interface EditableTextProps {
   editing: string | null
   onEdit: (field: string) => void
   onChange: (field: string, value: string) => void
-  as?: ComponentType<any>
+  as?: React.ElementType
   className?: string
-  children: ReactNode
 }
 
 export function EditableText({
@@ -30,52 +30,79 @@ export function EditableText({
   className = '',
 }: EditableTextProps) {
   const isEditing = editing === field
-  const useTextarea = value.length > 100
+  const containerRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const useTextarea = value.includes('\n') || value.length > 120
+  const [draft, setDraft] = useState(value)
 
-  const handleToggle = useCallback(() => {
+  // Sync draft when exiting edit mode for this field
+  useEffect(() => {
+    if (!isEditing) setDraft(value)
+  }, [isEditing, value])
+
+  // Focus input when entering edit mode
+  useEffect(() => {
     if (isEditing) {
-      onEdit('')
-    } else {
-      onEdit(field)
+      const el = useTextarea ? textareaRef.current : inputRef.current
+      el?.focus()
+      el?.select()
     }
-  }, [field, isEditing, onEdit])
+  }, [isEditing])
 
-  if (isEditing) {
-    return (
-      <div className="w-full">
-        {useTextarea ? (
-          <textarea
-            value={value}
-            onChange={(e) => onChange(field, e.target.value)}
-            onBlur={() => onEdit('')}
-            onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEdit('') }}}
-            autoFocus
-            rows={4}
-            className="w-full rounded-lg border-2 border-amber-400 bg-amber-50 px-3 py-2 text-sm text-inherit leading-relaxed outline-none focus:ring-2 focus:ring-amber-400/20"
-          />
-        ) : (
-          <input
-            type="text"
-            value={value}
-            onChange={(e) => onChange(field, e.target.value)}
-            onBlur={() => onEdit('')}
-            onKeyDown={(e) => { if (e.key === 'Enter') onEdit('') }}
-            autoFocus
-            className="w-full rounded-lg border-2 border-amber-400 bg-amber-50 px-3 py-1.5 text-sm text-inherit outline-none focus:ring-2 focus:ring-amber-400/20"
-          />
-        )}
-      </div>
-    )
-  }
+  const handleCommit = useCallback((val: string) => {
+    onChange(field, val)
+    onEdit('')
+  }, [field, onChange, onEdit])
+
+  const handleClick = useCallback(() => {
+    setDraft(value)
+    onEdit(field)
+  }, [field, value, onEdit])
+
+  const activeRef = useTextarea ? textareaRef : inputRef
 
   return (
-    <Component
-      onClick={handleToggle}
-      className={`${className} cursor-pointer rounded transition-colors hover:bg-amber-100/40`}
-      title="Click to edit"
-    >
-      {value}
-    </Component>
+    <div ref={containerRef} className="relative">
+      {/* Visible text */}
+      <Component
+        className={`${className} cursor-pointer rounded transition-colors hover:bg-amber-100/40`}
+        title="Click to edit"
+        onClick={handleClick}
+      >
+        {value}
+      </Component>
+
+      {/* Overlay input — absolute, zero layout shift */}
+      {isEditing && (
+        <>
+          {useTextarea ? (
+            <textarea
+              ref={textareaRef}
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onBlur={() => handleCommit(draft)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleCommit(draft) }
+              }}
+              className="absolute inset-0 z-10 resize-none rounded border-2 border-amber-400 bg-amber-50/95 p-0 text-inherit leading-inherit outline-none backdrop-blur-[2px] focus:ring-2 focus:ring-amber-400/20"
+              style={{ minHeight: '2.5rem', lineHeight: 'inherit', fontSize: 'inherit', fontFamily: 'inherit', fontWeight: 'inherit', color: 'inherit' }}
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              type="text"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onBlur={() => handleCommit(draft)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleCommit(draft) }}
+              className="absolute inset-0 z-10 rounded border-2 border-amber-400 bg-amber-50/95 px-1 py-0 text-inherit outline-none backdrop-blur-[2px] focus:ring-2 focus:ring-amber-400/20"
+              style={{ fontSize: 'inherit', fontFamily: 'inherit', fontWeight: 'inherit', color: 'inherit' }}
+            />
+          )}
+        </>
+      )}
+    </div>
   )
 }
 
