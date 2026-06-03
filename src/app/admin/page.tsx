@@ -77,13 +77,15 @@ function SpinnerIcon() {
 
 // ─── Login screen ────────────────────────────────────────────────────────────
 
+const ADMIN_PASSWORD = 'w1nn3p3g-c0mmun1ty-2026'
+
 function LoginScreen({ onLogin }: { onLogin: () => void }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (password) onLogin()
+    if (password === ADMIN_PASSWORD) onLogin()
     else setError(true)
   }
 
@@ -125,10 +127,6 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
 
           <div className="mx-auto mt-8 h-px w-16 bg-gold-500" />
         </div>
-
-        <p className="mt-6 text-center text-xs text-burgundy-400">
-          Default: <code className="rounded bg-ivory px-1.5 py-0.5 font-mono text-burgundy-500">winnipeg</code>
-        </p>
       </div>
     </div>
   )

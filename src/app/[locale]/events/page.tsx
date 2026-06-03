@@ -6,10 +6,49 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
-import { formatEventDate, localizeEvent } from '@/components/EventsPreview'
 import type { UpcomingEvent } from '@/components/EventsPreview'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
+import cmsEn from '@/../content/cms/en.json'
+import cmsFr from '@/../content/cms/fr.json'
+
+const cmsEventsEn = (cmsEn as { events: Array<{ id: string; title: string; date: string; time: string; location: string }> }).events
+const cmsEventsFr = (cmsFr as { events: Array<{ id: string; title: string; date: string; time: string; location: string }> }).events
+
+function mapCmsEvents(locale: Locale): UpcomingEvent[] {
+  const primary = locale === 'en' ? cmsEventsEn : cmsEventsFr
+  const fallback = locale === 'en' ? cmsEventsFr : cmsEventsEn
+  const fallbackByTitle = new Map(fallback.map((e) => [e.id, e]))
+  return primary.map((e) => {
+    const fb = fallbackByTitle.get(e.id)
+    return {
+      id: e.id,
+      date: e.date,
+      time: e.time,
+      title_en: locale === 'en' ? e.title : (fb?.title ?? e.title),
+      title_fr: locale === 'fr' ? e.title : (fb?.title ?? e.title),
+      location_en: locale === 'en' ? e.location : (fb?.location ?? e.location),
+      location_fr: locale === 'fr' ? e.location : (fb?.location ?? e.location),
+      description_en: '',
+      description_fr: '',
+    }
+  })
+}
+
+function localizeEvent(event: UpcomingEvent, locale: Locale) {
+  return {
+    title: (locale === 'fr' ? event.title_fr : undefined) ?? event.title_en,
+    description: (locale === 'fr' ? event.description_fr : undefined) ?? event.description_en,
+    location: (locale === 'fr' ? event.location_fr : undefined) ?? event.location_en,
+  }
+}
+
+function formatEventDate(dateString: string, locale: Locale = 'en') {
+  const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-US'
+  return new Date(`${dateString}T00:00:00`).toLocaleDateString(dateLocale, {
+    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+  })
+}
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }]
@@ -78,11 +117,10 @@ function Invitation({ eyebrow, heading, body, link, locale }: InvitationProps) {
 // Page
 // ---------------------------------------------------------------------------
 
-const events: UpcomingEvent[] = []
-
 export default async function EventsPage({ params }: { params: any }) {
   const { locale } = (await params) as { locale: Locale }
   const t = await getDictionary(locale)
+  const events = mapCmsEvents(locale)
 
   return (
     <>

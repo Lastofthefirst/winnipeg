@@ -1,4 +1,13 @@
 import type { Dictionary } from '../types'
+import { mergeCms } from '../cms'
+import cmsFr from '../../../content/cms/fr.json'
+
+const cms = cmsFr as {
+  hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
+  community: { eyebrow: string; heading: string; body: string[]; link: string }
+  activities: { intro: string; items: { title: string; description: string }[] }
+  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
+}
 
 const fr: Dictionary = {
   nav: {
@@ -20,14 +29,14 @@ const fr: Dictionary = {
     },
   },
   home: {
-    hero: {
+    hero: mergeCms({
       eyebrow: "Communauté bahá'íe de Winnipeg",
       heading: "Là où les rivières se rejoignent, les cœurs s'unissent",
       subheading: "Une communauté accueillante dédiée à l'unité de l'humanité, réunie sur le Territoire du Traité no 1 au cœur des Prairies.",
       ctaActivities: 'Activités',
       ctaContact: 'Contact',
-    },
-    activities: {
+    }, cms.hero),
+    activities: mergeCms({
       heading: 'Marcher sur un chemin de service',
       intro: "La communauté bahá'íe de Winnipeg est engagée dans diverses activités qui rassemblent des personnes pour la prière, l'étude et le service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se retrouvent depuis toutes origines, unis par une vision commune.",
       items: [
@@ -36,8 +45,8 @@ const fr: Dictionary = {
         { title: 'Réunions dévotionnelles', description: "Se rassembler pour le culte collectif — prières, lectures sacrées et réflexion tranquille — dans un cadre accueillant ouvert à tous." },
         { title: "Cercles d'étude", description: "Explorer les principes spirituels et sociaux en petits groupes, en développant une capacité de service à la société." },
       ],
-    },
-    community: {
+    }, cms.activities),
+    community: mergeCms({
       eyebrow: 'À Winnipeg',
       heading: 'Là où les rivières se rencontrent',
       body: [
@@ -45,7 +54,7 @@ const fr: Dictionary = {
         "La communauté bahá'íe de Winnipeg est présente depuis plus d'un siècle, profondément engagée dans la vie de nos quartiers par des programmes dévotionnels, des cercles d'étude et des célébrations communautaires.",
       ],
       link: 'En savoir plus',
-    },
+    }, cms.community),
     news: {
       eyebrow: 'Nouvelles',
       heading: "Du monde bahá'í",

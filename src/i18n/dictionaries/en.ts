@@ -1,4 +1,13 @@
 import type { Dictionary } from '../types'
+import { mergeCms } from '../cms'
+import cmsEn from '../../../content/cms/en.json'
+
+const cms = cmsEn as {
+  hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
+  community: { eyebrow: string; heading: string; body: string[]; link: string }
+  activities: { intro: string; items: { title: string; description: string }[] }
+  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
+}
 
 const en: Dictionary = {
   nav: {
@@ -20,14 +29,14 @@ const en: Dictionary = {
     },
   },
   home: {
-    hero: {
+    hero: mergeCms({
       eyebrow: "Bahá'í Community of Winnipeg",
       heading: 'Where rivers converge, hearts unite',
       subheading: 'A welcoming community devoted to the oneness of humanity, gathering on Treaty 1 territory in the heart of the prairies.',
       ctaActivities: 'Activities',
       ctaContact: 'Contact',
-    },
-    activities: {
+    }, cms.hero),
+    activities: mergeCms({
       heading: 'Walking a path of service',
       intro: "The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.",
       items: [
@@ -36,8 +45,8 @@ const en: Dictionary = {
         { title: 'Devotional Meetings', description: 'Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.' },
         { title: 'Study Circles', description: 'Explore spiritual and social principles in small group settings, building capacity for service to society.' },
       ],
-    },
-    community: {
+    }, cms.activities),
+    community: mergeCms({
       eyebrow: 'In Winnipeg',
       heading: 'Where the rivers meet',
       body: [
@@ -45,7 +54,7 @@ const en: Dictionary = {
         "The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.",
       ],
       link: 'Learn more',
-    },
+    }, cms.community),
     news: {
       eyebrow: 'News',
       heading: "From the Bahá'í World",

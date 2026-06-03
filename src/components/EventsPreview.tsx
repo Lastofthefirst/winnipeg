@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -103,40 +102,16 @@ function AlwaysGathering({
   )
 }
 
-function SkeletonCard() {
-  return (
-    <div className="animate-pulse border border-burgundy-200 bg-ivory">
-      <div className="flex flex-col p-6 sm:p-8">
-        <div className="h-3 w-32 bg-burgundy-100" />
-        <div className="mt-6 h-6 w-full bg-burgundy-100" />
-        <div className="mt-2 h-4 w-2/3 bg-burgundy-100" />
-        <div className="mt-4 h-4 w-full bg-burgundy-100" />
-        <div className="mt-2 h-4 w-3/4 bg-burgundy-100" />
-      </div>
-    </div>
-  )
-}
-
 export function EventsPreview({
   locale = 'en',
   strings,
+  events,
 }: {
   locale?: Locale
   strings: Dictionary['eventsPreview']
+  events?: UpcomingEvent[]
 }) {
-  const [upcoming, setUpcoming] = useState<UpcomingEvent[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('https://winnipeg-bahais.dust.ridvan.org/api/content/events?sort=date:asc&limit=20')
-      .then((r) => r.json())
-      .then((json) => {
-        const raw: UpcomingEvent[] = Array.isArray(json) ? json : (json.data ?? [])
-        setUpcoming(getUpcomingEvents(raw))
-      })
-      .catch(() => setUpcoming([]))
-      .finally(() => setLoading(false))
-  }, [])
+  const upcoming = events ?? []
 
   return (
     <>
@@ -148,17 +123,7 @@ export function EventsPreview({
         <p>{strings.intro}</p>
       </SectionIntro>
 
-      {loading ? (
-        <Container className="mt-16">
-          <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <FadeIn key={i}>
-                <SkeletonCard />
-              </FadeIn>
-            ))}
-          </FadeInStagger>
-        </Container>
-      ) : upcoming.length === 0 ? (
+      {upcoming.length === 0 ? (
         <AlwaysGathering strings={strings.invitation} locale={locale} />
       ) : (
         <Container className="mt-16">
