@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "eyebrow": "Bahá'í Community of Winnipeg",
+    "heading": "Where rivers converge, hearts unite",
+    "subheading": "A welcoming community devoted to the oneness of humanity, gathering on Treaty 1 territory in the heart of the prairies.",
+    "ctaActivities": "Activities",
+    "ctaContact": "Contact",
+    "background": "/river-confluence/confluence-01.png"
+  },
+  "community": {
+    "eyebrow": "In Winnipeg",
+    "heading": "Where the rivers meet",
+    "body": [
+      "The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.",
+      "The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations."
+    ],
+    "link": "Learn more",
+    "image": "/community/garden-bouquet-01.png"
+  },
+  "activities": {
+    "intro": "The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.",
+    "items": [
+      {
+        "title": "Children's Classes",
+        "description": "Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.",
+        "image": "/activity-cards/childrens-classes-01.png"
+      },
+      {
+        "title": "Junior Youth",
+        "description": "Accompany young people ages 12–15 as they develop their powers of expression, moral reasoning, and capacity for service to their communities.",
+        "image": "/activity-cards/junior-youth-01.png"
+      },
+      {
+        "title": "Devotional Meetings",
+        "description": "Come together for collective worship — prayers, sacred readings, and quiet reflection — in a welcoming setting open to people of all backgrounds.",
+        "image": "/activity-cards/devotional-gatherings-01.png"
+      },
+      {
+        "title": "Study Circles",
+        "description": "Explore spiritual and social principles in small group settings, building capacity for service to society.",
+        "image": "/activity-cards/study-circles-01.png"
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "1",
+      "title": "Devotional Gathering",
+      "date": "June 14, 2026",
+      "time": "2:00 PM",
+      "location": "Community Home"
+    },
+    {
+      "id": "2",
+      "title": "Children's Class",
+      "date": "June 15, 2026",
+      "time": "4:00 PM",
+      "location": "Online"
+    },
+    {
+      "id": "3",
+      "title": "Study Circle",
+      "date": "June 21, 2026",
+      "time": "6:30 PM",
+      "location": "Community Home"
+    }
+  ]
+}
