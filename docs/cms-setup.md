@@ -1,68 +1,58 @@
 # CMS Setup Guide
 
-The admin panel at `/admin` lets non-technical users edit site content. Changes are pushed directly to GitHub, which triggers an automatic Cloudflare Pages rebuild.
-
-## How it works
-
-1. Editor visits `/admin`, enters the shared password
-2. Clicks text on the page to edit it
-3. Clicks **Push to Live** — changes commit to the `content/cms/` JSON files on GitHub
-4. Cloudflare Pages detects the push and rebuilds the site automatically
-
-## Setup (one-time)
-
-### 1. Create a GitHub Fine-Grained Personal Access Token
-
-1. Go to **GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens**
-2. Click **Generate new token**
-3. Set the following:
-   - **Token name:** `winnipeg-site-cms`
-   - **Repository access:** Only select repositories → `Lastofthefirst/winnipeg`
-   - **Permissions:**
-     - **Contents:** Read and write
-     - Everything else: No access
-4. Click **Generate token**
-5. Copy the token — you won't see it again
-
-### 2. Add one env var to Cloudflare Pages
-
-In the Cloudflare Pages dashboard for this project:
-
-1. Go to **Settings → Environment variables → Edit variables**
-2. Add one variable (production):
-   - `NEXT_PUBLIC_GITHUB_PAT` — the token from step 1
-3. Save
-
-Cloudflare injects this at build time so the admin page has the token embedded.
-
-### 3. Local development
-
-Set the same variables in `.env.local` (this file is gitignored):
-
-```
-NEXT_PUBLIC_GITHUB_PAT=ghp_your_token_here
-NEXT_PUBLIC_GITHUB_BRANCH=main
-```
-
-Then `npm run dev` to test locally.
-
-### 4. Set the admin password
-
-The password is currently a simple client-side check. To change it, edit `src/app/admin/page.tsx` in the `LoginScreen` component. Default is `winnipeg`.
-
-## Content files
-
-Editable content lives in JSON files:
-
-- `content/cms/en.json` — English content
-- `content/cms/fr.json` — French content
-
-These are the source of truth for the admin editor.
+The admin panel at `/admin` lets non-technical editors change site content. Edits commit to the `content/cms/` JSON files on GitHub, which triggers a Cloudflare Pages rebuild.
 
 ## Architecture
 
-- **`src/app/admin/page.tsx`** — Admin page with login, edit UI, and push-to-live
-- **`src/admin/shell.tsx`** — Reusable admin shell (header, save button, section cards)
-- **`src/admin/editable.tsx`** — Editable text and image wrappers
-- **`src/admin/github.ts`** — GitHub Contents API client
-- **`src/admin/config.ts`** — Per-site section and field configuration
+Auth and writes happen **server-side** in a Cloudflare Pages Function — the browser never sees the password or the GitHub token.
+
+- `functions/api/cms/[[path]].ts` — Pages Function exposing `/api/cms/*` (auth, content read, content push). Production entry point.
+- `src/cms/config.ts` — single source of truth for the CMS config (locales, content files, git repo, allowed paths, rate limit). Imported by both the function and the admin page.
+- `src/app/admin/page.tsx` — admin page (dustcms `LoginScreen` + `AdminShell`). Static-exported.
+- `content/cms/en.json`, `content/cms/fr.json` — editable content (source of truth).
+
+The flow: `LoginScreen` POSTs `{ password }` to `/api/cms/auth` → the function compares it against `CMS_PASSWORD` (constant-time) → on success sets an `HttpOnly` `cms-session` JWT cookie (HMAC-SHA256, 90-day expiry). Content read/push require a valid cookie and commit through `GIT_TOKEN`.
+
+## Environment variables
+
+| Variable | Purpose |
+|---|---|
+| `CMS_PASSWORD` | Shared admin password |
+| `CMS_JWT_SECRET` | 32+ random bytes for signing sessions (`openssl rand -base64 32`) |
+| `GIT_TOKEN` | Fine-grained GitHub PAT, Contents read+write on `Lastofthefirst/winnipeg` |
+
+### Production (Cloudflare Pages)
+
+Set all three as environment variables in the Cloudflare Pages dashboard (Settings → Environment variables). They are available to the Pages Function at runtime.
+
+### Local development
+
+The Pages Function is not served by `next dev`. To exercise the CMS locally you run the real function via Wrangler:
+
+1. Put the secrets in `.dev.vars` (gitignored; Wrangler reads this for the function):
+   ```
+   CMS_PASSWORD=w1nn3p3g-c0mmun1ty-2026
+   CMS_JWT_SECRET=<openssl rand -base64 32>
+   GIT_TOKEN=ghp_...
+   ```
+2. Build the static export once, then preview it with the function:
+   ```
+   pnpm build
+   pnpm preview     # wrangler pages dev out/  →  http://localhost:8788
+   ```
+   Open `http://localhost:8788/admin` and log in.
+
+`pnpm dev` (plain `next dev`) is for UI/component work with HMR; it does **not** serve `/api/cms/*`, so the admin login will not work there. Use `pnpm preview` for anything that touches the CMS.
+
+### Note on rate limiting
+
+The auth endpoint rate-limits by `cf-connecting-ip` (5 attempts / 15 min). Wrangler does not always set that header locally, so all local attempts can share one bucket — if login stops returning 401 and the button spins or errors, restart `pnpm preview` to clear the in-memory limiter.
+
+## Remaining production prerequisite
+
+`dustcms` is the CMS library. It must be resolvable on the Cloudflare build host, where there is no local symlink. Declare it as a real dependency before the production build will succeed:
+
+- Publish `dustcms` to npm and add `"dustcms": "^0.1.0"`, **or**
+- Push the `dustCMS` repo to GitHub and add `"dustcms": "github:Lastofthefirst/dustCMS"`.
+
+Until then `pnpm install` on Cloudflare cannot resolve `dustcms` and the build fails.

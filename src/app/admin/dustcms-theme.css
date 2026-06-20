@@ -1,0 +1,108 @@
+/* dustCMS theme override for Winnipeg site */
+/* Import after dustcms/styles.css to override defaults */
+
+.dustcms-shell {
+  background: #faf7f2;
+}
+
+.dustcms-header {
+  border-bottom-color: #d4c4a8;
+  background: #faf7f2;
+}
+
+.dustcms-header-title h1 {
+  color: #4a1c2a;
+  font-family: var(--font-display);
+}
+
+.dustcms-header-subtitle {
+  color: #8c6b5d;
+}
+
+.dustcms-locale-toggle {
+  border-color: #c9a86c;
+}
+
+.dustcms-locale-toggle button {
+  color: #8c6b5d;
+}
+
+.dustcms-locale-active {
+  background: #4a1c2a !important;
+  color: #faf7f2 !important;
+}
+
+.dustcms-push-active {
+  background: #4a1c2a;
+}
+
+.dustcms-section-card {
+  border-color: #e8dfd2;
+}
+
+.dustcms-section-card-header {
+  border-bottom-color: #f5efe8;
+}
+
+.dustcms-section-card-title h3 {
+  color: #4a1c2a;
+  font-family: var(--font-display);
+}
+
+.dustcms-page-label {
+  color: #a89888;
+}
+
+.dustcms-bottom-cta {
+  border-color: #e8dfd2;
+}
+
+.dustcms-bottom-cta p:first-child {
+  color: #4a1c2a;
+}
+
+.dustcms-editable-text {
+  cursor: pointer;
+}
+
+.dustcms-editable-text:hover {
+  background-color: rgb(201 168 108 / 0.2);
+}
+
+.dustcms-editable-overlay {
+  border-color: #c9a86c;
+  background: rgb(250 247 242 / 0.95);
+}
+
+.dustcms-status-success {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.dustcms-status-error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.dustcms-login {
+  background: #faf7f2;
+}
+
+.dustcms-login form {
+  border-color: #e8dfd2;
+}
+
+.dustcms-login input {
+  border-color: #d4c4a8;
+  background: #faf7f2;
+  color: #4a1c2a;
+}
+
+.dustcms-login input:focus {
+  border-color: #c9a86c;
+}
+
+.dustcms-login button {
+  background: #4a1c2a;
+  color: #faf7f2;
+}

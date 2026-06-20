@@ -121,7 +121,7 @@ export function EventsPreview({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>{strings.intro}</p>
-        {!loading && upcoming.length > 0 && (
+        {upcoming.length > 0 && (
           <div className="mt-8">
             <Link
               href={`/${locale}/events`}
