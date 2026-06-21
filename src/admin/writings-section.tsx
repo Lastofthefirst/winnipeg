@@ -459,17 +459,6 @@ export function WritingsSection({
         )}
       </div>
 
-      {/* Add button */}
-      {formMode === 'idle' && (
-        <button
-          onClick={() => setFormMode('adding')}
-          className="mb-6 flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-burgundy-200 bg-stone-50 py-12 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
-        >
-          <PlusIcon />
-          Add Writing
-        </button>
-      )}
-
       {/* Add/Edit form */}
       {formMode !== 'idle' && (
         <div className="mb-6">
@@ -483,6 +472,17 @@ export function WritingsSection({
 
       {/* Card grid */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {/* Add button — first in grid */}
+        {formMode === 'idle' && (
+          <button
+            onClick={() => setFormMode('adding')}
+            className="flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-burgundy-200 bg-stone-50 py-16 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
+          >
+            <PlusIcon />
+            Add Writing
+          </button>
+        )}
+
         {filtered.map((entry) => (
           <WritingCard
             key={entry.slug}
