@@ -49,6 +49,13 @@
       "date": "",
       "time": "2:00 PM",
       "location": "Community Home"
+    },
+    {
+      "id": "1782071603334",
+      "title": "New Event",
+      "date": "June 28, 2026",
+      "time": "2:00 PM",
+      "location": "Community Home"
     }
   ]
 }
