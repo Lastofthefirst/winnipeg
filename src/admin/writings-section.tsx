@@ -207,17 +207,17 @@ function WritingForm({
 
   return (
     <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
-      {/* Image preview / picker */}
-      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
+      {/* Image preview / picker — fixed height, no layout shift */}
+      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden" style={{ minHeight: 200 }}>
         {pickingImage ? (
-          /* Thumbnail grid picker */
-          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8">
+          /* Thumbnail grid picker — scrollable */
+          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ maxHeight: 260 }}>
             {WRITING_IMAGES.map((img) => (
               <button
                 key={img}
                 type="button"
                 onClick={() => { setImage(img); setPickingImage(false) }}
-                className={`relative overflow-hidden rounded-lg border-2 bg-parchment transition ${
+                className={`relative overflow-hidden rounded-lg border-2 bg-parchment transition aspect-square flex items-center justify-center p-1 ${
                   image === img
                     ? 'border-burgundy-900 ring-1 ring-burgundy-900'
                     : 'border-transparent hover:border-burgundy-300'
@@ -226,14 +226,14 @@ function WritingForm({
                 <img
                   src={`/writings-nature/${img}`}
                   alt=""
-                  className="h-16 w-full object-cover sm:h-20"
+                  className="max-h-full max-w-full object-contain"
                 />
               </button>
             ))}
           </div>
         ) : (
           /* Preview */
-          <div className="flex justify-center p-4 min-h-[120px] items-center">
+          <div className="flex justify-center p-4 items-center" style={{ minHeight: 200 }}>
             {image ? (
               <img
                 src={`/writings-nature/${image}`}
