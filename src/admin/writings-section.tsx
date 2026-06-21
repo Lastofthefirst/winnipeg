@@ -181,16 +181,18 @@ function WritingForm({
 
   return (
     <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
-      {/* Image preview */}
-      {image && (
-        <div className="flex justify-center bg-parchment rounded-lg p-4">
+      {/* Image preview — selected image */}
+      <div className="flex justify-center bg-parchment rounded-lg p-4 min-h-[120px]">
+        {image ? (
           <img
             src={`/writings-nature/${image}`}
-            alt="Preview"
-            className="h-auto w-full max-w-sm object-contain"
+            alt="Selected preview"
+            className="h-auto w-full max-w-md object-contain"
           />
-        </div>
-      )}
+        ) : (
+          <span className="text-xs text-burgundy-300 italic">Select an image below</span>
+        )}
+      </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
@@ -227,35 +229,43 @@ function WritingForm({
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
-            Source
-          </label>
-          <input
-            type="text"
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
-            placeholder="e.g. Bahá'u'lláh"
-            className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
-          />
-        </div>
-        <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
-            Image
-          </label>
-          <select
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
-          >
-            <option value="">Select an image…</option>
-            {WRITING_IMAGES.map((img) => (
-              <option key={img} value={img}>
-                {img.replace(/-01_00001_\.png$/i, '').replace(/-/g, ' ')}
-              </option>
-            ))}
-          </select>
+      <div>
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
+          Source
+        </label>
+        <input
+          type="text"
+          value={source}
+          onChange={(e) => setSource(e.target.value)}
+          placeholder="e.g. Bahá'u'lláh"
+          className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+        />
+      </div>
+
+      {/* Image picker — thumbnail grid */}
+      <div>
+        <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
+          Choose Image
+        </label>
+        <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-8">
+          {WRITING_IMAGES.map((img) => (
+            <button
+              key={img}
+              type="button"
+              onClick={() => setImage(img)}
+              className={`group relative overflow-hidden rounded-lg border-2 bg-parchment transition ${
+                image === img
+                  ? 'border-burgundy-900 ring-1 ring-burgundy-900'
+                  : 'border-transparent hover:border-burgundy-300'
+              }`}
+            >
+              <img
+                src={`/writings-nature/${img}`}
+                alt=""
+                className="h-16 w-full object-cover sm:h-20"
+              />
+            </button>
+          ))}
         </div>
       </div>
 
