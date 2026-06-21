@@ -51,35 +51,41 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 // ─── Language autocomplete input ─────────────────────────────────────────────
 
-function LanguageInput({
+// ─── Autocomplete input ──────────────────────────────────────────────────────
+
+function AutocompleteInput({
   value,
   onChange,
-  existingLanguages,
+  suggestions,
+  placeholder,
+  autoCapitalize = false,
 }: {
   value: string
   onChange: (val: string) => void
-  existingLanguages: string[]
+  suggestions: string[]
+  placeholder?: string
+  autoCapitalize?: boolean
 }) {
   const [input, setInput] = useState(value)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [focused, setFocused] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Auto-capitalize first letter on change
-  function setCapitalized(val: string) {
-    if (val.length === 0) { setInput(''); return }
-    const capitalized = val[0]?.toUpperCase() + val.slice(1)
-    setInput(capitalized)
+  function setInputValue(val: string) {
+    if (autoCapitalize && val.length > 0) {
+      setInput(val[0].toUpperCase() + val.slice(1))
+    } else {
+      setInput(val)
+    }
   }
 
-  const suggestions =
+  const filtered =
     input.trim() === ''
-      ? existingLanguages
-      : existingLanguages.filter((l) =>
-          l.toLowerCase().includes(input.trim().toLowerCase()),
+      ? suggestions
+      : suggestions.filter((s) =>
+          s.toLowerCase().includes(input.trim().toLowerCase()),
         )
 
-  // Close suggestions on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -91,17 +97,14 @@ function LanguageInput({
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
-  function handleSelect(lang: string) {
-    setInput(lang)
-    onChange(lang)
+  function handleSelect(s: string) {
+    setInput(s)
+    onChange(s)
     setShowSuggestions(false)
   }
 
   function handleBlur() {
-    // Commit capitalized value
-    if (input.trim()) {
-      onChange(input.trim())
-    }
+    if (input.trim()) onChange(input.trim())
     setShowSuggestions(false)
   }
 
@@ -110,37 +113,57 @@ function LanguageInput({
       <input
         type="text"
         value={input}
-        onChange={(e) => { setCapitalized(e.target.value); setShowSuggestions(true) }}
+        onChange={(e) => { setInputValue(e.target.value); setShowSuggestions(true) }}
         onFocus={() => { setShowSuggestions(true); setFocused(true) }}
         onBlur={handleBlur}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' && suggestions.length > 0) {
+          if (e.key === 'Enter' && filtered.length > 0) {
             e.preventDefault()
-            handleSelect(suggestions[0]!)
+            handleSelect(filtered[0]!)
           }
         }}
-        placeholder="Language (e.g. English, Cree...)"
+        placeholder={placeholder}
         className="w-full rounded-lg border border-burgundy-200 bg-ivory px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 transition focus:border-gold-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-400/20"
       />
-      {showSuggestions && focused && suggestions.length > 0 && (
+      {showSuggestions && focused && filtered.length > 0 && (
         <div className="absolute z-20 mt-1 w-full rounded-lg border border-burgundy-200 bg-white py-1 shadow-lg">
-          {suggestions.slice(0, 8).map((lang) => (
+          {filtered.slice(0, 8).map((s) => (
             <button
-              key={lang}
+              key={s}
               type="button"
-              onMouseDown={() => handleSelect(lang)}
+              onMouseDown={() => handleSelect(s)}
               className={`block w-full px-3 py-1.5 text-left text-sm transition ${
-                lang.toLowerCase() === input.trim().toLowerCase()
+                s.toLowerCase() === input.trim().toLowerCase()
                   ? 'bg-burgundy-50 font-semibold text-burgundy-900'
                   : 'text-burgundy-700 hover:bg-burgundy-50'
               }`}
             >
-              {lang}
+              {s}
             </button>
           ))}
         </div>
       )}
     </div>
+  )
+}
+
+function LanguageInput({
+  value,
+  onChange,
+  existingLanguages,
+}: {
+  value: string
+  onChange: (val: string) => void
+  existingLanguages: string[]
+}) {
+  return (
+    <AutocompleteInput
+      value={value}
+      onChange={onChange}
+      suggestions={existingLanguages}
+      placeholder="Language (e.g. English, Cree...)"
+      autoCapitalize
+    />
   )
 }
 
@@ -151,11 +174,13 @@ function WritingForm({
   onSave,
   onCancel,
   existingLanguages,
+  existingSources,
 }: {
   initial?: WritingsEntry
   onSave: (entry: WritingsEntry) => void
   onCancel: () => void
   existingLanguages: string[]
+  existingSources: string[]
 }) {
   const [slug, setSlug] = useState(initial?.slug ?? '')
   const [passage, setPassage] = useState(initial?.passage ?? '')
@@ -233,12 +258,11 @@ function WritingForm({
         <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
           Source
         </label>
-        <input
-          type="text"
+        <AutocompleteInput
           value={source}
-          onChange={(e) => setSource(e.target.value)}
+          onChange={setSource}
+          suggestions={existingSources}
           placeholder="e.g. Bahá'u'lláh"
-          className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
         />
       </div>
 
@@ -395,8 +419,9 @@ export function WritingsSection({
   const [formMode, setFormMode] = useState<'idle' | 'adding' | 'editing'>('idle')
   const [editingEntry, setEditingEntry] = useState<WritingsEntry | null>(null)
 
-  // Collect unique languages from entries
+  // Collect unique languages and sources from entries
   const languages = Array.from(new Set(entries.map((e) => e.language))).sort()
+  const sources = Array.from(new Set(entries.map((e) => e.source))).sort()
 
   const filtered = filter ? entries.filter((e) => e.language === filter) : entries
 
@@ -473,6 +498,7 @@ export function WritingsSection({
             onSave={handleSave}
             onCancel={handleCancel}
             existingLanguages={languages}
+            existingSources={sources}
           />
         </div>
       )}
