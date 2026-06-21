@@ -7,7 +7,9 @@ These require component/layout changes — not just text replacements.
 - [ ] **"In Winnipeg" section** — Add quote at top or beside flower image:
   > "So powerful is the light of unity that it can illuminate the whole earth."
 
-- [ ] **"In Winnipeg" section — History text tweak** (from call transcript) — Current text says "present for over a century." Client notes Bahá'ís were here 1892-1939 before LSA formed. Soften to acknowledge deeper roots without specific dates — e.g., history goes back further than the assembly formation.
+- [x] **"In Winnipeg" section — History text tweak** (from call transcript) — ✅ Done. Updated to: "assembly established 1953, with Bahá'ís having been present for decades prior."
+
+- [x] **Remove "Information" email field** — ✅ Done. Only LSA@winnipegbahais.org remains.
 
 - [ ] **Activities section** — Make the existing quote ("Let your vision be world-embracing…") bigger and reposition to side or top. Also add the longer body text from the doc about "What is unfolding in Winnipeg is part of a global endeavor…"
 
@@ -27,9 +29,7 @@ These require component/layout changes — not just text replacements.
 
   Currently sits at bottom of Study Circles section — client wants it to set the tone for the whole page, not associated with just one activity.
 
-- [ ] **Study Circles section — Add Ruhi-specific quote** (from call transcript) — Add a quote about systematic study within the Study Circles description:
-  > Thousands upon thousands, embracing the diversity of the human family, are engaged in systematic study of the creative Word in an environment that is at once serious and uplifting.
-  > — (21 April 2008)
+- [x] **Study Circles section — Add Ruhi-specific quote** (from call transcript) — ✅ Done. Added UHJ quote from 21 April 2008.
 
 - [ ] **Devotional Meetings — Prayer cards feature** (from call transcript) — New feature: prayer cards to embed in the Devotional Meetings section. Developer to create card component; client to provide French translations via bahaiprayers.net. Needs admin functionality to add/remove cards.
 
