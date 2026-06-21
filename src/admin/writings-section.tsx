@@ -193,6 +193,17 @@ function WritingForm({
 
   return (
     <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
+      {/* Image preview */}
+      {image && (
+        <div className="flex justify-center bg-parchment rounded-lg p-4">
+          <img
+            src={`/writings-nature/${image}`}
+            alt="Preview"
+            className="h-auto w-full max-w-sm object-contain"
+          />
+        </div>
+      )}
+
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
@@ -448,6 +459,17 @@ export function WritingsSection({
         )}
       </div>
 
+      {/* Add button */}
+      {formMode === 'idle' && (
+        <button
+          onClick={() => setFormMode('adding')}
+          className="mb-6 flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-burgundy-200 bg-stone-50 py-12 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
+        >
+          <PlusIcon />
+          Add Writing
+        </button>
+      )}
+
       {/* Add/Edit form */}
       {formMode !== 'idle' && (
         <div className="mb-6">
@@ -469,17 +491,6 @@ export function WritingsSection({
             onDelete={(slug) => { onRemove(slug); setEditingEntry(null); setFormMode('idle') }}
           />
         ))}
-
-        {/* Add button */}
-        {formMode === 'idle' && (
-          <button
-            onClick={() => setFormMode('adding')}
-            className="flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-burgundy-200 bg-stone-50 py-16 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
-          >
-            <PlusIcon />
-            Add Writing
-          </button>
-        )}
       </div>
     </div>
   )
