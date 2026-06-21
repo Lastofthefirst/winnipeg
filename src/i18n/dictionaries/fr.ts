@@ -107,7 +107,7 @@ const fr: Dictionary = {
         "Ces rassemblements sont ouverts à tous, quel que soit leur milieu ou leur croyance. Il n'y a aucune obligation de parler ou de se produire — vous pouvez venir simplement pour écouter, réfléchir ou ajouter votre voix à celles des autres.",
       ],
       writings: [
-        { label: 'Sur l\'unité', slug: 'unity' },
+        { label: 'Vertus', slug: 'virtues' },
         { label: 'Une prière pour l\'unité', slug: 'unity-prayer' },
         { label: 'L\'unité de l\'humanité', slug: 'oneness' },
         { label: 'Prière pour les enfants', slug: 'children' },

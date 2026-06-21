@@ -107,7 +107,7 @@ const en: Dictionary = {
         'These gatherings are open to everyone, regardless of background or belief. There is no requirement to speak or perform — you may come simply to listen, to reflect, or to add your voice to those of others.',
       ],
       writings: [
-        { label: 'On Unity', slug: 'unity' },
+        { label: 'Virtues', slug: 'virtues' },
         { label: 'A Prayer for Unity', slug: 'unity-prayer' },
         { label: 'Oneness of Mankind', slug: 'oneness' },
         { label: "Children's Prayer", slug: 'children' },
