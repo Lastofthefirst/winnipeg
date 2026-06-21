@@ -9,6 +9,7 @@ import { FadeInStagger } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
+import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { TagList, TagListItem } from '@/components/TagList'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -166,14 +167,6 @@ function StudyCircles({ title, body }: StudyCirclesProps) {
         environment that is at once serious and uplifting.
       </Blockquote>
 
-      <Blockquote
-        author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
-        className="mt-12"
-      >
-        Regard man as a mine rich in gems of inestimable value. Education can,
-        alone, cause it to reveal its treasures, and enable mankind to benefit
-        therefrom.
-      </Blockquote>
     </Section>
   )
 }
@@ -316,6 +309,12 @@ export default async function CommunityLifePage({ params }: { params: any }) {
       <PageIntro eyebrow={t.communityLife.eyebrow} title={t.communityLife.heading}>
         <p>{t.communityLife.intro}</p>
       </PageIntro>
+
+      <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
+        Regard man as a mine rich in gems of inestimable value. Education can,
+        alone, cause it to reveal its treasures, and enable mankind to benefit
+        therefrom.
+      </Quote>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
         <DevotionalGatherings
