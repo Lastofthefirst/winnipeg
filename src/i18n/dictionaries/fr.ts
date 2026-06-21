@@ -82,7 +82,7 @@ const fr: Dictionary = {
         { title: 'Élimination des préjugés', body: "De toutes les formes de préjugés, le préjugé racial est le plus destructeur. Les bahá'ís s'efforcent activement de tisser des liens au-delà de toutes les lignes de division." },
         { title: 'Harmonie entre la science et la religion', body: "La religion sans la science est superstition ; la science sans la religion est matérialisme. Les deux sont nécessaires au progrès de la civilisation." },
         { title: 'Recherche indépendante de la vérité', body: "Chaque personne a le droit et la responsabilité de chercher la vérité de manière indépendante — sans être entravée par la tradition, la superstition ou l'imitation des autres." },
-        { title: 'Éducation universelle', body: "Considérez chaque être humain comme une mine riche en pierres précieuses. L'éducation seule peut en révéler les trésors et permettre à toute l'humanité d'en bénéficier." },
+        { title: 'Éducation universelle', body: "Considérez l'être humain comme une mine riche en pierres précieuses d'une valeur inestimable. Seule l'éducation peut l'amener à en livrer les trésors et permettre à l'humanité d'en profiter." },
       ],
     },
     localCommunity: {
@@ -181,7 +181,7 @@ const fr: Dictionary = {
         { title: 'Unité de Dieu', body: "Il n'y a qu'un seul Dieu — inconnaissable dans Son essence, mais rendu connu à l'humanité par une succession de Messagers divins. Toutes les grandes religions du monde découlent de cette seule source." },
         { title: 'Révélation progressive', body: "La vérité religieuse est révélée progressivement. Les Manifestations de Dieu — Abraham, Moïse, Bouddha, le Christ, Muhammad, Bahá'u'lláh — ont chacun apporté des enseignements adaptés aux besoins et à la capacité de l'époque dans laquelle ils sont apparus." },
         { title: "Unité de l'humanité", body: "La diversité du genre humain n'est pas une source de division mais une cause d'amour et d'harmonie. Tous les préjugés — de race, de classe, de nationalité ou de religion — doivent être surmontés." },
-        { title: 'Noblesse inhérente', body: "Chaque être humain est \"une mine riche en gemmes d'une valeur inestimable\". Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
+        { title: 'Noblesse inhérente', body: "Chaque être humain est \"une mine riche en pierres précieuses d'une valeur inestimable\". Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
         { title: 'Harmonie entre la science et la religion', body: "La science et la religion sont deux systèmes de connaissance complémentaires. La religion sans la science conduit à la superstition ; la science sans la religion conduit au matérialisme. Les deux sont essentielles au progrès humain." },
         { title: 'Justice', body: "La justice est ce qu'il y a de plus aimé aux yeux de Dieu et la centralité de la justice dans toutes les entreprises humaines est une pierre angulaire de l'enseignement social bahá'í. Une société juste défend les droits et la dignité de chaque personne." },
       ],
