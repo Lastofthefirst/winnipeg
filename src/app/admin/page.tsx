@@ -238,8 +238,7 @@ export default function AdminPage() {
   const [writings, setWritings] = useState<WritingsEntry[]>(writingsData)
   const [writingsDirty, setWritingsDirty] = useState(false)
 
-  // File SHAs for GitHub commits
-  const [fileShas, setFileShas] = useState<Record<string, string>>({})
+
 
   const dirty = enDirty || frDirty || writingsDirty
 
@@ -253,7 +252,6 @@ export default function AdminPage() {
         const parsed = JSON.parse(file.content) as CMSContent
         setContentEnState(parsed)
         setOriginalEn(parsed)
-        setFileShas((prev) => ({ ...prev, 'content/cms/en.json': file.sha }))
       }
     }).catch(() => {})
 
@@ -263,7 +261,6 @@ export default function AdminPage() {
         const parsed = JSON.parse(file.content) as CMSContent
         setContentFrState(parsed)
         setOriginalFr(parsed)
-        setFileShas((prev) => ({ ...prev, 'content/cms/fr.json': file.sha }))
       }
     }).catch(() => {})
 
@@ -272,7 +269,6 @@ export default function AdminPage() {
       if (file) {
         const parsed = JSON.parse(file.content) as WritingsEntry[]
         setWritings(parsed)
-        setFileShas((prev) => ({ ...prev, 'content/cms/writings.json': file.sha }))
       }
     }).catch(() => {})
   }, [logged])
@@ -372,50 +368,26 @@ export default function AdminPage() {
       return
     }
 
-    const filesToCommit: Array<{ path: string; content: string; sha: string }> = []
+    const filesToCommit: Array<{ path: string; content: string }> = []
 
     // Commit EN if dirty
     if (enDirty) {
-      const enPath = 'content/cms/en.json'
-      const enSha = fileShas[enPath]
-      if (!enSha) {
-        setPushStatus('error')
-        setPushMessage('Unable to verify EN content file. Please refresh and try again.')
-        setPushing(false)
-        return
-      }
-      filesToCommit.push({ path: enPath, content: JSON.stringify(contentEnState, null, 2), sha: enSha })
+      filesToCommit.push({ path: 'content/cms/en.json', content: JSON.stringify(contentEnState, null, 2) })
     }
 
     // Commit FR if dirty
     if (frDirty) {
-      const frPath = 'content/cms/fr.json'
-      const frSha = fileShas[frPath]
-      if (!frSha) {
-        setPushStatus('error')
-        setPushMessage('Unable to verify FR content file. Please refresh and try again.')
-        setPushing(false)
-        return
-      }
-      filesToCommit.push({ path: frPath, content: JSON.stringify(contentFrState, null, 2), sha: frSha })
+      filesToCommit.push({ path: 'content/cms/fr.json', content: JSON.stringify(contentFrState, null, 2) })
     }
 
     // Commit writings if dirty
     if (writingsDirty) {
-      const writingsPath = 'content/cms/writings.json'
-      const writingsSha = fileShas[writingsPath]
-      if (!writingsSha) {
-        setPushStatus('error')
-        setPushMessage('Unable to verify writings file. Please refresh and try again.')
-        setPushing(false)
-        return
-      }
-      filesToCommit.push({ path: writingsPath, content: JSON.stringify(writings, null, 2), sha: writingsSha })
+      filesToCommit.push({ path: 'content/cms/writings.json', content: JSON.stringify(writings, null, 2) })
     }
 
     const result = await commitFiles(filesToCommit, 'cms')
 
-    if (result.allOk) {
+    if (result.ok) {
       setPushStatus('success')
       setPushMessage('Changes published! Site is rebuilding now.')
       setOriginalEn(contentEnState)
@@ -423,20 +395,13 @@ export default function AdminPage() {
       setEnDirty(false)
       setFrDirty(false)
       setWritingsDirty(false)
-
-      // Refresh SHAs
-      for (const file of filesToCommit) {
-        fetchFile(file.path).then((f) => {
-          if (f) setFileShas((prev) => ({ ...prev, [file.path]: f.sha }))
-        }).catch(() => {})
-      }
     } else {
       setPushStatus('error')
-      setPushMessage(result.errors[0] || 'Failed to publish changes.')
+      setPushMessage(result.error || 'Failed to publish changes.')
     }
 
     setPushing(false)
-  }, [dirty, pushing, enDirty, frDirty, contentEnState, contentFrState, writings, writingsDirty, fileShas])
+  }, [dirty, pushing, enDirty, frDirty, contentEnState, contentFrState, writings, writingsDirty])
 
   const sectionLabels = ['Community', 'Events', 'Writings']
 
