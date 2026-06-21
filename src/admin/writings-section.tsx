@@ -206,7 +206,7 @@ function WritingForm({
   const canSave = slug.trim() && passage.trim() && source.trim() && language.trim() && image
 
   return (
-    <div className="mx-auto max-w-3xl rounded-xl border border-burgundy-200 bg-parchment p-6">
+    <div className="mx-auto max-w-3xl border border-burgundy-200 bg-parchment p-6">
       {/* Gold divider */}
       <div className="mx-auto mb-8 h-px w-20 bg-gold-500" />
       {/* Image preview / picker — fixed height, no layout shift */}
@@ -219,7 +219,7 @@ function WritingForm({
                 key={img}
                 type="button"
                 onClick={() => { setImage(img); setPickingImage(false) }}
-                className={`relative overflow-hidden rounded-lg border-2 bg-parchment transition aspect-square flex items-center justify-center p-1 ${
+                className={`relative overflow-hidden border-2 bg-parchment transition aspect-square flex items-center justify-center p-1 ${
                   image === img
                     ? 'border-burgundy-900 ring-1 ring-burgundy-900'
                     : 'border-transparent hover:border-burgundy-300'
@@ -350,11 +350,11 @@ function WritingCard({
   return (
     <div className="group relative">
       <article
-        className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-parchment pt-3 transition hover:border-burgundy-400"
+        className="flex w-full flex-col overflow-hidden border border-burgundy-200 bg-parchment pt-3 transition hover:border-burgundy-400"
         onClick={() => onEdit(entry)}
       >
         {/* Image thumbnail */}
-        <div className="flex h-28 w-full items-center justify-center overflow-hidden rounded-t-lg bg-parchment">
+        <div className="flex h-28 w-full items-center justify-center overflow-hidden bg-parchment">
           <img
             src={`/writings-nature/${entry.image}`}
             alt=""
@@ -514,7 +514,7 @@ export function WritingsSection({
         {formMode === 'idle' && (
           <button
             onClick={() => setFormMode('adding')}
-            className="flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-burgundy-200 bg-stone-50 py-16 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
+            className="flex w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-burgundy-200 bg-stone-50 py-16 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
           >
             <PlusIcon />
             Add Writing
