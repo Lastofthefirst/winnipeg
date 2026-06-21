@@ -233,6 +233,18 @@ export default function AdminPage() {
   const [pushing, setPushing] = useState(false)
   const [pushStatus, setPushStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [pushMessage, setPushMessage] = useState('')
+  const [rebuildSeconds, setRebuildSeconds] = useState(0)
+
+  // Countdown timer for rebuild estimate
+  useEffect(() => {
+    if (rebuildSeconds <= 0) return
+    if (rebuildSeconds === 1) {
+      setPushMessage('Site rebuild complete')
+      return
+    }
+    const timer = setTimeout(() => setRebuildSeconds((s) => s - 1), 1000)
+    return () => clearTimeout(timer)
+  }, [rebuildSeconds])
 
   // Writings state
   const [writings, setWritings] = useState<WritingsEntry[]>(writingsData)
@@ -389,7 +401,8 @@ export default function AdminPage() {
 
     if (result.ok) {
       setPushStatus('success')
-      setPushMessage('Changes published! Site is rebuilding now.')
+      setPushMessage('Changes published! Site is rebuilding now…')
+      setRebuildSeconds(120)
       setOriginalEn(contentEnState)
       setOriginalFr(contentFrState)
       setEnDirty(false)
@@ -416,6 +429,7 @@ export default function AdminPage() {
       pushing={pushing}
       pushStatus={pushStatus}
       pushMessage={pushMessage}
+      rebuildSeconds={rebuildSeconds}
       sectionLabels={sectionLabels}
     >
       {/* Community */}

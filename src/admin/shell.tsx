@@ -55,6 +55,7 @@ interface AdminShellProps {
   pushing: boolean
   pushStatus: 'idle' | 'success' | 'error'
   pushMessage: string
+  rebuildSeconds?: number
   sectionLabels?: string[]
 }
 
@@ -65,6 +66,7 @@ export function AdminShell({
   pushing,
   pushStatus,
   pushMessage,
+  rebuildSeconds,
   sectionLabels,
 }: AdminShellProps) {
   return (
@@ -134,6 +136,11 @@ export function AdminShell({
             }`}>
               {pushStatus === 'success' ? <CheckIcon /> : <AlertIcon />}
               {pushMessage}
+              {rebuildSeconds !== undefined && rebuildSeconds > 0 && (
+                <span className="ml-2 font-mono text-xs opacity-75">
+                  ~{Math.floor(rebuildSeconds / 60)}m {rebuildSeconds % 60 < 10 ? '0' : ''}{rebuildSeconds % 60}s
+                </span>
+              )}
             </div>
           )}
 
