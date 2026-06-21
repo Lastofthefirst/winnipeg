@@ -102,17 +102,11 @@ function Section({
 interface DevotionalGatheringsProps {
   title: string
   body: string[]
-  locale: Locale
+  whatToExpect: string
+  writings: Array<{ label: string; slug: string }>
 }
 
-function DevotionalGatherings({ title, body, locale }: DevotionalGatheringsProps) {
-  const writings = [
-    { slug: 'unity', title: 'On Unity', image: '/writings/unity-three-streams-01_00001_.png' },
-    { slug: 'unity-prayer', title: 'A Prayer for Unity', image: '/writings/unity-prayer-confluence-01_00001_.png' },
-    { slug: 'merciful', title: 'The All-Merciful', image: '/writings/merciful-elder-tree-01_00001_.png' },
-    { slug: 'guide-me', title: 'Guide Me', image: '/writings/guide-me-fireweed-01_00001_.png' },
-  ]
-
+function DevotionalGatherings({ title, body, whatToExpect, writings }: DevotionalGatheringsProps) {
   return (
     <Section
       title={title}
@@ -126,33 +120,20 @@ function DevotionalGatherings({ title, body, locale }: DevotionalGatheringsProps
       </div>
 
       <h3 className="mt-12 font-display text-base font-semibold text-burgundy-900">
-        Bahá'í Writings
+        {whatToExpect}
       </h3>
-      <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <TagList className="mt-4">
         {writings.map((w) => (
-          <Link
-            key={w.slug}
-            href={`/writings/${w.slug}`}
-            className="group relative flex overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400"
-          >
-            <div className="relative flex h-36 w-36 flex-none items-center justify-center overflow-hidden">
-              <OptimizedImage
-                src={w.image}
-                alt=""
-                width={300}
-                height={300}
-                className="h-full w-auto object-contain transition duration-700"
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-4">
-              <div className="mb-2 h-px w-6 bg-gold-400" />
-              <span className="font-display text-sm font-normal text-burgundy-900">
-                {w.title}
-              </span>
-            </div>
-          </Link>
+          <TagListItem key={w.slug}>
+            <Link
+              href={`/writings/${w.slug}`}
+              className="hover:text-burgundy-900"
+            >
+              {w.label}
+            </Link>
+          </TagListItem>
         ))}
-      </div>
+      </TagList>
     </Section>
   )
 }
@@ -340,7 +321,8 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <DevotionalGatherings
           title={t.communityLife.devotional.title}
           body={t.communityLife.devotional.body}
-          locale={locale}
+          whatToExpect="Bahá'í Writings"
+          writings={t.communityLife.devotional.writings}
         />
         <StudyCircles
           title={t.communityLife.studyCircles.title}

@@ -106,6 +106,12 @@ const en: Dictionary = {
         'Devotional meetings bring people together in collective worship — reading and reflecting on sacred writings, offering prayers, and cultivating the spiritual sensibilities that sustain a life of service. They are held in homes, community spaces, and wherever people choose to gather.',
         'These gatherings are open to everyone, regardless of background or belief. There is no requirement to speak or perform — you may come simply to listen, to reflect, or to add your voice to those of others.',
       ],
+      writings: [
+        { label: 'On Unity', slug: 'unity' },
+        { label: 'A Prayer for Unity', slug: 'unity-prayer' },
+        { label: 'The All-Merciful', slug: 'merciful' },
+        { label: 'Guide Me', slug: 'guide-me' },
+      ],
     },
     studyCircles: {
       title: 'Study Circles',

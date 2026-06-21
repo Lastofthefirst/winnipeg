@@ -33,7 +33,7 @@ export interface Dictionary {
   }
   communityLife: {
     eyebrow: string; heading: string; intro: string
-    devotional: { title: string; body: string[] }
+    devotional: { title: string; body: string[]; writings: Array<{ label: string; slug: string }> }
     studyCircles: { title: string; body: string[] }
     childrensClasses: { title: string; body: string[]; programHighlights: string; tags: string[] }
     juniorYouth: { title: string; body: string[] }
