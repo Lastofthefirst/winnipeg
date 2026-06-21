@@ -6,6 +6,7 @@ import contentFrDefault from '../../../content/cms/fr.json'
 import writingsDefault from '../../../content/cms/writings.json'
 import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
 import { AdminShell, SectionCard } from '@/admin/shell'
+import { EditableText as EditableTextImport, EditableImage } from '@/admin/editable'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
 
@@ -16,6 +17,13 @@ const contentFr = contentFrDefault as CMSContent
 // ─── Content types ──────────────────────────────────────────────────────────
 
 interface CMSContent {
+  community: {
+    eyebrow: string
+    heading: string
+    body: string[]
+    link: string
+    image: string
+  }
   events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
@@ -114,6 +122,49 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   )
 }
 
+// ─── Community section ──────────────────────────────────────────────────────
+
+function CommunitySection({
+  eyebrow,
+  heading,
+  body,
+  link,
+  image,
+  editing,
+  onEdit,
+  onChange,
+}: {
+  eyebrow: string
+  heading: string
+  body: string[]
+  link: string
+  image: string
+  editing: string | null
+  onEdit: (field: string) => void
+  onChange: (field: string, value: string) => void
+}) {
+  return (
+    <div className="lg:flex lg:items-center lg:gap-x-12">
+      <div className="lg:w-1/2">
+        <div className="mb-4 h-px w-16 bg-burgundy-300" />
+        <EditableTextImport field="community.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500" />
+        <EditableTextImport field="community.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h2" className="mt-4 block font-display text-3xl font-normal text-burgundy-900 sm:text-4xl" />
+        <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
+          {body.map((p, i) => (
+            <EditableTextImport key={i} field={`community.body.${i}`} value={p} editing={editing} onEdit={onEdit} onChange={onChange} as="p" />
+          ))}
+        </div>
+        <div className="mt-8">
+          <EditableTextImport field="community.link" value={link} editing={editing} onEdit={onEdit} onChange={onChange} as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900" />
+        </div>
+      </div>
+      <div className="mt-8 lg:mt-0 lg:w-1/2">
+        <EditableImage field="community.image" src={image} alt="Community" editing={editing} onEdit={onEdit} onChange={onChange} className="w-full object-contain rounded-lg" />
+      </div>
+    </div>
+  )
+}
+
 // ─── Events section ──────────────────────────────────────────────────────────
 
 function EventsSection({
@@ -143,9 +194,9 @@ function EventsSection({
                 <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} className="text-sm font-semibold text-burgundy-900" />
                 <TimePicker field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} />
               </div>
-              <EditableText field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
+              <EditableTextImport field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
               {event.location && (
-                <EditableText field={`events.${idx}.location`} value={event.location} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-2 text-sm text-burgundy-500" />
+                <EditableTextImport field={`events.${idx}.location`} value={event.location} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-2 text-sm text-burgundy-500" />
               )}
             </div>
           </article>
@@ -223,7 +274,18 @@ export default function AdminPage() {
   // Field change handler
   function handleFieldChange(field: string, value: string) {
     const parts = field.split('.')
-    if (parts[0] === 'events') {
+    if (parts[0] === 'community') {
+      if (parts[1] === 'body') {
+        const idx = parseInt(parts[2]!)
+        setContent((prev) => {
+          const body = [...prev.community.body]
+          body[idx] = value
+          return { ...prev, community: { ...prev.community, body } }
+        })
+      } else {
+        setContent((prev) => ({ ...prev, community: { ...prev.community, [parts[1]!]: value } }))
+      }
+    } else if (parts[0] === 'events') {
       const idx = parseInt(parts[1]!)
       const eventField = parts[2]!
       setContent((prev) => {
@@ -376,7 +438,7 @@ export default function AdminPage() {
     setPushing(false)
   }, [dirty, writingsDirty, pushing, locale, content, writings, fileShas])
 
-  const sectionLabels = ['Events', 'Writings']
+  const sectionLabels = ['Community', 'Events', 'Writings']
 
   if (!logged) {
     return <LoginScreen onLogin={() => setLogged(true)} />
@@ -393,6 +455,16 @@ export default function AdminPage() {
       pushMessage={pushMessage}
       sectionLabels={sectionLabels}
     >
+      {/* Community */}
+      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-ivory">
+        <CommunitySection
+          {...content.community}
+          editing={editing}
+          onEdit={setEditing}
+          onChange={handleFieldChange}
+        />
+      </SectionCard>
+
       {/* Events */}
       <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory">
         <EventsSection
@@ -419,64 +491,3 @@ export default function AdminPage() {
   )
 }
 
-// ─── Shared editable text component ──────────────────────────────────────────
-
-function EditableText({
-  field,
-  value,
-  editing,
-  onEdit,
-  onChange,
-  as: Tag = 'p',
-  className = '',
-}: {
-  field: string
-  value: string
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-  as?: 'p' | 'h1' | 'h2' | 'h3'
-  className?: string
-}) {
-  const [localValue, setLocalValue] = useState(value)
-
-  useEffect(() => {
-    setLocalValue(value)
-  }, [value])
-
-  if (editing === field) {
-    if (Tag === 'h1' || Tag === 'h2' || Tag === 'h3') {
-      return (
-        <Tag
-          contentEditable
-          suppressContentEditableWarning
-          onBlur={(e) => onChange(field, e.currentTarget.textContent || '')}
-          onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur() } }}
-          className={className}
-        >
-          {localValue}
-        </Tag>
-      )
-    }
-    return (
-      <p
-        contentEditable
-        suppressContentEditableWarning
-        onBlur={(e) => onChange(field, e.currentTarget.textContent || '')}
-        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur() } }}
-        className={className}
-      >
-        {localValue}
-      </p>
-    )
-  }
-
-  return (
-    <Tag
-      onClick={() => onEdit(field)}
-      className={`${className} cursor-text hover:bg-gold-400/10 rounded transition`}
-    >
-      {value || <span className="italic text-burgundy-300">Click to edit…</span>}
-    </Tag>
-  )
-}
