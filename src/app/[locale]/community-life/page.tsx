@@ -310,10 +310,13 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <p>{t.communityLife.intro}</p>
       </PageIntro>
 
-      <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
-        Regard man as a mine rich in gems of inestimable value. Education can,
-        alone, cause it to reveal its treasures, and enable mankind to benefit
-        therefrom.
+      <Quote
+        className="mt-24 sm:mt-32 lg:mt-40"
+        author="Bahá'u'lláh"
+      >
+        {locale === 'fr'
+          ? 'Considérez l\'homme comme une mine riche en pierres précieuses d\'une valeur inestimable. Seule l\'éducation peut l\'amener à en livrer les trésors et permettre à l\'humanité d\'en profiter.'
+          : 'Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'}
       </Quote>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
