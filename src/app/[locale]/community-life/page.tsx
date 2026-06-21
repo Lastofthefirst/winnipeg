@@ -149,6 +149,15 @@ function StudyCircles({ title, body }: StudyCirclesProps) {
       </div>
 
       <Blockquote
+        author={{ name: 'Universal House of Justice', role: '21 April 2008' }}
+        className="mt-12"
+      >
+        Thousands upon thousands, embracing the diversity of the entire human
+        family, are engaged in systematic study of the Creative Word in an
+        environment that is at once serious and uplifting.
+      </Blockquote>
+
+      <Blockquote
         author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
         className="mt-12"
       >
