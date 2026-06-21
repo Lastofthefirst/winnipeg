@@ -6,7 +6,7 @@ import contentFrDefault from '../../../content/cms/fr.json'
 import writingsDefault from '../../../content/cms/writings.json'
 import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
 import { AdminShell, SectionCard } from '@/admin/shell'
-import { EditableText as EditableTextImport, EditableImage } from '@/admin/editable'
+import { EditableText as EditableTextImport } from '@/admin/editable'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
 
@@ -159,7 +159,7 @@ function CommunitySection({
         </div>
       </div>
       <div className="mt-8 lg:mt-0 lg:w-1/2">
-        <EditableImage field="community.image" src={image} alt="Community" editing={editing} onEdit={onEdit} onChange={onChange} className="w-full object-contain rounded-lg" />
+        <img src={image} alt="Community" className="w-full object-contain rounded-lg" />
       </div>
     </div>
   )
@@ -456,7 +456,7 @@ export default function AdminPage() {
       sectionLabels={sectionLabels}
     >
       {/* Community */}
-      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-ivory">
+      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-parchment">
         <CommunitySection
           {...content.community}
           editing={editing}
