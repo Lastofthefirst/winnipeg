@@ -211,7 +211,7 @@ function WritingForm({
       <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
         {pickingImage ? (
           /* Thumbnail grid picker — scrollable */
-          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ height: 240 }}>
+          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ height: 360 }}>
             {WRITING_IMAGES.map((img) => (
               <button
                 key={img}
@@ -233,12 +233,12 @@ function WritingForm({
           </div>
         ) : (
           /* Preview */
-          <div className="flex justify-center p-4 items-center" style={{ height: 240 }}>
+          <div className="flex justify-center p-4 items-center" style={{ height: 360 }}>
             {image ? (
               <img
                 src={`/writings-nature/${image}`}
                 alt="Selected preview"
-                className="h-auto w-full max-w-md object-contain"
+                className="h-full w-auto max-w-full object-contain"
               />
             ) : (
               <span className="text-xs text-burgundy-300 italic">No image selected</span>
