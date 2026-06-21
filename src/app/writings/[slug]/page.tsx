@@ -17,8 +17,9 @@ export function generateStaticParams() {
   return writings.map((w) => ({ slug: w.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const entry = writings.find((w) => w.slug === params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const entry = writings.find((w) => w.slug === slug)
   if (!entry) return { title: 'Writing not found' }
 
   const shortPassage = entry.passage.length < 200 ? entry.passage : entry.passage.slice(0, 120) + '…'
@@ -28,8 +29,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function WritingPage({ params }: { params: { slug: string } }) {
-  const entry = writings.find((w) => w.slug === params.slug)
+export default async function WritingPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const entry = writings.find((w) => w.slug === slug)
   if (!entry) {
     notFound()
     return null
