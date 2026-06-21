@@ -52,7 +52,7 @@ const en: Dictionary = {
       heading: 'Where the rivers meet',
       body: [
         "The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.",
-        "The local spiritual assembly was established in 1953, but Bahá'ís had been present in Winnipeg for decades prior, seeking to promote the spiritual and material progress of the community.",
+        "The local spiritual assembly was established in 1953, with Bahá'ís having been present in Winnipeg for decades prior, seeking to promote the spiritual and material progress of the community.",
       ],
       link: 'Learn more',
     }, cms.community),
