@@ -131,10 +131,17 @@ export function AdminShell({
           {pushStatus !== 'idle' && (
             <div className={`mt-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm ${
               pushStatus === 'success'
-                ? 'bg-emerald-50 text-emerald-800'
+                ? (rebuildSeconds ?? 0) > 0
+                  ? 'bg-amber-50 text-amber-900'
+                  : 'bg-emerald-50 text-emerald-800'
                 : 'bg-red-50 text-red-800'
             }`}>
-              {pushStatus === 'success' ? <CheckIcon /> : <AlertIcon />}
+              {pushStatus === 'success'
+                ? (rebuildSeconds ?? 0) > 0
+                  ? <SpinnerIcon />
+                  : <CheckIcon />
+                : <AlertIcon />
+              }
               {pushMessage}
               {rebuildSeconds !== undefined && rebuildSeconds > 0 && (
                 <span className="ml-2 font-mono text-xs opacity-75">

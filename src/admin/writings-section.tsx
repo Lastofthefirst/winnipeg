@@ -272,13 +272,16 @@ function WritingForm({
       {/* Gold divider */}
       <div className="mx-auto my-6 h-px w-16 bg-gold-400" />
 
-      {/* Source — styled like figcaption */}
+      {/* Source */}
       <div className="text-center">
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-400">
+          Source
+        </label>
         <AutocompleteInput
           value={source}
           onChange={setSource}
           suggestions={existingSources}
-          placeholder="Source"
+          placeholder="Bahá'u'lláh"
         />
       </div>
 

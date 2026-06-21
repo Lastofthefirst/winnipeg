@@ -239,7 +239,7 @@ export default function AdminPage() {
   useEffect(() => {
     if (rebuildSeconds <= 0) return
     if (rebuildSeconds === 1) {
-      setPushMessage('Site rebuild complete')
+      setPushMessage('Changes should be live shortly')
       return
     }
     const timer = setTimeout(() => setRebuildSeconds((s) => s - 1), 1000)
