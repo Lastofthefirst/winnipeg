@@ -499,6 +499,7 @@ export function WritingsSection({
       {formMode !== 'idle' && (
         <div className="mb-6">
           <WritingForm
+            key={editingEntry?.slug ?? 'new'}
             initial={formMode === 'editing' ? editingEntry! : undefined}
             onSave={handleSave}
             onCancel={handleCancel}
