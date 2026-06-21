@@ -167,8 +167,8 @@ export default async function HomePage({ params }: { params: any }) {
           className="mt-10"
         >
           {locale === 'fr'
-            ? 'Oubliez vos propres soucis ; que vos pensées soient fixées sur ce qui réhabilitera le destin de l\'humanité et sanctifiera le cœur et l\'âme des hommes.'
-            : 'Do not busy yourselves in your own concerns; let your thoughts be fixed upon that which will rehabilitate the fortunes of mankind and sanctify the hearts and souls of men.'}
+            ? 'La lumière de l\'unité est si puissante qu\'elle peut illuminer la terre entière.'
+            : 'So powerful is the light of unity that it can illuminate the whole earth.'}
         </Blockquote>
         <div className="mt-8">
           <Link
@@ -217,8 +217,8 @@ export default async function HomePage({ params }: { params: any }) {
 
       <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
         {locale === 'fr'
-          ? 'Ô fils de l\'esprit ! Je t\'ai créé riche, pourquoi t\'abaisses-tu à la pauvreté ? Je t\'ai fait noble, comment peux-tu t\'avilir ? De l\'essence du savoir, je t\'ai donné la vie, pourquoi cherches-tu la lumière auprès d\'un autre ? Dans l\'argile de l\'amour, je t\'ai modelé, comment peux-tu t\'occuper d\'un autre que moi ? Tourne ton regard vers toi et tu me trouveras en toi, puissant, fort, absolu.'
-          : 'O Son of Spirit! I created thee rich, why dost thou bring thyself down to poverty? Noble I made thee, wherewith dost thou abase thyself? Out of the essence of knowledge I gave thee being, why seekest thou enlightenment from anyone beside Me? Out of the clay of love I molded thee, how dost thou busy thyself with another? Turn thy sight unto thyself, that thou mayest find Me standing within thee, mighty, powerful and self-subsisting.'}
+          ? 'La terre est un seul pays et tous les hommes en sont les citoyens.'
+          : 'The earth is but one country, and mankind its citizens.'}
       </Quote>
 
       {/* News */}

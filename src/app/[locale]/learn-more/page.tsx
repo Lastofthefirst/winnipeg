@@ -162,8 +162,8 @@ export default async function LearnMorePage({ params }: { params: any }) {
         author="Bahá'u'lláh"
       >
         {locale === 'fr'
-          ? 'La raison primordiale pour laquelle les mortels, issus du néant absolu, sont entrés dans le royaume de l\'être, est qu\'ils puissent travailler à l\'amélioration du monde et vivre ensemble dans la concorde et l\'harmonie.'
-          : 'The purpose for which mortal men have, from utter nothingness, stepped into the realm of being, is that they may work for the betterment of the world and live together in concord and harmony.'}
+          ? 'Voyez en l\'homme une mine riche en gemmes d\'une valeur inestimable. Mais, seule l\'éducation peut révéler les trésors de cette mine et permettre à l\'humanité d\'en profiter.'
+          : 'Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'}
       </Quote>
 
       <OfficialResources

@@ -61,3 +61,4 @@ These require component/layout changes — not just text replacements.
 - All French translations for new content need authoritative sources — do not auto-translate.
 - The doc references "a History bit from Keith Bloodworth" — may need to reach out for that content.
 - Client to provide: French prayer translations, list of quotes to place on each page.
+- **French Ruhi Book 1 text extraction needed** — PDF extraction only yields 4 of 92 quotes. Need a proper text file extraction (like `RUHI0010_RLS_BK1_EN_4.1.2.PE_FullText_20200520.txt`) to create French writings pages with authoritative passages.
