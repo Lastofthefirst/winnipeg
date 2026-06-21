@@ -5,13 +5,9 @@ import contentEnDefault from '../../../content/cms/en.json'
 import contentFrDefault from '../../../content/cms/fr.json'
 import writingsDefault from '../../../content/cms/writings.json'
 import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { Blockquote } from '@/components/Blockquote'
 import { AdminShell, SectionCard } from '@/admin/shell'
-import { EditableText, EditableImage } from '@/admin/editable'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
-import { fetchFile, commitFiles, isGithubConfigured, type GitHubFile } from '@/admin/github'
+import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
 
 // Import as build-time defaults
 const contentEn = contentEnDefault as CMSContent
@@ -20,25 +16,6 @@ const contentFr = contentFrDefault as CMSContent
 // ─── Content types ──────────────────────────────────────────────────────────
 
 interface CMSContent {
-  hero: {
-    eyebrow: string
-    heading: string
-    subheading: string
-    ctaActivities: string
-    ctaContact: string
-    background: string
-  }
-  community: {
-    eyebrow: string
-    heading: string
-    body: string[]
-    link: string
-    image: string
-  }
-  activities: {
-    intro: string
-    items: Array<{ title: string; description: string; image: string }>
-  }
   events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
@@ -134,150 +111,6 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
         </div>
       </div>
     </div>
-  )
-}
-
-// ─── Hero section ────────────────────────────────────────────────────────────
-
-function HeroSection({
-  eyebrow,
-  heading,
-  subheading,
-  ctaActivities,
-  ctaContact,
-  background,
-  editing,
-  onEdit,
-  onChange,
-}: {
-  eyebrow: string
-  heading: string
-  subheading: string
-  ctaActivities: string
-  ctaContact: string
-  background: string
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-}) {
-  return (
-    <Container className="relative py-12 sm:py-16 lg:py-20">
-      <div
-        className="pointer-events-none absolute inset-x-0 -bottom-8 lg:-bottom-32 -z-10 flex justify-center"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))',
-        }}
-      >
-        <img src={background} alt="" className="w-full object-contain object-top" />
-      </div>
-      <FadeIn>
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-8 h-px w-24 bg-gold-500" />
-          <EditableText field="hero.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.3em] text-gold-600" />
-          <EditableText field="hero.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h1" className="mt-8 block font-display text-4xl font-normal leading-tight tracking-tight text-burgundy-900 sm:text-5xl lg:text-6xl" />
-          <EditableText field="hero.subheading" value={subheading} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-8 font-display text-lg italic text-burgundy-600 sm:text-xl" />
-          <div className="mt-12 flex justify-center gap-6">
-            <span className="inline-flex border border-burgundy-900 bg-burgundy-900 px-8 py-3 text-sm uppercase tracking-widest text-ivory">
-              {ctaActivities}
-            </span>
-            <span className="inline-flex border border-burgundy-300 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-700">
-              {ctaContact}
-            </span>
-          </div>
-          <div className="mx-auto mt-12 h-px w-24 bg-gold-500" />
-        </div>
-      </FadeIn>
-    </Container>
-  )
-}
-
-// ─── Community section ───────────────────────────────────────────────────────
-
-function CommunitySection({
-  eyebrow,
-  heading,
-  body,
-  link,
-  image,
-  editing,
-  onEdit,
-  onChange,
-}: {
-  eyebrow: string
-  heading: string
-  body: string[]
-  link: string
-  image: string
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-}) {
-  return (
-    <div className="lg:flex lg:items-center lg:gap-x-12">
-      <div className="lg:w-1/2">
-        <div className="mb-4 h-px w-16 bg-burgundy-300" />
-        <EditableText field="community.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500" />
-        <EditableText field="community.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h2" className="mt-4 block font-display text-3xl font-normal text-burgundy-900 sm:text-4xl" />
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
-          {body.map((p, i) => (
-            <EditableText key={i} field={`community.body.${i}`} value={p} editing={editing} onEdit={onEdit} onChange={onChange} as="p" />
-          ))}
-        </div>
-        <div className="mt-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900">
-            {link} <span aria-hidden="true">&rarr;</span>
-          </span>
-        </div>
-      </div>
-      <div className="mt-8 lg:mt-0 lg:w-1/2">
-        <EditableImage field="community.image" src={image} alt="Community" editing={editing} onEdit={onEdit} onChange={onChange} className="w-full object-contain rounded-lg" />
-      </div>
-    </div>
-  )
-}
-
-// ─── Activities section ──────────────────────────────────────────────────────
-
-function ActivitiesSection({
-  intro,
-  items,
-  editing,
-  onEdit,
-  onChange,
-}: {
-  intro: string
-  items: Array<{ title: string; description: string; image: string }>
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-}) {
-  return (
-    <>
-      <div className="mb-8">
-        <EditableText field="activities.intro" value={intro} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="text-xl text-burgundy-700" />
-        <Blockquote
-          author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
-          className="mt-6"
-        >
-          Let your vision be world-embracing, rather than confined to your own self.
-        </Blockquote>
-      </div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-        {items.map((activity, idx) => (
-          <article key={idx} className="group relative flex flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-            <div className="relative flex h-48 items-center justify-center overflow-hidden">
-              <EditableImage field={`activities.items.${idx}.image`} src={activity.image} alt="" editing={editing} onEdit={onEdit} onChange={onChange} className="h-full w-auto object-contain" />
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-4 h-px w-8 bg-gold-400" />
-              <EditableText field={`activities.items.${idx}.title`} value={activity.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="font-display text-xl font-normal text-burgundy-900" />
-              <EditableText field={`activities.items.${idx}.description`} value={activity.description} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700" />
-            </div>
-          </article>
-        ))}
-      </div>
-    </>
   )
 }
 
@@ -390,33 +223,7 @@ export default function AdminPage() {
   // Field change handler
   function handleFieldChange(field: string, value: string) {
     const parts = field.split('.')
-    if (parts[0] === 'hero') {
-      setContent((prev) => ({ ...prev, hero: { ...prev.hero, [parts[1]!]: value } }))
-    } else if (parts[0] === 'community') {
-      if (parts[1] === 'body') {
-        const idx = parseInt(parts[2]!)
-        setContent((prev) => {
-          const body = [...prev.community.body]
-          body[idx] = value
-          return { ...prev, community: { ...prev.community, body } }
-        })
-      } else {
-        setContent((prev) => ({ ...prev, community: { ...prev.community, [parts[1]!]: value } }))
-      }
-    } else if (parts[0] === 'activities') {
-      if (parts[1] === 'items') {
-        const idx = parseInt(parts[2]!)
-        const itemField = parts[3]!
-        setContent((prev) => {
-          const items = prev.activities.items.map((item, i) =>
-            i === idx ? { ...item, [itemField]: value } : item,
-          )
-          return { ...prev, activities: { ...prev.activities, items } }
-        })
-      } else {
-        setContent((prev) => ({ ...prev, activities: { ...prev.activities, [parts[1]!]: value } }))
-      }
-    } else if (parts[0] === 'events') {
+    if (parts[0] === 'events') {
       const idx = parseInt(parts[1]!)
       const eventField = parts[2]!
       setContent((prev) => {
@@ -569,7 +376,7 @@ export default function AdminPage() {
     setPushing(false)
   }, [dirty, writingsDirty, pushing, locale, content, writings, fileShas])
 
-  const sectionLabels = ['Hero', 'Community', 'Activities', 'Events', 'Writings']
+  const sectionLabels = ['Events', 'Writings']
 
   if (!logged) {
     return <LoginScreen onLogin={() => setLogged(true)} />
@@ -586,37 +393,6 @@ export default function AdminPage() {
       pushMessage={pushMessage}
       sectionLabels={sectionLabels}
     >
-      {/* Hero */}
-      <SectionCard id="section-hero" label="Hero" page="Homepage" bgColor="bg-ivory">
-        <HeroSection
-          {...content.hero}
-          editing={editing}
-          onEdit={setEditing}
-          onChange={handleFieldChange}
-        />
-      </SectionCard>
-
-      {/* Community */}
-      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-ivory">
-        <CommunitySection
-          {...content.community}
-          editing={editing}
-          onEdit={setEditing}
-          onChange={handleFieldChange}
-        />
-      </SectionCard>
-
-      {/* Activities */}
-      <SectionCard id="section-activities" label="Activities" page="Homepage" bgColor="bg-parchment">
-        <ActivitiesSection
-          intro={content.activities.intro}
-          items={content.activities.items}
-          editing={editing}
-          onEdit={setEditing}
-          onChange={handleFieldChange}
-        />
-      </SectionCard>
-
       {/* Events */}
       <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory">
         <EventsSection
@@ -640,5 +416,67 @@ export default function AdminPage() {
         />
       </SectionCard>
     </AdminShell>
+  )
+}
+
+// ─── Shared editable text component ──────────────────────────────────────────
+
+function EditableText({
+  field,
+  value,
+  editing,
+  onEdit,
+  onChange,
+  as: Tag = 'p',
+  className = '',
+}: {
+  field: string
+  value: string
+  editing: string | null
+  onEdit: (field: string) => void
+  onChange: (field: string, value: string) => void
+  as?: 'p' | 'h1' | 'h2' | 'h3'
+  className?: string
+}) {
+  const [localValue, setLocalValue] = useState(value)
+
+  useEffect(() => {
+    setLocalValue(value)
+  }, [value])
+
+  if (editing === field) {
+    if (Tag === 'h1' || Tag === 'h2' || Tag === 'h3') {
+      return (
+        <Tag
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onChange(field, e.currentTarget.textContent || '')}
+          onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur() } }}
+          className={className}
+        >
+          {localValue}
+        </Tag>
+      )
+    }
+    return (
+      <p
+        contentEditable
+        suppressContentEditableWarning
+        onBlur={(e) => onChange(field, e.currentTarget.textContent || '')}
+        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur() } }}
+        className={className}
+      >
+        {localValue}
+      </p>
+    )
+  }
+
+  return (
+    <Tag
+      onClick={() => onEdit(field)}
+      className={`${className} cursor-text hover:bg-gold-400/10 rounded transition`}
+    >
+      {value || <span className="italic text-burgundy-300">Click to edit…</span>}
+    </Tag>
   )
 }
