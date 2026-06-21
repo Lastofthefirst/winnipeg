@@ -208,10 +208,10 @@ function WritingForm({
   return (
     <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
       {/* Image preview / picker — fixed height, no layout shift */}
-      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden" style={{ minHeight: 200 }}>
+      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
         {pickingImage ? (
           /* Thumbnail grid picker — scrollable */
-          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ maxHeight: 260 }}>
+          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ height: 240 }}>
             {WRITING_IMAGES.map((img) => (
               <button
                 key={img}
@@ -233,7 +233,7 @@ function WritingForm({
           </div>
         ) : (
           /* Preview */
-          <div className="flex justify-center p-4 items-center" style={{ minHeight: 200 }}>
+          <div className="flex justify-center p-4 items-center" style={{ height: 240 }}>
             {image ? (
               <img
                 src={`/writings-nature/${image}`}
