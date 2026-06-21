@@ -323,11 +323,11 @@ function WritingCard({
   return (
     <div className="group relative">
       <article
-        className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-parchment transition hover:border-burgundy-400"
+        className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-parchment pt-3 transition hover:border-burgundy-400"
         onClick={() => onEdit(entry)}
       >
         {/* Image thumbnail */}
-        <div className="flex h-28 w-full items-center justify-center overflow-hidden bg-parchment">
+        <div className="flex h-28 w-full items-center justify-center overflow-hidden rounded-t-lg bg-parchment">
           <img
             src={`/writings-nature/${entry.image}`}
             alt=""
