@@ -123,7 +123,7 @@ const fr: Dictionary = {
     childrensClasses: {
       title: "Classes d'enfants",
       body: [
-        "Les classes d'enfants se concentrent sur le développement des qualités spirituelles — les croyances, les habitudes et les modes de conduite qui constituent une vie digne et significative. Par des histoires, des chants, des prières, de l'art et des jeux coopératifs, les enfants sont aidés à découvrir et à renforcer des vertus telles que l'honnêteté, la gentillesse, la générosité et l'amour de l'apprentissage.",
+        "Les classes d'enfants se concentrent sur le développement des qualités spirituelles — les croyances, les habitudes et les modes de conduite qui constituent une vie digne et significative. Par des histoires, des chants, des prières, de l'art et des jeux coopératifs, les enfants sont aidés à découvrir et à renforcer des qualités spirituelles telles que l'honnêteté, la gentillesse, la générosité et l'amour de l'apprentissage.",
         "Les classes sont ouvertes à tous les enfants du quartier âgés de 5 à 11 ans. Le programme est mis en œuvre par des enseignants formés qui eux-mêmes marchent sur un chemin de service.",
       ],
       programHighlights: 'Points forts du programme',

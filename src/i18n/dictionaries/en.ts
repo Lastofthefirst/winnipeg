@@ -123,7 +123,7 @@ const en: Dictionary = {
     childrensClasses: {
       title: "Children's Classes",
       body: [
-        "Children's classes focus on the development of spiritual qualities — the beliefs, habits, and patterns of conduct that make for a worthy and meaningful life. Through stories, songs, prayers, art, and cooperative games, children are helped to discover and strengthen virtues such as honesty, kindness, generosity, and a love of learning.",
+        "Children's classes focus on the development of spiritual qualities — the beliefs, habits, and patterns of conduct that make for a worthy and meaningful life. Through stories, songs, prayers, art, and cooperative games, children are helped to discover and strengthen spiritual qualities such as honesty, kindness, generosity, and a love of learning.",
         'Classes are open to all children in the neighbourhood between the ages of 5 and 11. The program is carried out by trained teachers who are themselves walking a path of service.',
       ],
       programHighlights: 'Program highlights',
