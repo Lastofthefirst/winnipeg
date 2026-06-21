@@ -46,22 +46,8 @@
     {
       "id": "1",
       "title": "Devotional Gathering",
-      "date": "June 14, 2026",
+      "date": "",
       "time": "2:00 PM",
-      "location": "Community Home"
-    },
-    {
-      "id": "2",
-      "title": "Children's Class",
-      "date": "June 15, 2026",
-      "time": "4:00 PM",
-      "location": "Online"
-    },
-    {
-      "id": "3",
-      "title": "Study Circle",
-      "date": "June 21, 2026",
-      "time": "6:30 PM",
       "location": "Community Home"
     }
   ]
