@@ -91,7 +91,7 @@ export function AdminShell({
           <div className="flex items-center gap-4">
             {/* Analytics link */}
             <a
-              href="https://analytics.winnipegbahais.org"
+              href="https://stats.ridvan.org/share/winnipeg.pages.dev?auth=Quni4eI3Gawi0uuo1qfOm"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-medium text-burgundy-500 transition hover:text-burgundy-900"

@@ -27,15 +27,25 @@ function mapCmsEvents(locale: Locale): UpcomingEvent[] {
   }))
 }
 
+function parseCmsDate(dateStr: string): Date {
+  // Handles "June 14, 2026" and "2026-06-14" formats
+  const d = new Date(dateStr)
+  if (!Number.isNaN(d.getTime())) return d
+  // Fallback: "Month DD, YYYY"
+  const m = dateStr.match(/(\w+)\s+(\d{1,2}),?\s*(\d{4})/)
+  if (m) return new Date(`${m[1]} ${parseInt(m[2])}, ${m[3]}`)
+  return d
+}
+
 function getUpcomingEvents(events: UpcomingEvent[]) {
   const now = new Date()
   return events
     .filter((e) => {
-      const base = new Date(`${e.date}T00:00:00`)
+      const base = parseCmsDate(e.date)
       base.setDate(base.getDate() + 2)
       return base > now
     })
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => parseCmsDate(a.date).getTime() - parseCmsDate(b.date).getTime())
 }
 
 export function generateStaticParams() {
