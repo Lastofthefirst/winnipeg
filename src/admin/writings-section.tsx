@@ -345,7 +345,15 @@ function WritingCard({
             {preview}
           </p>
           <p className="mt-2 text-xs text-burgundy-400">— {entry.source}</p>
-          <p className="mt-1 text-[10px] font-mono text-burgundy-300">/{entry.slug}</p>
+          <a
+            href={`/writings/${entry.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-1 inline-block text-[10px] font-mono text-burgundy-300 underline underline-offset-2 decoration-burgundy-200 hover:text-burgundy-600 hover:decoration-burgundy-400"
+          >
+            /{entry.slug} ↗
+          </a>
         </div>
       </article>
 
