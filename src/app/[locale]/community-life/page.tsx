@@ -1,9 +1,11 @@
 import { type Metadata } from 'next'
+import Link from 'next/link'
 
 import { Blockquote } from '@/components/Blockquote'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
+import { FadeInStagger } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
@@ -100,11 +102,17 @@ function Section({
 interface DevotionalGatheringsProps {
   title: string
   body: string[]
-  whatToExpect: string
-  tags: string[]
+  locale: Locale
 }
 
-function DevotionalGatherings({ title, body, whatToExpect, tags }: DevotionalGatheringsProps) {
+function DevotionalGatherings({ title, body, locale }: DevotionalGatheringsProps) {
+  const writings = [
+    { slug: 'unity', title: 'On Unity', image: '/writings/unity-three-streams-01_00001_.png' },
+    { slug: 'unity-prayer', title: 'A Prayer for Unity', image: '/writings/unity-prayer-confluence-01_00001_.png' },
+    { slug: 'merciful', title: 'The All-Merciful', image: '/writings/merciful-elder-tree-01_00001_.png' },
+    { slug: 'guide-me', title: 'Guide Me', image: '/writings/guide-me-fireweed-01_00001_.png' },
+  ]
+
   return (
     <Section
       title={title}
@@ -118,13 +126,33 @@ function DevotionalGatherings({ title, body, whatToExpect, tags }: DevotionalGat
       </div>
 
       <h3 className="mt-12 font-display text-base font-semibold text-burgundy-900">
-        {whatToExpect}
+        Bahá'í Writings
       </h3>
-      <TagList className="mt-4">
-        {tags.map((tag) => (
-          <TagListItem key={tag}>{tag}</TagListItem>
+      <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {writings.map((w) => (
+          <Link
+            key={w.slug}
+            href={`/writings/${w.slug}`}
+            className="group relative flex overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400"
+          >
+            <div className="relative flex h-36 w-36 flex-none items-center justify-center overflow-hidden">
+              <OptimizedImage
+                src={w.image}
+                alt=""
+                width={300}
+                height={300}
+                className="h-full w-auto object-contain transition duration-700"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-4">
+              <div className="mb-2 h-px w-6 bg-gold-400" />
+              <span className="font-display text-sm font-normal text-burgundy-900">
+                {w.title}
+              </span>
+            </div>
+          </Link>
         ))}
-      </TagList>
+      </div>
     </Section>
   )
 }
@@ -312,8 +340,7 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <DevotionalGatherings
           title={t.communityLife.devotional.title}
           body={t.communityLife.devotional.body}
-          whatToExpect={t.communityLife.devotional.whatToExpect}
-          tags={t.communityLife.devotional.tags}
+          locale={locale}
         />
         <StudyCircles
           title={t.communityLife.studyCircles.title}

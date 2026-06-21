@@ -106,8 +106,6 @@ const fr: Dictionary = {
         "Les réunions dévotionnelles rassemblent des personnes pour le culte collectif — lire et réfléchir sur des écrits sacrés, offrir des prières et cultiver les sensibilités spirituelles qui soutiennent une vie de service. Elles se tiennent dans des maisons, des espaces communautaires et partout où les gens choisissent de se réunir.",
         "Ces rassemblements sont ouverts à tous, quel que soit leur milieu ou leur croyance. Il n'y a aucune obligation de parler ou de se produire — vous pouvez venir simplement pour écouter, réfléchir ou ajouter votre voix à celles des autres.",
       ],
-      whatToExpect: "À quoi s'attendre",
-      tags: ['Prières et lectures sacrées', 'Musique et chants dévotionnels', 'Réflexion tranquille', 'Ouvert à toutes les confessions'],
     },
     studyCircles: {
       title: "Cercles d'étude",
