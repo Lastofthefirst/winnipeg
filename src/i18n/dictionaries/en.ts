@@ -99,7 +99,7 @@ const en: Dictionary = {
   communityLife: {
     eyebrow: 'Community life',
     heading: 'Growing together in spirit and service',
-    intro: "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to join and be part of this growing community.",
+    intro: "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to walk this path of service.",
     devotional: {
       title: 'Devotional Meetings',
       body: [

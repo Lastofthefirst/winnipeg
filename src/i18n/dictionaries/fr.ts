@@ -99,7 +99,7 @@ const fr: Dictionary = {
   communityLife: {
     eyebrow: 'Vie communautaire',
     heading: "Grandir ensemble dans l'esprit et le service",
-    intro: "À Winnipeg, les bahá'ís et leurs amis sont engagés dans un modèle croissant d'activités de construction communautaire qui rassemblent des personnes pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés partout dans le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à œuvrer pour l'amélioration de la société. Tous sont chaleureusement invités à se joindre et à faire partie de cette communauté en croissance.",
+    intro: "À Winnipeg, les bahá'ís et leurs amis sont engagés dans un modèle croissant d'activités de construction communautaire qui rassemblent des personnes pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés partout dans le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à œuvrer pour l'amélioration de la société. Tous sont chaleureusement invités à parcourir ce chemin de service.",
     devotional: {
       title: 'Réunions dévotionnelles',
       body: [
