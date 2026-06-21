@@ -109,8 +109,8 @@ const fr: Dictionary = {
       writings: [
         { label: 'Sur l\'unité', slug: 'unity' },
         { label: 'Une prière pour l\'unité', slug: 'unity-prayer' },
-        { label: 'Le Tout-Miséricordieux', slug: 'merciful' },
-        { label: 'Guide-moi', slug: 'guide-me' },
+        { label: 'L\'unité de l\'humanité', slug: 'oneness' },
+        { label: 'Prière pour les enfants', slug: 'children' },
       ],
     },
     studyCircles: {
