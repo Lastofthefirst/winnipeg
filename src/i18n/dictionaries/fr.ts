@@ -37,8 +37,8 @@ const fr: Dictionary = {
       ctaContact: 'Contact',
     }, cms.hero),
     activities: mergeCms({
-      heading: 'Marcher sur un chemin de service',
-      intro: "La communauté bahá'íe de Winnipeg est engagée dans diverses activités qui rassemblent des personnes pour la prière, l'étude et le service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se retrouvent depuis toutes origines, unis par une vision commune.",
+      heading: 'Construire des communautés vibrantes',
+      intro: "Dans nos communautés, nous apprenons à créer des espaces où des personnes de tous âges peuvent se rassembler pour réfléchir sur des enseignements spirituels, renforcer l'amitié, consulter ensemble, s'accompagner mutuellement et contribuer au bien-être de leurs quartiers. La communauté bahá'íe de Winnipeg est engagée dans des activités qui comprennent des rassemblements dévotionnels, des classes pour enfants, des groupes de jeunes, des cercles d'étude, des visites à domicile et des actes de service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se réunissent depuis toutes origines, unis par une vision commune d'une communauté pacifique et florissante.",
       link: 'En savoir plus',
       items: [
         { title: "Classes d'enfants", description: "Nourrir le développement spirituel des jeunes cœurs par des histoires, des chants, de l'art et une éducation fondée sur les vertus." },
@@ -68,7 +68,7 @@ const fr: Dictionary = {
     heading: "La foi bahá'íe",
     intro: "Le but fondamental animant la foi bahá'íe est de sauvegarder les intérêts et de promouvoir l'unité du genre humain, et de favoriser l'esprit d'amour et de fraternité entre tous les peuples.",
     body: [
-      "Fondée par Bahá'u'lláh au XIXe siècle, la foi bahá'íe s'est répandue dans pratiquement tous les pays et territoires du monde, embrassant des personnes de plus de 2 100 origines ethniques, raciales et tribales. Au cœur de la foi se trouve la conviction que l'humanité est une seule famille, et que le moment de son unification en une société mondiale est venu.",
+      "Fondée par Bahá'u'lláh au XIXe siècle, la foi bahá'íe s'est répandue dans pratiquement tous les pays et territoires du monde, réunissant des personnes de plus de 2 100 origines ethniques et culturelles diverses. Au cœur de la foi se trouve la conviction que l'humanité est une seule famille et que le moment est venu de son unification en une société mondiale pacifique.",
       "Les bahá'ís se consacrent à un double effort : prendre soin de la vie intérieure de l'individu et contribuer à la transformation de la société. Ces buts ne sont pas séparés. Par des réunions dévotionnelles, des cercles d'étude et des programmes pour les enfants et les jeunes, les bahá'ís et leurs amis s'efforcent de bâtir des communautés qui reflètent les principes de justice, d'unité et de l'unité de l'humanité.",
     ],
     stats: { bahaisWorldwide: "Bahá'ís dans le monde", localitiesGlobally: 'Localités dans le monde', yearsInWinnipeg: 'Ans à Winnipeg' },
@@ -99,7 +99,7 @@ const fr: Dictionary = {
   communityLife: {
     eyebrow: 'Vie communautaire',
     heading: "Grandir ensemble dans l'esprit et le service",
-    intro: "La communauté bahá'íe de Winnipeg propose diverses activités qui rassemblent des personnes pour la prière, l'étude et le service à la communauté plus large. Tous sont les bienvenus.",
+    intro: "À Winnipeg, les bahá'ís et leurs amis sont engagés dans un modèle croissant d'activités de construction communautaire qui rassemblent des personnes pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés partout dans le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à œuvrer pour l'amélioration de la société. Tous sont chaleureusement invités à se joindre et à faire partie de cette communauté en croissance. (Tous sont les bienvenus).",
     devotional: {
       title: 'Réunions dévotionnelles',
       body: [
@@ -150,7 +150,7 @@ const fr: Dictionary = {
         { title: 'Dévotion et service en harmonie', body: "L'adoration éveille les sensibilités spirituelles ; le service leur donne expression. Ensemble, ils donnent naissance à un mode de vie communautaire imprégné de l'esprit de dévotion." },
         { title: "Apprentissage par l'action", body: "La construction communautaire est abordée comme un processus d'apprentissage — non pas seulement une étude théorique, mais une réflexion sur l'expérience vécue, un ajustement de cap et une croissance à travers le travail lui-même." },
         { title: 'Participation universelle', body: "Chaque personne a une contribution à apporter. Nos activités sont ouvertes à tous et chaque voix est précieuse dans la conversation sur la construction d'un monde meilleur." },
-        { title: 'Civilisation matérielle et spirituelle', body: "La communauté bahá'íe rejette toute fausse séparation entre la vie intérieure et l'action pratique. Construire un monde juste est en soi une entreprise spirituelle." },
+        { title: 'Civilisation matérielle et spirituelle', body: "Pour la communauté bahá'íe, la vie intérieure et l'action pratique sont profondément liées. Construire un monde juste est en soi une entreprise spirituelle." },
       ],
     },
   },
@@ -165,7 +165,7 @@ const fr: Dictionary = {
       intro: "La foi bahá'íe est centrée sur la vie et les écrits de trois figures — le Báb, Bahá'u'lláh et 'Abdu'l-Bahá — dont la vision de l'unité de l'humanité continue d'inspirer des millions de personnes dans le monde.",
       items: [
         { title: "Bahá'u'lláh (1817–1892)", body: "Le Fondateur de la foi bahá'íe et sa figure centrale. Né à Téhéran, Bahá'u'lláh a enduré quarante ans d'exil et d'emprisonnement pour avoir proclamé Son message que l'humanité est une seule famille et que le moment tant attendu de son unification est arrivé. Ses écrits comprennent plus de 100 volumes et constituent les écritures sacrées de la foi." },
-        { title: 'Le Báb (1819–1850)', body: "Le Héraut de la foi bahá'íe. En 1844, le Báb a déclaré Sa mission et a appelé l'humanité au renouveau spirituel, annonçant l'apparition imminente du Promis prédit dans les traditions sacrées de toutes les religions. Il a été exécuté en 1850 à Tabriz, en Perse, à l'âge de trente ans." },
+        { title: 'Le Báb (1819–1850)', body: "Le Héraut de la foi bahá'íe. En 1844, le Báb a déclaré Sa mission et a appelé l'humanité au renouveau spirituel, annonçant la venue du Promis attendu par les religions du monde." },
         { title: "'Abdu'l-Bahá (1844–1921)", body: "Le fils de Bahá'u'lláh et le Centre de Son Alliance — désigné par Bahá'u'lláh comme le seul interprète autorisé de Ses enseignements. 'Abdu'l-Bahá est considéré comme l'exemplaire parfait de la vie bahá'íe : celui en qui toutes les vertus spirituelles et humanitaires de la foi ont trouvé leur expression complète." },
       ],
     },
@@ -177,7 +177,7 @@ const fr: Dictionary = {
         { title: 'Unité de Dieu', body: "Il n'y a qu'un seul Dieu — inconnaissable dans Son essence, mais rendu connu à l'humanité par une succession de Messagers divins. Toutes les grandes religions du monde découlent de cette seule source." },
         { title: 'Révélation progressive', body: "La vérité religieuse est révélée progressivement. Les Manifestations de Dieu — Abraham, Moïse, Bouddha, le Christ, Muhammad, Bahá'u'lláh — ont chacun apporté des enseignements adaptés aux besoins et à la capacité de l'époque dans laquelle ils sont apparus." },
         { title: "Unité de l'humanité", body: "La diversité du genre humain n'est pas une source de division mais une cause d'amour et d'harmonie. Tous les préjugés — de race, de classe, de nationalité ou de religion — doivent être surmontés." },
-        { title: 'Noblesse inhérente', body: "Chaque être humain est une mine riche en gemmes d'une valeur inestimable. Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
+        { title: 'Noblesse inhérente', body: "Chaque être humain est \"une mine riche en gemmes d'une valeur inestimable\". Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
         { title: 'Harmonie entre la science et la religion', body: "La science et la religion sont deux systèmes de connaissance complémentaires. La religion sans la science conduit à la superstition ; la science sans la religion conduit au matérialisme. Les deux sont essentielles au progrès humain." },
         { title: 'Justice', body: "La justice est ce qu'il y a de plus aimé aux yeux de Dieu et la centralité de la justice dans toutes les entreprises humaines est une pierre angulaire de l'enseignement social bahá'í. Une société juste défend les droits et la dignité de chaque personne." },
       ],
@@ -191,7 +191,7 @@ const fr: Dictionary = {
   events: {
     eyebrow: 'Événements',
     heading: 'Rassemblements à venir',
-    intro: "Rassemblements dévotionnels, célébrations de jours saints, cercles d'étude et événements communautaires — les bahá'ís et leurs amis, tous sont chaleureusement les bienvenus.",
+    intro: "Que vous soyez parent, jeune personne ou simplement quelqu'un qui s'intéresse à son quartier, il y a une place pour vous. Nous parcourons ce chemin ensemble — localement et globalement — et vous êtes chaleureusement invité à participer : rejoignez un rassemblement, entrez en contact avec d'autres et aidez à bâtir une communauté où tous peuvent se sentir chez eux et contribuer.",
     invitation: {
       eyebrow: 'Un chemin de service',
       heading: 'Un chemin de service, ouvert à tous',

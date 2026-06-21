@@ -37,8 +37,8 @@ const en: Dictionary = {
       ctaContact: 'Contact',
     }, cms.hero),
     activities: mergeCms({
-      heading: 'Walking a path of service',
-      intro: "The Bahá'í community in Winnipeg is engaged in a range of activities that bring people together for prayer, study, and service. Like the rivers that meet at the Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision.",
+      heading: 'Building vibrant communities',
+      intro: "In our communities, we are learning to build spaces where people of all ages can gather to reflect on spiritual teachings, strengthen friendships, consult together, accompany one another, and contribute to the well-being of their neighbourhoods. The Bahá'í community in Winnipeg is engaged in activities that include devotional gatherings, children's classes, junior youth groups, study circles, home visits, and acts of service. Like the rivers that meet at The Forks, Bahá'ís and their friends draw together from many backgrounds, united by a shared vision of a peaceful and flourishing community.",
       link: 'Learn more',
       items: [
         { title: "Children's Classes", description: 'Nurture the spiritual development of young hearts through stories, songs, art, and virtues-based education.' },
@@ -68,7 +68,7 @@ const en: Dictionary = {
     heading: "The Bahá'í Faith",
     intro: "The fundamental purpose animating the Bahá'í Faith is to safeguard the interests and promote the unity of the human race, and to foster the spirit of love and fellowship amongst all people.",
     body: [
-      "Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, embracing people from more than 2,100 ethnic, racial, and tribal backgrounds. At the heart of the Faith is the conviction that humanity is one family, and that the day has come for humanity's unification into one global society.",
+      "Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, bringing together people from more than 2,100 diverse ethnic and cultural backgrounds. At the heart of the Faith is the conviction that humanity is one family and that the time has come for its unification into one peaceful global society.",
       "Bahá'ís are engaged in a twofold endeavour: attending to the inner life of the individual and contributing to the transformation of society. These are not separate aims. Through devotional meetings, study circles, and programs for children and youth, Bahá'ís and their friends work to build communities that reflect the principles of justice, unity, and the oneness of humankind.",
     ],
     stats: { bahaisWorldwide: "Bahá'ís worldwide", localitiesGlobally: 'Localities globally', yearsInWinnipeg: 'Years in Winnipeg' },
@@ -99,7 +99,7 @@ const en: Dictionary = {
   communityLife: {
     eyebrow: 'Community life',
     heading: 'Growing together in spirit and service',
-    intro: "The Bahá'í community in Winnipeg offers a range of activities that bring people together for prayer, study, and service to the wider community. All are welcome.",
+    intro: "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to join and be part of this growing community. (All are welcome).",
     devotional: {
       title: 'Devotional Meetings',
       body: [
@@ -150,7 +150,7 @@ const en: Dictionary = {
         { title: 'Devotion and service in concert', body: 'Worship awakens spiritual susceptibilities; service gives them expression. Together, they give rise to a pattern of community life infused with the spirit of devotion.' },
         { title: 'Learning through action', body: 'Community building is approached as a process of learning — not theoretical study alone, but reflection on lived experience, adjusting course, and growing through the work itself.' },
         { title: 'Universal participation', body: 'Every person has a contribution to make. Our activities are open to all, and every voice is valued in the conversation about building a better world.' },
-        { title: 'Material and spiritual civilization', body: "The Bahá'í community rejects any false separation between inner life and practical action. Building a just world is itself a spiritual undertaking." },
+        { title: 'Material and spiritual civilization', body: "For the Bahá'í community, the inner life and practical action are deeply connected. Building a just world is itself a spiritual undertaking." },
       ],
     },
   },
@@ -165,7 +165,7 @@ const en: Dictionary = {
       intro: "The Bahá'í Faith centres on the lives and writings of three figures — the Báb, Bahá'u'lláh, and 'Abdu'l-Bahá — whose vision of humanity's oneness continues to inspire millions around the world.",
       items: [
         { title: "Bahá'u'lláh (1817–1892)", body: "The Founder of the Bahá'í Faith and its central figure. Born in Tehran, Bahá'u'lláh endured forty years of exile and imprisonment for proclaiming His message that humanity is one family and that the long-awaited moment for its unification has arrived. His writings encompass over 100 volumes and form the sacred scripture of the Faith." },
-        { title: 'The Báb (1819–1850)', body: "The Herald of the Bahá'í Faith. In 1844, the Báb declared His mission and called humanity to spiritual renewal, announcing the imminent appearance of the Promised One foretold in the sacred traditions of all religions. He was executed in 1850 in Tabriz, Persia, at the age of thirty." },
+        { title: 'The Báb (1819–1850)', body: "The Herald of the Bahá'í Faith. In 1844, the Báb declared His mission and called humanity to spiritual renewal, announcing the coming of the Promised One anticipated by the world's religions." },
         { title: "'Abdu'l-Bahá (1844–1921)", body: "The son of Bahá'u'lláh and the Centre of His Covenant — appointed by Bahá'u'lláh as the sole authoritative interpreter of His teachings. 'Abdu'l-Bahá is regarded as the perfect exemplar of Bahá'í life: one in whom all the spiritual and humanitarian virtues of the Faith found complete expression." },
       ],
     },
@@ -177,7 +177,7 @@ const en: Dictionary = {
         { title: 'Oneness of God', body: "There is only one God — unknowable in essence, yet made known to humanity through a succession of divine Messengers. All the great religions of the world flow from this one source." },
         { title: 'Progressive revelation', body: "Religious truth is revealed progressively. The Manifestations of God — Abraham, Moses, Buddha, Christ, Muhammad, Bahá'u'lláh — each brought teachings suited to the needs and capacity of the age in which they appeared." },
         { title: 'Oneness of humanity', body: 'The diversity of the human race is not a source of division but a cause of love and harmony. All prejudice — of race, class, nationality, or religion — must be overcome.' },
-        { title: 'Inherent nobility', body: "Every human being is a mine rich in gems of inestimable value. The purpose of education, spiritual and material alike, is to reveal these inner capacities in service to one another and to civilisation." },
+        { title: 'Inherent nobility', body: 'Every human being is "a mine rich in gems of inestimable value." The purpose of education, spiritual and material alike, is to reveal these inner capacities in service to one another and to civilisation.' },
         { title: 'Harmony of science and religion', body: "Science and religion are two complementary systems of knowledge. Religion without science leads to superstition; science without religion leads to materialism. Both are essential to human progress." },
         { title: 'Justice', body: "Justice is the best-beloved of all things in the sight of God and the centrality of justice to all human endeavours is a cornerstone of Bahá'í social teaching. A just society upholds the rights and dignity of every person." },
       ],
@@ -191,7 +191,7 @@ const en: Dictionary = {
   events: {
     eyebrow: 'Events',
     heading: 'Upcoming gatherings',
-    intro: "Devotional gatherings, holy day celebrations, study circles, and community events — Bahá'ís and their friends, everyone is warmly welcome.",
+    intro: "Whether you are a parent, a young person, or someone who cares about your neighbourhood, there is a place for you. We are walking this path together—locally and globally—and you are warmly invited to take part: join a gathering, connect with others, and help build a community where all can belong and contribute.",
     invitation: {
       eyebrow: 'A path of service',
       heading: 'A path of service, open to all',
