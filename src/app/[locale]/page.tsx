@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
 import type { UpcomingEvent } from '@/components/EventsPreview'
+import { parseEventDate } from '@/utils/eventDate'
 import { NewsFeed } from '@/components/NewsFeed'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { Blockquote } from '@/components/Blockquote'
@@ -27,25 +28,15 @@ function mapCmsEvents(locale: Locale): UpcomingEvent[] {
   }))
 }
 
-function parseCmsDate(dateStr: string): Date {
-  // Handles "June 14, 2026" and "2026-06-14" formats
-  const d = new Date(dateStr)
-  if (!Number.isNaN(d.getTime())) return d
-  // Fallback: "Month DD, YYYY"
-  const m = dateStr.match(/(\w+)\s+(\d{1,2}),?\s*(\d{4})/)
-  if (m) return new Date(`${m[1]} ${parseInt(m[2])}, ${m[3]}`)
-  return d
-}
-
 function getUpcomingEvents(events: UpcomingEvent[]) {
   const now = new Date()
   return events
     .filter((e) => {
-      const base = parseCmsDate(e.date)
+      const base = parseEventDate(e.date)
       base.setDate(base.getDate() + 2)
       return base > now
     })
-    .sort((a, b) => parseCmsDate(a.date).getTime() - parseCmsDate(b.date).getTime())
+    .sort((a, b) => parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime())
 }
 
 export function generateStaticParams() {

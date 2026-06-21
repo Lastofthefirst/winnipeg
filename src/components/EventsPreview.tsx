@@ -3,6 +3,7 @@
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
+import { parseEventDate } from '@/utils/eventDate'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
@@ -30,7 +31,7 @@ export function localizeEvent(event: UpcomingEvent, locale: Locale) {
 }
 
 function parseEventCutoff(event: UpcomingEvent): Date {
-  const base = new Date(`${event.date}T00:00:00`)
+  const base = parseEventDate(event.date)
   if (event.time) {
     const m = event.time.match(/(\d+):(\d+)\s*(AM|PM)/i)
     if (m) {
@@ -55,7 +56,7 @@ export function getUpcomingEvents(events: UpcomingEvent[]) {
 
 export function formatEventDate(dateString: string, locale: Locale = 'en') {
   const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-US'
-  return new Date(`${dateString}T00:00:00`).toLocaleDateString(dateLocale, {
+  return parseEventDate(dateString).toLocaleDateString(dateLocale, {
     weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
   })
 }
