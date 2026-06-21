@@ -206,7 +206,9 @@ function WritingForm({
   const canSave = slug.trim() && passage.trim() && source.trim() && language.trim() && image
 
   return (
-    <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
+    <div className="mx-auto max-w-3xl">
+      {/* Gold divider */}
+      <div className="mx-auto mb-8 h-px w-20 bg-gold-500" />
       {/* Image preview / picker — fixed height, no layout shift */}
       <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
         {pickingImage ? (
@@ -255,9 +257,38 @@ function WritingForm({
         </button>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {/* Passage — styled like the live page */}
+      <div className="mt-8">
+        <textarea
+          value={passage}
+          onChange={(e) => setPassage(e.target.value)}
+          rows={5}
+          placeholder="Passage or prayer..."
+          className="w-full resize-none bg-transparent px-4 font-display text-lg font-normal leading-relaxed text-burgundy-900 placeholder-burgundy-300 focus:outline-none sm:text-xl lg:text-2xl"
+          style={{ minHeight: 120 }}
+        />
+      </div>
+
+      {/* Gold divider */}
+      <div className="mx-auto my-6 h-px w-16 bg-gold-400" />
+
+      {/* Source — styled like figcaption */}
+      <div className="text-center">
+        <AutocompleteInput
+          value={source}
+          onChange={setSource}
+          suggestions={existingSources}
+          placeholder="Source"
+        />
+      </div>
+
+      {/* Gold divider */}
+      <div className="mx-auto mt-8 h-px w-20 bg-gold-500" />
+
+      {/* Meta fields */}
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-400">
             Slug
           </label>
           <input
@@ -270,54 +301,19 @@ function WritingForm({
           />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-400">
             Language
           </label>
           <LanguageInput value={language} onChange={setLanguage} existingLanguages={existingLanguages} />
         </div>
       </div>
 
-      <div>
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
-          Passage
-        </label>
-        <textarea
-          value={passage}
-          onChange={(e) => setPassage(e.target.value)}
-          rows={5}
-          placeholder="Full text of the passage or prayer..."
-          className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
-        />
-      </div>
-
-      <div>
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
-          Source
-        </label>
-        <AutocompleteInput
-          value={source}
-          onChange={setSource}
-          suggestions={existingSources}
-          placeholder="e.g. Bahá'u'lláh"
-        />
-      </div>
-
-      {/* Preview */}
-      {passage && (
-        <div className="rounded-lg border border-burgundy-100 bg-white/50 p-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-burgundy-400">Preview</p>
-          <p className="mt-2 font-display text-sm leading-relaxed text-burgundy-700 italic">
-            {passage.length > 200 ? passage.slice(0, 200) + '…' : passage}
-          </p>
-          <p className="mt-2 text-xs text-burgundy-400">— {source || 'Source'}</p>
-        </div>
-      )}
-
-      <div className="flex justify-end gap-3 pt-2">
+      {/* Actions */}
+      <div className="mt-8 flex items-center justify-between border-t border-burgundy-100 pt-6">
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg px-4 py-2 text-sm font-medium text-burgundy-500 transition hover:text-burgundy-900"
+          className="text-sm font-medium text-burgundy-400 transition hover:text-burgundy-900"
         >
           Cancel
         </button>
@@ -325,10 +321,10 @@ function WritingForm({
           type="button"
           onClick={handleSubmit}
           disabled={!canSave}
-          className={`rounded-lg px-5 py-2 text-sm font-medium transition ${
+          className={`rounded-lg px-6 py-2.5 text-sm font-medium uppercase tracking-widest transition ${
             canSave
-              ? 'bg-burgundy-900 text-white hover:bg-burgundy-800'
-              : 'bg-stone-200 text-stone-400 cursor-not-allowed'
+              ? 'border border-burgundy-900 bg-burgundy-900 text-ivory hover:bg-burgundy-800'
+              : 'border border-stone-200 bg-stone-100 text-stone-400 cursor-not-allowed'
           }`}
         >
           {initial ? 'Save Changes' : 'Add Writing'}
