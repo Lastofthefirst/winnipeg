@@ -6,6 +6,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
+import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -170,6 +171,12 @@ export default async function AboutPage({ params }: { params: any }) {
       </PageIntro>
 
       <ImageStrip />
+
+      <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
+        {locale === 'fr'
+          ? 'Ne faites pas de la religion une cause de dissensions et de luttes car son but, révélé des cieux de la sainte volonté de Dieu, est d\'établir l\'unité et la concorde parmi les peuples du monde. La religion de Dieu et sa loi divine sont les instruments les plus puissants, les moyens les plus sûrs, pour que se lève parmi les hommes la lumière de l\'unité. Le progrès du monde, le développement des nations, la tranquillité des peuples et la paix sur terre sont des principes, des ordonnances de Dieu.'
+          : 'The purpose of religion as revealed from the heaven of God\'s holy Will is to establish unity and concord amongst the peoples of the world; make it not the cause of dissension and strife. The religion of God and His divine law are the most potent instruments and the surest of all means for the dawning of the light of unity amongst men. The progress of the world, the development of nations, the tranquility of peoples, and the peace of all who dwell on earth are among the principles and ordinances of God.'}
+      </Quote>
 
       <Container className="mt-16">
         <StatList>
