@@ -206,7 +206,7 @@ function WritingForm({
   const canSave = slug.trim() && passage.trim() && source.trim() && language.trim() && image
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-3xl rounded-xl border border-burgundy-200 bg-parchment p-6">
       {/* Gold divider */}
       <div className="mx-auto mb-8 h-px w-20 bg-gold-500" />
       {/* Image preview / picker — fixed height, no layout shift */}
