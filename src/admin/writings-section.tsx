@@ -327,7 +327,7 @@ function WritingCard({
         onClick={() => onEdit(entry)}
       >
         {/* Image thumbnail */}
-        <div className="flex h-28 items-center justify-center overflow-hidden bg-parchment p-3">
+        <div className="flex h-28 w-full items-center justify-center overflow-hidden bg-parchment">
           <img
             src={`/writings-nature/${entry.image}`}
             alt=""
