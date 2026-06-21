@@ -3,6 +3,8 @@
 import { useState, useCallback, useEffect } from 'react'
 import contentEnDefault from '../../../content/cms/en.json'
 import contentFrDefault from '../../../content/cms/fr.json'
+import writingsDefault from '../../../content/cms/writings.json'
+import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { Blockquote } from '@/components/Blockquote'
@@ -39,6 +41,8 @@ interface CMSContent {
   }
   events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
+
+const writingsData = writingsDefault as WritingsEntry[]
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -346,13 +350,16 @@ export default function AdminPage() {
   const [pushStatus, setPushStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [pushMessage, setPushMessage] = useState('')
 
+  // Writings state
+  const [writings, setWritings] = useState<WritingsEntry[]>(writingsData)
+  const [writingsDirty, setWritingsDirty] = useState(false)
+
   // File SHAs for GitHub commits
   const [fileShas, setFileShas] = useState<Record<string, string>>({})
 
   // On login, try to fetch latest content from GitHub
   useEffect(() => {
     if (!logged) return
-    const branch = process.env.NEXT_PUBLIC_GITHUB_BRANCH || 'main'
     const fileKey = locale === 'en' ? 'en' : 'fr'
     const filePath = `content/cms/${fileKey}.json`
 
@@ -362,6 +369,18 @@ export default function AdminPage() {
         setContent(parsed)
         setOriginalContent(parsed)
         setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
+      }
+    }).catch(() => {
+      // Fall back to build-time defaults
+    })
+
+    // Also fetch writings
+    const writingsPath = 'content/cms/writings.json'
+    fetchFile(writingsPath).then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as WritingsEntry[]
+        setWritings(parsed)
+        setFileShas((prev) => ({ ...prev, [writingsPath]: file.sha }))
       }
     }).catch(() => {
       // Fall back to build-time defaults
@@ -431,6 +450,28 @@ export default function AdminPage() {
     setPushStatus('idle')
   }
 
+  // ─── Writings handlers ─────────────────────────────────────────────────
+
+  function handleAddWriting(entry: WritingsEntry) {
+    setWritings((prev) => [...prev, entry])
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
+  function handleEditWriting(updated: WritingsEntry) {
+    setWritings((prev) =>
+      prev.map((e) => (e.slug === updated.slug ? updated : e)),
+    )
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
+  function handleRemoveWriting(slug: string) {
+    setWritings((prev) => prev.filter((e) => e.slug !== slug))
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
   function handleLocaleChange(newLocale: 'en' | 'fr') {
     setLocale(newLocale)
     const defaults = newLocale === 'en' ? contentEn : contentFr
@@ -453,7 +494,7 @@ export default function AdminPage() {
   }
 
   const handlePush = useCallback(async () => {
-    if (!dirty || pushing) return
+    if ((!dirty && !writingsDirty) || pushing) return
     setPushing(true)
     setPushStatus('idle')
 
@@ -464,42 +505,71 @@ export default function AdminPage() {
       return
     }
 
-    const fileKey = locale === 'en' ? 'en' : 'fr'
-    const filePath = `content/cms/${fileKey}.json`
-    const formatted = JSON.stringify(content, null, 2)
-    const sha = fileShas[filePath]
+    const filesToCommit: Array<{ path: string; content: string; sha: string }> = []
 
-    if (!sha) {
-      setPushStatus('error')
-      setPushMessage('Unable to verify file. Please refresh and try again.')
-      setPushing(false)
-      return
+    // Commit content file if dirty
+    if (dirty) {
+      const fileKey = locale === 'en' ? 'en' : 'fr'
+      const filePath = `content/cms/${fileKey}.json`
+      const formatted = JSON.stringify(content, null, 2)
+      const sha = fileShas[filePath]
+
+      if (!sha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify content file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: filePath, content: formatted, sha })
     }
 
-    const result = await commitFiles(
-      [{ path: filePath, content: formatted, sha }],
-      'cms',
-    )
+    // Commit writings file if dirty
+    if (writingsDirty) {
+      const writingsPath = 'content/cms/writings.json'
+      const writingsFormatted = JSON.stringify(writings, null, 2)
+      const writingsSha = fileShas[writingsPath]
+
+      if (!writingsSha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify writings file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: writingsPath, content: writingsFormatted, sha: writingsSha })
+    }
+
+    const result = await commitFiles(filesToCommit, 'cms')
 
     if (result.allOk) {
       setPushStatus('success')
       setPushMessage('Changes published! Site is rebuilding now.')
       setOriginalContent(content)
       setDirty(false)
+      setWritingsDirty(false)
 
-      // Update SHA to current
-      fetchFile(filePath).then((file) => {
-        if (file) setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
-      }).catch(() => {})
+      // Update SHAs
+      if (dirty) {
+        const fileKey = locale === 'en' ? 'en' : 'fr'
+        const filePath = `content/cms/${fileKey}.json`
+        fetchFile(filePath).then((file) => {
+          if (file) setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
+        }).catch(() => {})
+      }
+      if (writingsDirty) {
+        const writingsPath = 'content/cms/writings.json'
+        fetchFile(writingsPath).then((file) => {
+          if (file) setFileShas((prev) => ({ ...prev, [writingsPath]: file.sha }))
+        }).catch(() => {})
+      }
     } else {
       setPushStatus('error')
       setPushMessage(result.errors[0] || 'Failed to publish changes.')
     }
 
     setPushing(false)
-  }, [dirty, pushing, locale, content, fileShas])
+  }, [dirty, writingsDirty, pushing, locale, content, writings, fileShas])
 
-  const sectionLabels = ['Hero', 'Community', 'Activities', 'Events']
+  const sectionLabels = ['Hero', 'Community', 'Activities', 'Events', 'Writings']
 
   if (!logged) {
     return <LoginScreen onLogin={() => setLogged(true)} />
@@ -557,6 +627,16 @@ export default function AdminPage() {
           onAdd={handleAddEvent}
           onRemove={handleRemoveEvent}
           locale={locale}
+        />
+      </SectionCard>
+
+      {/* Writings */}
+      <SectionCard id="section-writings" label="Writings" page="Writings" bgColor="bg-ivory">
+        <WritingsSection
+          entries={writings}
+          onAdd={handleAddWriting}
+          onEdit={handleEditWriting}
+          onRemove={handleRemoveWriting}
         />
       </SectionCard>
     </AdminShell>
