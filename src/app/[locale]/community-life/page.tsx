@@ -142,9 +142,10 @@ function DevotionalGatherings({ title, body, whatToExpect, writings }: Devotiona
 interface StudyCirclesProps {
   title: string
   body: string[]
+  locale: Locale
 }
 
-function StudyCircles({ title, body }: StudyCirclesProps) {
+function StudyCircles({ title, body, locale }: StudyCirclesProps) {
   return (
     <Section
       id="study-circles"
@@ -159,12 +160,15 @@ function StudyCircles({ title, body }: StudyCirclesProps) {
       </div>
 
       <Blockquote
-        author={{ name: 'Universal House of Justice', role: '21 April 2008' }}
+        author={{
+          name: locale === 'fr' ? 'Maison universelle de justice' : 'Universal House of Justice',
+          role: locale === 'fr' ? '21 avril 2008' : '21 April 2008',
+        }}
         className="mt-12"
       >
-        Thousands upon thousands, embracing the diversity of the entire human
-        family, are engaged in systematic study of the Creative Word in an
-        environment that is at once serious and uplifting.
+        {locale === 'fr'
+          ? 'Des milliers et des milliers d\'individus, qui manifestent la diversité de la famille humaine tout entière, sont engagés dans l\'étude systématique du Verbe créateur dans un cadre à la fois sérieux et inspirant.'
+          : 'Thousands upon thousands, embracing the diversity of the entire human family, are engaged in systematic study of the Creative Word in an environment that is at once serious and uplifting.'}
       </Blockquote>
 
     </Section>
@@ -329,6 +333,7 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <StudyCircles
           title={t.communityLife.studyCircles.title}
           body={t.communityLife.studyCircles.body}
+          locale={locale}
         />
         <ChildrensClasses
           title={t.communityLife.childrensClasses.title}
