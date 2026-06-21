@@ -52,7 +52,7 @@ const en: Dictionary = {
       heading: 'Where the rivers meet',
       body: [
         "The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.",
-        "The Bahá'í community in Winnipeg has been present for over a century, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.",
+        "The local spiritual assembly was established in 1953, but Bahá'ís had been present in Winnipeg for decades prior, deeply engaged in the life of our neighbourhoods through devotional programs, study circles, and community celebrations.",
       ],
       link: 'Learn more',
     }, cms.community),

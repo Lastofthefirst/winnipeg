@@ -52,7 +52,7 @@ const fr: Dictionary = {
       heading: 'Là où les rivières se rencontrent',
       body: [
         "Les deux rivières convergent aux Forks en un courant uni — la vision de Bahá'u'lláh rassemble des personnes de toutes origines en une seule communauté, œuvrant vers un monde plus juste et plus pacifique.",
-        "La communauté bahá'íe de Winnipeg est présente depuis plus d'un siècle, profondément engagée dans la vie de nos quartiers par des programmes dévotionnels, des cercles d'étude et des célébrations communautaires.",
+        "L'assemblée spirituelle locale fut constituée en 1953, mais des bahá'ís étaient présents à Winnipeg depuis des décennies auparavant, profondément engagés dans la vie de nos quartiers par des programmes dévotionnels, des cercles d'étude et des célébrations communautaires.",
       ],
       link: 'En savoir plus',
     }, cms.community),
