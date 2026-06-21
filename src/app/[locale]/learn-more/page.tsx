@@ -161,7 +161,9 @@ export default async function LearnMorePage({ params }: { params: any }) {
         className="mt-24 sm:mt-32 lg:mt-40"
         author="Bahá'u'lláh"
       >
-        The earth is but one country, and mankind its citizens.
+        {locale === 'fr'
+          ? 'La raison primordiale pour laquelle les mortels, issus du néant absolu, sont entrés dans le royaume de l\'être, est qu\'ils puissent travailler à l\'amélioration du monde et vivre ensemble dans la concorde et l\'harmonie.'
+          : 'The purpose for which mortal men have, from utter nothingness, stepped into the realm of being, is that they may work for the betterment of the world and live together in concord and harmony.'}
       </Quote>
 
       <OfficialResources
