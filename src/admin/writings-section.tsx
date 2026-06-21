@@ -312,7 +312,7 @@ function WritingCard({
   return (
     <div className="group relative">
       <article
-        className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-ivory transition hover:border-burgundy-400"
+        className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-parchment transition hover:border-burgundy-400"
         onClick={() => onEdit(entry)}
       >
         <div className="flex flex-1 flex-col p-5">
