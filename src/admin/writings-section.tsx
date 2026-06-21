@@ -187,7 +187,7 @@ function WritingForm({
   const [source, setSource] = useState(initial?.source ?? '')
   const [language, setLanguage] = useState(initial?.language ?? '')
   const [image, setImage] = useState(initial?.image ?? '')
-  const [pickingImage, setPickingImage] = useState(false)
+  const [pickingImage, setPickingImage] = useState(!initial) // default to picker when adding new
 
   const slugRef = useRef<HTMLInputElement>(null)
   useEffect(() => { slugRef.current?.focus() }, [])
