@@ -223,7 +223,7 @@ const en: Dictionary = {
       heading: 'Visiting',
       body: "Visitors and those curious about the Bahá'í Faith are warmly welcomed. Feel free to reach out or pop by.",
     },
-    email: { heading: 'Email', generalInquiries: 'General Inquiries', information: 'Information' },
+    email: { heading: 'Email', generalInquiries: 'General Inquiries' },
     follow: { heading: 'Follow' },
   },
   meta: {

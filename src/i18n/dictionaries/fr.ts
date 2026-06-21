@@ -223,7 +223,7 @@ const fr: Dictionary = {
       heading: 'Visites',
       body: "Les visiteurs et ceux qui s'intéressent à la foi bahá'íe sont chaleureusement accueillis. N'hésitez pas à nous contacter ou à passer.",
     },
-    email: { heading: 'Courriel', generalInquiries: 'Demandes générales', information: 'Information' },
+    email: { heading: 'Courriel', generalInquiries: 'Demandes générales' },
     follow: { heading: 'Suivez-nous' },
   },
   meta: {

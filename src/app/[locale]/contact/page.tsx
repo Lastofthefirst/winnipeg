@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
 
 interface ContactDetailsProps {
   visiting: { heading: string; body: string }
-  email: { heading: string; generalInquiries: string; information: string }
+  email: { heading: string; generalInquiries: string }
   follow: { heading: string }
 }
 
@@ -53,23 +53,18 @@ function ContactDetails({ visiting, email, follow }: ContactDetailsProps) {
         <h2 className="font-display text-base font-semibold text-burgundy-900">
           {email.heading}
         </h2>
-        <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-          {[
-            [email.generalInquiries, 'LSA@winnipegbahais.org'],
-            [email.information, 'info@winnipegbahais.org'],
-          ].map(([label, address]) => (
-            <div key={address}>
-              <dt className="font-semibold text-burgundy-900">{label}</dt>
-              <dd>
-                <Link
-                  href={`mailto:${address}`}
-                  className="text-burgundy-600 hover:text-burgundy-900"
-                >
-                  {address}
-                </Link>
-              </dd>
-            </div>
-          ))}
+        <dl className="mt-6 text-sm">
+          <div>
+            <dt className="font-semibold text-burgundy-900">{email.generalInquiries}</dt>
+            <dd>
+              <Link
+                href="mailto:LSA@winnipegbahais.org"
+                className="text-burgundy-600 hover:text-burgundy-900"
+              >
+                LSA@winnipegbahais.org
+              </Link>
+            </dd>
+          </div>
         </dl>
       </Border>
 

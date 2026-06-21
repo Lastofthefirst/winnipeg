@@ -60,7 +60,7 @@ export interface Dictionary {
       message: string; button: string
     }
     visiting: { heading: string; body: string }
-    email: { heading: string; generalInquiries: string; information: string }
+    email: { heading: string; generalInquiries: string }
     follow: { heading: string }
   }
   meta: {
