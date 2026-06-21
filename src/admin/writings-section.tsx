@@ -187,6 +187,7 @@ function WritingForm({
   const [source, setSource] = useState(initial?.source ?? '')
   const [language, setLanguage] = useState(initial?.language ?? '')
   const [image, setImage] = useState(initial?.image ?? '')
+  const [pickingImage, setPickingImage] = useState(false)
 
   const slugRef = useRef<HTMLInputElement>(null)
   useEffect(() => { slugRef.current?.focus() }, [])
@@ -206,17 +207,52 @@ function WritingForm({
 
   return (
     <div className="space-y-4 rounded-xl border border-burgundy-200 bg-ivory p-6">
-      {/* Image preview — selected image */}
-      <div className="flex justify-center bg-parchment rounded-lg p-4 min-h-[120px]">
-        {image ? (
-          <img
-            src={`/writings-nature/${image}`}
-            alt="Selected preview"
-            className="h-auto w-full max-w-md object-contain"
-          />
+      {/* Image preview / picker */}
+      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
+        {pickingImage ? (
+          /* Thumbnail grid picker */
+          <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8">
+            {WRITING_IMAGES.map((img) => (
+              <button
+                key={img}
+                type="button"
+                onClick={() => { setImage(img); setPickingImage(false) }}
+                className={`relative overflow-hidden rounded-lg border-2 bg-parchment transition ${
+                  image === img
+                    ? 'border-burgundy-900 ring-1 ring-burgundy-900'
+                    : 'border-transparent hover:border-burgundy-300'
+                }`}
+              >
+                <img
+                  src={`/writings-nature/${img}`}
+                  alt=""
+                  className="h-16 w-full object-cover sm:h-20"
+                />
+              </button>
+            ))}
+          </div>
         ) : (
-          <span className="text-xs text-burgundy-300 italic">Select an image below</span>
+          /* Preview */
+          <div className="flex justify-center p-4 min-h-[120px] items-center">
+            {image ? (
+              <img
+                src={`/writings-nature/${image}`}
+                alt="Selected preview"
+                className="h-auto w-full max-w-md object-contain"
+              />
+            ) : (
+              <span className="text-xs text-burgundy-300 italic">No image selected</span>
+            )}
+          </div>
         )}
+        {/* Change Image button */}
+        <button
+          type="button"
+          onClick={() => setPickingImage(!pickingImage)}
+          className="absolute right-3 top-3 rounded-lg border border-burgundy-200 bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-burgundy-500 backdrop-blur transition hover:border-burgundy-400 hover:text-burgundy-900"
+        >
+          {pickingImage ? 'Cancel' : 'Change Image'}
+        </button>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -264,33 +300,6 @@ function WritingForm({
           suggestions={existingSources}
           placeholder="e.g. Bahá'u'lláh"
         />
-      </div>
-
-      {/* Image picker — thumbnail grid */}
-      <div>
-        <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
-          Choose Image
-        </label>
-        <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-8">
-          {WRITING_IMAGES.map((img) => (
-            <button
-              key={img}
-              type="button"
-              onClick={() => setImage(img)}
-              className={`group relative overflow-hidden rounded-lg border-2 bg-parchment transition ${
-                image === img
-                  ? 'border-burgundy-900 ring-1 ring-burgundy-900'
-                  : 'border-transparent hover:border-burgundy-300'
-              }`}
-            >
-              <img
-                src={`/writings-nature/${img}`}
-                alt=""
-                className="h-16 w-full object-cover sm:h-20"
-              />
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* Preview */}
