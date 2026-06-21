@@ -87,6 +87,30 @@ export function AdminShell({
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Rebuild status pill */}
+            {pushStatus !== 'idle' && (
+              <div className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium ${
+                pushStatus === 'success'
+                  ? (rebuildSeconds ?? 0) > 0
+                    ? 'bg-amber-100 text-amber-900'
+                    : 'bg-emerald-100 text-emerald-800'
+                  : 'bg-red-100 text-red-800'
+              }`}>
+                {pushStatus === 'success'
+                  ? (rebuildSeconds ?? 0) > 0
+                    ? <SpinnerIcon />
+                    : <CheckIcon />
+                  : <AlertIcon />
+                }
+                {pushMessage}
+                {rebuildSeconds !== undefined && rebuildSeconds > 0 && (
+                  <span className="ml-1 font-mono opacity-75">
+                    ~{Math.floor(rebuildSeconds / 60)}m {rebuildSeconds % 60 < 10 ? '0' : ''}{rebuildSeconds % 60}s
+                  </span>
+                )}
+              </div>
+            )}
+
             {/* Analytics link */}
             <a
               href="https://stats.ridvan.org/share/winnipeg.pages.dev?auth=Quni4eI3Gawi0uuo1qfOm"
@@ -126,30 +150,6 @@ export function AdminShell({
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-stone-500">
             Click any highlighted text to edit. When ready, click <strong className="text-stone-700">Push to Live</strong> to publish your changes.
           </p>
-
-          {/* Status message */}
-          {pushStatus !== 'idle' && (
-            <div className={`mt-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm ${
-              pushStatus === 'success'
-                ? (rebuildSeconds ?? 0) > 0
-                  ? 'bg-amber-50 text-amber-900'
-                  : 'bg-emerald-50 text-emerald-800'
-                : 'bg-red-50 text-red-800'
-            }`}>
-              {pushStatus === 'success'
-                ? (rebuildSeconds ?? 0) > 0
-                  ? <SpinnerIcon />
-                  : <CheckIcon />
-                : <AlertIcon />
-              }
-              {pushMessage}
-              {rebuildSeconds !== undefined && rebuildSeconds > 0 && (
-                <span className="ml-2 font-mono text-xs opacity-75">
-                  ~{Math.floor(rebuildSeconds / 60)}m {rebuildSeconds % 60 < 10 ? '0' : ''}{rebuildSeconds % 60}s
-                </span>
-              )}
-            </div>
-          )}
 
           {/* Table of contents */}
           {sectionLabels && sectionLabels.length > 4 && (
