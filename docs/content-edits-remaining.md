@@ -7,6 +7,8 @@ These require component/layout changes — not just text replacements.
 - [ ] **"In Winnipeg" section** — Add quote at top or beside flower image:
   > "So powerful is the light of unity that it can illuminate the whole earth."
 
+- [ ] **"In Winnipeg" section — History text tweak** (from call transcript) — Current text says "present for over a century." Client notes Bahá'ís were here 1892-1939 before LSA formed. Soften to acknowledge deeper roots without specific dates — e.g., history goes back further than the assembly formation.
+
 - [ ] **Activities section** — Make the existing quote ("Let your vision be world-embracing…") bigger and reposition to side or top. Also add the longer body text from the doc about "What is unfolding in Winnipeg is part of a global endeavor…"
 
 - [ ] **Upcoming Gatherings** — Include `LSA@winnipegbahais.org` contact email in the events preview / upcoming gatherings section.
@@ -22,6 +24,14 @@ These require component/layout changes — not just text replacements.
 - [ ] **Add quote at top or side** — Insert a Quote/Blockquote component with:
   > Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.
   > — Bahá'u'lláh, Founder of the Bahá'í Faith
+
+  Currently sits at bottom of Study Circles section — client wants it to set the tone for the whole page, not associated with just one activity.
+
+- [ ] **Study Circles section — Add Ruhi-specific quote** (from call transcript) — Add a quote about systematic study within the Study Circles description:
+  > Thousands upon thousands, embracing the diversity of the human family, are engaged in systematic study of the creative Word in an environment that is at once serious and uplifting.
+  > — (21 April 2008)
+
+- [ ] **Devotional Meetings — Prayer cards feature** (from call transcript) — New feature: prayer cards to embed in the Devotional Meetings section. Developer to create card component; client to provide French translations via bahaiprayers.net. Needs admin functionality to add/remove cards.
 
 - [ ] **Move "Principles in action" (Values) section to top** — Reorder page sections so the Values section appears before the activity sections (Devotional, Study Circles, Children's, Junior Youth).
 
@@ -41,7 +51,13 @@ These require component/layout changes — not just text replacements.
 
 - [ ] **Remove "Information" email field** — Since general inquiries go to `LSA@winnipegbahais.org`, remove the `info@winnipegbahais.org` "Information" entry. Requires updating the ContactDetails component and dictionary.
 
+## General Guidelines (from call transcript)
+
+- [ ] **Inclusive language review across all pages** — Avoid "Bahá'ís are doing X" in favor of "Bahá'ís and their friends are…" / "we" language. Don't create us-vs-them. Emphasize collaboration with others.
+- [ ] **"Active, living presence" tone** — Site should feel like an active community collaborating with others, not just quoting. Weave this tone throughout.
+
 ## Notes
 
 - All French translations for new content need authoritative sources — do not auto-translate.
 - The doc references "a History bit from Keith Bloodworth" — may need to reach out for that content.
+- Client to provide: French prayer translations, list of quotes to place on each page.
