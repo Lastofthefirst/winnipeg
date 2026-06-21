@@ -123,7 +123,7 @@ function AutocompleteInput({
           }
         }}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-burgundy-200 bg-ivory px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 transition focus:border-gold-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+        className="w-full bg-transparent px-0 text-sm text-burgundy-900 placeholder-burgundy-300 transition focus:outline-none"
       />
       {showSuggestions && focused && filtered.length > 0 && (
         <div className="absolute z-20 mt-1 w-full rounded-lg border border-burgundy-200 bg-white py-1 shadow-lg">
@@ -210,7 +210,7 @@ function WritingForm({
       {/* Gold divider */}
       <div className="mx-auto mb-8 h-px w-20 bg-gold-500" />
       {/* Image preview / picker — fixed height, no layout shift */}
-      <div className="relative rounded-lg border border-burgundy-200 bg-parchment overflow-hidden">
+      <div className="relative overflow-hidden">
         {pickingImage ? (
           /* Thumbnail grid picker — scrollable */
           <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-6 lg:grid-cols-8 overflow-y-auto" style={{ height: 360 }}>
@@ -297,7 +297,7 @@ function WritingForm({
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
             placeholder="e.g. unity"
-            className="w-full rounded-lg border border-burgundy-200 bg-white px-3 py-2 text-sm text-burgundy-900 placeholder-burgundy-300 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+            className="w-full bg-transparent px-0 text-sm text-burgundy-900 placeholder-burgundy-300 focus:outline-none"
           />
         </div>
         <div>
