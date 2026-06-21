@@ -56,15 +56,6 @@ function TrashIcon() {
   )
 }
 
-function SpinnerIcon() {
-  return (
-    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-    </svg>
-  )
-}
-
 // ─── Login screen ────────────────────────────────────────────────────────────
 
 const ADMIN_PASSWORD = 'w1nn3p3g-c0mmun1ty-2026'
@@ -225,11 +216,20 @@ function EventsSection({
 
 export default function AdminPage() {
   const [logged, setLogged] = useState(false)
-  const [locale, setLocale] = useState<'en' | 'fr'>('en')
-  const [content, setContent] = useState<CMSContent>(contentEn)
-  const [originalContent, setOriginalContent] = useState<CMSContent>(contentEn)
+
+  // Per-section locale toggles
+  const [communityLocale, setCommunityLocale] = useState<'en' | 'fr'>('en')
+  const [eventsLocale, setEventsLocale] = useState<'en' | 'fr'>('en')
+
+  // Both locale contents loaded simultaneously
+  const [contentEnState, setContentEnState] = useState<CMSContent>(contentEn)
+  const [contentFrState, setContentFrState] = useState<CMSContent>(contentFr)
+  const [originalEn, setOriginalEn] = useState<CMSContent>(contentEn)
+  const [originalFr, setOriginalFr] = useState<CMSContent>(contentFr)
+
   const [editing, setEditing] = useState<string | null>(null)
-  const [dirty, setDirty] = useState(false)
+  const [enDirty, setEnDirty] = useState(false)
+  const [frDirty, setFrDirty] = useState(false)
   const [pushing, setPushing] = useState(false)
   const [pushStatus, setPushStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [pushMessage, setPushMessage] = useState('')
@@ -241,81 +241,100 @@ export default function AdminPage() {
   // File SHAs for GitHub commits
   const [fileShas, setFileShas] = useState<Record<string, string>>({})
 
-  // On login, try to fetch latest content from GitHub
+  const dirty = enDirty || frDirty || writingsDirty
+
+  // On login, fetch latest content from GitHub for both locales
   useEffect(() => {
     if (!logged) return
-    const fileKey = locale === 'en' ? 'en' : 'fr'
-    const filePath = `content/cms/${fileKey}.json`
 
-    fetchFile(filePath).then((file) => {
+    // Fetch EN
+    fetchFile('content/cms/en.json').then((file) => {
       if (file) {
         const parsed = JSON.parse(file.content) as CMSContent
-        setContent(parsed)
-        setOriginalContent(parsed)
-        setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
+        setContentEnState(parsed)
+        setOriginalEn(parsed)
+        setFileShas((prev) => ({ ...prev, 'content/cms/en.json': file.sha }))
       }
-    }).catch(() => {
-      // Fall back to build-time defaults
-    })
+    }).catch(() => {})
 
-    // Also fetch writings
-    const writingsPath = 'content/cms/writings.json'
-    fetchFile(writingsPath).then((file) => {
+    // Fetch FR
+    fetchFile('content/cms/fr.json').then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as CMSContent
+        setContentFrState(parsed)
+        setOriginalFr(parsed)
+        setFileShas((prev) => ({ ...prev, 'content/cms/fr.json': file.sha }))
+      }
+    }).catch(() => {})
+
+    // Fetch writings
+    fetchFile('content/cms/writings.json').then((file) => {
       if (file) {
         const parsed = JSON.parse(file.content) as WritingsEntry[]
         setWritings(parsed)
-        setFileShas((prev) => ({ ...prev, [writingsPath]: file.sha }))
+        setFileShas((prev) => ({ ...prev, 'content/cms/writings.json': file.sha }))
       }
-    }).catch(() => {
-      // Fall back to build-time defaults
-    })
+    }).catch(() => {})
   }, [logged])
 
-  // Field change handler
-  function handleFieldChange(field: string, value: string) {
+  // Field change handler — scoped by section locale
+  function handleCommunityChange(field: string, value: string) {
     const parts = field.split('.')
-    if (parts[0] === 'community') {
-      if (parts[1] === 'body') {
-        const idx = parseInt(parts[2]!)
-        setContent((prev) => {
-          const body = [...prev.community.body]
-          body[idx] = value
-          return { ...prev, community: { ...prev.community, body } }
-        })
-      } else {
-        setContent((prev) => ({ ...prev, community: { ...prev.community, [parts[1]!]: value } }))
-      }
-    } else if (parts[0] === 'events') {
-      const idx = parseInt(parts[1]!)
-      const eventField = parts[2]!
-      setContent((prev) => {
-        const events = prev.events.map((ev, i) =>
-          i === idx ? { ...ev, [eventField]: value } : ev,
-        )
-        return { ...prev, events }
+    const setter = communityLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = communityLocale === 'en' ? setEnDirty : setFrDirty
+
+    if (parts[1] === 'body') {
+      const idx = parseInt(parts[2]!)
+      setter((prev) => {
+        const body = [...prev.community.body]
+        body[idx] = value
+        return { ...prev, community: { ...prev.community, body } }
       })
+    } else {
+      setter((prev) => ({ ...prev, community: { ...prev.community, [parts[1]!]: value } }))
     }
-    setDirty(true)
+    dirtySetter(true)
+    setPushStatus('idle')
+  }
+
+  function handleEventsChange(field: string, value: string) {
+    const parts = field.split('.')
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+
+    const idx = parseInt(parts[1]!)
+    const eventField = parts[2]!
+    setter((prev) => {
+      const events = prev.events.map((ev, i) =>
+        i === idx ? { ...ev, [eventField]: value } : ev,
+      )
+      return { ...prev, events }
+    })
+    dirtySetter(true)
     setPushStatus('idle')
   }
 
   function handleAddEvent() {
     const nextWeek = new Date()
     nextWeek.setDate(nextWeek.getDate() + 7)
-    setContent((prev) => ({
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+    setter((prev) => ({
       ...prev,
-      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
+      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
     }))
-    setDirty(true)
+    dirtySetter(true)
     setPushStatus('idle')
   }
 
   function handleRemoveEvent(id: string) {
-    setContent((prev) => ({
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+    setter((prev) => ({
       ...prev,
       events: prev.events.filter((ev) => ev.id !== id),
     }))
-    setDirty(true)
+    dirtySetter(true)
     setPushStatus('idle')
   }
 
@@ -341,29 +360,8 @@ export default function AdminPage() {
     setPushStatus('idle')
   }
 
-  function handleLocaleChange(newLocale: 'en' | 'fr') {
-    setLocale(newLocale)
-    const defaults = newLocale === 'en' ? contentEn : contentFr
-    setContent(defaults)
-    setOriginalContent(defaults)
-    setDirty(false)
-    setPushStatus('idle')
-
-    // Try to fetch from GitHub
-    const fileKey = newLocale === 'en' ? 'en' : 'fr'
-    const filePath = `content/cms/${fileKey}.json`
-    fetchFile(filePath).then((file) => {
-      if (file) {
-        const parsed = JSON.parse(file.content) as CMSContent
-        setContent(parsed)
-        setOriginalContent(parsed)
-        setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
-      }
-    }).catch(() => {})
-  }
-
   const handlePush = useCallback(async () => {
-    if ((!dirty && !writingsDirty) || pushing) return
+    if (!dirty || pushing) return
     setPushing(true)
     setPushStatus('idle')
 
@@ -376,35 +374,43 @@ export default function AdminPage() {
 
     const filesToCommit: Array<{ path: string; content: string; sha: string }> = []
 
-    // Commit content file if dirty
-    if (dirty) {
-      const fileKey = locale === 'en' ? 'en' : 'fr'
-      const filePath = `content/cms/${fileKey}.json`
-      const formatted = JSON.stringify(content, null, 2)
-      const sha = fileShas[filePath]
-
-      if (!sha) {
+    // Commit EN if dirty
+    if (enDirty) {
+      const enPath = 'content/cms/en.json'
+      const enSha = fileShas[enPath]
+      if (!enSha) {
         setPushStatus('error')
-        setPushMessage('Unable to verify content file. Please refresh and try again.')
+        setPushMessage('Unable to verify EN content file. Please refresh and try again.')
         setPushing(false)
         return
       }
-      filesToCommit.push({ path: filePath, content: formatted, sha })
+      filesToCommit.push({ path: enPath, content: JSON.stringify(contentEnState, null, 2), sha: enSha })
     }
 
-    // Commit writings file if dirty
+    // Commit FR if dirty
+    if (frDirty) {
+      const frPath = 'content/cms/fr.json'
+      const frSha = fileShas[frPath]
+      if (!frSha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify FR content file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: frPath, content: JSON.stringify(contentFrState, null, 2), sha: frSha })
+    }
+
+    // Commit writings if dirty
     if (writingsDirty) {
       const writingsPath = 'content/cms/writings.json'
-      const writingsFormatted = JSON.stringify(writings, null, 2)
       const writingsSha = fileShas[writingsPath]
-
       if (!writingsSha) {
         setPushStatus('error')
         setPushMessage('Unable to verify writings file. Please refresh and try again.')
         setPushing(false)
         return
       }
-      filesToCommit.push({ path: writingsPath, content: writingsFormatted, sha: writingsSha })
+      filesToCommit.push({ path: writingsPath, content: JSON.stringify(writings, null, 2), sha: writingsSha })
     }
 
     const result = await commitFiles(filesToCommit, 'cms')
@@ -412,22 +418,16 @@ export default function AdminPage() {
     if (result.allOk) {
       setPushStatus('success')
       setPushMessage('Changes published! Site is rebuilding now.')
-      setOriginalContent(content)
-      setDirty(false)
+      setOriginalEn(contentEnState)
+      setOriginalFr(contentFrState)
+      setEnDirty(false)
+      setFrDirty(false)
       setWritingsDirty(false)
 
-      // Update SHAs
-      if (dirty) {
-        const fileKey = locale === 'en' ? 'en' : 'fr'
-        const filePath = `content/cms/${fileKey}.json`
-        fetchFile(filePath).then((file) => {
-          if (file) setFileShas((prev) => ({ ...prev, [filePath]: file.sha }))
-        }).catch(() => {})
-      }
-      if (writingsDirty) {
-        const writingsPath = 'content/cms/writings.json'
-        fetchFile(writingsPath).then((file) => {
-          if (file) setFileShas((prev) => ({ ...prev, [writingsPath]: file.sha }))
+      // Refresh SHAs
+      for (const file of filesToCommit) {
+        fetchFile(file.path).then((f) => {
+          if (f) setFileShas((prev) => ({ ...prev, [file.path]: f.sha }))
         }).catch(() => {})
       }
     } else {
@@ -436,7 +436,7 @@ export default function AdminPage() {
     }
 
     setPushing(false)
-  }, [dirty, writingsDirty, pushing, locale, content, writings, fileShas])
+  }, [dirty, pushing, enDirty, frDirty, contentEnState, contentFrState, writings, writingsDirty, fileShas])
 
   const sectionLabels = ['Community', 'Events', 'Writings']
 
@@ -446,8 +446,6 @@ export default function AdminPage() {
 
   return (
     <AdminShell
-      locale={locale}
-      onLocaleChange={handleLocaleChange}
       dirty={dirty}
       onPush={handlePush}
       pushing={pushing}
@@ -456,25 +454,25 @@ export default function AdminPage() {
       sectionLabels={sectionLabels}
     >
       {/* Community */}
-      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-parchment">
+      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-parchment" locale={communityLocale} onLocaleChange={setCommunityLocale}>
         <CommunitySection
-          {...content.community}
+          {...(communityLocale === 'en' ? contentEnState : contentFrState).community}
           editing={editing}
           onEdit={setEditing}
-          onChange={handleFieldChange}
+          onChange={handleCommunityChange}
         />
       </SectionCard>
 
       {/* Events */}
-      <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory">
+      <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory" locale={eventsLocale} onLocaleChange={setEventsLocale}>
         <EventsSection
-          events={content.events}
+          events={(eventsLocale === 'en' ? contentEnState : contentFrState).events}
           editing={editing}
           onEdit={setEditing}
-          onChange={handleFieldChange}
+          onChange={handleEventsChange}
           onAdd={handleAddEvent}
           onRemove={handleRemoveEvent}
-          locale={locale}
+          locale={eventsLocale}
         />
       </SectionCard>
 
@@ -490,4 +488,3 @@ export default function AdminPage() {
     </AdminShell>
   )
 }
-

@@ -50,8 +50,6 @@ function AlertIcon() {
 
 interface AdminShellProps {
   children?: ReactNode
-  locale: 'en' | 'fr'
-  onLocaleChange: (locale: 'en' | 'fr') => void
   dirty: boolean
   onPush: () => void
   pushing: boolean
@@ -62,8 +60,6 @@ interface AdminShellProps {
 
 export function AdminShell({
   children,
-  locale,
-  onLocaleChange,
   dirty,
   onPush,
   pushing,
@@ -123,7 +119,7 @@ export function AdminShell({
       <main className="mx-auto max-w-7xl px-6 py-10">
         <div className="mb-10">
           <h2 className="text-2xl font-semibold text-burgundy-900">
-            Edit {locale === 'en' ? 'English' : 'French'} Content
+            Edit Content
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-stone-500">
             Click any highlighted text to edit. When ready, click <strong className="text-stone-700">Push to Live</strong> to publish your changes.
