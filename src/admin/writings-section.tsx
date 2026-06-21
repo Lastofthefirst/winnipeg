@@ -407,31 +407,45 @@ export function WritingsSection({
     <div>
       {/* Toolbar */}
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        {/* Language filter */}
-        {languages.length > 1 && (
-          <div className="flex items-center gap-2">
-            <label className="text-xs font-semibold uppercase tracking-wider text-burgundy-400">
-              Filter:
-            </label>
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="rounded-lg border border-burgundy-200 bg-white px-3 py-1.5 text-sm text-burgundy-900 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+        {/* Language tags */}
+        {languages.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setFilter('')}
+              className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                filter === ''
+                  ? 'border-burgundy-900 bg-burgundy-900 text-ivory'
+                  : 'border-burgundy-200 bg-white text-burgundy-500 hover:border-burgundy-400 hover:text-burgundy-900'
+              }`}
             >
-              <option value="">All languages</option>
-              {languages.map((lang) => (
-                <option key={lang} value={lang}>
-                  {lang} ({entries.filter((e) => e.language === lang).length})
-                </option>
-              ))}
-            </select>
+              All ({entries.length})
+            </button>
+            {languages.map((lang) => {
+              const count = entries.filter((e) => e.language === lang).length
+              const isActive = filter === lang
+              return (
+                <button
+                  key={lang}
+                  onClick={() => setFilter(isActive ? '' : lang)}
+                  className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                    isActive
+                      ? 'border-burgundy-900 bg-burgundy-900 text-ivory'
+                      : 'border-burgundy-200 bg-white text-burgundy-500 hover:border-burgundy-400 hover:text-burgundy-900'
+                  }`}
+                >
+                  {lang} ({count})
+                </button>
+              )
+            })}
           </div>
         )}
 
         <div className="flex-1" />
-        <span className="text-xs text-burgundy-400">
-          {filtered.length} writing{filtered.length !== 1 ? 's' : ''}
-        </span>
+        {filter && (
+          <span className="text-xs text-burgundy-400">
+            {filtered.length} writing{filtered.length !== 1 ? 's' : ''}
+          </span>
+        )}
       </div>
 
       {/* Add/Edit form */}
