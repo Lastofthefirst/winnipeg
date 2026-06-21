@@ -4,30 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 
 import { WRITING_IMAGES } from '@/admin/writings-images'
 
-// ─── Known languages for autocomplete ────────────────────────────────────────
 
-const KNOWN_LANGUAGES = [
-  'English',
-  'French',
-  'Cree',
-  'Ojibway',
-  'Dakota',
-  'Navajo',
-  'Spanish',
-  'Arabic',
-  'Persian',
-  'Russian',
-  'Portuguese',
-  'German',
-  'Italian',
-  'Chinese',
-  'Japanese',
-  'Korean',
-  'Hindi',
-  'Urdu',
-  'Swahili',
-  'Turkish',
-] as const
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -77,19 +54,28 @@ function ChevronIcon({ open }: { open: boolean }) {
 function LanguageInput({
   value,
   onChange,
+  existingLanguages,
 }: {
   value: string
   onChange: (val: string) => void
+  existingLanguages: string[]
 }) {
   const [input, setInput] = useState(value)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [focused, setFocused] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
+  // Auto-capitalize first letter on change
+  function setCapitalized(val: string) {
+    if (val.length === 0) { setInput(''); return }
+    const capitalized = val[0]?.toUpperCase() + val.slice(1)
+    setInput(capitalized)
+  }
+
   const suggestions =
     input.trim() === ''
-      ? KNOWN_LANGUAGES
-      : KNOWN_LANGUAGES.filter((l) =>
+      ? existingLanguages
+      : existingLanguages.filter((l) =>
           l.toLowerCase().includes(input.trim().toLowerCase()),
         )
 
@@ -112,8 +98,8 @@ function LanguageInput({
   }
 
   function handleBlur() {
-    // Commit what was typed if not a known language
-    if (input.trim() && !KNOWN_LANGUAGES.includes(input.trim() as typeof KNOWN_LANGUAGES[number])) {
+    // Commit capitalized value
+    if (input.trim()) {
       onChange(input.trim())
     }
     setShowSuggestions(false)
@@ -124,7 +110,7 @@ function LanguageInput({
       <input
         type="text"
         value={input}
-        onChange={(e) => { setInput(e.target.value); setShowSuggestions(true) }}
+        onChange={(e) => { setCapitalized(e.target.value); setShowSuggestions(true) }}
         onFocus={() => { setShowSuggestions(true); setFocused(true) }}
         onBlur={handleBlur}
         onKeyDown={(e) => {
@@ -144,7 +130,7 @@ function LanguageInput({
               type="button"
               onMouseDown={() => handleSelect(lang)}
               className={`block w-full px-3 py-1.5 text-left text-sm transition ${
-                lang === input.trim()
+                lang.toLowerCase() === input.trim().toLowerCase()
                   ? 'bg-burgundy-50 font-semibold text-burgundy-900'
                   : 'text-burgundy-700 hover:bg-burgundy-50'
               }`}
@@ -164,10 +150,12 @@ function WritingForm({
   initial,
   onSave,
   onCancel,
+  existingLanguages,
 }: {
   initial?: WritingsEntry
   onSave: (entry: WritingsEntry) => void
   onCancel: () => void
+  existingLanguages: string[]
 }) {
   const [slug, setSlug] = useState(initial?.slug ?? '')
   const [passage, setPassage] = useState(initial?.passage ?? '')
@@ -222,7 +210,7 @@ function WritingForm({
           <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-burgundy-500">
             Language
           </label>
-          <LanguageInput value={language} onChange={setLanguage} />
+          <LanguageInput value={language} onChange={setLanguage} existingLanguages={existingLanguages} />
         </div>
       </div>
 
@@ -474,6 +462,7 @@ export function WritingsSection({
             initial={formMode === 'editing' ? editingEntry! : undefined}
             onSave={handleSave}
             onCancel={handleCancel}
+            existingLanguages={languages}
           />
         </div>
       )}
