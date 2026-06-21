@@ -315,22 +315,22 @@ function WritingCard({
         className="flex w-full flex-col overflow-hidden rounded-xl border border-burgundy-200 bg-parchment transition hover:border-burgundy-400"
         onClick={() => onEdit(entry)}
       >
-        <div className="flex flex-1 flex-col p-5">
+        {/* Image thumbnail */}
+        <div className="flex h-28 items-center justify-center overflow-hidden bg-parchment p-3">
+          <img
+            src={`/writings-nature/${entry.image}`}
+            alt=""
+            className="h-full w-auto object-contain"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col border-t border-burgundy-100 p-4">
           {/* Language badge */}
           <span className="inline-block w-fit rounded-full border border-gold-300 bg-gold-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-700">
             {entry.language}
           </span>
 
-          {/* Image thumbnail */}
-          <div className="mt-3 flex h-24 items-center justify-center overflow-hidden rounded-lg bg-parchment">
-            <img
-              src={`/writings-nature/${entry.image}`}
-              alt=""
-              className="h-full w-auto object-contain"
-            />
-          </div>
-
-          <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-burgundy-700">
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-burgundy-700">
             {preview}
           </p>
           <p className="mt-2 text-xs text-burgundy-400">— {entry.source}</p>
@@ -460,7 +460,7 @@ export function WritingsSection({
       )}
 
       {/* Card grid */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {filtered.map((entry) => (
           <WritingCard
             key={entry.slug}
