@@ -7,6 +7,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import type { UpcomingEvent } from '@/components/EventsPreview'
+import { parseEventDate } from '@/utils/eventDate'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
 import cmsEn from '@/../content/cms/en.json'
@@ -35,6 +36,7 @@ function mapCmsEvents(locale: Locale): UpcomingEvent[] {
   })
 }
 
+
 function localizeEvent(event: UpcomingEvent, locale: Locale) {
   return {
     title: (locale === 'fr' ? event.title_fr : undefined) ?? event.title_en,
@@ -45,7 +47,7 @@ function localizeEvent(event: UpcomingEvent, locale: Locale) {
 
 function formatEventDate(dateString: string, locale: Locale = 'en') {
   const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-US'
-  return new Date(`${dateString}T00:00:00`).toLocaleDateString(dateLocale, {
+  return parseEventDate(dateString).toLocaleDateString(dateLocale, {
     weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
   })
 }

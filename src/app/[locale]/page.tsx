@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
 import type { UpcomingEvent } from '@/components/EventsPreview'
+import { parseEventDate } from '@/utils/eventDate'
 import { NewsFeed } from '@/components/NewsFeed'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { Blockquote } from '@/components/Blockquote'
@@ -31,11 +32,11 @@ function getUpcomingEvents(events: UpcomingEvent[]) {
   const now = new Date()
   return events
     .filter((e) => {
-      const base = new Date(`${e.date}T00:00:00`)
+      const base = parseEventDate(e.date)
       base.setDate(base.getDate() + 2)
       return base > now
     })
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime())
 }
 
 export function generateStaticParams() {

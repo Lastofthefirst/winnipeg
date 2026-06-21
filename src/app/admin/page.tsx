@@ -1,36 +1,22 @@
 'use client'
 
+import { useState, useCallback, useEffect } from 'react'
 import contentEnDefault from '../../../content/cms/en.json'
 import contentFrDefault from '../../../content/cms/fr.json'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { Blockquote } from '@/components/Blockquote'
+import writingsDefault from '../../../content/cms/writings.json'
+import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
+import { AdminShell, SectionCard } from '@/admin/shell'
+import { EditableText as EditableTextImport } from '@/admin/editable'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
-import {
-  AdminShell,
-  SectionCard,
-  EditableText,
-  EditableImage,
-  LoginScreen,
-  useAdminContent,
-  useFieldChange,
-} from 'dustcms/react'
-import { cmsConfig } from '@/cms/config'
-import 'dustcms/styles.css'
-import './dustcms-theme.css'
+import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
 
+// Import as build-time defaults
 const contentEn = contentEnDefault as CMSContent
 const contentFr = contentFrDefault as CMSContent
 
-interface CMSContent extends Record<string, unknown> {
-  hero: {
-    eyebrow: string
-    heading: string
-    subheading: string
-    ctaActivities: string
-    ctaContact: string
-    background: string
-  }
+// ─── Content types ──────────────────────────────────────────────────────────
+
+interface CMSContent {
   community: {
     eyebrow: string
     heading: string
@@ -38,189 +24,156 @@ interface CMSContent extends Record<string, unknown> {
     link: string
     image: string
   }
-  activities: {
-    intro: string
-    items: Array<{ title: string; description: string; image: string }>
-  }
   events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
-const defaults = { en: contentEn, fr: contentFr }
+const writingsData = writingsDefault as WritingsEntry[]
 
-export default function AdminPage() {
-  const admin = useAdminContent<CMSContent>(cmsConfig, defaults)
-  const handleChange = useFieldChange<CMSContent>(admin.setContent)
+// ─── Icons ───────────────────────────────────────────────────────────────────
 
-  if (!admin.logged) {
-    return <LoginScreen apiEndpoint="/api/cms" onLogin={() => admin.setLogged(true)} />
+function LockIcon() {
+  return (
+    <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <rect x="3" y="11" width="18" height="11" rx="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  )
+}
+
+function PlusIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+  )
+}
+
+function TrashIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+      <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14" />
+    </svg>
+  )
+}
+
+// ─── Login screen ────────────────────────────────────────────────────────────
+
+const ADMIN_PASSWORD = 'w1nn3p3g-c0mmun1ty-2026'
+
+function LoginScreen({ onLogin }: { onLogin: () => void }) {
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (password === ADMIN_PASSWORD) onLogin()
+    else setError(true)
   }
 
   return (
-    <AdminShell
-      locale={admin.locale}
-      onLocaleChange={admin.setLocale}
-      dirty={admin.dirty}
-      onPush={admin.push}
-      pushing={admin.pushing}
-      pushStatus={admin.pushStatus}
-      pushMessage={admin.pushMessage}
-      locales={cmsConfig.locales}
-      siteTitle="Bahá'í Community of Winnipeg"
-      sectionLabels={['Hero', 'Community', 'Activities', 'Events']}
-    >
-      <SectionCard id="section-hero" label="Hero" page="Homepage" bgColor="bg-ivory">
-        <HeroSection
-          {...admin.content.hero}
-          editing={null}
-          onEdit={() => {}}
-          onChange={handleChange}
-        />
-      </SectionCard>
+    <div className="flex min-h-screen items-center justify-center bg-ivory">
+      <div className="w-full max-w-sm">
+        <div className="relative rounded-2xl border border-burgundy-100 bg-white px-10 py-12 shadow-sm">
+          <span className="absolute left-4 top-4 h-4 w-4 border-l border-t border-gold-400" />
+          <span className="absolute right-4 top-4 h-4 w-4 border-r border-t border-gold-400" />
+          <span className="absolute bottom-4 left-4 h-4 w-4 border-b border-l border-gold-400" />
+          <span className="absolute bottom-4 right-4 h-4 w-4 border-b border-r border-gold-400" />
 
-      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-ivory">
-        <CommunitySection
-          {...admin.content.community}
-          editing={null}
-          onEdit={() => {}}
-          onChange={handleChange}
-        />
-      </SectionCard>
+          <div className="mx-auto mb-8 h-px w-16 bg-gold-500" />
 
-      <SectionCard id="section-activities" label="Activities" page="Homepage" bgColor="bg-parchment">
-        <ActivitiesSection
-          intro={admin.content.activities.intro}
-          items={admin.content.activities.items}
-          editing={null}
-          onEdit={() => {}}
-          onChange={handleChange}
-        />
-      </SectionCard>
+          <h1 className="text-center font-display text-2xl font-normal text-burgundy-900">
+            Site Editor
+          </h1>
+          <p className="mt-3 text-center text-sm italic text-burgundy-600">
+            Enter the shared password to continue
+          </p>
 
-      <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory">
-        <EventsSection
-          events={admin.content.events}
-          editing={null}
-          onEdit={() => {}}
-          onChange={handleChange}
-          onAdd={() => {
-            const nextWeek = new Date()
-            nextWeek.setDate(nextWeek.getDate() + 7)
-            admin.setContent((prev: CMSContent) => ({
-              ...prev,
-              events: [...prev.events, {
-                id: String(Date.now()),
-                title: 'New Event',
-                date: nextWeek.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-                time: '2:00 PM',
-                location: 'Community Home',
-              }],
-            }))
-          }}
-          onRemove={(id: string) => {
-            admin.setContent((prev: CMSContent) => ({
-              ...prev,
-              events: prev.events.filter((ev: { id: string }) => ev.id !== id),
-            }))
-          }}
-          locale={admin.locale}
-        />
-      </SectionCard>
-    </AdminShell>
-  )
-}
+          <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => { setPassword(e.target.value); setError(false) }}
+              placeholder="Password"
+              autoFocus
+              className="w-full rounded-lg border border-burgundy-200 bg-ivory px-4 py-3 text-sm text-burgundy-900 placeholder-burgundy-300 transition focus:border-gold-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-400/20"
+            />
+            {error && <p className="text-center text-xs text-red-500">Please enter a password.</p>}
+            <button
+              type="submit"
+              className="w-full rounded-lg border border-burgundy-900 bg-burgundy-900 px-4 py-3 text-sm uppercase tracking-widest text-ivory transition hover:bg-burgundy-800"
+            >
+              Sign in
+            </button>
+          </form>
 
-function HeroSection({
-  eyebrow, heading, subheading, ctaActivities, ctaContact, background,
-  editing, onEdit, onChange,
-}: CMSContent['hero'] & { editing: string | null; onEdit: (field: string) => void; onChange: (field: string, value: string) => void }) {
-  return (
-    <Container className="relative py-12 sm:py-16 lg:py-20">
-      <div className="pointer-events-none absolute inset-x-0 -bottom-8 lg:-bottom-32 -z-10 flex justify-center" style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,1))' }}>
-        <img src={background} alt="" className="w-full object-contain object-top" />
-      </div>
-      <FadeIn>
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-8 h-px w-24 bg-gold-500" />
-          <EditableText field="hero.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.3em] text-gold-600" />
-          <EditableText field="hero.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h1" className="mt-8 block font-display text-4xl font-normal leading-tight tracking-tight text-burgundy-900 sm:text-5xl lg:text-6xl" />
-          <EditableText field="hero.subheading" value={subheading} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-8 font-display text-lg italic text-burgundy-600 sm:text-xl" />
-          <div className="mt-12 flex justify-center gap-6">
-            <span className="inline-flex border border-burgundy-900 bg-burgundy-900 px-8 py-3 text-sm uppercase tracking-widest text-ivory">{ctaActivities}</span>
-            <span className="inline-flex border border-burgundy-300 px-8 py-3 text-sm uppercase tracking-widest text-burgundy-700">{ctaContact}</span>
-          </div>
-          <div className="mx-auto mt-12 h-px w-24 bg-gold-500" />
+          <div className="mx-auto mt-8 h-px w-16 bg-gold-500" />
         </div>
-      </FadeIn>
-    </Container>
-  )
-}
-
-function CommunitySection({
-  eyebrow, heading, body, link, image,
-  editing, onEdit, onChange,
-}: CMSContent['community'] & { editing: string | null; onEdit: (field: string) => void; onChange: (field: string, value: string) => void }) {
-  return (
-    <div className="lg:flex lg:items-center lg:gap-x-12">
-      <div className="lg:w-1/2">
-        <div className="mb-4 h-px w-16 bg-burgundy-300" />
-        <EditableText field="community.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500" />
-        <EditableText field="community.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h2" className="mt-4 block font-display text-3xl font-normal text-burgundy-900 sm:text-4xl" />
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
-          {body.map((p, i) => (
-            <EditableText key={i} field={`community.body.${i}`} value={p} editing={editing} onEdit={onEdit} onChange={onChange} as="p" />
-          ))}
-        </div>
-        <div className="mt-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900">{link} <span aria-hidden="true">&rarr;</span></span>
-        </div>
-      </div>
-      <div className="mt-8 lg:mt-0 lg:w-1/2">
-        <EditableImage field="community.image" src={image} alt="Community" editing={editing} onEdit={onEdit} onChange={onChange} className="w-full object-contain rounded-lg" />
       </div>
     </div>
   )
 }
 
-function ActivitiesSection({
-  intro, items,
-  editing, onEdit, onChange,
-}: { intro: string; items: CMSContent['activities']['items']; editing: string | null; onEdit: (field: string) => void; onChange: (field: string, value: string) => void }) {
+// ─── Community section ──────────────────────────────────────────────────────
+
+function CommunitySection({
+  eyebrow,
+  heading,
+  body,
+  link,
+  image,
+  editing,
+  onEdit,
+  onChange,
+}: {
+  eyebrow: string
+  heading: string
+  body: string[]
+  link: string
+  image: string
+  editing: string | null
+  onEdit: (field: string) => void
+  onChange: (field: string, value: string) => void
+}) {
   return (
-    <>
-      <div className="mb-8">
-        <EditableText field="activities.intro" value={intro} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="text-xl text-burgundy-700" />
-        <Blockquote author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }} className="mt-6">
-          Let your vision be world-embracing, rather than confined to your own self.
-        </Blockquote>
+    <div className="lg:flex lg:items-center lg:gap-x-12">
+      <div className="lg:w-1/2">
+        <div className="mb-4 h-px w-16 bg-burgundy-300" />
+        <EditableTextImport field="community.eyebrow" value={eyebrow} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500" />
+        <EditableTextImport field="community.heading" value={heading} editing={editing} onEdit={onEdit} onChange={onChange} as="h2" className="mt-4 block font-display text-3xl font-normal text-burgundy-900 sm:text-4xl" />
+        <div className="mt-6 space-y-4 text-base leading-relaxed text-burgundy-700">
+          {body.map((p, i) => (
+            <EditableTextImport key={i} field={`community.body.${i}`} value={p} editing={editing} onEdit={onEdit} onChange={onChange} as="p" />
+          ))}
+        </div>
+        <div className="mt-8">
+          <EditableTextImport field="community.link" value={link} editing={editing} onEdit={onEdit} onChange={onChange} as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900" />
+        </div>
       </div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-        {items.map((activity, idx) => (
-          <article key={idx} className="group relative flex flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
-            <div className="relative flex h-48 items-center justify-center overflow-hidden">
-              <EditableImage field={`activities.items.${idx}.image`} src={activity.image} alt="" editing={editing} onEdit={onEdit} onChange={onChange} className="h-full w-auto object-contain" />
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-4 h-px w-8 bg-gold-400" />
-              <EditableText field={`activities.items.${idx}.title`} value={activity.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="font-display text-xl font-normal text-burgundy-900" />
-              <EditableText field={`activities.items.${idx}.description`} value={activity.description} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-3 flex-1 text-sm leading-relaxed text-burgundy-700" />
-            </div>
-          </article>
-        ))}
+      <div className="mt-8 lg:mt-0 lg:w-1/2">
+        <img src={image} alt="Community" className="w-full object-contain rounded-lg" />
       </div>
-    </>
+    </div>
   )
 }
 
+// ─── Events section ──────────────────────────────────────────────────────────
+
 function EventsSection({
-  events, editing, onEdit, onChange, onAdd, onRemove, locale,
+  events,
+  editing,
+  onEdit,
+  onChange,
+  onAdd,
+  onRemove,
+  locale,
 }: {
-  events: CMSContent['events']
+  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
   editing: string | null
   onEdit: (field: string) => void
   onChange: (field: string, value: string) => void
   onAdd: () => void
   onRemove: (id: string) => void
-  locale: string
+  locale: 'en' | 'fr'
 }) {
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -229,12 +182,12 @@ function EventsSection({
           <article className="flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
             <div className="flex flex-1 flex-col p-6 sm:p-8">
               <div className="space-y-2">
-                <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale as 'en' | 'fr'} className="text-sm font-semibold text-burgundy-900" />
-                <TimePicker field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale as 'en' | 'fr'} />
+                <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} className="text-sm font-semibold text-burgundy-900" />
+                <TimePicker field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} />
               </div>
-              <EditableText field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
+              <EditableTextImport field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
               {event.location && (
-                <EditableText field={`events.${idx}.location`} value={event.location} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-2 text-sm text-burgundy-500" />
+                <EditableTextImport field={`events.${idx}.location`} value={event.location} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-2 text-sm text-burgundy-500" />
               )}
             </div>
           </article>
@@ -259,18 +212,279 @@ function EventsSection({
   )
 }
 
-function TrashIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-      <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14" />
-    </svg>
-  )
-}
+// ─── Admin page ──────────────────────────────────────────────────────────────
 
-function PlusIcon() {
+export default function AdminPage() {
+  const [logged, setLogged] = useState(false)
+
+  // Per-section locale toggles
+  const [communityLocale, setCommunityLocale] = useState<'en' | 'fr'>('en')
+  const [eventsLocale, setEventsLocale] = useState<'en' | 'fr'>('en')
+
+  // Both locale contents loaded simultaneously
+  const [contentEnState, setContentEnState] = useState<CMSContent>(contentEn)
+  const [contentFrState, setContentFrState] = useState<CMSContent>(contentFr)
+  const [originalEn, setOriginalEn] = useState<CMSContent>(contentEn)
+  const [originalFr, setOriginalFr] = useState<CMSContent>(contentFr)
+
+  const [editing, setEditing] = useState<string | null>(null)
+  const [enDirty, setEnDirty] = useState(false)
+  const [frDirty, setFrDirty] = useState(false)
+  const [pushing, setPushing] = useState(false)
+  const [pushStatus, setPushStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [pushMessage, setPushMessage] = useState('')
+
+  // Writings state
+  const [writings, setWritings] = useState<WritingsEntry[]>(writingsData)
+  const [writingsDirty, setWritingsDirty] = useState(false)
+
+  // File SHAs for GitHub commits
+  const [fileShas, setFileShas] = useState<Record<string, string>>({})
+
+  const dirty = enDirty || frDirty || writingsDirty
+
+  // On login, fetch latest content from GitHub for both locales
+  useEffect(() => {
+    if (!logged) return
+
+    // Fetch EN
+    fetchFile('content/cms/en.json').then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as CMSContent
+        setContentEnState(parsed)
+        setOriginalEn(parsed)
+        setFileShas((prev) => ({ ...prev, 'content/cms/en.json': file.sha }))
+      }
+    }).catch(() => {})
+
+    // Fetch FR
+    fetchFile('content/cms/fr.json').then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as CMSContent
+        setContentFrState(parsed)
+        setOriginalFr(parsed)
+        setFileShas((prev) => ({ ...prev, 'content/cms/fr.json': file.sha }))
+      }
+    }).catch(() => {})
+
+    // Fetch writings
+    fetchFile('content/cms/writings.json').then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as WritingsEntry[]
+        setWritings(parsed)
+        setFileShas((prev) => ({ ...prev, 'content/cms/writings.json': file.sha }))
+      }
+    }).catch(() => {})
+  }, [logged])
+
+  // Field change handler — scoped by section locale
+  function handleCommunityChange(field: string, value: string) {
+    const parts = field.split('.')
+    const setter = communityLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = communityLocale === 'en' ? setEnDirty : setFrDirty
+
+    if (parts[1] === 'body') {
+      const idx = parseInt(parts[2]!)
+      setter((prev) => {
+        const body = [...prev.community.body]
+        body[idx] = value
+        return { ...prev, community: { ...prev.community, body } }
+      })
+    } else {
+      setter((prev) => ({ ...prev, community: { ...prev.community, [parts[1]!]: value } }))
+    }
+    dirtySetter(true)
+    setPushStatus('idle')
+  }
+
+  function handleEventsChange(field: string, value: string) {
+    const parts = field.split('.')
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+
+    const idx = parseInt(parts[1]!)
+    const eventField = parts[2]!
+    setter((prev) => {
+      const events = prev.events.map((ev, i) =>
+        i === idx ? { ...ev, [eventField]: value } : ev,
+      )
+      return { ...prev, events }
+    })
+    dirtySetter(true)
+    setPushStatus('idle')
+  }
+
+  function handleAddEvent() {
+    const nextWeek = new Date()
+    nextWeek.setDate(nextWeek.getDate() + 7)
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+    setter((prev) => ({
+      ...prev,
+      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
+    }))
+    dirtySetter(true)
+    setPushStatus('idle')
+  }
+
+  function handleRemoveEvent(id: string) {
+    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
+    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
+    setter((prev) => ({
+      ...prev,
+      events: prev.events.filter((ev) => ev.id !== id),
+    }))
+    dirtySetter(true)
+    setPushStatus('idle')
+  }
+
+  // ─── Writings handlers ─────────────────────────────────────────────────
+
+  function handleAddWriting(entry: WritingsEntry) {
+    setWritings((prev) => [...prev, entry])
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
+  function handleEditWriting(updated: WritingsEntry) {
+    setWritings((prev) =>
+      prev.map((e) => (e.slug === updated.slug ? updated : e)),
+    )
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
+  function handleRemoveWriting(slug: string) {
+    setWritings((prev) => prev.filter((e) => e.slug !== slug))
+    setWritingsDirty(true)
+    setPushStatus('idle')
+  }
+
+  const handlePush = useCallback(async () => {
+    if (!dirty || pushing) return
+    setPushing(true)
+    setPushStatus('idle')
+
+    if (!isGithubConfigured()) {
+      setPushStatus('error')
+      setPushMessage('GitHub is not configured. Set the NEXT_PUBLIC_GITHUB_PAT environment variable and redeploy.')
+      setPushing(false)
+      return
+    }
+
+    const filesToCommit: Array<{ path: string; content: string; sha: string }> = []
+
+    // Commit EN if dirty
+    if (enDirty) {
+      const enPath = 'content/cms/en.json'
+      const enSha = fileShas[enPath]
+      if (!enSha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify EN content file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: enPath, content: JSON.stringify(contentEnState, null, 2), sha: enSha })
+    }
+
+    // Commit FR if dirty
+    if (frDirty) {
+      const frPath = 'content/cms/fr.json'
+      const frSha = fileShas[frPath]
+      if (!frSha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify FR content file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: frPath, content: JSON.stringify(contentFrState, null, 2), sha: frSha })
+    }
+
+    // Commit writings if dirty
+    if (writingsDirty) {
+      const writingsPath = 'content/cms/writings.json'
+      const writingsSha = fileShas[writingsPath]
+      if (!writingsSha) {
+        setPushStatus('error')
+        setPushMessage('Unable to verify writings file. Please refresh and try again.')
+        setPushing(false)
+        return
+      }
+      filesToCommit.push({ path: writingsPath, content: JSON.stringify(writings, null, 2), sha: writingsSha })
+    }
+
+    const result = await commitFiles(filesToCommit, 'cms')
+
+    if (result.allOk) {
+      setPushStatus('success')
+      setPushMessage('Changes published! Site is rebuilding now.')
+      setOriginalEn(contentEnState)
+      setOriginalFr(contentFrState)
+      setEnDirty(false)
+      setFrDirty(false)
+      setWritingsDirty(false)
+
+      // Refresh SHAs
+      for (const file of filesToCommit) {
+        fetchFile(file.path).then((f) => {
+          if (f) setFileShas((prev) => ({ ...prev, [file.path]: f.sha }))
+        }).catch(() => {})
+      }
+    } else {
+      setPushStatus('error')
+      setPushMessage(result.errors[0] || 'Failed to publish changes.')
+    }
+
+    setPushing(false)
+  }, [dirty, pushing, enDirty, frDirty, contentEnState, contentFrState, writings, writingsDirty, fileShas])
+
+  const sectionLabels = ['Community', 'Events', 'Writings']
+
+  if (!logged) {
+    return <LoginScreen onLogin={() => setLogged(true)} />
+  }
+
   return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-      <path d="M12 5v14M5 12h14" />
-    </svg>
+    <AdminShell
+      dirty={dirty}
+      onPush={handlePush}
+      pushing={pushing}
+      pushStatus={pushStatus}
+      pushMessage={pushMessage}
+      sectionLabels={sectionLabels}
+    >
+      {/* Community */}
+      <SectionCard id="section-community" label="Community" page="Homepage" bgColor="bg-parchment" locale={communityLocale} onLocaleChange={setCommunityLocale}>
+        <CommunitySection
+          {...(communityLocale === 'en' ? contentEnState : contentFrState).community}
+          editing={editing}
+          onEdit={setEditing}
+          onChange={handleCommunityChange}
+        />
+      </SectionCard>
+
+      {/* Events */}
+      <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory" locale={eventsLocale} onLocaleChange={setEventsLocale}>
+        <EventsSection
+          events={(eventsLocale === 'en' ? contentEnState : contentFrState).events}
+          editing={editing}
+          onEdit={setEditing}
+          onChange={handleEventsChange}
+          onAdd={handleAddEvent}
+          onRemove={handleRemoveEvent}
+          locale={eventsLocale}
+        />
+      </SectionCard>
+
+      {/* Writings */}
+      <SectionCard id="section-writings" label="Writings" page="Writings" bgColor="bg-ivory">
+        <WritingsSection
+          entries={writings}
+          onAdd={handleAddWriting}
+          onEdit={handleEditWriting}
+          onRemove={handleRemoveWriting}
+        />
+      </SectionCard>
+    </AdminShell>
   )
 }
