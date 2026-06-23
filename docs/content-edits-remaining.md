@@ -4,22 +4,19 @@ These require component/layout changes — not just text replacements.
 
 ## Landing Page
 
-- [ ] **"In Winnipeg" section** — Add quote at top or beside flower image:
-  > "So powerful is the light of unity that it can illuminate the whole earth."
+- [x] **"In Winnipeg" section** — ✅ Done. Moved "So powerful is the light..." quote from Activities to Community Snapshot section.
 
 - [x] **"In Winnipeg" section — History text tweak** (from call transcript) — ✅ Done. Updated to: "assembly established 1953, with Bahá'ís having been present for decades prior."
 
 - [x] **Remove "Information" email field** — ✅ Done. Only LSA@winnipegbahais.org remains.
 
-- [ ] **Activities section** — Make the existing quote ("Let your vision be world-embracing…") bigger and reposition to side or top. Also add the longer body text from the doc about "What is unfolding in Winnipeg is part of a global endeavor…"
+- [x] **Activities section** — ✅ Done. Added "The purpose of religion" Blockquote and "What is unfolding" body text.
 
-- [ ] **Upcoming Gatherings** — Include `LSA@winnipegbahais.org` contact email in the events preview / upcoming gatherings section.
+- [x] **Upcoming Gatherings** — Include `LSA@winnipegbahais.org` contact email. ✅ Done.
 
 ## About Page
 
-- [ ] **Add Bahá'u'lláh quote** — Insert a Quote component with:
-  > "The purpose of religion as revealed from the heaven of God's holy Will is to establish unity and concord amongst the peoples of the world; make it not the cause of dissension and strife. The religion of God and His divine law are the most potent instruments and the surest of all means for the dawning of the light of unity amongst men. The progress of the world, the development of nations, the tranquility of peoples, and the peace of all who dwell on earth are among the principles and ordinances of God."
-  > — Bahá'u'lláh
+- [x] **Add Bahá'u'lláh quote** — ✅ Done. Quote component with "The purpose of religion as revealed..." already on page.
 
 ## Community Life Page
 
@@ -31,25 +28,17 @@ These require component/layout changes — not just text replacements.
 
 - [x] **Study Circles section — Add Ruhi-specific quote** (from call transcript) — ✅ Done. Added UHJ quote from 21 April 2008.
 
-- [ ] **Devotional Meetings — Prayer cards feature** (from call transcript) — New feature: prayer cards to embed in the Devotional Meetings section. Developer to create card component; client to provide French translations via bahaiprayers.net. Needs admin functionality to add/remove cards.
+- [ ] **Devotional Meetings — Prayer cards feature** (from call transcript). Developer to create card component; client to provide French translations via bahaiprayers.net. Needs admin functionality to add/remove cards.
 
-- [ ] **Move "Principles in action" (Values) section to top** — Reorder page sections so the Values section appears before the activity sections (Devotional, Study Circles, Children's, Junior Youth).
+- [x] **Move "Principles in action" (Values) section to top**. ✅ Done.
 
 ## Learn More Page
 
-- [ ] **Add quote at top or side** — Insert a Quote component with either:
-  > The earth is but one country, and mankind its citizens.
-  >
-  > or
-  >
-  > This is the changeless Faith of God, eternal in the past, eternal in the future.
-  > — Bahá'u'lláh
-
-  (Keep "The earth is but one country…" at the bottom, or move it.)
+- [x] **Add quote at top**. ✅ Done. "The earth is but one country…" added after PageIntro.
 
 ## Contact Page
 
-- [ ] **Remove "Information" email field** — Since general inquiries go to `LSA@winnipegbahais.org`, remove the `info@winnipegbahais.org` "Information" entry. Requires updating the ContactDetails component and dictionary.
+- [x] **Remove "Information" email field**. ✅ Done earlier.
 
 ## General Guidelines (from call transcript)
 
@@ -61,3 +50,4 @@ These require component/layout changes — not just text replacements.
 - All French translations for new content need authoritative sources — do not auto-translate.
 - The doc references "a History bit from Keith Bloodworth" — may need to reach out for that content.
 - Client to provide: French prayer translations, list of quotes to place on each page.
+- **French Ruhi Book 1 text extraction needed** — PDF extraction only yields 4 of 92 quotes. Need a proper text file extraction (like `RUHI0010_RLS_BK1_EN_4.1.2.PE_FullText_20200520.txt`) to create French writings pages with authoritative passages.

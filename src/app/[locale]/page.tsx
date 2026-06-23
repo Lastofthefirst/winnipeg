@@ -124,8 +124,13 @@ export default async function HomePage({ params }: { params: any }) {
           <FadeIn>
             <div className="lg:flex lg:items-center lg:gap-x-16">
               <div className="lg:w-1/2">
-                <div className="mb-4 h-px w-16 bg-burgundy-300" />
-                <p className="font-display text-sm uppercase tracking-[0.25em] text-burgundy-500">
+                <p className="font-display text-xl font-semibold leading-snug text-burgundy-900 sm:text-2xl before:content-['\201C'] after:content-['\201D']">
+                  {locale === 'fr'
+                    ? 'La lumière de l\'unité est si puissante qu\'elle peut illuminer la terre entière.'
+                    : 'So powerful is the light of unity that it can illuminate the whole earth.'}
+                </p>
+                <div className="mt-4 h-px w-16 bg-burgundy-300" />
+                <p className="mt-4 font-display text-sm uppercase tracking-[0.25em] text-burgundy-500">
                   {t.home.community.eyebrow}
                 </p>
                 <h2 className="mt-4 font-display text-3xl font-normal text-burgundy-900 sm:text-4xl">
@@ -136,6 +141,14 @@ export default async function HomePage({ params }: { params: any }) {
                     <p key={i}>{p}</p>
                   ))}
                 </div>
+                <Blockquote
+                  author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
+                  className="mt-10"
+                >
+                  {locale === 'fr'
+                    ? 'Ne faites pas de la religion une cause de dissensions et de luttes car son but, revelé des cieux de la sainte volonté de Dieu, est d\'établir l\'unité et la concorde parmi les peuples du monde.'
+                    : 'The purpose of religion as revealed from the heaven of God\'s holy Will is to establish unity and concord amongst the peoples of the world; make it not the cause of dissension and strife.'}
+                </Blockquote>
                 <div className="mt-8">
                   <Link
                     href={`/${locale}/about`}
@@ -162,12 +175,6 @@ export default async function HomePage({ params }: { params: any }) {
       {/* Activities */}
       <SectionIntro title={t.home.activities.heading} className="mt-24 sm:mt-32 lg:mt-40">
         <p>{t.home.activities.intro}</p>
-        <Blockquote
-          author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
-          className="mt-10"
-        >
-          Let your vision be world-embracing, rather than confined to your own self.
-        </Blockquote>
         <div className="mt-8">
           <Link
             href={`/${locale}/community-life`}
@@ -214,7 +221,9 @@ export default async function HomePage({ params }: { params: any }) {
       <EventsPreview locale={locale} strings={t.eventsPreview} events={getUpcomingEvents(mapCmsEvents(locale))} />
 
       <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
-        So powerful is the light of unity that it can illuminate the whole earth.
+        {locale === 'fr'
+          ? 'La terre est un seul pays et tous les hommes en sont les citoyens.'
+          : 'The earth is but one country, and mankind its citizens.'}
       </Quote>
 
       {/* News */}

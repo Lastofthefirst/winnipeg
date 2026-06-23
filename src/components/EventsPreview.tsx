@@ -95,6 +95,9 @@ function AlwaysGathering({
               >
                 {strings.link} <span aria-hidden="true">&rarr;</span>
               </Link>
+              <p className="mt-4 text-sm text-burgundy-600">
+                LSA@winnipegbahais.org
+              </p>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ import { FadeInStagger } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
+import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { TagList, TagListItem } from '@/components/TagList'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -141,9 +142,10 @@ function DevotionalGatherings({ title, body, whatToExpect, writings }: Devotiona
 interface StudyCirclesProps {
   title: string
   body: string[]
+  locale: Locale
 }
 
-function StudyCircles({ title, body }: StudyCirclesProps) {
+function StudyCircles({ title, body, locale }: StudyCirclesProps) {
   return (
     <Section
       id="study-circles"
@@ -158,22 +160,17 @@ function StudyCircles({ title, body }: StudyCirclesProps) {
       </div>
 
       <Blockquote
-        author={{ name: 'Universal House of Justice', role: '21 April 2008' }}
+        author={{
+          name: locale === 'fr' ? 'Maison universelle de justice' : 'Universal House of Justice',
+          role: locale === 'fr' ? '21 avril 2008' : '21 April 2008',
+        }}
         className="mt-12"
       >
-        Thousands upon thousands, embracing the diversity of the entire human
-        family, are engaged in systematic study of the Creative Word in an
-        environment that is at once serious and uplifting.
+        {locale === 'fr'
+          ? 'Des milliers et des milliers d\'individus, qui manifestent la diversité de la famille humaine tout entière, sont engagés dans l\'étude systématique du Verbe créateur dans un cadre à la fois sérieux et inspirant.'
+          : 'Thousands upon thousands, embracing the diversity of the entire human family, are engaged in systematic study of the Creative Word in an environment that is at once serious and uplifting.'}
       </Blockquote>
 
-      <Blockquote
-        author={{ name: "Bahá'u'lláh", role: "Founder of the Bahá'í Faith" }}
-        className="mt-12"
-      >
-        Regard man as a mine rich in gems of inestimable value. Education can,
-        alone, cause it to reveal its treasures, and enable mankind to benefit
-        therefrom.
-      </Blockquote>
     </Section>
   )
 }
@@ -317,6 +314,22 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <p>{t.communityLife.intro}</p>
       </PageIntro>
 
+      <Quote
+        className="mt-24 sm:mt-32 lg:mt-40"
+        author="Bahá'u'lláh"
+      >
+        {locale === 'fr'
+          ? 'Considérez l\'homme comme une mine riche en pierres précieuses d\'une valeur inestimable. Seule l\'éducation peut l\'amener à en livrer les trésors et permettre à l\'humanité d\'en profiter.'
+          : 'Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'}
+      </Quote>
+
+      <Values
+        eyebrow={t.communityLife.values.eyebrow}
+        heading={t.communityLife.values.heading}
+        intro={t.communityLife.values.intro}
+        items={t.communityLife.values.items}
+      />
+
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
         <DevotionalGatherings
           title={t.communityLife.devotional.title}
@@ -327,6 +340,7 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         <StudyCircles
           title={t.communityLife.studyCircles.title}
           body={t.communityLife.studyCircles.body}
+          locale={locale}
         />
         <ChildrensClasses
           title={t.communityLife.childrensClasses.title}
@@ -344,13 +358,6 @@ export default async function CommunityLifePage({ params }: { params: any }) {
         eyebrow={t.communityLife.service.eyebrow}
         heading={t.communityLife.service.heading}
         body={t.communityLife.service.body}
-      />
-
-      <Values
-        eyebrow={t.communityLife.values.eyebrow}
-        heading={t.communityLife.values.heading}
-        intro={t.communityLife.values.intro}
-        items={t.communityLife.values.items}
       />
 
       <ContactSection

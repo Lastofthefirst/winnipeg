@@ -153,7 +153,7 @@ export function EventsList({ locale = 'en' }: { locale?: Locale }) {
                 Always gathering
               </p>
               <p className="mt-4 max-w-xl font-display text-xl font-normal text-burgundy-700">
-                Beyond these listed events, our community meets continuously
+                Beyond these listed events, our community meets regularly
                 for devotion, study, and service.{' '}
                 <Link
                   href="/contact"

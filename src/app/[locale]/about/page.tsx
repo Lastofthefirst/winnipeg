@@ -1,11 +1,13 @@
 import { type Metadata } from 'next'
 
+import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
+import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -171,12 +173,81 @@ export default async function AboutPage({ params }: { params: any }) {
 
       <ImageStrip />
 
-      <Container className="mt-16">
+      <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
+        {locale === 'fr'
+          ? 'Ne faites pas de la religion une cause de dissensions et de luttes car son but, révélé des cieux de la sainte volonté de Dieu, est d\'établir l\'unité et la concorde parmi les peuples du monde. La religion de Dieu et sa loi divine sont les instruments les plus puissants, les moyens les plus sûrs, pour que se lève parmi les hommes la lumière de l\'unité. Le progrès du monde, le développement des nations, la tranquillité des peuples et la paix sur terre sont des principes, des ordonnances de Dieu.'
+          : 'The purpose of religion as revealed from the heaven of God\'s holy Will is to establish unity and concord amongst the peoples of the world; make it not the cause of dissension and strife. The religion of God and His divine law are the most potent instruments and the surest of all means for the dawning of the light of unity amongst men. The progress of the world, the development of nations, the tranquility of peoples, and the peace of all who dwell on earth are among the principles and ordinances of God.'}
+      </Quote>
+
+      {/* <Container className="mt-16">
         <StatList>
           <StatListItem value="5M+" label={t.about.stats.bahaisWorldwide} />
           <StatListItem value="100,000+" label={t.about.stats.localitiesGlobally} />
           <StatListItem value="100+" label={t.about.stats.yearsInWinnipeg} />
         </StatList>
+      </Container> */}
+
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <FadeIn>
+          <Border position="left" className="pl-8">
+            <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.25em] text-burgundy-400">
+              From the Bahá&apos;í World Community
+            </span>
+            <p className="text-lg leading-relaxed text-burgundy-700 sm:text-xl">
+              God, the Creator of the universe, is all-knowing, all-loving and all-merciful. Just as the physical sun shines on the world, so the light of God is shed upon all Creation. It is impossible for any mortal mind to truly understand the reality of God. However broad or imaginative our concept of God may be, it will always be circumscribed by the limitations of the human mind.
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-burgundy-700 sm:text-xl">
+              Throughout the ages, God has sent Divine Messengers known as Manifestations of God—among them Abraham, Krishna, Zoroaster, Moses, Buddha, Jesus Christ, Muḥammad, and, in more recent times, the Báb and Bahá&apos;u&apos;lláh—to cultivate humanity&apos;s spiritual, intellectual and moral capacities. Following the coming of a Manifestation of God extraordinary progress occurs in the world. Reaching to the roots of human motivation, His teachings awaken in whole populations capacities to contribute to the advancement of civilization to an extent never before possible.
+            </p>
+            <a
+              href="https://www.bahai.org/beliefs/god-his-creation/revelation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-burgundy-500 transition hover:text-burgundy-900"
+            >
+              Learn more on bahai.org
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                <path
+                  fillRule="evenodd"
+                  d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Zm7.5-3.25a.75.75 0 0 0 0 1.5h2.44l-5.72 5.72a.75.75 0 0 0 1.06 1.06l5.72-5.72v2.44a.75.75 0 0 0 1.5 0v-4.25a.75.75 0 0 0-.75-.75h-4.25Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </a>
+          </Border>
+        </FadeIn>
+      </Container>
+
+      <Container className="mt-24 sm:mt-32">
+        <FadeIn>
+          <a
+            href="https://www.bahai.org/library"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block border border-burgundy-200 bg-parchment px-8 py-10 text-left transition hover:border-burgundy-400 sm:px-10 sm:py-12"
+          >
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <span className="font-display text-sm font-semibold uppercase tracking-[0.25em] text-burgundy-500">
+                  Explore the Writings
+                </span>
+                <h3 className="mt-2 font-display text-xl font-normal tracking-tight text-burgundy-900 sm:text-2xl">
+                  The Bahá&apos;í Reference Library
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-burgundy-700">
+                  The Bahá&apos;í Reference Library is the authoritative online source of Bahá&apos;í writings. It contains selected works of Bahá&apos;u&apos;lláh, the Báb, &#8216;Abdu&apos;l‑Bahá, Shoghi Effendi, and the Universal House of Justice, as well as other Bahá&apos;í texts.
+                </p>
+              </div>
+              <svg viewBox="0 0 20 20" fill="currentColor" className="mt-1 h-5 w-5 flex-none text-burgundy-300 transition group-hover:text-burgundy-500">
+                <path
+                  fillRule="evenodd"
+                  d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Zm7.5-3.25a.75.75 0 0 0 0 1.5h2.44l-5.72 5.72a.75.75 0 0 0 1.06 1.06l5.72-5.72v2.44a.75.75 0 0 0 1.5 0v-4.25a.75.75 0 0 0-.75-.75h-4.25Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </a>
+        </FadeIn>
       </Container>
 
       <CorePrinciples

@@ -143,6 +143,15 @@ export default async function LearnMorePage({ params }: { params: any }) {
         </div>
       </PageIntro>
 
+      <Quote
+        className="mt-24 sm:mt-32 lg:mt-40"
+        author="Bahá'u'lláh"
+      >
+        {locale === 'fr'
+          ? 'La terre est un seul pays et tous les hommes en sont les citoyens.'
+          : 'The earth is but one country, and mankind its citizens.'}
+      </Quote>
+
       <CentralFigures
         eyebrow={t.learnMore.centralFigures.eyebrow}
         heading={t.learnMore.centralFigures.heading}
@@ -161,7 +170,9 @@ export default async function LearnMorePage({ params }: { params: any }) {
         className="mt-24 sm:mt-32 lg:mt-40"
         author="Bahá'u'lláh"
       >
-        The earth is but one country, and mankind its citizens.
+        {locale === 'fr'
+          ? 'Voyez en l\'homme une mine riche en gemmes d\'une valeur inestimable. Mais, seule l\'éducation peut révéler les trésors de cette mine et permettre à l\'humanité d\'en profiter.'
+          : 'Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'}
       </Quote>
 
       <OfficialResources

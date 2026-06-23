@@ -53,6 +53,7 @@ const fr: Dictionary = {
       body: [
         "Les deux rivières convergent aux Forks en un courant uni — la vision de Bahá'u'lláh rassemble des personnes de toutes origines en une seule communauté, œuvrant vers un monde plus juste et plus pacifique.",
         "L'assemblée spirituelle locale fut constituée en 1953, avec la présence de bahá'ís à Winnipeg depuis des décennies auparavant, cherchant à promouvoir le progrès spirituel et matériel de la communauté.",
+        "À Winnipeg, les bahá'ís et leurs amis participent à un ensemble croissant d'activités de construction communautaire qui rassemble les gens pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés à travers le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à travailler pour l'amélioration de la société. Tous sont chaleureusement invités à joindre et à faire partie de cette communauté grandissante.",
       ],
       link: 'En savoir plus',
     }, cms.community),
@@ -82,7 +83,7 @@ const fr: Dictionary = {
         { title: 'Élimination des préjugés', body: "De toutes les formes de préjugés, le préjugé racial est le plus destructeur. Les bahá'ís s'efforcent activement de tisser des liens au-delà de toutes les lignes de division." },
         { title: 'Harmonie entre la science et la religion', body: "La religion sans la science est superstition ; la science sans la religion est matérialisme. Les deux sont nécessaires au progrès de la civilisation." },
         { title: 'Recherche indépendante de la vérité', body: "Chaque personne a le droit et la responsabilité de chercher la vérité de manière indépendante — sans être entravée par la tradition, la superstition ou l'imitation des autres." },
-        { title: 'Éducation universelle', body: "Considérez chaque être humain comme une mine riche en pierres précieuses. L'éducation seule peut en révéler les trésors et permettre à toute l'humanité d'en bénéficier." },
+        { title: 'Éducation universelle', body: "Considérez l'être humain comme une mine riche en pierres précieuses d'une valeur inestimable. Seule l'éducation peut l'amener à en livrer les trésors et permettre à l'humanité d'en profiter." },
       ],
     },
     localCommunity: {
@@ -99,7 +100,7 @@ const fr: Dictionary = {
   communityLife: {
     eyebrow: 'Vie communautaire',
     heading: "Grandir ensemble dans l'esprit et le service",
-    intro: "À Winnipeg, les bahá'ís et leurs amis sont engagés dans un modèle croissant d'activités de construction communautaire qui rassemblent des personnes pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés partout dans le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à œuvrer pour l'amélioration de la société. Tous sont chaleureusement invités à se joindre et à faire partie de cette communauté en croissance. (Tous sont les bienvenus).",
+    intro: "À Winnipeg, les bahá'ís et leurs amis sont engagés dans un modèle croissant d'activités de construction communautaire qui rassemblent des personnes pour prier, réfléchir, apprendre, servir et contribuer au bien-être de la communauté plus large. Ce qui se déroule ici fait partie d'un effort mondial, car des communautés partout dans le monde apprennent à bâtir l'unité, à autonomiser les jeunes, à renforcer les familles et les quartiers, et à œuvrer pour l'amélioration de la société. Tous sont chaleureusement invités à parcourir ce chemin de service.",
     devotional: {
       title: 'Réunions dévotionnelles',
       body: [
@@ -181,7 +182,7 @@ const fr: Dictionary = {
         { title: 'Unité de Dieu', body: "Il n'y a qu'un seul Dieu — inconnaissable dans Son essence, mais rendu connu à l'humanité par une succession de Messagers divins. Toutes les grandes religions du monde découlent de cette seule source." },
         { title: 'Révélation progressive', body: "La vérité religieuse est révélée progressivement. Les Manifestations de Dieu — Abraham, Moïse, Bouddha, le Christ, Muhammad, Bahá'u'lláh — ont chacun apporté des enseignements adaptés aux besoins et à la capacité de l'époque dans laquelle ils sont apparus." },
         { title: "Unité de l'humanité", body: "La diversité du genre humain n'est pas une source de division mais une cause d'amour et d'harmonie. Tous les préjugés — de race, de classe, de nationalité ou de religion — doivent être surmontés." },
-        { title: 'Noblesse inhérente', body: "Chaque être humain est \"une mine riche en gemmes d'une valeur inestimable\". Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
+        { title: 'Noblesse inhérente', body: "Chaque être humain est \"une mine riche en pierres précieuses d'une valeur inestimable\". Le but de l'éducation, spirituelle et matérielle, est de révéler ces capacités intérieures au service les uns des autres et de la civilisation." },
         { title: 'Harmonie entre la science et la religion', body: "La science et la religion sont deux systèmes de connaissance complémentaires. La religion sans la science conduit à la superstition ; la science sans la religion conduit au matérialisme. Les deux sont essentielles au progrès humain." },
         { title: 'Justice', body: "La justice est ce qu'il y a de plus aimé aux yeux de Dieu et la centralité de la justice dans toutes les entreprises humaines est une pierre angulaire de l'enseignement social bahá'í. Une société juste défend les droits et la dignité de chaque personne." },
       ],
@@ -203,7 +204,7 @@ const fr: Dictionary = {
       link: 'Nous rejoindre',
     },
     alwaysGathering: 'Toujours ensemble',
-    evergreenBody: "Au-delà de ces événements répertoriés, la communauté se réunit continuellement pour la dévotion, l'étude et le service.",
+    evergreenBody: "Au-delà de ces événements répertoriés, la communauté se réunit régulièrement pour la dévotion, l'étude et le service.",
     evergreenLink: 'Nous contacter',
   },
   news: {

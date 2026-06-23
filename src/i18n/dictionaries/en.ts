@@ -53,6 +53,7 @@ const en: Dictionary = {
       body: [
         "The two rivers converge at the Forks into a single united current — the vision of Bahá'u'lláh draws together people from every background into one community, working toward a more just and peaceful world.",
         "The local spiritual assembly was established in 1953, with Bahá'ís having been present in Winnipeg for decades prior, seeking to promote the spiritual and material progress of the community.",
+        "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to join and be part of this growing community.",
       ],
       link: 'Learn more',
     }, cms.community),
@@ -99,7 +100,7 @@ const en: Dictionary = {
   communityLife: {
     eyebrow: 'Community life',
     heading: 'Growing together in spirit and service',
-    intro: "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to join and be part of this growing community. (All are welcome).",
+    intro: "In Winnipeg, Bahá'ís and their friends are engaged in a growing pattern of community-building activities that bring people together to pray, reflect, learn, serve, and contribute to the well-being of the wider community. What is unfolding here is part of a global endeavor, as communities around the world learn how to build unity, empower young people, strengthen families and neighbourhoods, and work for the betterment of society. All are warmly invited to walk this path of service.",
     devotional: {
       title: 'Devotional Meetings',
       body: [
@@ -203,7 +204,7 @@ const en: Dictionary = {
       link: 'Reach out',
     },
     alwaysGathering: 'Always gathering',
-    evergreenBody: 'Beyond these listed events, the community meets continuously for devotion, study, and service.',
+    evergreenBody: 'Beyond these listed events, the community meets regularly for devotion, study, and service.',
     evergreenLink: 'Get in touch',
   },
   news: {
