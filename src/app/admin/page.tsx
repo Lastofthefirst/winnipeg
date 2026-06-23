@@ -9,6 +9,7 @@ import { AdminShell, SectionCard } from '@/admin/shell'
 import { EditableText as EditableTextImport } from '@/admin/editable'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
+import { parseEventDate } from '@/utils/eventDate'
 
 // Import as build-time defaults
 const contentEn = contentEnDefault as CMSContent
@@ -177,9 +178,13 @@ function EventsSection({
 }) {
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {events.map((event, idx) => (
+      {events.map((event, idx) => {
+        const eventDate = parseEventDate(event.date)
+        const isPast = eventDate < new Date()
+
+        return (
         <div key={event.id} className="group relative">
-          <article className="flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
+          <article className={`flex w-full flex-col overflow-hidden border transition ${isPast ? 'border-burgundy-100 bg-stone-50 opacity-60' : 'border-burgundy-200 bg-ivory hover:border-burgundy-400'}`}>
             <div className="flex flex-1 flex-col p-6 sm:p-8">
               <div className="space-y-2">
                 <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} className="text-sm font-semibold text-burgundy-900" />
@@ -199,7 +204,8 @@ function EventsSection({
             <TrashIcon />
           </button>
         </div>
-      ))}
+        )
+      })}
 
       <button
         onClick={onAdd}
@@ -215,7 +221,10 @@ function EventsSection({
 // ─── Admin page ──────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
-  const [logged, setLogged] = useState(false)
+  const [logged, setLogged] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return localStorage.getItem('admin-logged') === 'true'
+  })
 
   // Per-section locale toggles
   const [communityLocale, setCommunityLocale] = useState<'en' | 'fr'>('en')
@@ -419,7 +428,7 @@ export default function AdminPage() {
   const sectionLabels = ['Community', 'Events', 'Writings']
 
   if (!logged) {
-    return <LoginScreen onLogin={() => setLogged(true)} />
+    return <LoginScreen onLogin={() => { setLogged(true); localStorage.setItem('admin-logged', 'true') }} />
   }
 
   return (
