@@ -8,8 +8,20 @@ import { OptimizedImage } from '@/components/OptimizedImage'
 import { PageIntro } from '@/components/PageIntro'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
+import { WritingsAndPrayer } from '@/components/WritingsAndPrayer'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
+import writingsData from '@/../content/cms/writings.json'
+
+type WritingsEntry = {
+  slug: string
+  passage: string
+  source: string
+  language: string
+  image: string
+}
+
+const writings = writingsData as WritingsEntry[]
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }]
@@ -69,7 +81,6 @@ interface CoreTeachingsProps {
 function CoreTeachings({ eyebrow, heading, intro, items }: CoreTeachingsProps) {
   return (
     <div className="relative mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
-      {/* Cropped globe — viewport-aligned, all sizes except xl */}
       <div className="pointer-events-none absolute right-0 top-0 xl:hidden">
         <OptimizedImage
           src="/learn-more/globe-01.png"
@@ -79,7 +90,6 @@ function CoreTeachings({ eyebrow, heading, intro, items }: CoreTeachingsProps) {
           className="w-36 object-contain opacity-80 sm:w-48 lg:w-72"
         />
       </div>
-      {/* Full globe — container-aligned at xl */}
       <div className="pointer-events-none absolute inset-0 hidden xl:block">
         <Container className="relative h-full">
           <div className="absolute right-0 top-0">
@@ -164,6 +174,14 @@ export default async function LearnMorePage({ params }: { params: any }) {
         heading={t.learnMore.coreTeachings.heading}
         intro={t.learnMore.coreTeachings.intro}
         items={t.learnMore.coreTeachings.items}
+      />
+
+      <WritingsAndPrayer
+        eyebrow={t.learnMore.writingsAndPrayer.eyebrow}
+        heading={t.learnMore.writingsAndPrayer.heading}
+        intro={t.learnMore.writingsAndPrayer.intro}
+        locale={locale}
+        writings={writings}
       />
 
       <Quote

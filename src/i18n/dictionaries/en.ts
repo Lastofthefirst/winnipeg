@@ -187,6 +187,11 @@ const en: Dictionary = {
         { title: 'Justice', body: "Justice is the best-beloved of all things in the sight of God and the centrality of justice to all human endeavours is a cornerstone of Bahá'í social teaching. A just society upholds the rights and dignity of every person." },
       ],
     },
+    writingsAndPrayer: {
+      eyebrow: 'Writings and prayer',
+      heading: 'Sacred texts',
+      intro: "For four decades, thousands of verses, letters and books flowed from the pen of Bahá'u'lláh, amounting to some 100 volumes of Sacred Writings. These passages constitute a central part of Bahá'í scripture, offered here as food for reflection and prayer.",
+    },
     officialResources: {
       eyebrow: 'Official resources',
       heading: 'Explore further',

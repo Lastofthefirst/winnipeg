@@ -187,6 +187,11 @@ const fr: Dictionary = {
         { title: 'Justice', body: "La justice est ce qu'il y a de plus aimé aux yeux de Dieu et la centralité de la justice dans toutes les entreprises humaines est une pierre angulaire de l'enseignement social bahá'í. Une société juste défend les droits et la dignité de chaque personne." },
       ],
     },
+    writingsAndPrayer: {
+      eyebrow: 'Écritures et prières',
+      heading: 'Textes sacrés',
+      intro: "Pendant quatre décennies, des milliers de versets, lettres et livres ont coulé de la plume de Bahá'u'lláh, formant environ 100 volumes d'Écritures sacrées. Ces passages constituent une partie centrale de la scripture bahá'íe, offerts ici comme nourriture pour la réflexion et la prière.",
+    },
     officialResources: {
       eyebrow: 'Ressources officielles',
       heading: 'Approfondissez votre exploration',

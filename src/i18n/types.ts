@@ -44,6 +44,7 @@ export interface Dictionary {
     eyebrow: string; heading: string; intro: string; body: string
     centralFigures: { eyebrow: string; heading: string; intro: string; items: { title: string; body: string }[] }
     coreTeachings: { eyebrow: string; heading: string; intro: string; items: { title: string; body: string }[] }
+    writingsAndPrayer: { eyebrow: string; heading: string; intro: string }
     officialResources: { eyebrow: string; heading: string; intro: string }
   }
   events: {

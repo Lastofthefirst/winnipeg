@@ -131,5 +131,33 @@
     "source": "Bahá'u'lláh",
     "language": "English",
     "image": "unity-three-streams-01_00001_.png"
+  },
+  {
+    "slug": "la-terre",
+    "passage": "La terre est un seul pays et tous les hommes en sont les citoyens.",
+    "source": "Bahá'u'lláh",
+    "language": "French",
+    "image": "globe-01_00001_.png"
+  },
+  {
+    "slug": "le-genre-humain",
+    "passage": "C'est être un homme aujourd'hui que de se consacrer au service du genre humain.",
+    "source": "Bahá'u'lláh",
+    "language": "French",
+    "image": "steel-01_00001_.png"
+  },
+  {
+    "slug": "lunite-et-la-concorde",
+    "passage": "Ne faites pas de la religion une cause de dissensions et de luttes car son but, révélé des cieux de la sainte volonté de Dieu, est d'établir l'unité et la concorde parmi les peuples du monde.",
+    "source": "Bahá'u'lláh",
+    "language": "French",
+    "image": "unity-01_00001_.png"
+  },
+  {
+    "slug": "le-grand-etre",
+    "passage": "Béni celui qui se lève pour servir les plus hauts intérêts des peuples de la terre.",
+    "source": "Bahá'u'lláh",
+    "language": "French",
+    "image": "flame-01_00001_.png"
   }
 ]
