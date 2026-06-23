@@ -59,7 +59,7 @@ function TrashIcon() {
 
 // ─── Login screen ────────────────────────────────────────────────────────────
 
-const ADMIN_PASSWORD = 'w1nn3p3g-c0mmun1ty-2026'
+const ADMIN_PASSWORD = 'nineyearplan'
 
 function LoginScreen({ onLogin }: { onLogin: () => void }) {
   const [password, setPassword] = useState('')
