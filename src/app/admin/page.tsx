@@ -336,10 +336,14 @@ export default function AdminPage() {
     nextWeek.setDate(nextWeek.getDate() + 7)
     const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
     const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
-    setter((prev) => ({
-      ...prev,
-      events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
-    }))
+    setter((prev) => {
+      const newIdx = prev.events.length
+      setEditing(`events.${newIdx}.title`)
+      return {
+        ...prev,
+        events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
+      }
+    })
     dirtySetter(true)
     setPushStatus('idle')
   }

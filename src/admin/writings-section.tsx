@@ -109,7 +109,7 @@ function AutocompleteInput({
   }
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative text-center">
       <input
         type="text"
         value={input}
