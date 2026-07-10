@@ -70,13 +70,6 @@
     "image": "steel-cairn-01_00001_.png"
   },
   {
-    "slug": "supplication",
-    "passage": "\"O Thou Whose face is the object of my adoration, Whose beauty is my sanctuary, Whose habitation is my goal, Whose praise is my hope, Whose providence is my companion, Whose love is the cause of my being, Whose mention is my solace, Whose nearness is my desire, Whose presence is my dearest wish and highest aspiration, I entreat Thee not to withhold from me the things Thou didst ordain for the chosen ones among Thy servants. Supply me, then, with the good of this world and of the next. Thou, truly, art the King of all men. There is no God but Thee, the Ever-Forgiving, the Most Generous.\"",
-    "source": "Bahá'u'lláh",
-    "language": "English",
-    "image": "supplication-wild-rose-01_00001_.png"
-  },
-  {
     "slug": "unity",
     "passage": "\"O ye discerning ones! Verily, the words which have descended from the heaven of the Will of God are the source of unity and harmony for the world. Close your eyes to racial differences, and welcome all with the light of oneness.\"",
     "source": "Bahá'u'lláh",
@@ -166,5 +159,19 @@
     "source": "'Abdu'l Bahá",
     "language": "Anishnaabemowin",
     "image": "globe-prairie-sky-01_00001_.png"
+  },
+  {
+    "slug": "challenges",
+    "passage": "Gawiya na yaa ge moopa zanagiziwin, mii na gwetigwa gazhe manitoo? Kidan: kitchitwawenimigaazo gazhe manitoo. Wiin aawi gazhe manitoo! Kina dankiitaagoon, miinwaa kina naagdoowaanaawaa ezhi gwediwet!",
+    "source": "The Báb",
+    "language": "Anishnaabemowin",
+    "image": "oneness-vines-01_00001_.png"
+  },
+  {
+    "slug": "healing",
+    "passage": "ስምካ  ፈውሰይ  ኢዩ  ዎ’ ኣምላኸይ!  ዝኽርኻ’ውን መድሓንየይ፣  ናባኻ  ምቕራብ  ተስፋይ፣  ምፍቃርካ’ውን  ብጻየይ  ኢዩ።  ምሕረትካ ኣብዛ  ዓለምን  ኣብታ  ኪነወይትን  ፈውሰይን  ረዲኤተይን  ኢዩ።  ብሓቂ  ሲሳይ  ዝመልኣካን  ኩሉ  ዝፈልጥን  ጥበብ  ዝመልኣካን  ኢኻ።",
+    "source": "Bahá'u'lláh",
+    "language": "Tigrinya",
+    "image": "guide-me-fireweed-01_00001_.png"
   }
 ]
