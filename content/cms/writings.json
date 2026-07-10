@@ -21,13 +21,6 @@
     "image": "flame-fireweed-bloom-01_00001_.png"
   },
   {
-    "slug": "forgiver",
-    "passage": "\"O my God! O Thou forgiver of sins, bestower of gifts, dispeller of afflictions! Verily, I beseech Thee to forgive the sins of such as have abandoned the physical garment and have ascended to the spiritual world. O my Lord! Purify them from trespasses, dispel their sorrows, and change their darkness into light. Cause them to enter the garden of happiness, cleanse them with the most pure water, and grant them to behold Thy splendors on the loftiest mount.\"",
-    "source": "'Abdu'l Bahá",
-    "language": "English",
-    "image": "forgiver-spring-water-01_00001_.png"
-  },
-  {
     "slug": "globe",
     "passage": "\"The earth is but one country, and mankind its citizens.\"",
     "source": "Bahá'u'lláh",
@@ -40,13 +33,6 @@
     "source": "'Abdu'l Bahá",
     "language": "English",
     "image": "guide-me-fireweed-01_00001_.png"
-  },
-  {
-    "slug": "merciful",
-    "passage": "\"He Who is your Lord, the All-Merciful, cherisheth in His heart the desire of beholding the entire human race as one soul and one body. Haste ye to win your share of God's good grace and mercy in this Day that eclipseth all other created Days. How great the felicity that awaiteth the man that forsaketh all he hath in a desire to obtain the things of God! Such a man, We testify, is among God's blessed ones.\"",
-    "source": "Bahá'u'lláh",
-    "language": "English",
-    "image": "merciful-elder-tree-01_00001_.png"
   },
   {
     "slug": "oneness",
@@ -173,5 +159,12 @@
     "source": "The Báb",
     "language": "Tigrinya",
     "image": "steel-cairn-01_00001_.png"
+  },
+  {
+    "slug": "children",
+    "passage": "Paamwishin gazhe manitoo, naagdiwenmishin, ozhishin e’waaskowaapkideg waaskonenjigan miinwaa e’gazhiiwaazood anang. Meshkozid miinwaa e’manitoozid gidaaw.",
+    "source": "'Abdu'l Bahá",
+    "language": "Anishnaabemowin",
+    "image": "globe-prairie-sky-01_00001_.png"
   }
 ]
