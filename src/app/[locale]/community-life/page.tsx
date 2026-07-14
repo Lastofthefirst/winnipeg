@@ -2,13 +2,13 @@ import { type Metadata } from 'next'
 import Link from 'next/link'
 
 import { Blockquote } from '@/components/Blockquote'
+import { CommunityLifeHero } from '@/components/CommunityLifeHero'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { FadeInStagger } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { OptimizedImage } from '@/components/OptimizedImage'
-import { PageIntro } from '@/components/PageIntro'
 import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { TagList, TagListItem } from '@/components/TagList'
@@ -110,6 +110,7 @@ interface DevotionalGatheringsProps {
 function DevotionalGatherings({ title, body, whatToExpect, writings }: DevotionalGatheringsProps) {
   return (
     <Section
+      id="devotional-meetings"
       title={title}
       imageSrc="/flowers-clean/flower-patch-10.png"
       imageAlt="Prairie wildflower garden"
@@ -310,9 +311,12 @@ export default async function CommunityLifePage({ params }: { params: any }) {
 
   return (
     <>
-      <PageIntro eyebrow={t.communityLife.eyebrow} title={t.communityLife.heading}>
-        <p>{t.communityLife.intro}</p>
-      </PageIntro>
+      <CommunityLifeHero
+        eyebrow={t.communityLife.eyebrow}
+        heading={t.communityLife.heading}
+        intro={t.communityLife.intro}
+        locale={locale}
+      />
 
       <Quote
         className="mt-24 sm:mt-32 lg:mt-40"
