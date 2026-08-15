@@ -58,7 +58,15 @@ export function WritingsAndPrayer({
     }, {} as Record<string, WritingsEntry[]>)
   }, [entries])
 
-  const authorOrder = ["Bahá'u'lláh", "The Báb", "'Abdu'l Bahá"]
+  const canonicalOrder = ["Bahá'u'lláh", "The Báb", "'Abdu'l Bahá"]
+  const authorOrder = Object.keys(byAuthor).sort((a, b) => {
+    const aIdx = canonicalOrder.indexOf(a)
+    const bIdx = canonicalOrder.indexOf(b)
+    if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
+    if (aIdx !== -1) return -1
+    if (bIdx !== -1) return 1
+    return a.localeCompare(b)
+  })
 
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
