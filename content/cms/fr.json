@@ -1,25 +1,25 @@
 {
   "hero": {
     "eyebrow": "Communauté bahá'íe de Winnipeg",
-    "heading": "Là où les rivières se rejoignent, les cœurs s'unissent",
-    "subheading": "Une communauté accueillante dédiée à l'unité de l'humanité, réunie sur le Territoire du Traité no 1 au cœur des Prairies.",
+    "heading": "Là où les rivières se rencontrent, les cœurs s'unissent",
+    "subheading": "Une communauté accueillante dédiée à l'unité de l'humanité, réunie sur le Territoire du Traité no 1 au cœur des prairies.",
     "ctaActivities": "Activités",
-    "ctaContact": "Contact",
+    "ctaContact": "Nous contacter",
     "background": "/river-confluence/confluence-01.png"
   },
   "community": {
     "eyebrow": "À Winnipeg",
     "heading": "Là où les rivières se rencontrent",
     "body": [
-      "Les deux rivières convergent aux Forks en un courant uni — la vision de Bahá'u'lláh rassemble des personnes de toutes origines en une seule communauté, œuvrant vers un monde plus juste et plus pacifique.",
-      "La communauté bahá'íe de Winnipeg est présente depuis plus d'un siècle, profondément engagée dans la vie de nos quartiers par des programmes dévotionnels, des cercles d'étude et des célébrations communautaires.",
-      "Ce qui se déroule à Winnipeg fait partie d'un effort mondial – des communautés à travers le monde apprennent à bâtir l'unité, à autonomiser les jeunes et à contribuer à l'amélioration de la société."
+      "Deux rivières convergent au site de la Fourche en un courant uni — la vision de Bahá'u'lláh rassemble des personnes de diverses origines en une seule communauté, œuvrant vers un monde plus juste et plus paisible.",
+      "L'Assemblée spirituelle locale a été établie en 1953, des Bahá'ís étant déjà présents à Winnipeg depuis des décennies, cherchant à promouvoir le progrès spirituel et matériel de la communauté.",
+      "À Winnipeg, les bahá'ís et leurs amis participent à un ensemble croissant d'activités de développement communautaire qui rassemble les gens pour prier, réfléchir, apprendre, servir et contribuer au bien-être de toute la communauté. Ce qui se déroule ici fait partie d'un effort mondial – des communautés partout au monde apprennent à bâtir l'unité, à engager les jeunes, à renforcer les familles et les quartiers, et à travailler pour l'amélioration de la société. Tous sont chaleureusement invités à se joindre à cette communauté grandissante."
     ],
     "link": "En savoir plus",
     "image": "/community/garden-bouquet-01.png"
   },
   "activities": {
-    "intro": "La communauté bahá'íe de Winnipeg est engagée dans diverses activités qui rassemblent des personnes pour la prière, l'étude et le service. Comme les rivières qui se rejoignent aux Forks, les bahá'ís et leurs amis se retrouvent depuis toutes origines, unis par une vision commune.",
+    "intro": "Dans nos communautés, nous apprenons à créer des espaces où les personnes de tous âges peuvent se réunir pour réfléchir à des enseignements spirituels, renforcer leurs liens d'amitié, se consulter, s'accompagner mutuellement et contribuer au bien-être de leur quartier. La communauté bahá'íe de Winnipeg participe à des activités qui comprennent des rencontres de prière, des classes pour enfants, des groupes de jeunes adolescents, des cercles d'étude, des visites à domicile et des actes de service. Tout comme les rivières qui se rencontrent à la Fourche, les bahá'ís et leurs amis se réunissent, venant de divers milieux, et unis par une vision commune d'une communauté paisible et épanouie.",
     "items": [
       {
         "title": "Classes d'enfants",
@@ -27,7 +27,7 @@
         "image": "/activity-cards/childrens-classes-01.png"
       },
       {
-        "title": "Jeunes d'aujourd'hui",
+        "title": "Les préjeunes",
         "description": "Accompagner les jeunes de 12 à 15 ans dans le développement de leurs capacités d'expression, de leur raisonnement moral et de leur aptitude au service communautaire.",
         "image": "/activity-cards/junior-youth-01.png"
       },
@@ -38,7 +38,7 @@
       },
       {
         "title": "Cercles d'étude",
-        "description": "Explorer les principes spirituels et sociaux en petits groupes, en développant une capacité de service à la société.",
+        "description": "Explorer les principes spirituels et sociaux en petits groupes, tout en développant une capacité de service à la société.",
         "image": "/activity-cards/study-circles-01.png"
       }
     ]
