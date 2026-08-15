@@ -72,7 +72,6 @@ const en: Dictionary = {
       "Founded by Bahá'u'lláh in the nineteenth century, the Bahá'í Faith has spread to virtually every country and territory on Earth, bringing together people from more than 2,100 diverse ethnic and cultural backgrounds. At the heart of the Faith is the conviction that humanity is one family and that the time has come for its unification into one peaceful global society.",
       "Bahá'ís are engaged in a twofold endeavour: attending to the inner life of the individual and contributing to the transformation of society. These are not separate aims. Through devotional meetings, study circles, and programs for children and youth, Bahá'ís and their friends work to build communities that reflect the principles of justice, unity, and the oneness of humankind.",
     ],
-    stats: { bahaisWorldwide: "Bahá'ís worldwide", localitiesGlobally: 'Localities globally', yearsInWinnipeg: 'Years in Winnipeg' },
     corePrinciples: {
       eyebrow: 'Core principles',
       heading: 'The oneness of humanity — the pivot round which all else revolves.',
@@ -225,8 +224,7 @@ const en: Dictionary = {
     form: {
       heading: 'Get in touch',
       name: 'Name', email: 'Email', phone: 'Phone',
-      subject: 'Subject', subjectPlaceholder: 'Select a reason',
-      subjectOptions: ['General inquiry', 'Attending an event', 'Learning about the Faith', 'Community activities', 'Facility rental', 'Other'],
+      subject: 'Subject',
       message: 'Message', button: 'Send Message',
     },
     visiting: {

@@ -22,7 +22,6 @@ export interface Dictionary {
   }
   about: {
     eyebrow: string; heading: string; intro: string; body: string[]
-    stats: { bahaisWorldwide: string; localitiesGlobally: string; yearsInWinnipeg: string }
     corePrinciples: {
       eyebrow: string; heading: string; intro: string
       items: { title: string; body: string }[]
@@ -57,7 +56,7 @@ export interface Dictionary {
     eyebrow: string; heading: string; intro: string
     form: {
       heading: string; name: string; email: string; phone: string
-      subject: string; subjectPlaceholder: string; subjectOptions: string[]
+      subject: string
       message: string; button: string
     }
     visiting: { heading: string; body: string }
