@@ -6,8 +6,12 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
-import type { UpcomingEvent } from '@/components/EventsPreview'
-import { parseEventDate } from '@/utils/eventDate'
+import {
+  getUpcomingEvents,
+  formatEventDate,
+  localizeEvent,
+} from '@/utils/events'
+import type { UpcomingEvent } from '@/utils/events'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
 import cmsEn from '@/../content/cms/en.json'
@@ -33,22 +37,6 @@ function mapCmsEvents(locale: Locale): UpcomingEvent[] {
       description_en: '',
       description_fr: '',
     }
-  })
-}
-
-
-function localizeEvent(event: UpcomingEvent, locale: Locale) {
-  return {
-    title: (locale === 'fr' ? event.title_fr : undefined) ?? event.title_en,
-    description: (locale === 'fr' ? event.description_fr : undefined) ?? event.description_en,
-    location: (locale === 'fr' ? event.location_fr : undefined) ?? event.location_en,
-  }
-}
-
-function formatEventDate(dateString: string, locale: Locale = 'en') {
-  const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-US'
-  return parseEventDate(dateString).toLocaleDateString(dateLocale, {
-    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
   })
 }
 
@@ -122,7 +110,7 @@ function Invitation({ eyebrow, heading, body, link, locale }: InvitationProps) {
 export default async function EventsPage({ params }: { params: any }) {
   const { locale } = (await params) as { locale: Locale }
   const t = await getDictionary(locale)
-  const events = mapCmsEvents(locale)
+  const events = getUpcomingEvents(mapCmsEvents(locale))
 
   return (
     <>

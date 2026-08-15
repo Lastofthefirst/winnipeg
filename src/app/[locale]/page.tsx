@@ -4,8 +4,8 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
-import type { UpcomingEvent } from '@/components/EventsPreview'
-import { parseEventDate } from '@/utils/eventDate'
+import { getUpcomingEvents } from '@/utils/events'
+import type { UpcomingEvent } from '@/utils/events'
 import { NewsFeed } from '@/components/NewsFeed'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { Blockquote } from '@/components/Blockquote'
@@ -26,17 +26,6 @@ function mapCmsEvents(locale: Locale): UpcomingEvent[] {
     location_en: e.location,
     description_en: '',
   }))
-}
-
-function getUpcomingEvents(events: UpcomingEvent[]) {
-  const now = new Date()
-  return events
-    .filter((e) => {
-      const base = parseEventDate(e.date)
-      base.setDate(base.getDate() + 2)
-      return base > now
-    })
-    .sort((a, b) => parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime())
 }
 
 export function generateStaticParams() {
