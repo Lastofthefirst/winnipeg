@@ -3,36 +3,54 @@
     "id": "1",
     "title_en": "Devotional Gathering",
     "title_fr": "Réunion dévotionnelle",
-    "date": "July 12, 2026",
+    "date": "August 23, 2026",
     "time": "10:00 AM",
-    "location_en": "Bahá'í Centre, 521 McMillan Ave.",
-    "location_fr": "Maison communautaire"
+    "location_en": "Bahá'í Centre,  521 McMillan Ave.",
+    "location_fr": "Centre bahá'í, 521, av. McMillan"
   },
   {
     "id": "1782071603334",
     "title_en": "Devotional Gathering",
     "title_fr": "Réunion dévotionnelle",
-    "date": "July 15, 2026",
+    "date": "August 19, 2026",
     "time": "7:00 PM",
-    "location_en": "Bahá'í Centre, 521 McMillan Ave.",
-    "location_fr": "Maison communautaire"
+    "location_en": "Bahá'í Centre,  521 McMillan Ave.",
+    "location_fr": "Centre bahá'í, 521, av. McMillan"
   },
   {
-    "id": "2",
-    "title_en": "Children's Class",
-    "title_fr": "Classe pour enfants",
-    "date": "June 15, 2026",
-    "time": "4:00 PM",
-    "location_en": "Online",
-    "location_fr": "En ligne"
+    "id": "1787146539442",
+    "title_en": "Birth of the Báb",
+    "title_fr": "Naissance du Báb",
+    "date": "November 10, 2026",
+    "time": "2:00 PM",
+    "location_en": "TBA",
+    "location_fr": "À déterminer"
   },
   {
-    "id": "3",
-    "title_en": "Study Circle",
-    "title_fr": "Cercle d'étude",
-    "date": "June 21, 2026",
-    "time": "6:30 PM",
-    "location_en": "Community home",
-    "location_fr": "Maison communautaire"
+    "id": "1787146704648",
+    "title_en": "Birth of Bahá’u’lláh",
+    "title_fr": "Naissance de Bahá’u’lláh",
+    "date": "November 11, 2026",
+    "time": "2:00 PM",
+    "location_en": "TBA",
+    "location_fr": "À déterminer"
+  },
+  {
+    "id": "1787146772115",
+    "title_en": "Day of the Covenant* commemorating Bahá’u’lláh’s appointment of His son, ‘Abdu’l-Bahá, as the One to whom His followers should turn after His passing.",
+    "title_fr": "Journée de l’Alliance* commémorant la désignation, par Bahá’u’lláh, de Son fils, ‘Abdu’l-Bahá, comme Celui à qui Ses adeptes doivent se tourner après Son départ.",
+    "date": "November 26, 2026",
+    "time": "12:00 PM",
+    "location_en": "TBA",
+    "location_fr": "À déterminer"
+  },
+  {
+    "id": "1787146916627",
+    "title_en": "Ascension of ‘Abdu’l-Bahá* marking the passing of ‘Abdu’l-Bahá in 1921",
+    "title_fr": "Ascension de ‘Abdu’l-Bahá* marquant le départ de ‘Abdu’l-Bahá en 1921",
+    "date": "November 28, 2026",
+    "time": "2:00 PM",
+    "location_en": "TBA",
+    "location_fr": "À déterminer"
   }
 ]
