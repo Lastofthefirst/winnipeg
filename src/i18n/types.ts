@@ -2,7 +2,7 @@ export type Locale = 'en' | 'fr'
 
 export interface Dictionary {
   nav: {
-    home: string; about: string; communityLife: string; learnMore: string
+    home: string; about: string; communityLife: string; theFaith: string
     events: string; news: string; contact: string
   }
   footer: { explore: string; officialResources: string; connect: string }
@@ -10,6 +10,7 @@ export interface Dictionary {
   eventsPreview: {
     eyebrow: string; heading: string; intro: string; seeAllEvents: string
     invitation: { eyebrow: string; heading: string; body: string; link: string }
+    repeat: { weekly: string; biweekly: string; monthly: string; until: string }
   }
   home: {
     hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
@@ -39,17 +40,18 @@ export interface Dictionary {
     service: { eyebrow: string; heading: string; body: string[] }
     values: { eyebrow: string; heading: string; intro: string; items: { title: string; body: string }[] }
   }
-  learnMore: {
+  theFaith: {
     eyebrow: string; heading: string; intro: string; body: string
     centralFigures: { eyebrow: string; heading: string; intro: string; items: { title: string; body: string }[] }
     coreTeachings: { eyebrow: string; heading: string; intro: string; items: { title: string; body: string }[] }
-    writingsAndPrayer: { eyebrow: string; heading: string; intro: string }
+    writingsAndPrayer: { eyebrow: string; heading: string; intro: string; downloadAll: string }
     officialResources: { eyebrow: string; heading: string; intro: string }
   }
   events: {
     eyebrow: string; heading: string; intro: string
     invitation: { eyebrow: string; heading: string; body: string; link: string }
     alwaysGathering: string; evergreenBody: string; evergreenLink: string
+    repeat: { weekly: string; biweekly: string; monthly: string; until: string }
   }
   news: { eyebrow: string; heading: string; intro: string; visitMore: string }
   contact: {
@@ -67,7 +69,7 @@ export interface Dictionary {
     home: { title: string; description: string }
     about: { title: string; description: string }
     communityLife: { title: string; description: string }
-    learnMore: { title: string; description: string }
+    theFaith: { title: string; description: string }
     events: { title: string; description: string }
     news: { title: string; description: string }
     contact: { title: string; description: string }

@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 const BASE_URL = 'https://winnipegbahais.org'
 const LOCALES = ['en', 'fr'] as const
-const PAGES = ['', '/about', '/community-life', '/learn-more', '/events', '/news', '/contact'] as const
+const PAGES = ['', '/about', '/community-life', '/the-faith', '/events', '/news', '/contact'] as const
 
 const writings = writingsData as { slug: string }[]
 

@@ -1,14 +1,16 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback, useEffect } from 'react'
+
+import { parseEventDate } from '@/utils/eventDate'
 
 // ─── Date / time formatting helpers ─────────────────────────────────────────
 
-/** Parse a date string (ISO, "Month Day, Year", etc.) and return YYYY-MM-DD. */
+/** Parse a date string (ISO, "Month Day, Year", "14 juin 2026") and return YYYY-MM-DD. */
 function parseDateToISO(dateStr: string): string {
-  const d = new Date(dateStr + 'T00:00:00')
-  if (isNaN(d.getTime())) return ''
-  return d.toISOString().slice(0, 10)
+  const d = parseEventDate(dateStr)
+  if (Number.isNaN(d.getTime())) return ''
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
 /** Format YYYY-MM-DD into "Month Day, Year" (e.g. "June 14, 2026"). */
@@ -65,39 +67,31 @@ export function DatePicker({
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // When not editing, show the formatted value
-  const [draftISO, setDraftISO] = useState(parseDateToISO(value))
+  // The input mounts fresh each time editing starts, so it reads its initial
+  // value from `value` at mount time — no draft state to sync.
+  const handleCommit = useCallback(() => {
+    const isoVal = inputRef.current?.value ?? parseDateToISO(value)
+    onChange(field, formatDateFromISO(isoVal, locale))
+    onEdit('')
+  }, [field, value, locale, onChange, onEdit])
 
-  useEffect(() => {
-    if (!isEditing) setDraftISO(parseDateToISO(value))
-  }, [isEditing, value])
+  const handleClick = useCallback(() => onEdit(field), [field, onEdit])
 
   useEffect(() => {
     if (isEditing) inputRef.current?.focus()
   }, [isEditing])
-
-  const handleCommit = useCallback((isoVal: string) => {
-    const display = formatDateFromISO(isoVal, locale)
-    onChange(field, display)
-    onEdit('')
-  }, [field, locale, onChange, onEdit])
-
-  const handleClick = useCallback(() => {
-    setDraftISO(parseDateToISO(value))
-    onEdit(field)
-  }, [field, value, onEdit])
 
   // Close on outside click
   useEffect(() => {
     if (!isEditing) return
     function handler(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        handleCommit(draftISO)
+        handleCommit()
       }
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
-  }, [isEditing, draftISO, handleCommit])
+  }, [isEditing, handleCommit])
 
   const displayValue = value || 'Select date'
 
@@ -119,10 +113,9 @@ export function DatePicker({
           <input
             ref={inputRef}
             type="date"
-            value={draftISO}
-            onChange={(e) => setDraftISO(e.target.value)}
-            onBlur={() => handleCommit(draftISO)}
-            onKeyDown={(e) => { if (e.key === 'Enter') handleCommit(draftISO) }}
+            defaultValue={parseDateToISO(value)}
+            onBlur={handleCommit}
+            onKeyDown={(e) => { if (e.key === 'Enter') handleCommit() }}
             className="w-full rounded border-2 border-amber-400 bg-white px-1.5 py-1 text-sm text-burgundy-900 outline-none focus:ring-2 focus:ring-amber-400/20"
           />
         </div>
@@ -159,12 +152,21 @@ function parseTimeTo24h(time12: string): string {
   if (!time12) return ''
   const match = time12.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i)
   if (!match) return ''
-  let h = parseInt(match[1])
+  let h = Number.parseInt(match[1])
   const m = match[2]
   const ampm = match[3].toUpperCase()
   if (ampm === 'PM' && h !== 12) h += 12
   if (ampm === 'AM' && h === 12) h = 0
   return `${String(h).padStart(2, '0')}:${m}`
+}
+
+// Coerce a stored time ("10:00 AM", "14:00") to the <input type=time> format
+function toTimeInputValue(value: string): string {
+  const parts = value.split(':')
+  if (parts.length === 2 && Number.parseInt(parts[0]) <= 23) {
+    return value.split(' ')[0]
+  }
+  return parseTimeTo24h(value)
 }
 
 export function TimePicker({
@@ -180,44 +182,29 @@ export function TimePicker({
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Try to parse as 12h -> 24h for the input
-  const [draftTime, setDraftTime] = useState('')
+  // The input mounts fresh each time editing starts, so it reads its initial
+  // value from `value` at mount time — no draft state to sync.
+  const handleCommit = useCallback(() => {
+    onChange(field, formatTime12h(inputRef.current?.value ?? toTimeInputValue(value)))
+    onEdit('')
+  }, [field, value, onChange, onEdit])
 
-  useEffect(() => {
-    if (!isEditing) {
-      // If value is already 24h format, use it; otherwise try 12h
-      const parts = value.split(':')
-      if (parts.length === 2 && parseInt(parts[0]) <= 23) {
-        setDraftTime(value.split(' ')[0]) // "14:00" from "14:00:00"
-      } else {
-        setDraftTime(parseTimeTo24h(value))
-      }
-    }
-  }, [isEditing, value])
+  const handleClick = useCallback(() => onEdit(field), [field, onEdit])
 
   useEffect(() => {
     if (isEditing) inputRef.current?.focus()
   }, [isEditing])
 
-  const handleCommit = useCallback((time24: string) => {
-    onChange(field, formatTime12h(time24))
-    onEdit('')
-  }, [field, onChange, onEdit])
-
-  const handleClick = useCallback(() => {
-    onEdit(field)
-  }, [field, onEdit])
-
   useEffect(() => {
     if (!isEditing) return
     function handler(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        handleCommit(draftTime)
+        handleCommit()
       }
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
-  }, [isEditing, draftTime, handleCommit])
+  }, [isEditing, handleCommit])
 
   const displayValue = value || 'Select time'
 
@@ -237,10 +224,9 @@ export function TimePicker({
           <input
             ref={inputRef}
             type="time"
-            value={draftTime}
-            onChange={(e) => setDraftTime(e.target.value)}
-            onBlur={() => handleCommit(draftTime)}
-            onKeyDown={(e) => { if (e.key === 'Enter') handleCommit(draftTime) }}
+            defaultValue={toTimeInputValue(value)}
+            onBlur={handleCommit}
+            onKeyDown={(e) => { if (e.key === 'Enter') handleCommit() }}
             className="w-full rounded border-2 border-amber-400 bg-white px-1.5 py-1 text-sm text-burgundy-900 outline-none focus:ring-2 focus:ring-amber-400/20"
           />
         </div>

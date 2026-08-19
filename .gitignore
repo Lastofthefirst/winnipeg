@@ -13,6 +13,9 @@
 /out/
 /.wrangler/
 
+# generated prayer card PDFs
+/public/writings-pdf/
+
 # production
 /build
 

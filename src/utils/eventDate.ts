@@ -15,6 +15,9 @@ function monthByName(name: string): number | undefined {
 }
 
 export function parseEventDate(dateString: string): Date {
+  // Plain ISO dates (YYYY-MM-DD) are calendar dates — parse as local, not UTC
+  const iso = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (iso) return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]))
   const parsed = new Date(dateString)
   if (!Number.isNaN(parsed.getTime())) return parsed
   // "July 12, 2026"

@@ -4,41 +4,16 @@ import Link from 'next/link'
 import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
+import { EventRepeat } from '@/components/EventRepeat'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
-import {
-  getUpcomingEvents,
-  formatEventDate,
-  localizeEvent,
-} from '@/utils/events'
-import type { UpcomingEvent } from '@/utils/events'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
-import cmsEn from '@/../content/cms/en.json'
-import cmsFr from '@/../content/cms/fr.json'
+import { getUpcomingEvents, formatEventDate, localizeEvent } from '@/utils/events'
+import eventsData from '@/../content/cms/events.json'
+import type { CmsEvent } from '@/utils/events'
 
-const cmsEventsEn = (cmsEn as { events: Array<{ id: string; title: string; date: string; time: string; location: string }> }).events
-const cmsEventsFr = (cmsFr as { events: Array<{ id: string; title: string; date: string; time: string; location: string }> }).events
-
-function mapCmsEvents(locale: Locale): UpcomingEvent[] {
-  const primary = locale === 'en' ? cmsEventsEn : cmsEventsFr
-  const fallback = locale === 'en' ? cmsEventsFr : cmsEventsEn
-  const fallbackByTitle = new Map(fallback.map((e) => [e.id, e]))
-  return primary.map((e) => {
-    const fb = fallbackByTitle.get(e.id)
-    return {
-      id: e.id,
-      date: e.date,
-      time: e.time,
-      title_en: locale === 'en' ? e.title : (fb?.title ?? e.title),
-      title_fr: locale === 'fr' ? e.title : (fb?.title ?? e.title),
-      location_en: locale === 'en' ? e.location : (fb?.location ?? e.location),
-      location_fr: locale === 'fr' ? e.location : (fb?.location ?? e.location),
-      description_en: '',
-      description_fr: '',
-    }
-  })
-}
+const events = eventsData as CmsEvent[]
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }]
@@ -110,7 +85,7 @@ function Invitation({ eyebrow, heading, body, link, locale }: InvitationProps) {
 export default async function EventsPage({ params }: { params: any }) {
   const { locale } = (await params) as { locale: Locale }
   const t = await getDictionary(locale)
-  const events = getUpcomingEvents(mapCmsEvents(locale))
+  const upcoming = getUpcomingEvents(events)
 
   return (
     <>
@@ -119,7 +94,7 @@ export default async function EventsPage({ params }: { params: any }) {
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
-        {events.length === 0 ? (
+        {upcoming.length === 0 ? (
           <Invitation
             eyebrow={t.events.invitation.eyebrow}
             heading={t.events.invitation.heading}
@@ -131,10 +106,10 @@ export default async function EventsPage({ params }: { params: any }) {
           <>
             <FadeInStagger>
               <div className="space-y-16">
-                {events.map((event) => {
+                {upcoming.map((event) => {
                   const { title, description, location } = localizeEvent(event, locale)
                   return (
-                    <FadeIn key={event.id ?? event.date + event.title_en}>
+                    <FadeIn key={event.id}>
                       <article>
                         <Border className="pt-16">
                           <div className="relative lg:-mx-4 lg:flex lg:justify-end">
@@ -145,10 +120,23 @@ export default async function EventsPage({ params }: { params: any }) {
                               <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
                                 <dt className="sr-only">Date</dt>
                                 <dd className="absolute left-0 top-0 text-sm text-burgundy-900 lg:static">
-                                  <time dateTime={event.date}>
+                                  <time dateTime={event.date.toISOString()}>
                                     {formatEventDate(event.date, locale)}
                                   </time>
                                 </dd>
+                                {event.repeat && (
+                                  <>
+                                    <dt className="sr-only">Repeat</dt>
+                                    <dd className="mt-2 lg:mt-3">
+                                      <EventRepeat
+                                        repeat={event.repeat}
+                                        endDate={event.endDate}
+                                        locale={locale}
+                                        labels={t.events.repeat}
+                                      />
+                                    </dd>
+                                  </>
+                                )}
                                 {event.time && (
                                   <>
                                     <dt className="sr-only">Time</dt>
@@ -166,9 +154,11 @@ export default async function EventsPage({ params }: { params: any }) {
                                   </>
                                 )}
                               </dl>
-                              <p className="mt-6 max-w-2xl text-base leading-relaxed text-burgundy-700">
-                                {description}
-                              </p>
+                              {description && (
+                                <p className="mt-6 max-w-2xl text-base leading-relaxed text-burgundy-700">
+                                  {description}
+                                </p>
+                              )}
                             </div>
                           </div>
                         </Border>

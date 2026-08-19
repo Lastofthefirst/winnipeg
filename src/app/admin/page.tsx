@@ -1,15 +1,17 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import ExportedImage from 'next-image-export-optimizer'
 import contentEnDefault from '../../../content/cms/en.json'
 import contentFrDefault from '../../../content/cms/fr.json'
 import writingsDefault from '../../../content/cms/writings.json'
+import eventsDefault from '../../../content/cms/events.json'
 import { WritingsSection, type WritingsEntry } from '@/admin/writings-section'
+import { EventsSection } from '@/admin/events-section'
 import { AdminShell, SectionCard } from '@/admin/shell'
 import { EditableText as EditableTextImport } from '@/admin/editable'
-import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
-import { parseEventDate } from '@/utils/eventDate'
+import type { CmsEvent, Recurrence } from '@/utils/events'
 
 // Import as build-time defaults
 const contentEn = contentEnDefault as CMSContent
@@ -25,10 +27,10 @@ interface CMSContent {
     link: string
     image: string
   }
-  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
 const writingsData = writingsDefault as WritingsEntry[]
+const eventsData = eventsDefault as CmsEvent[]
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -37,22 +39,6 @@ function LockIcon() {
     <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
       <rect x="3" y="11" width="18" height="11" rx="2" />
       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  )
-}
-
-function PlusIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-      <path d="M12 5v14M5 12h14" />
-    </svg>
-  )
-}
-
-function TrashIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-      <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14" />
     </svg>
   )
 }
@@ -150,70 +136,16 @@ function CommunitySection({
           <EditableTextImport field="community.link" value={link} editing={editing} onEdit={onEdit} onChange={onChange} as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-900" />
         </div>
       </div>
-      <div className="mt-8 lg:mt-0 lg:w-1/2">
-        <img src={image} alt="Community" className="w-full object-contain rounded-lg" />
+      <div className="relative mt-8 aspect-[3/4] w-full overflow-hidden rounded-lg lg:mt-0 lg:w-1/2">
+        <ExportedImage
+          src={image}
+          alt="Community"
+          fill
+          sizes="(min-width: 1024px) 42vw, 100vw"
+          className="rounded-lg"
+          style={{ objectFit: 'contain' }}
+        />
       </div>
-    </div>
-  )
-}
-
-// ─── Events section ──────────────────────────────────────────────────────────
-
-function EventsSection({
-  events,
-  editing,
-  onEdit,
-  onChange,
-  onAdd,
-  onRemove,
-  locale,
-}: {
-  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-  onAdd: () => void
-  onRemove: (id: string) => void
-  locale: 'en' | 'fr'
-}) {
-  return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {events.map((event, idx) => {
-        const eventDate = parseEventDate(event.date)
-        const isPast = eventDate < new Date()
-
-        return (
-        <div key={event.id} className="group relative">
-          <article className={`flex w-full flex-col overflow-hidden border transition ${isPast ? 'border-burgundy-100 bg-stone-50 opacity-60' : 'border-burgundy-200 bg-ivory hover:border-burgundy-400'}`}>
-            <div className="flex flex-1 flex-col p-6 sm:p-8">
-              <div className="space-y-2">
-                <DatePicker field={`events.${idx}.date`} value={event.date} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} className="text-sm font-semibold text-burgundy-900" />
-                <TimePicker field={`events.${idx}.time`} value={event.time} editing={editing} onEdit={onEdit} onChange={onChange} locale={locale} />
-              </div>
-              <EditableTextImport field={`events.${idx}.title`} value={event.title} editing={editing} onEdit={onEdit} onChange={onChange} as="h3" className="mt-6 font-display text-2xl font-normal text-burgundy-900" />
-              {event.location && (
-                <EditableTextImport field={`events.${idx}.location`} value={event.location} editing={editing} onEdit={onEdit} onChange={onChange} as="p" className="mt-2 text-sm text-burgundy-500" />
-              )}
-            </div>
-          </article>
-          <button
-            onClick={() => onRemove(event.id)}
-            className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-lg bg-white/80 text-stone-400 opacity-0 transition backdrop-blur group-hover:opacity-100 hover:bg-red-50 hover:text-red-500"
-            aria-label="Remove event"
-          >
-            <TrashIcon />
-          </button>
-        </div>
-        )
-      })}
-
-      <button
-        onClick={onAdd}
-        className="flex w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-burgundy-200 bg-stone-50 py-16 text-sm font-medium text-burgundy-400 transition hover:border-burgundy-300 hover:bg-ivory hover:text-burgundy-600"
-      >
-        <PlusIcon />
-        Add Event
-      </button>
     </div>
   )
 }
@@ -233,12 +165,12 @@ export default function AdminPage() {
   // Both locale contents loaded simultaneously
   const [contentEnState, setContentEnState] = useState<CMSContent>(contentEn)
   const [contentFrState, setContentFrState] = useState<CMSContent>(contentFr)
-  const [originalEn, setOriginalEn] = useState<CMSContent>(contentEn)
-  const [originalFr, setOriginalFr] = useState<CMSContent>(contentFr)
+  const [eventsState, setEventsState] = useState<CmsEvent[]>(eventsData)
 
   const [editing, setEditing] = useState<string | null>(null)
   const [enDirty, setEnDirty] = useState(false)
   const [frDirty, setFrDirty] = useState(false)
+  const [eventsDirty, setEventsDirty] = useState(false)
   const [pushing, setPushing] = useState(false)
   const [pushStatus, setPushStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [pushMessage, setPushMessage] = useState('')
@@ -247,21 +179,21 @@ export default function AdminPage() {
   // Countdown timer for rebuild estimate
   useEffect(() => {
     if (rebuildSeconds <= 0) return
-    if (rebuildSeconds === 1) {
-      setPushMessage('Changes should be live shortly')
-      return
-    }
     const timer = setTimeout(() => setRebuildSeconds((s) => s - 1), 1000)
     return () => clearTimeout(timer)
   }, [rebuildSeconds])
+
+  const statusMessage = pushStatus === 'success'
+    ? rebuildSeconds > 0
+      ? 'Changes published! Site is rebuilding now…'
+      : 'Changes should be live shortly'
+    : pushMessage
 
   // Writings state
   const [writings, setWritings] = useState<WritingsEntry[]>(writingsData)
   const [writingsDirty, setWritingsDirty] = useState(false)
 
-
-
-  const dirty = enDirty || frDirty || writingsDirty
+  const dirty = enDirty || frDirty || writingsDirty || eventsDirty
 
   // On login, fetch latest content from GitHub for both locales
   useEffect(() => {
@@ -270,18 +202,14 @@ export default function AdminPage() {
     // Fetch EN
     fetchFile('content/cms/en.json').then((file) => {
       if (file) {
-        const parsed = JSON.parse(file.content) as CMSContent
-        setContentEnState(parsed)
-        setOriginalEn(parsed)
+        setContentEnState(JSON.parse(file.content) as CMSContent)
       }
     }).catch(() => {})
 
     // Fetch FR
     fetchFile('content/cms/fr.json').then((file) => {
       if (file) {
-        const parsed = JSON.parse(file.content) as CMSContent
-        setContentFrState(parsed)
-        setOriginalFr(parsed)
+        setContentFrState(JSON.parse(file.content) as CMSContent)
       }
     }).catch(() => {})
 
@@ -290,6 +218,14 @@ export default function AdminPage() {
       if (file) {
         const parsed = JSON.parse(file.content) as WritingsEntry[]
         setWritings(parsed)
+      }
+    }).catch(() => {})
+
+    // Fetch events
+    fetchFile('content/cms/events.json').then((file) => {
+      if (file) {
+        const parsed = JSON.parse(file.content) as CmsEvent[]
+        setEventsState(parsed)
       }
     }).catch(() => {})
   }, [logged])
@@ -314,48 +250,63 @@ export default function AdminPage() {
     setPushStatus('idle')
   }
 
+  const LOCALED_EVENT_FIELDS = ['title', 'location', 'description']
+
   function handleEventsChange(field: string, value: string) {
     const parts = field.split('.')
-    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
-    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
-
     const idx = parseInt(parts[1]!)
-    const eventField = parts[2]!
-    setter((prev) => {
-      const events = prev.events.map((ev, i) =>
-        i === idx ? { ...ev, [eventField]: value } : ev,
-      )
-      return { ...prev, events }
-    })
-    dirtySetter(true)
+    let eventField = parts[2]!
+    if (LOCALED_EVENT_FIELDS.includes(eventField)) {
+      eventField = `${eventField}_${eventsLocale}`
+    }
+    setEventsState((prev) =>
+      prev.map((ev, i) => (i === idx ? { ...ev, [eventField]: value } : ev)),
+    )
+    setEventsDirty(true)
+    setPushStatus('idle')
+  }
+
+  function handleEventRepeatChange(index: number, repeat: Recurrence | null) {
+    setEventsState((prev) =>
+      prev.map((ev, i) => {
+        if (i !== index) return ev
+        const next: CmsEvent = { ...ev, repeat }
+        if (!repeat) delete next.endDate
+        return next
+      }),
+    )
+    setEventsDirty(true)
     setPushStatus('idle')
   }
 
   function handleAddEvent() {
     const nextWeek = new Date()
     nextWeek.setDate(nextWeek.getDate() + 7)
-    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
-    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
-    setter((prev) => {
-      const newIdx = prev.events.length
-      setEditing(`events.${newIdx}.title`)
-      return {
-        ...prev,
-        events: [...prev.events, { id: String(Date.now()), title: 'New Event', date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }), time: '2:00 PM', location: 'Community Home' }],
-      }
-    })
-    dirtySetter(true)
+    const newIdx = eventsState.length
+    const title = eventsLocale === 'fr' ? 'Nouvel événement' : 'New Event'
+    setEventsState((prev) => [
+      ...prev,
+      {
+        id: String(Date.now()),
+        title_en: eventsLocale === 'en' ? title : '',
+        title_fr: eventsLocale === 'fr' ? title : '',
+        date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+        time: '2:00 PM',
+        location_en: '',
+        location_fr: '',
+        description_en: '',
+        description_fr: '',
+        repeat: null,
+      },
+    ])
+    setEditing(`events.${newIdx}.title`)
+    setEventsDirty(true)
     setPushStatus('idle')
   }
 
   function handleRemoveEvent(id: string) {
-    const setter = eventsLocale === 'en' ? setContentEnState : setContentFrState
-    const dirtySetter = eventsLocale === 'en' ? setEnDirty : setFrDirty
-    setter((prev) => ({
-      ...prev,
-      events: prev.events.filter((ev) => ev.id !== id),
-    }))
-    dirtySetter(true)
+    setEventsState((prev) => prev.filter((ev) => ev.id !== id))
+    setEventsDirty(true)
     setPushStatus('idle')
   }
 
@@ -410,24 +361,27 @@ export default function AdminPage() {
       filesToCommit.push({ path: 'content/cms/writings.json', content: JSON.stringify(writings, null, 2) })
     }
 
+    // Commit events if dirty
+    if (eventsDirty) {
+      filesToCommit.push({ path: 'content/cms/events.json', content: JSON.stringify(eventsState, null, 2) })
+    }
+
     const result = await commitFiles(filesToCommit, 'cms')
 
     if (result.ok) {
       setPushStatus('success')
-      setPushMessage('Changes published! Site is rebuilding now…')
       setRebuildSeconds(120)
-      setOriginalEn(contentEnState)
-      setOriginalFr(contentFrState)
       setEnDirty(false)
       setFrDirty(false)
       setWritingsDirty(false)
+      setEventsDirty(false)
     } else {
       setPushStatus('error')
       setPushMessage(result.error || 'Failed to publish changes.')
     }
 
     setPushing(false)
-  }, [dirty, pushing, enDirty, frDirty, contentEnState, contentFrState, writings, writingsDirty])
+  }, [dirty, pushing, enDirty, frDirty, eventsDirty, contentEnState, contentFrState, eventsState, writings, writingsDirty])
 
   const sectionLabels = ['Community', 'Events', 'Writings']
 
@@ -441,7 +395,7 @@ export default function AdminPage() {
       onPush={handlePush}
       pushing={pushing}
       pushStatus={pushStatus}
-      pushMessage={pushMessage}
+      pushMessage={statusMessage}
       rebuildSeconds={rebuildSeconds}
       sectionLabels={sectionLabels}
     >
@@ -458,13 +412,14 @@ export default function AdminPage() {
       {/* Events */}
       <SectionCard id="section-events" label="Events" page="Events Page" bgColor="bg-ivory" locale={eventsLocale} onLocaleChange={setEventsLocale}>
         <EventsSection
-          events={(eventsLocale === 'en' ? contentEnState : contentFrState).events}
+          events={eventsState}
+          locale={eventsLocale}
           editing={editing}
           onEdit={setEditing}
           onChange={handleEventsChange}
+          onRepeatChange={handleEventRepeatChange}
           onAdd={handleAddEvent}
           onRemove={handleRemoveEvent}
-          locale={eventsLocale}
         />
       </SectionCard>
 

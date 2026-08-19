@@ -78,7 +78,7 @@ export function AdminShell({
             <div className="h-6 w-px bg-gold-500" />
             <div>
               <h1 className="font-display text-sm font-normal text-burgundy-900">
-                Bahá'í Community of Winnipeg
+                Bahá&apos;í Community of Winnipeg
               </h1>
               <p className="text-[10px] uppercase tracking-[0.2em] text-burgundy-400">
                 Site Editor

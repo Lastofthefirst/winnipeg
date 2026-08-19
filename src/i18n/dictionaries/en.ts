@@ -6,13 +6,12 @@ const cms = cmsEn as {
   hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
   community: { eyebrow: string; heading: string; body: string[]; link: string }
   activities: { intro: string; items: { title: string; description: string }[] }
-  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
 const en: Dictionary = {
   nav: {
     home: 'Home', about: 'About', communityLife: 'Community Life',
-    learnMore: 'Learn More', events: 'Events', news: 'News', contact: 'Contact',
+    theFaith: "The Bahá'í Faith", events: 'Events', news: 'News', contact: 'Contact',
   },
   footer: { explore: 'Explore', officialResources: 'Official Resources', connect: 'Connect' },
   contactSection: { heading: "Connect with the Bahá'í Community", button: 'Get in Touch' },
@@ -26,6 +25,12 @@ const en: Dictionary = {
       heading: 'A path of service, open to all',
       body: 'Do you hope to walk alongside young people as they discover their power to serve, to contribute to the moral and spiritual education of children, to explore the ideas that can transform both the individual and society, or to draw closer to God through collective worship? Come join a path of service being walked by growing numbers from all backgrounds.',
       link: 'Reach out',
+    },
+    repeat: {
+      weekly: 'Repeats weekly',
+      biweekly: 'Repeats biweekly',
+      monthly: 'Repeats monthly',
+      until: 'until',
     },
   },
   home: {
@@ -158,9 +163,9 @@ const en: Dictionary = {
       ],
     },
   },
-  learnMore: {
-    eyebrow: 'Learn more',
-    heading: "Exploring the Bahá'í Faith",
+  theFaith: {
+    eyebrow: 'About the Faith',
+    heading: "The Bahá'í Faith",
     intro: "The Bahá'í Faith addresses both the spiritual life of the individual and the structures of human society — offering a coherent vision of justice, unity, and the oneness of humankind.",
     body: "Founded in the nineteenth century, the Faith has spread to virtually every country and territory on Earth. Its central conviction is that humanity is one family, that all the world's great religions come from the same divine source, and that the long-promised age of peace is now within humanity's reach.",
     centralFigures: {
@@ -190,6 +195,7 @@ const en: Dictionary = {
       eyebrow: 'Writings and prayer',
       heading: 'Sacred texts',
       intro: "For four decades, thousands of verses, letters and books flowed from the pen of Bahá'u'lláh, amounting to some 100 volumes of Sacred Writings. These passages constitute a central part of Bahá'í scripture, offered here as food for reflection and prayer.",
+      downloadAll: 'Download all (PDF)',
     },
     officialResources: {
       eyebrow: 'Official resources',
@@ -210,6 +216,12 @@ const en: Dictionary = {
     alwaysGathering: 'Always gathering',
     evergreenBody: 'Beyond these listed events, the community meets regularly for devotion, study, and service.',
     evergreenLink: 'Get in touch',
+    repeat: {
+      weekly: 'Repeats weekly',
+      biweekly: 'Repeats biweekly',
+      monthly: 'Repeats monthly',
+      until: 'until',
+    },
   },
   news: {
     eyebrow: 'News',
@@ -238,7 +250,7 @@ const en: Dictionary = {
     home: { title: 'Home', description: "The official website of the Bahá'í Community of Winnipeg, Manitoba. Learn about the Bahá'í Faith, community activities, and upcoming events." },
     about: { title: 'About', description: "Learn about the Bahá'í Faith and the Bahá'í Community of Winnipeg, Manitoba." },
     communityLife: { title: 'Community Life', description: "Explore the activities of the Bahá'í Community of Winnipeg — devotional meetings, study circles, children's classes, junior youth groups, and more." },
-    learnMore: { title: 'Learn More', description: "Learn about the central figures, core teachings, and principles of the Bahá'í Faith." },
+    theFaith: { title: "The Bahá'í Faith", description: "Learn about the central figures, core teachings, and principles of the Bahá'í Faith." },
     events: { title: 'Events', description: "Upcoming events and gatherings of the Bahá'í Community of Winnipeg." },
     news: { title: 'News', description: "The latest news from the Bahá'í World News Service and the global Bahá'í community." },
     contact: { title: 'Contact', description: "Get in touch with the Bahá'í Community of Winnipeg." },

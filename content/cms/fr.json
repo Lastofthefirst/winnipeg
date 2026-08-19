@@ -42,28 +42,5 @@
         "image": "/activity-cards/study-circles-01.png"
       }
     ]
-  },
-  "events": [
-    {
-      "id": "1",
-      "title": "Réunion dévotionnelle",
-      "date": "14 juin 2026",
-      "time": "14h00",
-      "location": "Maison communautaire"
-    },
-    {
-      "id": "2",
-      "title": "Classe pour enfants",
-      "date": "15 juin 2026",
-      "time": "16h00",
-      "location": "En ligne"
-    },
-    {
-      "id": "3",
-      "title": "Cercle d'étude",
-      "date": "21 juin 2026",
-      "time": "18h30",
-      "location": "Maison communautaire"
-    }
-  ]
+  }
 }

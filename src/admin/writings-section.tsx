@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import ExportedImage from 'next-image-export-optimizer'
 
 import { WRITING_IMAGES } from '@/admin/writings-images'
 
@@ -225,22 +226,28 @@ function WritingForm({
                     : 'border-transparent hover:border-burgundy-300'
                 }`}
               >
-                <img
+                <ExportedImage
                   src={`/writings-nature/${img}`}
                   alt=""
-                  className="max-h-full max-w-full object-contain"
+                  fill
+                  sizes="120px"
+                  className="p-1"
+                  style={{ objectFit: 'contain' }}
                 />
               </button>
             ))}
           </div>
         ) : (
           /* Preview */
-          <div className="flex justify-center p-4 items-center" style={{ height: 360 }}>
+          <div className="relative flex justify-center p-4 items-center" style={{ height: 360 }}>
             {image ? (
-              <img
+              <ExportedImage
                 src={`/writings-nature/${image}`}
                 alt="Selected preview"
-                className="h-full w-auto max-w-full object-contain"
+                fill
+                sizes="360px"
+                className="p-4"
+                style={{ objectFit: 'contain' }}
               />
             ) : (
               <span className="text-xs text-burgundy-300 italic">No image selected</span>
@@ -357,11 +364,13 @@ function WritingCard({
         onClick={() => onEdit(entry)}
       >
         {/* Image thumbnail */}
-        <div className="flex h-28 w-full items-center justify-center overflow-hidden bg-parchment">
-          <img
+        <div className="relative h-28 w-full overflow-hidden bg-parchment">
+          <ExportedImage
             src={`/writings-nature/${entry.image}`}
             alt=""
-            className="h-full w-auto object-contain"
+            fill
+            sizes="400px"
+            style={{ objectFit: 'contain' }}
           />
         </div>
 

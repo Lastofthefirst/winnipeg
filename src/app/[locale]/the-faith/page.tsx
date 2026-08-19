@@ -32,14 +32,14 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
   const t = await getDictionary(locale)
   const base = 'https://winnipegbahais.org'
   return {
-    title: t.meta.learnMore.title,
-    description: t.meta.learnMore.description,
+    title: t.meta.theFaith.title,
+    description: t.meta.theFaith.description,
     alternates: {
-      canonical: `${base}/${locale}/learn-more`,
+      canonical: `${base}/${locale}/the-faith`,
       languages: {
-        en: `${base}/en/learn-more`,
-        fr: `${base}/fr/learn-more`,
-        'x-default': `${base}/en/learn-more`,
+        en: `${base}/en/the-faith`,
+        fr: `${base}/fr/the-faith`,
+        'x-default': `${base}/en/the-faith`,
       },
     },
   }
@@ -83,7 +83,7 @@ function CoreTeachings({ eyebrow, heading, intro, items }: CoreTeachingsProps) {
     <div className="relative mt-24 bg-burgundy-900 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <div className="pointer-events-none absolute right-0 top-0 xl:hidden">
         <OptimizedImage
-          src="/learn-more/globe-01.png"
+          src="/the-faith/globe-01.png"
           alt=""
           width={540}
           height={540}
@@ -94,7 +94,7 @@ function CoreTeachings({ eyebrow, heading, intro, items }: CoreTeachingsProps) {
         <Container className="relative h-full">
           <div className="absolute right-0 top-0">
             <OptimizedImage
-              src="/learn-more/globe-full-01.png"
+              src="/the-faith/globe-full-01.png"
               alt=""
               width={768}
               height={768}
@@ -140,16 +140,16 @@ function OfficialResources({ eyebrow, heading, intro }: OfficialResourcesProps) 
   )
 }
 
-export default async function LearnMorePage({ params }: { params: any }) {
+export default async function TheFaithPage({ params }: { params: any }) {
   const { locale } = (await params) as { locale: Locale }
   const t = await getDictionary(locale)
 
   return (
     <>
-      <PageIntro eyebrow={t.learnMore.eyebrow} title={t.learnMore.heading}>
-        <p>{t.learnMore.intro}</p>
+      <PageIntro eyebrow={t.theFaith.eyebrow} title={t.theFaith.heading}>
+        <p>{t.theFaith.intro}</p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <p>{t.learnMore.body}</p>
+          <p>{t.theFaith.body}</p>
         </div>
       </PageIntro>
 
@@ -163,23 +163,24 @@ export default async function LearnMorePage({ params }: { params: any }) {
       </Quote>
 
       <CentralFigures
-        eyebrow={t.learnMore.centralFigures.eyebrow}
-        heading={t.learnMore.centralFigures.heading}
-        intro={t.learnMore.centralFigures.intro}
-        items={t.learnMore.centralFigures.items}
+        eyebrow={t.theFaith.centralFigures.eyebrow}
+        heading={t.theFaith.centralFigures.heading}
+        intro={t.theFaith.centralFigures.intro}
+        items={t.theFaith.centralFigures.items}
       />
 
       <CoreTeachings
-        eyebrow={t.learnMore.coreTeachings.eyebrow}
-        heading={t.learnMore.coreTeachings.heading}
-        intro={t.learnMore.coreTeachings.intro}
-        items={t.learnMore.coreTeachings.items}
+        eyebrow={t.theFaith.coreTeachings.eyebrow}
+        heading={t.theFaith.coreTeachings.heading}
+        intro={t.theFaith.coreTeachings.intro}
+        items={t.theFaith.coreTeachings.items}
       />
 
       <WritingsAndPrayer
-        eyebrow={t.learnMore.writingsAndPrayer.eyebrow}
-        heading={t.learnMore.writingsAndPrayer.heading}
-        intro={t.learnMore.writingsAndPrayer.intro}
+        eyebrow={t.theFaith.writingsAndPrayer.eyebrow}
+        heading={t.theFaith.writingsAndPrayer.heading}
+        intro={t.theFaith.writingsAndPrayer.intro}
+        downloadAll={t.theFaith.writingsAndPrayer.downloadAll}
         locale={locale}
         writings={writings}
       />
@@ -194,9 +195,9 @@ export default async function LearnMorePage({ params }: { params: any }) {
       </Quote>
 
       <OfficialResources
-        eyebrow={t.learnMore.officialResources.eyebrow}
-        heading={t.learnMore.officialResources.heading}
-        intro={t.learnMore.officialResources.intro}
+        eyebrow={t.theFaith.officialResources.eyebrow}
+        heading={t.theFaith.officialResources.heading}
+        intro={t.theFaith.officialResources.intro}
       />
 
       <ContactSection

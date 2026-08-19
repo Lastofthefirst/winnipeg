@@ -21,7 +21,7 @@ export function Footer({
   const connectLabel = footer?.connect ?? 'Connect'
   const navLabels = nav ?? {
     home: 'Home', about: 'About', communityLife: 'Community Life',
-    learnMore: 'Learn More', events: 'Events', news: 'News', contact: 'Contact',
+    theFaith: "The Bahá'í Faith", events: 'Events', news: 'News', contact: 'Contact',
   }
 
   const navigation = [
@@ -30,7 +30,7 @@ export function Footer({
       links: [
         { title: navLabels.about, href: `/${locale}/about` },
         { title: navLabels.communityLife, href: `/${locale}/community-life` },
-        { title: navLabels.learnMore, href: `/${locale}/learn-more` },
+        { title: navLabels.theFaith, href: `/${locale}/the-faith` },
         { title: navLabels.events, href: `/${locale}/events` },
         { title: navLabels.news, href: `/${locale}/news` },
         { title: navLabels.contact, href: `/${locale}/contact` },

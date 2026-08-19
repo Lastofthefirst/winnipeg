@@ -5,7 +5,6 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { EventsPreview } from '@/components/EventsPreview'
 import { getUpcomingEvents } from '@/utils/events'
-import type { UpcomingEvent } from '@/utils/events'
 import { NewsFeed } from '@/components/NewsFeed'
 import { OptimizedImage } from '@/components/OptimizedImage'
 import { Blockquote } from '@/components/Blockquote'
@@ -13,20 +12,10 @@ import { Quote } from '@/components/Quote'
 import { SectionIntro } from '@/components/SectionIntro'
 import { getDictionary } from '@/i18n/getDictionary'
 import type { Locale } from '@/i18n/types'
-import cmsEn from '@/../content/cms/en.json'
-import cmsFr from '@/../content/cms/fr.json'
+import eventsData from '@/../content/cms/events.json'
+import type { CmsEvent } from '@/utils/events'
 
-function mapCmsEvents(locale: Locale): UpcomingEvent[] {
-  const cmsEvents = (locale === 'en' ? cmsEn : cmsFr) as { events: Array<{ id: string; title: string; date: string; time: string; location: string }> }
-  return cmsEvents.events.map((e) => ({
-    id: e.id,
-    date: e.date,
-    time: e.time,
-    title_en: e.title,
-    location_en: e.location,
-    description_en: '',
-  }))
-}
+const events = eventsData as CmsEvent[]
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }]
@@ -207,7 +196,7 @@ export default async function HomePage({ params }: { params: any }) {
         </FadeInStagger>
       </Container>
 
-      <EventsPreview locale={locale} strings={t.eventsPreview} events={getUpcomingEvents(mapCmsEvents(locale))} />
+      <EventsPreview locale={locale} strings={t.eventsPreview} events={getUpcomingEvents(events)} />
 
       <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
         {locale === 'fr'

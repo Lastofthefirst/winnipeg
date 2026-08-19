@@ -26,7 +26,7 @@ import type { Dictionary } from '@/i18n/types'
 
 const EN_NAV_FALLBACK: Dictionary['nav'] = {
   home: 'Home', about: 'About', communityLife: 'Community Life',
-  learnMore: 'Learn More', events: 'Events', news: 'News', contact: 'Contact',
+  theFaith: "The Bahá'í Faith", events: 'Events', news: 'News', contact: 'Contact',
 }
 const EN_FOOTER_FALLBACK: Dictionary['footer'] = {
   explore: 'Explore', officialResources: 'Official Resources', connect: 'Connect',
@@ -164,7 +164,7 @@ function Navigation({ locale, nav }: { locale: Locale; nav: Dictionary['nav'] })
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href={`/${locale}/community-life`}>{nav.communityLife}</NavigationItem>
-        <NavigationItem href={`/${locale}/learn-more`}>{nav.learnMore}</NavigationItem>
+        <NavigationItem href={`/${locale}/the-faith`}>{nav.theFaith}</NavigationItem>
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href={`/${locale}/events`}>{nav.events}</NavigationItem>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { EventRepeat } from '@/components/EventRepeat'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 import type { Locale, Dictionary } from '@/i18n/types'
@@ -95,13 +96,22 @@ export function EventsPreview({
             {upcoming.slice(0, 3).map((event) => {
               const { title, description, location } = localizeEvent(event, locale)
               return (
-                <FadeIn key={event.id ?? event.date + event.title_en} className="flex">
+                <FadeIn key={event.id} className="flex">
                   <article className="group relative flex w-full flex-col overflow-hidden border border-burgundy-200 bg-ivory transition hover:border-burgundy-400">
                     <div className="flex flex-1 flex-col p-6 sm:p-8">
                       <Border position="left" className="pl-4">
                         <p className="text-sm font-semibold text-burgundy-900">
                           {formatEventDate(event.date, locale)}
                         </p>
+                        {event.repeat && (
+                          <EventRepeat
+                            repeat={event.repeat}
+                            endDate={event.endDate}
+                            locale={locale}
+                            labels={strings.repeat}
+                            className="mt-2"
+                          />
+                        )}
                         {event.time && (
                           <p className="mt-1 text-sm text-burgundy-600">
                             {event.time}
@@ -116,9 +126,11 @@ export function EventsPreview({
                           {location}
                         </p>
                       )}
-                      <p className="mt-4 text-base text-burgundy-700">
-                        {description}
-                      </p>
+                      {description && (
+                        <p className="mt-4 text-base text-burgundy-700">
+                          {description}
+                        </p>
+                      )}
                     </div>
                   </article>
                 </FadeIn>

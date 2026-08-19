@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import { Container } from '@/components/Container'
 import { SectionIntro } from '@/components/SectionIntro'
+import { DownloadIcon } from '@/components/DownloadIcon'
 import { WritingsGrid, WritingsLanguageTab } from '@/components/WritingsGrid'
 import type { Locale } from '@/i18n/types'
 
@@ -18,12 +19,14 @@ export function WritingsAndPrayer({
   eyebrow,
   heading,
   intro,
+  downloadAll,
   locale,
   writings,
 }: {
   eyebrow: string
   heading: string
   intro: string
+  downloadAll: string
   locale: Locale
   writings: WritingsEntry[]
 }) {
@@ -48,15 +51,14 @@ export function WritingsAndPrayer({
 
   const [activeLanguage, setActiveLanguage] = useState(initialLang)
 
-  const entries = writingsByLanguage[activeLanguage] || []
-
   const byAuthor = useMemo(() => {
+    const entries = writingsByLanguage[activeLanguage] || []
     return entries.reduce((acc, w) => {
       if (!acc[w.source]) acc[w.source] = []
       acc[w.source].push(w)
       return acc
     }, {} as Record<string, WritingsEntry[]>)
-  }, [entries])
+  }, [writingsByLanguage, activeLanguage])
 
   const canonicalOrder = ["Bahá'u'lláh", "The Báb", "'Abdu'l Bahá"]
   const authorOrder = Object.keys(byAuthor).sort((a, b) => {
@@ -73,18 +75,28 @@ export function WritingsAndPrayer({
       <SectionIntro eyebrow={eyebrow} title={heading}>
         <p>{intro}</p>
       </SectionIntro>
-      {availableLanguages.length > 1 && (
-        <div className="mt-10 flex gap-2">
-          {availableLanguages.map((lang) => (
-            <WritingsLanguageTab
-              key={lang}
-              language={lang}
-              active={lang === activeLanguage}
-              onClick={() => setActiveLanguage(lang)}
-            />
-          ))}
-        </div>
-      )}
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+        {availableLanguages.length > 0 && (
+          <div className="flex gap-2">
+            {availableLanguages.map((lang) => (
+              <WritingsLanguageTab
+                key={lang}
+                language={lang}
+                active={lang === activeLanguage}
+                onClick={() => setActiveLanguage(lang)}
+              />
+            ))}
+          </div>
+        )}
+        <a
+          href="/writings-pdf/all.pdf"
+          download
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
+        >
+          {downloadAll}
+          <DownloadIcon className="h-3.5 w-3.5" />
+        </a>
+      </div>
       {authorOrder.map((author) => {
         const authorEntries = byAuthor[author]
         if (!authorEntries) return null

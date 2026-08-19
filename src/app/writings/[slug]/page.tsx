@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { type Metadata } from 'next'
 import writingsData from '@/../content/cms/writings.json'
+import { DownloadIcon } from '@/components/DownloadIcon'
 import { StandaloneImage, StandalonePage } from '@/components/StandalonePage'
 
 type WritingsEntry = {
@@ -71,6 +72,15 @@ export default async function WritingPage({ params }: { params: Promise<{ slug: 
           </figure>
 
           <div className="mx-auto mt-12 h-px w-20 bg-gold-500" />
+
+          <a
+            href={`/writings-pdf/${slug}.pdf`}
+            download
+            className="mt-10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            Download PDF
+          </a>
         </div>
       </div>
     </StandalonePage>

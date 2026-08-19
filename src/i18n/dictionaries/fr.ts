@@ -6,13 +6,12 @@ const cms = cmsFr as {
   hero: { eyebrow: string; heading: string; subheading: string; ctaActivities: string; ctaContact: string }
   community: { eyebrow: string; heading: string; body: string[]; link: string }
   activities: { intro: string; items: { title: string; description: string }[] }
-  events: Array<{ id: string; title: string; date: string; time: string; location: string }>
 }
 
 const fr: Dictionary = {
   nav: {
     home: 'Accueil', about: 'À propos', communityLife: 'Vie communautaire',
-    learnMore: 'En savoir plus', events: 'Activités', news: 'Nouvelles', contact: 'Nous contacter',
+    theFaith: "La Foi bahá'íe", events: 'Activités', news: 'Nouvelles', contact: 'Nous contacter',
   },
   footer: { explore: 'Explorer', officialResources: 'Ressources officielles', connect: 'Nos réseaux sociaux' },
   contactSection: { heading: "Rejoignez la communauté bahá'íe", button: 'Nous contacter' },
@@ -26,6 +25,12 @@ const fr: Dictionary = {
       heading: 'Un chemin de service, ouvert à tous',
       body: "Espérez-vous accompagner de jeunes personnes dans la découverte de leur pouvoir de servir, contribuer à l'éducation morale et spirituelle des enfants, explorer des idées qui peuvent transformer l'individu et la société, ou vous rapprocher de Dieu par le culte collectif? Venez vous joindre à un chemin de service emprunté par un nombre croissant de personnes de toutes origines.",
       link: 'Nous rejoindre',
+    },
+    repeat: {
+      weekly: 'Toutes les semaines',
+      biweekly: 'Toutes les deux semaines',
+      monthly: 'Tous les mois',
+      until: "jusqu'au",
     },
   },
   home: {
@@ -158,9 +163,9 @@ const fr: Dictionary = {
       ],
     },
   },
-  learnMore: {
-    eyebrow: 'En savoir plus',
-    heading: "Explorer la foi bahá'íe",
+  theFaith: {
+    eyebrow: 'À propos de la foi',
+    heading: "La Foi bahá'íe",
     intro: "La foi bahá'íe aborde à la fois la vie spirituelle de l'individu et les structures de la société humaine — offrant une vision cohérente de la justice, de l'unité et de l'unité de l'humanité.",
     body: "Fondée au XIXe siècle, la foi s'est répandue dans pratiquement tous les pays et territoires du monde. Sa conviction centrale est que l'humanité est une seule famille, que toutes les grandes religions du monde proviennent de la même source divine et que l'ère de paix promise de longue date est maintenant à la portée de l'humanité.",
     centralFigures: {
@@ -190,6 +195,7 @@ const fr: Dictionary = {
       eyebrow: 'Écritures et prières',
       heading: 'Textes sacrés',
       intro: "Pendant quatre décennies, des milliers de versets, lettres et livres ont coulé de la plume de Bahá'u'lláh, formant environ 100 volumes d'Écrits sacrés. Ces passages forment une partie centrale des écrits bahá'ís, offerts ici comme aliment pour la réflexion et la prière.",
+      downloadAll: 'Télécharger tout (PDF)',
     },
     officialResources: {
       eyebrow: 'Ressources officielles',
@@ -206,6 +212,12 @@ const fr: Dictionary = {
       heading: 'Un chemin de service, ouvert à tous',
       body: "Espérez-vous accompagner de jeunes personnes dans la découverte de leur pouvoir de servir, contribuer à l'éducation morale et spirituelle des enfants, explorer des idées qui peuvent transformer l'individu et la société, ou vous rapprocher de Dieu par le culte collectif? Venez vous joindre à un chemin de service emprunté par un nombre croissant de personnes de toutes origines.",
       link: 'Nous rejoindre',
+    },
+    repeat: {
+      weekly: 'Toutes les semaines',
+      biweekly: 'Toutes les deux semaines',
+      monthly: 'Tous les mois',
+      until: "jusqu'au",
     },
     alwaysGathering: 'Toujours ensemble',
     evergreenBody: "Au-delà de ces événements répertoriés, la communauté se réunit régulièrement pour la dévotion, l'étude et le service.",
@@ -238,7 +250,7 @@ const fr: Dictionary = {
     home: { title: 'Accueil', description: "Le site officiel de la communauté bahá'íe de Winnipeg, Manitoba. Découvrez la foi bahá'íe, les activités communautaires et les événements à venir." },
     about: { title: 'À propos', description: "En savoir plus sur la foi bahá'íe et la communauté bahá'íe de Winnipeg, Manitoba." },
     communityLife: { title: 'Vie communautaire', description: "Découvrez les activités de la communauté bahá'íe de Winnipeg — réunions dévotionnelles, cercles d'étude, classes d'enfants, groupes de jeunes et bien plus encore." },
-    learnMore: { title: 'En savoir plus', description: "Découvrez les figures centrales, les enseignements fondamentaux et les principes de la foi bahá'íe." },
+    theFaith: { title: "La Foi bahá'íe", description: "Découvrez les figures centrales, les enseignements fondamentaux et les principes de la foi bahá'íe." },
     events: { title: 'Événements', description: "Événements et rassemblements à venir de la communauté bahá'íe de Winnipeg." },
     news: { title: 'Nouvelles', description: "Les dernières nouvelles du Service mondial des nouvelles bahá'íes et de la communauté bahá'íe mondiale." },
     contact: { title: 'Contact', description: "Communiquez avec la communauté bahá'íe de Winnipeg." },
