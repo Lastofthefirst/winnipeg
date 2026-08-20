@@ -34,7 +34,7 @@ export function WritingsGrid({ entries }: { entries: WritingsEntry[] }) {
             <a
               href={`/writings-pdf/${entry.slug}.pdf`}
               download
-              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
+              className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
             >
               PDF
               <DownloadIcon className="h-3.5 w-3.5" />
