@@ -12,7 +12,7 @@ type WritingsEntry = {
   image: string
 }
 
-export function WritingsGrid({ entries }: { entries: WritingsEntry[] }) {
+export function WritingsGrid({ entries, readLabel }: { entries: WritingsEntry[]; readLabel: string }) {
   const [expanded, setExpanded] = useState(6)
 
   return (
@@ -20,21 +20,22 @@ export function WritingsGrid({ entries }: { entries: WritingsEntry[] }) {
       {entries.slice(0, expanded).map((entry) => (
         <div
           key={entry.slug}
-          className="group relative rounded border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400"
+          className="group flex flex-col rounded border border-burgundy-200 bg-ivory p-6 transition hover:border-burgundy-400"
         >
-          <Link
-            href={`/writings/${entry.slug}`}
-            aria-label={entry.passage.slice(0, 60)}
-            className="absolute inset-0"
-          />
           <p className="text-sm leading-relaxed text-burgundy-700">
             {entry.passage.length > 150 ? entry.passage.slice(0, 150) + '…' : entry.passage}
           </p>
-          <div className="mt-4 flex justify-end">
+          <div className="mt-auto flex items-center justify-between pt-4">
+            <Link
+              href={`/writings/${entry.slug}`}
+              className="rounded-full bg-burgundy-900 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-ivory transition hover:bg-burgundy-700"
+            >
+              {readLabel}
+            </Link>
             <a
               href={`/writings-pdf/${entry.slug}.pdf`}
               download
-              className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-500 transition hover:text-burgundy-900"
             >
               PDF
               <DownloadIcon className="h-3.5 w-3.5" />

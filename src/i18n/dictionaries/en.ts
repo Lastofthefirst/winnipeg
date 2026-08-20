@@ -195,6 +195,7 @@ const en: Dictionary = {
       eyebrow: 'Writings and prayer',
       heading: 'Sacred texts',
       intro: "For four decades, thousands of verses, letters and books flowed from the pen of Bahá'u'lláh, amounting to some 100 volumes of Sacred Writings. These passages constitute a central part of Bahá'í scripture, offered here as food for reflection and prayer.",
+      read: 'Read',
       downloadAll: 'Download all (PDF)',
     },
     officialResources: {

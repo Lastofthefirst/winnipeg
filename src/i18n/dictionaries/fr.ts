@@ -195,6 +195,7 @@ const fr: Dictionary = {
       eyebrow: 'Écritures et prières',
       heading: 'Textes sacrés',
       intro: "Pendant quatre décennies, des milliers de versets, lettres et livres ont coulé de la plume de Bahá'u'lláh, formant environ 100 volumes d'Écrits sacrés. Ces passages forment une partie centrale des écrits bahá'ís, offerts ici comme aliment pour la réflexion et la prière.",
+      read: 'Lire',
       downloadAll: 'Télécharger tout (PDF)',
     },
     officialResources: {

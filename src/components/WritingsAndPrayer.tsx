@@ -19,6 +19,7 @@ export function WritingsAndPrayer({
   eyebrow,
   heading,
   intro,
+  read,
   downloadAll,
   locale,
   writings,
@@ -26,6 +27,7 @@ export function WritingsAndPrayer({
   eyebrow: string
   heading: string
   intro: string
+  read: string
   downloadAll: string
   locale: Locale
   writings: WritingsEntry[]
@@ -105,7 +107,7 @@ export function WritingsAndPrayer({
             <h4 className="mt-10 font-display text-lg font-normal text-burgundy-900 first:mt-16">
               {author}
             </h4>
-            <WritingsGrid entries={authorEntries} />
+            <WritingsGrid entries={authorEntries} readLabel={read} />
           </div>
         )
       })}

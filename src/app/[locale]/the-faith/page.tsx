@@ -180,6 +180,7 @@ export default async function TheFaithPage({ params }: { params: any }) {
         eyebrow={t.theFaith.writingsAndPrayer.eyebrow}
         heading={t.theFaith.writingsAndPrayer.heading}
         intro={t.theFaith.writingsAndPrayer.intro}
+        read={t.theFaith.writingsAndPrayer.read}
         downloadAll={t.theFaith.writingsAndPrayer.downloadAll}
         locale={locale}
         writings={writings}
