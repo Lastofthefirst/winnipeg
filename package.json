@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "predev": "node scripts/generate-writings-pdfs.mjs",
-    "prebuild": "node scripts/generate-writings-pdfs.mjs",
     "dev": "next dev --webpack",
-    "build": "next build --webpack && next-image-export-optimizer",
+    "build": "node scripts/generate-writings-pdfs.mjs && next build --webpack && next-image-export-optimizer",
     "build:images": "next-image-export-optimizer",
     "preview": "wrangler pages dev out/ --compatibility-date 2024-09-23",
     "start": "next start",
