@@ -3,23 +3,26 @@
     "id": "1",
     "title_en": "Devotional Gathering",
     "title_fr": "Réunion dévotionnelle",
-    "date": "August 23, 2026",
+    "date": "August 30, 2026",
     "time": "10:00 AM",
     "location_en": "Bahá'í Centre,  521 McMillan Ave.",
     "location_fr": "Centre bahá'í, 521, av. McMillan",
     "repeat": "weekly",
-    "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome."
+    "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome.",
+    "endDate": "",
+    "description_fr": "Un rassemblement où des personnes de toutes cultures et de toutes traditions religieuses se réunissent pour prier, réfléchir et tisser des liens spirituels. Bienvenue à toutes et à tous."
   },
   {
     "id": "1782071603334",
     "title_en": "Devotional Gathering",
     "title_fr": "Réunion dévotionnelle",
-    "date": "August 19, 2026",
+    "date": "August 26, 2026",
     "time": "7:00 PM",
     "location_en": "Bahá'í Centre,  521 McMillan Ave.",
     "location_fr": "Centre bahá'í, 521, av. McMillan",
     "repeat": "weekly",
-    "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome."
+    "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome.",
+    "description_fr": "Un rassemblement où des personnes de toutes cultures et de toutes traditions religieuses se réunissent pour prier, réfléchir et tisser des liens spirituels. Bienvenue à toutes et à tous."
   },
   {
     "id": "1787146539442",
