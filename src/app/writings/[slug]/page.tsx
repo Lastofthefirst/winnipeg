@@ -27,6 +27,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${shortPassage} — ${entry.source}`,
     description: shortPassage,
+    alternates: {
+      canonical: `https://winnipegbahais.org/writings/${slug}`,
+    },
   }
 }
 
