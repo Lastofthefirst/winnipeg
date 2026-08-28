@@ -3,62 +3,73 @@
     "id": "1",
     "title_en": "Devotional Gathering",
     "title_fr": "Réunion dévotionnelle",
-    "date": "August 30, 2026",
-    "time": "10:00 AM",
-    "location_en": "Bahá'í Centre,  521 McMillan Ave.",
+    "location_en": "Bahá'í Centre, 521 McMillan Ave.",
     "location_fr": "Centre bahá'í, 521, av. McMillan",
-    "repeat": "weekly",
     "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome.",
-    "endDate": "",
-    "description_fr": "Un rassemblement où des personnes de toutes cultures et de toutes traditions religieuses se réunissent pour prier, réfléchir et tisser des liens spirituels. Bienvenue à toutes et à tous."
-  },
-  {
-    "id": "1782071603334",
-    "title_en": "Devotional Gathering",
-    "title_fr": "Réunion dévotionnelle",
-    "date": "August 26, 2026",
-    "time": "7:00 PM",
-    "location_en": "Bahá'í Centre,  521 McMillan Ave.",
-    "location_fr": "Centre bahá'í, 521, av. McMillan",
+    "description_fr": "Un rassemblement où des personnes de toutes cultures et de toutes traditions religieuses se réunissent pour prier, réfléchir et tisser des liens spirituels. Bienvenue à toutes et à tous.",
     "repeat": "weekly",
-    "description_en": "A gathering where people from any culture or faith tradition come to pray, reflect, and connect spiritually.  All are welcome.",
-    "description_fr": "Un rassemblement où des personnes de toutes cultures et de toutes traditions religieuses se réunissent pour prier, réfléchir et tisser des liens spirituels. Bienvenue à toutes et à tous."
+    "slots": [
+      {
+        "date": "2026-08-26",
+        "time": "7:00 PM"
+      },
+      {
+        "date": "2026-08-30",
+        "time": "10:00 AM"
+      }
+    ]
   },
   {
     "id": "1787146539442",
     "title_en": "Birth of the Báb",
     "title_fr": "Naissance du Báb",
-    "date": "November 10, 2026",
-    "time": "2:00 PM",
     "location_en": "TBA",
     "location_fr": "À déterminer",
-    "description_en": ""
+    "description_en": "",
+    "slots": [
+      {
+        "date": "2026-11-10",
+        "time": "2:00 PM"
+      }
+    ]
   },
   {
     "id": "1787146704648",
     "title_en": "Birth of Bahá’u’lláh",
     "title_fr": "Naissance de Bahá’u’lláh",
-    "date": "November 11, 2026",
-    "time": "2:00 PM",
     "location_en": "TBA",
-    "location_fr": "À déterminer"
+    "location_fr": "À déterminer",
+    "slots": [
+      {
+        "date": "2026-11-11",
+        "time": "2:00 PM"
+      }
+    ]
   },
   {
     "id": "1787146772115",
     "title_en": "Day of the Covenant* commemorating Bahá’u’lláh’s appointment of His son, ‘Abdu’l-Bahá, as the One to whom His followers should turn after His passing.",
     "title_fr": "Journée de l’Alliance* commémorant la désignation, par Bahá’u’lláh, de Son fils, ‘Abdu’l-Bahá, comme Celui à qui Ses adeptes doivent se tourner après Son départ.",
-    "date": "November 26, 2026",
-    "time": "12:00 PM",
     "location_en": "TBA",
-    "location_fr": "À déterminer"
+    "location_fr": "À déterminer",
+    "slots": [
+      {
+        "date": "2026-11-26",
+        "time": "12:00 PM"
+      }
+    ]
   },
   {
     "id": "1787146916627",
     "title_en": "Ascension of ‘Abdu’l-Bahá* marking the passing of ‘Abdu’l-Bahá in 1921",
     "title_fr": "Ascension de ‘Abdu’l-Bahá* marquant le départ de ‘Abdu’l-Bahá en 1921",
-    "date": "November 28, 2026",
-    "time": "2:00 PM",
     "location_en": "TBA",
-    "location_fr": "À déterminer"
+    "location_fr": "À déterminer",
+    "slots": [
+      {
+        "date": "2026-11-28",
+        "time": "2:00 PM"
+      }
+    ]
   }
 ]

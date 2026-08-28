@@ -3,8 +3,18 @@
 import { Border } from '@/components/Border'
 import { DatePicker, TimePicker } from '@/admin/date-picker'
 import { EditableText } from '@/admin/editable'
-import { getNextOccurrence } from '@/utils/events'
-import type { CmsEvent, Recurrence } from '@/utils/events'
+import {
+  DEFAULT_SLOT_TIME,
+  WEEKDAYS,
+  eventStartDate,
+  firstWeekdayOnOrAfter,
+  slotWeekday,
+  slotsByDate,
+  withRepeat,
+} from '@/admin/eventSlots'
+import { dateToISO, parseEventDate, startOfDay } from '@/utils/eventDate'
+import { formatEventDate, getNextOccurrence } from '@/utils/events'
+import type { CmsEvent, EventSlot, Recurrence } from '@/utils/events'
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -33,7 +43,23 @@ const SCHEDULE_OPTIONS: Array<{ value: Recurrence | null; label: string }> = [
   { value: 'monthly', label: 'Monthly' },
 ]
 
+const PILL_ACTIVE = 'border-burgundy-900 bg-burgundy-900 text-ivory'
+const PILL_IDLE = 'border-burgundy-200 bg-white text-burgundy-500 hover:border-burgundy-400 hover:text-burgundy-900'
+const PILL_BASE = 'rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider transition'
+const FIELD_LABEL = 'block text-[10px] font-semibold uppercase tracking-[0.2em] text-burgundy-400'
+
 // ─── Event row (mirrors the events page) ─────────────────────────────────────
+
+interface EventRowProps {
+  event: CmsEvent
+  index: number
+  locale: 'en' | 'fr'
+  editing: string | null
+  onEdit: (field: string) => void
+  onChange: (field: string, value: string) => void
+  onEventUpdate: (index: number, next: CmsEvent) => void
+  onRemove: (id: string) => void
+}
 
 function EventRow({
   event,
@@ -42,45 +68,170 @@ function EventRow({
   editing,
   onEdit,
   onChange,
-  onRepeatChange,
+  onEventUpdate,
   onRemove,
-}: {
-  event: CmsEvent
-  index: number
-  locale: 'en' | 'fr'
-  editing: string | null
-  onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-  onRepeatChange: (index: number, repeat: Recurrence | null) => void
-  onRemove: (id: string) => void
-}) {
-  const ended = getNextOccurrence(event, new Date()) === null
+}: EventRowProps) {
+  const next = getNextOccurrence(event, new Date())
+  const ended = next === null
+  const repeat = event.repeat ?? null
+  const isMultiDay = repeat === 'weekly' || repeat === 'biweekly'
+  const singleSlot = event.slots[0]
+  const startDate = isMultiDay ? eventStartDate(event) : startOfDay(parseEventDate(singleSlot.date))
   const title = locale === 'en' ? event.title_en : (event.title_fr ?? '')
   const location = locale === 'en' ? (event.location_en ?? '') : (event.location_fr ?? '')
   const description = locale === 'en' ? (event.description_en ?? '') : (event.description_fr ?? '')
+
+  function updateSlots(slots: EventSlot[]) {
+    onEventUpdate(index, { ...event, slots })
+  }
+
+  function handleStartCommit(iso: string) {
+    if (!iso) return
+    if (isMultiDay) {
+      const start = parseEventDate(iso)
+      updateSlots(slotsByDate(event.slots.map((slot) => ({
+        ...slot,
+        date: dateToISO(firstWeekdayOnOrAfter(start, slotWeekday(slot))),
+      }))))
+    } else {
+      updateSlots([{ ...singleSlot, date: iso }])
+    }
+  }
+
+  function handleSlotTimeCommit(slotIdx: number, time: string) {
+    if (!time) return
+    updateSlots(event.slots.map((slot, i) => (i === slotIdx ? { ...slot, time } : slot)))
+  }
+
+  function handleWeekdayToggle(weekday: number) {
+    const existingIdx = event.slots.findIndex((slot) => slotWeekday(slot) === weekday)
+    if (existingIdx >= 0) {
+      if (event.slots.length === 1) return
+      updateSlots(event.slots.filter((_, i) => i !== existingIdx))
+    } else {
+      const slot: EventSlot = {
+        date: dateToISO(firstWeekdayOnOrAfter(eventStartDate(event), weekday)),
+        time: DEFAULT_SLOT_TIME,
+      }
+      updateSlots(slotsByDate([...event.slots, slot]))
+    }
+  }
+
+  function handleRepeatChange(nextRepeat: Recurrence | null) {
+    onEventUpdate(index, withRepeat(event, nextRepeat))
+  }
+
+  function handleEndDateCommit(iso: string) {
+    if (!iso) return
+    onEventUpdate(index, { ...event, endDate: iso })
+  }
 
   return (
     <div className={`group relative ${ended ? 'opacity-50' : ''}`}>
       <Border position="top" className="pt-8">
         <div className="flex flex-col gap-6 lg:flex-row">
           <div className="lg:w-1/3 lg:pr-8">
-            <DatePicker
-              field={`events.${index}.date`}
-              value={event.date}
-              editing={editing}
-              onEdit={onEdit}
-              onChange={onChange}
-              locale={locale}
-              className="text-sm font-semibold text-burgundy-900"
-            />
-            <TimePicker
-              field={`events.${index}.time`}
-              value={event.time ?? ''}
-              editing={editing}
-              onEdit={onEdit}
-              onChange={onChange}
-              locale={locale}
-            />
+            <span className={FIELD_LABEL}>
+              {repeat ? 'Starts on' : 'Date'}
+            </span>
+            <div className="mt-2">
+              <DatePicker
+                field={`events.${index}.start`}
+                value={formatEventDate(startDate, locale)}
+                iso={dateToISO(startDate)}
+                editing={editing}
+                onEdit={onEdit}
+                onCommit={handleStartCommit}
+                className="text-sm font-semibold text-burgundy-900"
+              />
+            </div>
+            {!isMultiDay && (
+              <div className="mt-2">
+                <TimePicker
+                  field={`events.${index}.slots.0.time`}
+                  value={singleSlot.time ?? ''}
+                  editing={editing}
+                  onEdit={onEdit}
+                  onCommit={(time) => handleSlotTimeCommit(0, time)}
+                />
+              </div>
+            )}
+
+            <div className="mt-5">
+              <span className={FIELD_LABEL}>
+                Schedule
+              </span>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {SCHEDULE_OPTIONS.map((option) => (
+                  <button
+                    key={option.label}
+                    type="button"
+                    onClick={() => handleRepeatChange(option.value)}
+                    className={`${PILL_BASE} ${repeat === option.value ? PILL_ACTIVE : PILL_IDLE}`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+
+              {isMultiDay && (
+                <div className="mt-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    {WEEKDAYS.map((label, weekday) => (
+                      <button
+                        key={label}
+                        type="button"
+                        onClick={() => handleWeekdayToggle(weekday)}
+                        className={`${PILL_BASE} ${event.slots.some((slot) => slotWeekday(slot) === weekday) ? PILL_ACTIVE : PILL_IDLE}`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-2 space-y-2">
+                    {event.slots.map((slot, slotIdx) => (
+                      <div key={slot.date} className="flex items-center gap-2 pl-1">
+                        <span className="w-10 text-[10px] font-semibold uppercase tracking-wider text-burgundy-400">
+                          {WEEKDAYS[slotWeekday(slot)]}
+                        </span>
+                        <TimePicker
+                          field={`events.${index}.slots.${slotIdx}.time`}
+                          value={slot.time ?? ''}
+                          editing={editing}
+                          onEdit={onEdit}
+                          onCommit={(time) => handleSlotTimeCommit(slotIdx, time)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {repeat && (
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-burgundy-400">
+                    Ends on
+                  </span>
+                  <DatePicker
+                    field={`events.${index}.endDate`}
+                    value={event.endDate ? formatEventDate(event.endDate, locale, { short: true }) : ''}
+                    iso={event.endDate ?? ''}
+                    editing={editing}
+                    onEdit={onEdit}
+                    onCommit={handleEndDateCommit}
+                    className="text-xs text-burgundy-600"
+                  />
+                </div>
+              )}
+
+              {next && (
+                <p className="mt-3 text-xs text-burgundy-600">
+                  Next: {formatEventDate(next.date, locale)}
+                  {next.time ? ` · ${next.time}` : ''}
+                </p>
+              )}
+            </div>
+
             <EditableText
               field={`events.${index}.location`}
               value={location}
@@ -88,50 +239,9 @@ function EventRow({
               onEdit={onEdit}
               onChange={onChange}
               as="p"
-              className="mt-1 block text-sm text-burgundy-600"
+              className="mt-4 block text-sm text-burgundy-500"
               placeholder="Add a location"
             />
-
-            <div className="mt-5">
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-burgundy-400">
-                Schedule
-              </span>
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                {SCHEDULE_OPTIONS.map((option) => {
-                  const active = (event.repeat ?? null) === option.value
-                  return (
-                    <button
-                      key={option.label}
-                      type="button"
-                      onClick={() => onRepeatChange(index, option.value)}
-                      className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider transition ${
-                        active
-                          ? 'border-burgundy-900 bg-burgundy-900 text-ivory'
-                          : 'border-burgundy-200 bg-white text-burgundy-500 hover:border-burgundy-400 hover:text-burgundy-900'
-                      }`}
-                    >
-                      {option.label}
-                    </button>
-                  )
-                })}
-              </div>
-              {event.repeat && (
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-burgundy-400">
-                    Ends on
-                  </span>
-                  <DatePicker
-                    field={`events.${index}.endDate`}
-                    value={event.endDate ?? ''}
-                    editing={editing}
-                    onEdit={onEdit}
-                    onChange={onChange}
-                    locale={locale}
-                    className="text-xs text-burgundy-600"
-                  />
-                </div>
-              )}
-            </div>
           </div>
 
           <div className="lg:w-2/3 lg:pl-8">
@@ -179,7 +289,7 @@ export function EventsSection({
   editing,
   onEdit,
   onChange,
-  onRepeatChange,
+  onEventUpdate,
   onAdd,
   onRemove,
 }: {
@@ -188,7 +298,7 @@ export function EventsSection({
   editing: string | null
   onEdit: (field: string) => void
   onChange: (field: string, value: string) => void
-  onRepeatChange: (index: number, repeat: Recurrence | null) => void
+  onEventUpdate: (index: number, next: CmsEvent) => void
   onAdd: () => void
   onRemove: (id: string) => void
 }) {
@@ -203,7 +313,7 @@ export function EventsSection({
           editing={editing}
           onEdit={onEdit}
           onChange={onChange}
-          onRepeatChange={onRepeatChange}
+          onEventUpdate={onEventUpdate}
           onRemove={onRemove}
         />
       ))}

@@ -2,26 +2,6 @@
 
 import { useRef, useCallback, useEffect } from 'react'
 
-import { parseEventDate } from '@/utils/eventDate'
-
-// ─── Date / time formatting helpers ─────────────────────────────────────────
-
-/** Parse a date string (ISO, "Month Day, Year", "14 juin 2026") and return YYYY-MM-DD. */
-function parseDateToISO(dateStr: string): string {
-  const d = parseEventDate(dateStr)
-  if (Number.isNaN(d.getTime())) return ''
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-}
-
-/** Format YYYY-MM-DD into "Month Day, Year" (e.g. "June 14, 2026"). */
-function formatDateFromISO(isoStr: string, locale: 'en' | 'fr' = 'en'): string {
-  if (!isoStr) return ''
-  const d = new Date(isoStr + 'T00:00:00')
-  return d.toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-US', {
-    month: 'long', day: 'numeric', year: 'numeric',
-  })
-}
-
 // ─── Icons ──────────────────────────────────────────────────────────────────
 
 function CalendarIcon() {
@@ -46,21 +26,21 @@ function ClockIcon() {
 
 interface DatePickerProps {
   field: string
-  value: string      // displayed date (any parseable format)
+  value: string // display text
+  iso: string // current value as YYYY-MM-DD
   editing: string | null
   onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-  locale: 'en' | 'fr'
+  onCommit: (iso: string) => void
   className?: string
 }
 
 export function DatePicker({
   field,
   value,
+  iso,
   editing,
   onEdit,
-  onChange,
-  locale,
+  onCommit,
   className = '',
 }: DatePickerProps) {
   const isEditing = editing === field
@@ -68,12 +48,11 @@ export function DatePicker({
   const inputRef = useRef<HTMLInputElement>(null)
 
   // The input mounts fresh each time editing starts, so it reads its initial
-  // value from `value` at mount time — no draft state to sync.
+  // value from `iso` at mount time — no draft state to sync.
   const handleCommit = useCallback(() => {
-    const isoVal = inputRef.current?.value ?? parseDateToISO(value)
-    onChange(field, formatDateFromISO(isoVal, locale))
+    onCommit(inputRef.current?.value ?? iso)
     onEdit('')
-  }, [field, value, locale, onChange, onEdit])
+  }, [iso, onCommit, onEdit])
 
   const handleClick = useCallback(() => onEdit(field), [field, onEdit])
 
@@ -93,8 +72,6 @@ export function DatePicker({
     return () => document.removeEventListener('mousedown', handler)
   }, [isEditing, handleCommit])
 
-  const displayValue = value || 'Select date'
-
   return (
     <div ref={containerRef} className="relative">
       {/* Display */}
@@ -105,7 +82,7 @@ export function DatePicker({
           onClick={handleClick}
         >
           <CalendarIcon />
-          <span>{displayValue}</span>
+          <span>{value || 'Select date'}</span>
         </div>
       ) : (
         /* Edit overlay */
@@ -113,7 +90,7 @@ export function DatePicker({
           <input
             ref={inputRef}
             type="date"
-            defaultValue={parseDateToISO(value)}
+            defaultValue={iso}
             onBlur={handleCommit}
             onKeyDown={(e) => { if (e.key === 'Enter') handleCommit() }}
             className="w-full rounded border-2 border-amber-400 bg-white px-1.5 py-1 text-sm text-burgundy-900 outline-none focus:ring-2 focus:ring-amber-400/20"
@@ -131,12 +108,11 @@ interface TimePickerProps {
   value: string
   editing: string | null
   onEdit: (field: string) => void
-  onChange: (field: string, value: string) => void
-  locale: 'en' | 'fr'
+  onCommit: (time: string) => void
   className?: string
 }
 
-/** Convert HH:MM (24h) to "H:MM AM/PM" (12h). */
+// Convert HH:MM (24h) to "H:MM AM/PM" (12h).
 function formatTime12h(time24: string): string {
   if (!time24) return ''
   const [hStr, mStr] = time24.split(':')
@@ -147,7 +123,7 @@ function formatTime12h(time24: string): string {
   return `${h12}:${m} ${ampm}`
 }
 
-/** Convert "H:MM AM/PM" to HH:MM (24h). */
+// Convert "H:MM AM/PM" to HH:MM (24h).
 function parseTimeTo24h(time12: string): string {
   if (!time12) return ''
   const match = time12.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i)
@@ -174,8 +150,7 @@ export function TimePicker({
   value,
   editing,
   onEdit,
-  onChange,
-  locale,
+  onCommit,
   className = '',
 }: TimePickerProps) {
   const isEditing = editing === field
@@ -185,9 +160,9 @@ export function TimePicker({
   // The input mounts fresh each time editing starts, so it reads its initial
   // value from `value` at mount time — no draft state to sync.
   const handleCommit = useCallback(() => {
-    onChange(field, formatTime12h(inputRef.current?.value ?? toTimeInputValue(value)))
+    onCommit(formatTime12h(inputRef.current?.value ?? toTimeInputValue(value)))
     onEdit('')
-  }, [field, value, onChange, onEdit])
+  }, [value, onCommit, onEdit])
 
   const handleClick = useCallback(() => onEdit(field), [field, onEdit])
 

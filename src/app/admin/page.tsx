@@ -11,7 +11,8 @@ import { EventsSection } from '@/admin/events-section'
 import { AdminShell, SectionCard } from '@/admin/shell'
 import { EditableText as EditableTextImport } from '@/admin/editable'
 import { fetchFile, commitFiles, isGithubConfigured } from '@/admin/github'
-import type { CmsEvent, Recurrence } from '@/utils/events'
+import { dateToISO } from '@/utils/eventDate'
+import type { CmsEvent } from '@/utils/events'
 
 // Import as build-time defaults
 const contentEn = contentEnDefault as CMSContent
@@ -266,15 +267,8 @@ export default function AdminPage() {
     setPushStatus('idle')
   }
 
-  function handleEventRepeatChange(index: number, repeat: Recurrence | null) {
-    setEventsState((prev) =>
-      prev.map((ev, i) => {
-        if (i !== index) return ev
-        const next: CmsEvent = { ...ev, repeat }
-        if (!repeat) delete next.endDate
-        return next
-      }),
-    )
+  function handleEventUpdate(index: number, next: CmsEvent) {
+    setEventsState((prev) => prev.map((ev, i) => (i === index ? next : ev)))
     setEventsDirty(true)
     setPushStatus('idle')
   }
@@ -290,13 +284,12 @@ export default function AdminPage() {
         id: String(Date.now()),
         title_en: eventsLocale === 'en' ? title : '',
         title_fr: eventsLocale === 'fr' ? title : '',
-        date: nextWeek.toLocaleDateString(eventsLocale === 'fr' ? 'fr-CA' : 'en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-        time: '2:00 PM',
         location_en: '',
         location_fr: '',
         description_en: '',
         description_fr: '',
         repeat: null,
+        slots: [{ date: dateToISO(nextWeek), time: '2:00 PM' }],
       },
     ])
     setEditing(`events.${newIdx}.title`)
@@ -417,7 +410,7 @@ export default function AdminPage() {
           editing={editing}
           onEdit={setEditing}
           onChange={handleEventsChange}
-          onRepeatChange={handleEventRepeatChange}
+          onEventUpdate={handleEventUpdate}
           onAdd={handleAddEvent}
           onRemove={handleRemoveEvent}
         />

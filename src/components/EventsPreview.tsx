@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { Border } from '@/components/Border'
@@ -9,8 +10,8 @@ import { EventRepeat } from '@/components/EventRepeat'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 import type { Locale, Dictionary } from '@/i18n/types'
-import { formatEventDate, localizeEvent } from '@/utils/events'
-import type { UpcomingEvent } from '@/utils/events'
+import { formatEventDate, getUpcomingEvents, localizeEvent } from '@/utils/events'
+import type { CmsEvent, UpcomingEvent } from '@/utils/events'
 
 function AlwaysGathering({
   strings,
@@ -61,12 +62,19 @@ export function EventsPreview({
   locale = 'en',
   strings,
   events,
+  initial,
 }: {
   locale?: Locale
   strings: Dictionary['eventsPreview']
-  events?: UpcomingEvent[]
+  events: CmsEvent[]
+  initial: UpcomingEvent[]
 }) {
-  const upcoming = events ?? []
+  // The static build freezes occurrences at deploy time; recompute on mount so
+  // the next meeting is always current for the visitor.
+  const [upcoming, setUpcoming] = useState<UpcomingEvent[]>(initial)
+  useEffect(() => {
+    setUpcoming(getUpcomingEvents(events))
+  }, [events])
 
   return (
     <>

@@ -196,7 +196,12 @@ export default async function HomePage({ params }: { params: any }) {
         </FadeInStagger>
       </Container>
 
-      <EventsPreview locale={locale} strings={t.eventsPreview} events={getUpcomingEvents(events)} />
+      <EventsPreview
+        locale={locale}
+        strings={t.eventsPreview}
+        events={events}
+        initial={getUpcomingEvents(events)}
+      />
 
       <Quote className="mt-24 sm:mt-32 lg:mt-40" author="Bahá'u'lláh">
         {locale === 'fr'
