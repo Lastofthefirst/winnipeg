@@ -1,5 +1,21 @@
 const RESEND_API = 'https://api.resend.com/emails'
 
+// Recipient and sender live in code on purpose: they are not secret (the
+// contact email is already public on the site), and switching either is a
+// one-line edit + push rather than a dashboard detour. A dashboard env var
+// still overrides for emergency changes: CONTACT_FORM_TO / CONTACT_FORM_FROM.
+//
+// Only required dashboard entry: RESEND_API_KEY (secret).
+
+// Testing goes to quddus19@gmail.com; switch this line to
+// LSA@winnipegbahais.org once delivery is confirmed.
+const RECIPIENT = 'quddus19@gmail.com'
+
+// Unverified Resend sender, so no domain verification is needed yet. After
+// winnipegbahais.org is verified in Resend (SPF + two DKIM records), switch
+// to Winnipeg Bahá'í <LSA@winnipegbahais.org>.
+const SENDER = 'onboarding@resend.dev'
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const fieldLimits = {
@@ -14,8 +30,8 @@ type FieldName = keyof typeof fieldLimits
 
 interface ContactEnv {
   RESEND_API_KEY?: string
-  CONTACT_RECIPIENT?: string
-  CONTACT_FROM?: string
+  CONTACT_FORM_TO?: string
+  CONTACT_FORM_FROM?: string
 }
 
 interface PageContext {
@@ -92,14 +108,12 @@ export async function onRequest({ request, env }: PageContext): Promise<Response
     return jsonResponse({ success: false }, 400)
   }
 
-  if (
-    !env.RESEND_API_KEY ||
-    !env.CONTACT_RECIPIENT ||
-    !env.CONTACT_FROM
-  ) {
+  if (!env.RESEND_API_KEY) {
     return jsonResponse({ success: false }, 500)
   }
 
+  const to = env.CONTACT_FORM_TO?.trim() || RECIPIENT
+  const from = env.CONTACT_FORM_FROM?.trim() || SENDER
   const subject = fields.subject
     ? `Contact form: ${fields.subject}`
     : 'New contact form message'
@@ -111,8 +125,8 @@ export async function onRequest({ request, env }: PageContext): Promise<Response
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: env.CONTACT_FROM,
-      to: env.CONTACT_RECIPIENT.split(',').map((s) => s.trim()).filter(Boolean),
+      from,
+      to: [to],
       reply_to: [fields.email],
       subject,
       html: buildBodyHtml(fields),

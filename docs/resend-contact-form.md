@@ -2,7 +2,7 @@
 
 Converts the contact form from the dustCMS form endpoint to **Resend** email delivery via a
 self-contained Cloudflare Pages Function. No new runtime dependencies — the function calls the
-Resend REST API with plain `fetch`.
+Resend REST API with plain `fetch`. Only one dashboard variable is required: `RESEND_API_KEY`.
 
 ## Current state
 
@@ -35,35 +35,48 @@ Flow: form → `POST /api/contact` → validate (400 on bad input) → honeypot 
 `{"success":true}` and send **nothing** (bot never knows it was caught) → Resend `POST /emails`
 → 200: `{"success":true}`, otherwise 502 and the error goes to the Workers log.
 
-Emails are sent **from** a verified address on `winnipegbahais.org`, **to** the community inbox,
-with **reply-to** set to the sender's email so the client can reply directly from their inbox.
+**Recipient and sender live in code, not env vars** (same pattern as the brent/remake site).
+They are not secret — the contact email is already public on the site — and a code change is a
+one-line edit + push rather than a dashboard detour. The only dashboard requirement is
+`RESEND_API_KEY`, which is why the function 500s on nothing but a missing key.
+
+- `RECIPIENT` — currently `quddus19@gmail.com` for testing; switch the constant to
+  `LSA@winnipegbahais.org` once delivery is confirmed.
+- `SENDER` — currently `onboarding@resend.dev`, Resend's free **unverified** sender, so no
+  domain verification is needed to start. After `winnipegbahais.org` is verified in Resend
+  (see below), switch the constant to `Winnipeg Bahá'í <LSA@winnipegbahais.org>`.
+
+Dashboard env vars `CONTACT_FORM_TO` / `CONTACT_FORM_FROM` override the constants for emergency
+changes without a deploy; they are normally unset.
 
 ## Environment variables
 
 | Variable | Example | Purpose |
 |---|---|---|
-| `RESEND_API_KEY` | `re_1a2b3c…` | Resend API key (Dashboard → API Keys) |
-| `CONTACT_RECIPIENT` | `LSA@winnipegbahais.org` | Delivery address; comma-separate for multiple |
-| `CONTACT_FROM` | `Winnipeg Bahá'í <LSA@winnipegbahais.org>` | Sender; must be on a Resend-verified domain |
+| `RESEND_API_KEY` | `re_1a2b3c…` | Resend API key (Dashboard → API Keys). **Required.** |
+| `CONTACT_FORM_TO` | `LSA@winnipegbahais.org` | Optional override of the in-code recipient |
+| `CONTACT_FORM_FROM` | `Winnipeg Bahá'í <LSA@winnipegbahais.org>` | Optional override of the in-code sender |
 
-- Production: Cloudflare Pages dashboard → project → Settings → Environment variables. Add all
-  three; `RESEND_API_KEY` as a secret. The key is server-side only — it must never be
+- Production: Cloudflare Pages dashboard → project → Settings → Environment variables. Add
+  `RESEND_API_KEY` as a **secret**. The key is server-side only — it must never be
   `NEXT_PUBLIC_`, and there is no `wrangler.toml` binding for Pages, the dashboard is the source.
-- Local dev: `.dev.vars` at the repo root (already gitignored). Used by `npm run preview`.
+- Local dev: `.dev.vars` at the repo root (already gitignored), same key. Used by
+  `npm run preview`.
 
-## Resend account setup (one-time)
+## Resend account setup
 
 1. Create a free account at [resend.com](https://resend.com). Free plan: 100 emails/day,
-   3,000/month, 3 verified domains, 10 req/s — a contact form uses a handful, this is
-   ample headroom.
-2. **Verify the sending domain** — Resend will not send from an unverified address.
-   Dashboard → Sending Domains → Add Domain → `winnipegbahais.org`. Resend shows DNS records to
-   add (SPF TXT, DKIM TXT ×2, plus an MX if you want inbound). The domain's DNS is managed in
-   Cloudflare (NS `ignat`/`rafe.ns.cloudflare.com`), so add the records in the Cloudflare DNS
-   zone for `winnipegbahais.org`, then click **Verify** in the Resend dashboard. Verification
-   completes once the records propagate (usually minutes).
-3. Create the API key: Dashboard → API Keys → Create. Restrict it to sending-only if the
+   3,000/month, 10 req/s — a contact form uses a handful, this is ample headroom.
+2. Create the API key: Dashboard → API Keys → Create. Restrict it to sending-only if the
    permission picker offers it. Copy the `re_…` key — shown once.
+3. **(Optional, later) Verify the sending domain** if the email should come from
+   `@winnipegbahais.org` instead of `onboarding@resend.dev`. Dashboard → Sending Domains →
+   Add Domain → `winnipegbahais.org`. Resend shows DNS records to add (SPF TXT, DKIM TXT ×2,
+   plus an MX if you want inbound). The domain's DNS is managed in Cloudflare (NS
+   `ignat`/`rafe.ns.cloudflare.com`), so add the records in the Cloudflare DNS zone for
+   `winnipegbahais.org`, then click **Verify** in the Resend dashboard. Verification completes
+   once the records propagate (usually minutes). Until then, `onboarding@resend.dev` sends
+   fine.
 
 ## Implementation
 
@@ -79,136 +92,8 @@ with **reply-to** set to the sender's email so the client can reply directly fro
 
 ### 2. `functions/api/contact.ts`
 
-```ts
-const RESEND_API = 'https://api.resend.com/emails'
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-const fieldLimits = {
-  name: 200,
-  email: 320,
-  phone: 50,
-  subject: 300,
-  message: 5000,
-} as const
-
-type FieldName = keyof typeof fieldLimits
-
-interface ContactEnv {
-  RESEND_API_KEY?: string
-  CONTACT_RECIPIENT?: string
-  CONTACT_FROM?: string
-}
-
-interface PageContext {
-  request: Request
-  env: ContactEnv
-}
-
-function jsonResponse(body: unknown, status = 200): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
-
-function readField(raw: unknown, max: number): string {
-  return typeof raw === 'string' ? raw.trim().slice(0, max) : ''
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function buildBodyHtml(fields: Record<FieldName, string>): string {
-  const rows = (Object.keys(fieldLimits) as FieldName[])
-    .filter((key) => fields[key])
-    .map((key) => {
-      const label = key.charAt(0).toUpperCase() + key.slice(1)
-      const pre = key === 'message' ? 'white-space:pre-wrap;' : ''
-      return `<tr>
-  <td style="padding:12px 0;border-bottom:1px solid #eee;">
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">${label}</div>
-    <div style="font-size:15px;color:#222;${pre}">${escapeHtml(fields[key])}</div>
-  </td>
-</tr>`
-    })
-    .join('')
-
-  return `<div style="font-family:Arial,Helvetica,sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">${rows}</table>
-  <p style="margin-top:20px;font-size:12px;color:#999;">Contact form — winnipegbahais.org</p>
-</div>`
-}
-
-export async function onRequest({ request, env }: PageContext): Promise<Response> {
-  if (request.method !== 'POST') {
-    return jsonResponse({ success: false }, 405)
-  }
-
-  let data: Record<string, unknown>
-  try {
-    data = (await request.json()) as Record<string, unknown>
-  } catch {
-    return jsonResponse({ success: false }, 400)
-  }
-
-  const fields = {
-    name: readField(data.name, fieldLimits.name),
-    email: readField(data.email, fieldLimits.email),
-    phone: readField(data.phone, fieldLimits.phone),
-    subject: readField(data.subject, fieldLimits.subject),
-    message: readField(data.message, fieldLimits.message),
-  }
-
-  // Honeypot: bots fill the hidden website field — fake success, nothing sent, nothing logged
-  if (readField(data.website, fieldLimits.name)) {
-    return jsonResponse({ success: true })
-  }
-
-  if (!fields.name || !fields.message || !EMAIL_RE.test(fields.email)) {
-    return jsonResponse({ success: false }, 400)
-  }
-
-  if (
-    !env.RESEND_API_KEY ||
-    !env.CONTACT_RECIPIENT ||
-    !env.CONTACT_FROM
-  ) {
-    return jsonResponse({ success: false }, 500)
-  }
-
-  const subject = fields.subject
-    ? `Contact form: ${fields.subject}`
-    : 'New contact form message'
-
-  const res = await fetch(RESEND_API, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: env.CONTACT_FROM,
-      to: env.CONTACT_RECIPIENT.split(',').map((s) => s.trim()).filter(Boolean),
-      reply_to: [fields.email],
-      subject,
-      html: buildBodyHtml(fields),
-    }),
-  })
-
-  if (!res.ok) {
-    console.error(`resend ${res.status}: ${await res.text()}`)
-    return jsonResponse({ success: false }, 502)
-  }
-
-  return jsonResponse({ success: true })
-}
-```
+See the file in this repo — the constants at the top (`RECIPIENT`, `SENDER`) are the only
+client-specific part.
 
 Design notes:
 
@@ -220,6 +105,8 @@ Design notes:
   teach a bot that the field matters.
 - **Errors are opaque to the client.** Resend's error body (which can include API details)
   goes to the Workers log, not the browser. The component shows its generic retry message.
+  Status codes: 500 = `RESEND_API_KEY` missing (misconfiguration), 502 = Resend rejected the
+  send (key/domain/quota — see the log line).
 
 ### 3. `src/components/ContactForm.tsx`
 
@@ -244,10 +131,10 @@ npm run build
 npm run preview        # wrangler pages dev out/ — static site + functions on :8788, reads .dev.vars
 ```
 
-With `.dev.vars` containing the three variables above:
+With `.dev.vars` containing `RESEND_API_KEY`:
 
 ```bash
-# real submission → {"success":true} + email in Resend dashboard
+# real submission → {"success":true} + email in the recipient inbox and Resend dashboard
 curl -s http://localhost:8788/api/contact -H 'Content-Type: application/json' \
   -d '{"name":"Test User","email":"test@example.com","phone":"204-555-0100","subject":"Question about visits","message":"Is the door open on Sunday?","website":""}'
 
@@ -265,12 +152,14 @@ success state renders and the email arrives with a working reply-to.
 
 ## Deployment
 
-1. Add the three environment variables in the Cloudflare Pages dashboard (see table above).
+1. Add `RESEND_API_KEY` as a secret in the Cloudflare Pages dashboard (see table above).
 2. Push the branch/commit to GitHub — Pages rebuilds automatically (same pipeline the CMS
    content commits use).
 3. Verify in production: submit the live form, check the Resend dashboard (Emails + Logs) and
    the recipient inbox. Check the Workers logs in the dashboard for any `resend 4xx/5xx` lines.
-4. **Decommission the dust form** (Forms → contact → delete, or at minimum disable its
+4. Switch `RECIPIENT` in `functions/api/contact.ts` from `quddus19@gmail.com` to
+   `LSA@winnipegbahais.org` and push — the form now delivers to the community inbox.
+5. **Decommission the dust form** (Forms → contact → delete, or at minimum disable its
    notification) so the old endpoint stops accepting submissions. The mailto link on the
    contact page is independent and stays.
 
@@ -278,4 +167,7 @@ success state renders and the email arrives with a working reply-to.
 
 - Resend dashboard → Email Logs is the troubleshooting pane: 429s (quota), 401 (key rotated),
   bounces, and deliveries all show there.
-- If the recipient address ever changes, it is a Pages dashboard edit only — no deploy needed.
+- Recipient/sender changes are one-line edits in `functions/api/contact.ts` + push (or a
+  `CONTACT_FORM_TO` / `CONTACT_FORM_FROM` dashboard var for an immediate, reversible change).
+- To send from `@winnipegbahais.org`, verify the domain first (Resend account setup, step 3),
+  then switch the `SENDER` constant.
