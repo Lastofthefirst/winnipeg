@@ -63,21 +63,18 @@ export function ContactForm({ labels = defaultLabels }: { labels?: ContactFormLa
     const data = new FormData(e.currentTarget)
 
     try {
-      const res = await fetch(
-        'https://winnipeg-bahais.dust.ridvan.org/api/forms/contact/submit',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: data.get('name') as string,
-            email: data.get('email') as string,
-            phone: data.get('phone') as string,
-            subject: data.get('subject') as string,
-            message: data.get('message') as string,
-            website: data.get('website') as string,
-          }),
-        },
-      )
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name') as string,
+          email: data.get('email') as string,
+          phone: data.get('phone') as string,
+          subject: data.get('subject') as string,
+          message: data.get('message') as string,
+          website: data.get('website') as string,
+        }),
+      })
       const json = await res.json()
       if (json.success) {
         setSubmitted(true)

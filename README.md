@@ -46,6 +46,12 @@ Set in Cloudflare Pages dashboard for production, or in `.env.local` for local d
 
 Set in Cloudflare Pages dashboard. Default in `.env.local` is `w1nn3p3g-c0mmun1ty-2026`.
 
+## Contact form
+
+The contact form is migrating from the dustCMS form endpoint to Resend email delivery via a
+Cloudflare Pages Function. Setup guide (endpoint, env vars, testing, cutover):
+[docs/resend-contact-form.md](docs/resend-contact-form.md).
+
 ## Learn more
 
 To learn more about the technologies used in this site template, see the following resources:
