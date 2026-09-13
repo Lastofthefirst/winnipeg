@@ -7,9 +7,7 @@ const RESEND_API = 'https://api.resend.com/emails'
 //
 // Only required dashboard entry: RESEND_API_KEY (secret).
 
-// Testing goes to quddus19@gmail.com; switch this line to
-// LSA@winnipegbahais.org once delivery is confirmed.
-const RECIPIENT = 'quddus19@gmail.com'
+const RECIPIENT = 'LSA@winnipegbahais.org'
 
 // Unverified Resend sender, so no domain verification is needed yet. After
 // winnipegbahais.org is verified in Resend (SPF + two DKIM records), switch

@@ -40,8 +40,7 @@ They are not secret — the contact email is already public on the site — and 
 one-line edit + push rather than a dashboard detour. The only dashboard requirement is
 `RESEND_API_KEY`, which is why the function 500s on nothing but a missing key.
 
-- `RECIPIENT` — currently `quddus19@gmail.com` for testing; switch the constant to
-  `LSA@winnipegbahais.org` once delivery is confirmed.
+- `RECIPIENT` — `LSA@winnipegbahais.org`, the community inbox (already public on the site).
 - `SENDER` — currently `onboarding@resend.dev`, Resend's free **unverified** sender, so no
   domain verification is needed to start. After `winnipegbahais.org` is verified in Resend
   (see below), switch the constant to `Winnipeg Bahá'í <LSA@winnipegbahais.org>`.
@@ -157,9 +156,7 @@ success state renders and the email arrives with a working reply-to.
    content commits use).
 3. Verify in production: submit the live form, check the Resend dashboard (Emails + Logs) and
    the recipient inbox. Check the Workers logs in the dashboard for any `resend 4xx/5xx` lines.
-4. Switch `RECIPIENT` in `functions/api/contact.ts` from `quddus19@gmail.com` to
-   `LSA@winnipegbahais.org` and push — the form now delivers to the community inbox.
-5. **Decommission the dust form** (Forms → contact → delete, or at minimum disable its
+4. **Decommission the dust form** (Forms → contact → delete, or at minimum disable its
    notification) so the old endpoint stops accepting submissions. The mailto link on the
    contact page is independent and stays.
 
