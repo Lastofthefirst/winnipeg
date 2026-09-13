@@ -113,8 +113,8 @@ export async function onRequest({ request, env }: PageContext): Promise<Response
   const to = env.CONTACT_FORM_TO?.trim() || RECIPIENT
   const from = env.CONTACT_FORM_FROM?.trim() || SENDER
   const subject = fields.subject
-    ? `Contact form: ${fields.subject}`
-    : 'New contact form message'
+    ? `winnipegbahais.org form response: ${fields.subject}`
+    : 'winnipegbahais.org form response'
 
   const res = await fetch(RESEND_API, {
     method: 'POST',
