@@ -9,10 +9,7 @@ const RESEND_API = 'https://api.resend.com/emails'
 
 const RECIPIENT = 'LSA@winnipegbahais.org'
 
-// Unverified Resend sender, so no domain verification is needed yet. After
-// winnipegbahais.org is verified in Resend (SPF + two DKIM records), switch
-// to Winnipeg Bahá'í <LSA@winnipegbahais.org>.
-const SENDER = 'onboarding@resend.dev'
+const SENDER = "Winnipeg Bahá'í <LSA@winnipegbahais.org>"
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 

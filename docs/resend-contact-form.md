@@ -41,9 +41,8 @@ one-line edit + push rather than a dashboard detour. The only dashboard requirem
 `RESEND_API_KEY`, which is why the function 500s on nothing but a missing key.
 
 - `RECIPIENT` — `LSA@winnipegbahais.org`, the community inbox (already public on the site).
-- `SENDER` — currently `onboarding@resend.dev`, Resend's free **unverified** sender, so no
-  domain verification is needed to start. After `winnipegbahais.org` is verified in Resend
-  (see below), switch the constant to `Winnipeg Bahá'í <LSA@winnipegbahais.org>`.
+- `SENDER` — `Winnipeg Bahá'í <LSA@winnipegbahais.org>`; the domain is verified in Resend
+  (2026-09-13).
 
 Dashboard env vars `CONTACT_FORM_TO` / `CONTACT_FORM_FROM` override the constants for emergency
 changes without a deploy; they are normally unset.
@@ -68,14 +67,13 @@ changes without a deploy; they are normally unset.
    3,000/month, 10 req/s — a contact form uses a handful, this is ample headroom.
 2. Create the API key: Dashboard → API Keys → Create. Restrict it to sending-only if the
    permission picker offers it. Copy the `re_…` key — shown once.
-3. **(Optional, later) Verify the sending domain** if the email should come from
-   `@winnipegbahais.org` instead of `onboarding@resend.dev`. Dashboard → Sending Domains →
-   Add Domain → `winnipegbahais.org`. Resend shows DNS records to add (SPF TXT, DKIM TXT ×2,
-   plus an MX if you want inbound). The domain's DNS is managed in Cloudflare (NS
-   `ignat`/`rafe.ns.cloudflare.com`), so add the records in the Cloudflare DNS zone for
-   `winnipegbahais.org`, then click **Verify** in the Resend dashboard. Verification completes
-   once the records propagate (usually minutes). Until then, `onboarding@resend.dev` sends
-   fine.
+3. **Sending domain verified** (2026-09-13): the `resend._domainkey` DKIM TXT record was added
+   to the Cloudflare DNS zone (NS `ignat`/`rafe.ns.cloudflare.com`) and Resend verified
+   `winnipegbahais.org`, so the form sends from `@winnipegbahais.org`. Open item: merge
+   Resend's SPF include (shown in the Resend dashboard) into the existing SPF record in
+   Cloudflare DNS, keeping it a single record — currently
+   `v=spf1 include:spf.protection.outlook.com -all` — so mail passes SPF at receivers like
+   Gmail and Outlook.
 
 ## Implementation
 
@@ -166,5 +164,3 @@ success state renders and the email arrives with a working reply-to.
   bounces, and deliveries all show there.
 - Recipient/sender changes are one-line edits in `functions/api/contact.ts` + push (or a
   `CONTACT_FORM_TO` / `CONTACT_FORM_FROM` dashboard var for an immediate, reversible change).
-- To send from `@winnipegbahais.org`, verify the domain first (Resend account setup, step 3),
-  then switch the `SENDER` constant.
