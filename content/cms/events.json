@@ -71,5 +71,21 @@
         "time": "2:00 PM"
       }
     ]
+  },
+  {
+    "id": "1791912827772",
+    "title_en": "Unveiling of the Design for Canada's Bahá'í House of Worship",
+    "title_fr": "",
+    "location_en": "Bahá'í Centre, 521 McMillan Ave.",
+    "location_fr": "",
+    "description_en": "Join us for a collective screening of this historic occasion.  Doors open at 12:30pm.  Viewing begins at 1pm.  Potluck refreshments. ",
+    "description_fr": "",
+    "repeat": null,
+    "slots": [
+      {
+        "date": "2026-10-17",
+        "time": "12:30 PM"
+      }
+    ]
   }
 ]
